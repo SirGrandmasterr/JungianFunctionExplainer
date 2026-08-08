@@ -492,6 +492,7 @@
 
 <div class="viz-tooltip" id="tooltip"></div>
 
+<script src="fi-mist.js"></script>
 <script>
 /* ============================================================
    CURRENTS · Fi page — Phase 2 build
@@ -603,6 +604,17 @@ class FiGlyph {
       });
       canvas.addEventListener('pointerleave', ()=>{ this.pointer.hist = []; });
     }
+    this._splats = [];
+    if (window.MistGPU){
+      const mc = document.createElement('canvas');
+      mc.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
+      if (getComputedStyle(this.cv).position === 'static') this.cv.style.position = 'relative';
+      this.cv.style.zIndex = '1';
+      this.cv.parentElement.insertBefore(mc, this.cv);
+      const g = new MistGPU(mc, {count: this.opts.mistCount || 50000, baseColor: COL.fn,
+                                 seed: this.opts.seed, initR: this.baseR || 200});
+      if (g.ok){ this.gpu = g; g.resize(); } else mc.remove();
+    }
     this.buildLattice();
     this.buildMist();
     for (let i=0;i<22;i++) this.spawnParticle(true);
@@ -615,6 +627,7 @@ class FiGlyph {
     this.W = r.width; this.H = r.height;
     this.cx = this.W/2; this.cy = this.H/2;
     this.baseR = Math.min(this.W, this.H) * 0.34;
+    if (this.gpu) this.gpu.resize();
     if (this.mist.length) this.buildMist();
     if (REDUCED) this.renderStatic();
   }
@@ -670,6 +683,8 @@ class FiGlyph {
   }
   addMistBlob(x, y, colRGB, opts = {}){
     const R = this.baseR * this.params.scale;
+    if (this.gpu)
+      this._splats.push({x, y, r: 42, s: 0.5, col:[colRGB.r/255, colRGB.g/255, colRGB.b/255]});
     this.mist.push(Object.assign({
       x, y, vx:0, vy:0,
       homeR: clamp(Math.hypot(x,y)/Math.max(R,1), 0.12, 1.02),
@@ -751,6 +766,9 @@ class FiGlyph {
         this.glows.push({x:pt.x-this.cx + (this.rng()-0.5)*20, y:pt.y-this.cy + (this.rng()-0.5)*20,
                          size: 14+this.rng()*18, grow: 26, alpha:.3, col: sub.colRGB});
     }
+    if (this.gpu)
+      this._splats.push({x:sub.x, y:sub.y, r: 95, s: 0.6,
+                         col:[sub.colRGB.r/255, sub.colRGB.g/255, sub.colRGB.b/255]});
     this.vortices.push({x:sub.x, y:sub.y, s:(this.rng()<0.5?-1:1)*(opts.heavy ? 60 : 130), life:1});
   }
   spawnParticle(seedRandomPhase = false){
@@ -1025,6 +1043,27 @@ class FiGlyph {
       }
     }
     this.subs = this.subs.filter(s=>!s.done);
+    /* ---- drive the GPU mist field ---- */
+    if (this.gpu){
+      const bullets = [], pushes = [];
+      for (const sub of this.subs){
+        if (sub.state === 'piercing' && bullets.length < 2){
+          const sp2 = Math.hypot(sub.vx, sub.vy) || 1;
+          bullets.push({x:sub.x, y:sub.y, dx:sub.vx/sp2, dy:sub.vy/sp2, on: sub.small ? 0.5 : 1});
+        }
+        if (sub.state === 'gliding' && pushes.length < 2)
+          pushes.push({x:sub.x, y:sub.y, r:46, s:220});
+      }
+      this.gpu.frame(dt, {
+        R, swirl, noise: p.noise, awake: this.awake,
+        shift: this.colorShift,
+        alpha: 0.30 * (0.25 + 0.75*this.awake) * (0.55 + 0.45*p.fidelity) * (1 - 0.28*this.mood),
+        base: [this.base.r/255, this.base.g/255, this.base.b/255],
+        center: {x: this.cx + (this.offX||0), y: this.cy + (this.offY||0)},
+        vortices: this.vortices, bullets, pushes,
+        splats: this._splats.splice(0, 4)
+      });
+    }
   }
   sprite(col){
     const q = v=>Math.round(v/14)*14;
@@ -1065,6 +1104,7 @@ class FiGlyph {
     // the mist itself
     const fidMul = 0.55 + 0.45*p.fidelity;
     for (const m of this.mist){
+      if (this.gpu && !m.escape) continue;   // fine grains render on the GPU layer
       const col = this.colorShift > 0.03 ? mixRGB(m.col, RED_RGB, this.colorShift*0.7) : m.col;
       const spr = this.sprite(col);
       const sz = m.size * p.scale * (m.escape ? 1.15 : 1);
@@ -1195,7 +1235,7 @@ class FiGlyph {
 }
 
 /* ---------- Zone A: hero glyph ---------- */
-const hero = new FiGlyph(document.getElementById('glyphHero'), {seed: 7, coreGlow: 1});
+const hero = new FiGlyph(document.getElementById('glyphHero'), {seed: 7, coreGlow: 1, mistCount: 90000});
 hero.setTarget({scale:1, fidelity:.95, latency:0, noise:0, duty:1, control:1});
 hero.start();
 
@@ -1437,7 +1477,7 @@ selectFeeder(FEEDERS[0]);
    ZONE D · THE VERIFICATION LAB
    Fi's lifecycle: weigh experiences against the core tone
    ============================================================ */
-const verifyGlyph = new FiGlyph(document.getElementById('verifyCanvas'), {seed: 55, coreGlow: .95});
+const verifyGlyph = new FiGlyph(document.getElementById('verifyCanvas'), {seed: 55, coreGlow: .95, mistCount: 60000});
 verifyGlyph.setTarget({scale:.85, fidelity:.92, latency:0, noise:0, duty:1, control:.7});
 verifyGlyph.setStructure({countMul:1.1, k:3, rigidity:.55});
 verifyGlyph.start();
@@ -1801,6 +1841,7 @@ function highlightSeries(idx){
 
 /* ---- init ---- */
 selectSlot(0);
+window.__gpuOK = [hero, railGlyph, feederGlyph, verifyGlyph].filter(g=>g.gpu).length;
 </script>
 </body>
 </html>
