@@ -155,7 +155,7 @@ Ti-style judging functions do not only *build* internal structure — a large sh
 
 The same verification mechanic runs ambiently in Zone B: the rail glyph is bombarded with incoming sublattices, and those **homomorphic** to the main lattice fold in with a single green verdict pulse while alien structures bounce off the ring with a red one — with misjudgment probability rising as the function sits deeper in the stack. (Green/red here are reserved status colors with icon + label support, never series colors.)
 
-Generalization note: each judging function gets its own verification variant (Te verifies against external results, Fe against group resonance, Fi against the core tone); perceiving-function pages replace this zone with a *perception fidelity* lab.
+Generalization note: each judging function gets its own verification variant (Te verifies against external results, Fe against group resonance, Fi against the core tone); perceiving-function pages replace this zone with a *perception fidelity* lab. The variants differ in *texture*, not just content — Ti's chamber is crystalline (structures fold in or bounce off a lattice), while Fi's is a **mist nebula with fluid dynamics**: its lab spawns a 2×2 of experiences (authentic/inauthentic × good/bad) where authentic experience — joyful or painful — diffuses into the mist, twirls it, and temporarily colours the whole nebula (the tint tracks the colour distribution of what it currently holds, clamped near the core rose); inauthentic-pleasant experience glides along the boundary unabsorbed and is expelled; and inauthentic-violating experience pierces straight through with a wake, a trailing vacuum, and mist bleeding out through the exit wound.
 
 ## 2.6 Zone E — Energy Economics Panel
 

@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ti — Introverted Thinking · CURRENTS</title>
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#0a0f1a;            /* page plane */
+    --surface:#111827;       /* chart / card surface */
+    --surface-2:#0d1420;     /* deep panel */
+    --ink:#f3f6fc;
+    --ink-2:#a8b3c7;
+    --muted:#6b7689;
+    --grid:#1e2836;
+    --axis:#2a3648;
+    --ring:rgba(255,255,255,.08);
+    /* function element colors (semantic, from CURRENTS design doc §1.3) */
+    --c-ti:#4fc9e0;
+    --c-n:#8b5cf6;           /* intuition violet */
+    --c-s:#f59e0b;           /* sensing amber */
+    --c-f:#f43f5e;           /* feeling rose */
+    /* ordinal stack-position ramp (validated, one hue, monotone L on dark) */
+    --pos-1:#7adef2;
+    --pos-2:#46b8d6;
+    --pos-3:#2e93af;
+    --pos-4:#20708a;
+    --pos-sh:#8f86d8;        /* shadow register — separate semantic state */
+    /* status (reserved) */
+    --warn:#fab219;
+    --crit:#d03b3b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--c-ti);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---------- site header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;gap:16px;
+    padding:10px 22px;
+    background:rgba(10,15,26,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--grid);
+  }
+  .brand{font-weight:650;letter-spacing:.18em;font-size:13px;color:var(--ink)}
+  .brand small{display:block;letter-spacing:.04em;font-weight:400;color:var(--muted);font-size:10.5px}
+  nav.atlas{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+  nav.atlas a{
+    font-size:11.5px;padding:4px 9px;border-radius:20px;
+    border:1px solid var(--grid);color:var(--muted);
+  }
+  nav.atlas a.active{color:#062a33;background:var(--c-ti);border-color:var(--c-ti);font-weight:600}
+  nav.atlas a.soon{opacity:.55;cursor:default}
+  nav.atlas a.soon:hover{text-decoration:none}
+
+  /* ---------- zone A: hero ---------- */
+  #zone-a{position:relative;height:92vh;min-height:540px;overflow:hidden}
+  #glyphHero{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .hero-copy{
+    position:absolute;left:0;right:0;bottom:9%;
+    text-align:center;pointer-events:none;
+  }
+  .hero-copy h1{
+    font-size:clamp(30px,4.6vw,54px);font-weight:650;letter-spacing:-.01em;
+  }
+  .hero-copy h1 .fn{color:var(--c-ti)}
+  .hero-copy p{color:var(--ink-2);max-width:560px;margin:10px auto 0;font-size:15px}
+  .hero-hint{
+    position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+    color:var(--muted);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .fn-tag{
+    display:inline-block;margin-bottom:14px;padding:4px 12px;border-radius:20px;
+    border:1px solid var(--c-ti);color:var(--c-ti);
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  }
+
+  /* ---------- shared section chrome ---------- */
+  section.zone{max-width:1180px;margin:0 auto;padding:72px 24px}
+  .zone-kicker{color:var(--c-ti);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px}
+  .zone h2{font-size:26px;font-weight:650;margin-bottom:6px}
+  .zone .lede{color:var(--ink-2);max-width:720px;margin-bottom:34px;font-size:15px}
+
+  /* ---------- zone B: stack rail ---------- */
+  .rail-layout{display:grid;grid-template-columns:190px minmax(300px,1fr) 330px;gap:28px;align-items:start}
+  .rail{display:flex;flex-direction:column;gap:6px;position:relative}
+  .rail .slot{
+    display:flex;align-items:center;gap:10px;
+    padding:9px 12px;border-radius:10px;text-align:left;
+    background:var(--surface-2);border:1px solid var(--grid);
+    color:var(--ink-2);font:inherit;font-size:13px;cursor:pointer;
+    transition:border-color .15s,background .15s;
+  }
+  .rail .slot:hover{border-color:var(--axis)}
+  .rail .slot[aria-pressed="true"]{border-color:var(--c-ti);color:var(--ink);background:#0e1e28}
+  .rail .slot .n{
+    width:20px;height:20px;border-radius:50%;flex:0 0 auto;
+    display:grid;place-items:center;font-size:10.5px;font-weight:650;
+    background:var(--grid);color:var(--ink-2);
+  }
+  .rail .slot[aria-pressed="true"] .n{background:var(--c-ti);color:#06222b}
+  .rail .slot small{display:block;color:var(--muted);font-size:10.5px}
+  .waterline{
+    display:flex;align-items:center;gap:8px;color:var(--muted);
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin:8px 0 4px;
+  }
+  .waterline::before,.waterline::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--pos-sh),transparent);opacity:.5}
+  .rail .slot.shadow{background:#10101e;border-color:#232338}
+  .rail .slot.shadow[aria-pressed="true"]{border-color:var(--pos-sh);background:#171730}
+  .rail .slot.shadow[aria-pressed="true"] .n{background:var(--pos-sh);color:#14142a}
+
+  .glyph-stage{position:relative;background:var(--surface-2);border:1px solid var(--grid);border-radius:16px;overflow:hidden;min-height:430px}
+  #glyphRail{width:100%;height:430px;display:block}
+  .stage-note{position:absolute;left:14px;bottom:10px;color:var(--muted);font-size:11px}
+
+  .slot-caption{background:var(--surface);border:1px solid var(--grid);border-radius:16px;padding:20px 22px}
+  .slot-caption h3{font-size:17px;font-weight:650}
+  .slot-caption .types{color:var(--muted);font-size:12px;margin:2px 0 12px;letter-spacing:.06em}
+  .slot-caption p{color:var(--ink-2);font-size:13.5px;min-height:106px}
+  .dial-wrap{margin-top:16px;border-top:1px solid var(--grid);padding-top:14px}
+  .dial-wrap h4, .maturity h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .maturity{margin-top:16px;border-top:1px solid var(--grid);padding-top:14px}
+  .maturity input[type=range]{width:100%;accent-color:var(--c-ti)}
+  .maturity .age-row{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}
+  .maturity .age-note{color:var(--ink-2);font-size:12px;margin-top:6px}
+
+  /* ---------- zone C: feeder coupling ---------- */
+  .feeder-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+  .chip{
+    font:inherit;font-size:13px;cursor:pointer;
+    padding:7px 14px;border-radius:22px;
+    background:var(--surface-2);border:1px solid var(--grid);color:var(--ink-2);
+  }
+  .chip .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:0}
+  .chip[aria-pressed="true"]{color:var(--ink);border-color:currentColor}
+  .chip:hover{border-color:var(--axis)}
+  .chip-toggle{margin-left:auto;font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;font-family:inherit}
+  .chip-toggle:hover{color:var(--ink-2)}
+  .feeder-layout{display:grid;grid-template-columns:minmax(320px,1.4fr) minmax(260px,1fr);gap:26px;align-items:stretch}
+  .feeder-stage{position:relative;background:var(--surface-2);border:1px solid var(--grid);border-radius:16px;overflow:hidden}
+  #feederCanvas{width:100%;height:380px;display:block}
+  .feeder-caption{background:var(--surface);border:1px solid var(--grid);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column}
+  .feeder-caption h3{font-size:17px;font-weight:650}
+  .feeder-caption .pair{color:var(--muted);font-size:12px;margin:2px 0 12px;letter-spacing:.06em}
+  .feeder-caption p{color:var(--ink-2);font-size:13.5px}
+  .feeder-caption .unstable{
+    margin-top:auto;padding-top:14px;font-size:12px;color:var(--warn);display:none;align-items:center;gap:6px;
+  }
+  .feeder-caption .unstable.show{display:flex}
+
+  /* ---------- zone D: verification lab ---------- */
+  .verify-layout{display:grid;grid-template-columns:310px minmax(320px,1fr);gap:26px;align-items:stretch}
+  .verify-panel{background:var(--surface);border:1px solid var(--grid);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
+  .spawn-btn{
+    display:flex;align-items:flex-start;gap:10px;text-align:left;
+    font:inherit;font-size:13px;cursor:pointer;
+    padding:11px 14px;border-radius:12px;
+    background:var(--surface-2);border:1px solid var(--grid);color:var(--ink);
+    transition:border-color .15s;
+  }
+  .spawn-btn:hover:not(:disabled){border-color:var(--axis)}
+  .spawn-btn:disabled{opacity:.45;cursor:default}
+  .spawn-btn .dot{width:10px;height:10px;border-radius:50%;flex:0 0 auto;margin-top:4px}
+  .spawn-btn small{display:block;color:var(--muted);font-size:11.5px;font-weight:400}
+  .meters{border-top:1px solid var(--grid);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+  .meter label{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .meter .track{height:8px;border-radius:5px;overflow:hidden;background:var(--surface-2);border:1px solid var(--grid)}
+  .meter .fill{height:100%;border-radius:5px;width:12%;transition:width .12s linear}
+  .meter.stress .fill{background:linear-gradient(90deg,var(--warn),var(--crit))}
+  .meter.pleasure .fill{background:linear-gradient(90deg,#0a7a3c,#17c964)}
+  .verify-narr{
+    margin-top:auto;border-top:1px solid var(--grid);padding-top:12px;
+    font-size:13px;color:var(--ink-2);min-height:88px;
+  }
+  .verify-stage{position:relative;background:var(--surface-2);border:1px solid var(--grid);border-radius:16px;overflow:hidden}
+  #verifyCanvas{width:100%;height:460px;display:block}
+
+  /* ---------- zone E: energy ---------- */
+  .chart-card{background:var(--surface);border:1px solid var(--grid);border-radius:16px;padding:22px 24px;margin-bottom:26px}
+  .chart-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;flex-wrap:wrap}
+  .chart-head h3{font-size:16.5px;font-weight:650}
+  .chart-head .sub{color:var(--muted);font-size:12.5px}
+  .table-toggle{
+    margin-left:auto;font:inherit;font-size:12px;color:var(--muted);
+    background:none;border:1px solid var(--grid);border-radius:8px;padding:4px 10px;cursor:pointer;
+  }
+  .table-toggle:hover{color:var(--ink-2);border-color:var(--axis)}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 14px}
+  .legend .key{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-2)}
+  .legend .sw{width:10px;height:10px;border-radius:3px}
+  .legend .key.dim{opacity:.4}
+  svg text{font-family:inherit}
+  .axis-label{fill:var(--muted);font-size:11px}
+  .tick-label{fill:var(--muted);font-size:10.5px;font-variant-numeric:tabular-nums}
+  .direct-label{fill:var(--ink-2);font-size:11px}
+  .viz-tooltip{
+    position:fixed;z-index:80;pointer-events:none;display:none;
+    background:#0c1524;border:1px solid var(--axis);border-radius:10px;
+    padding:9px 12px;font-size:12px;color:var(--ink-2);min-width:150px;
+    box-shadow:0 8px 24px rgba(0,0,0,.5);
+  }
+  .viz-tooltip .t{color:var(--ink);font-weight:600;margin-bottom:4px;font-size:12px}
+  .viz-tooltip .row{display:flex;align-items:center;gap:6px;justify-content:space-between}
+  .viz-tooltip .row b{font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+  .viz-tooltip .row .k{display:flex;align-items:center;gap:6px}
+  .viz-tooltip .sw{width:8px;height:8px;border-radius:2px;display:inline-block}
+  .scrub-row{display:flex;align-items:center;gap:14px;margin-top:10px}
+  .scrub-row label{color:var(--muted);font-size:12px;white-space:nowrap}
+  .scrub-row input[type=range]{flex:1;accent-color:var(--c-ti)}
+  .scrub-row output{color:var(--ink-2);font-size:12.5px;min-width:74px;text-align:right;font-variant-numeric:tabular-nums}
+  .drain-flex{display:flex;gap:20px;align-items:flex-start}
+  .drain-flex .plot{flex:1;min-width:0}
+  .batteries{display:flex;flex-direction:column;gap:9px;padding-top:6px}
+  .battery{display:flex;align-items:center;gap:8px}
+  .battery .shell{
+    width:46px;height:15px;border:1.5px solid var(--axis);border-radius:4px;position:relative;background:var(--surface-2);
+  }
+  .battery .shell::after{content:"";position:absolute;right:-4.5px;top:3.5px;width:3px;height:6px;background:var(--axis);border-radius:1px}
+  .battery .fill{position:absolute;left:1.5px;top:1.5px;bottom:1.5px;border-radius:2px;transition:width .1s linear}
+  .battery span{font-size:10.5px;color:var(--muted);width:64px}
+  .data-table{display:none;margin-top:14px;overflow-x:auto}
+  .data-table.show{display:block}
+  .data-table table{border-collapse:collapse;width:100%;font-size:12px}
+  .data-table th,.data-table td{
+    text-align:right;padding:5px 10px;border-bottom:1px solid var(--grid);
+    color:var(--ink-2);font-variant-numeric:tabular-nums;
+  }
+  .data-table th{color:var(--muted);font-weight:600;text-align:right}
+  .data-table th:first-child,.data-table td:first-child{text-align:left}
+  .smalls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+  .small-multiple{background:var(--surface-2);border:1px solid var(--grid);border-radius:12px;padding:12px 12px 8px}
+  .small-multiple h4{font-size:12px;color:var(--ink-2);font-weight:600;margin-bottom:2px;display:flex;align-items:center;gap:6px}
+  .small-multiple h4 .sw{width:9px;height:9px;border-radius:3px}
+  .small-multiple .note{font-size:10.5px;color:var(--muted);min-height:28px}
+
+  /* ---------- zone F ---------- */
+  #zone-f .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:8px}
+  .vignette{background:var(--surface);border:1px solid var(--grid);border-radius:14px;padding:18px 20px}
+  .vignette h4{font-size:13px;color:var(--c-ti);margin-bottom:6px;font-weight:650}
+  .vignette p{font-size:13px;color:var(--ink-2)}
+  .mirror{display:flex;gap:18px;align-items:center;background:var(--surface);border:1px solid var(--grid);border-radius:14px;padding:18px 22px;margin:26px 0}
+  .mirror p{font-size:13.5px;color:var(--ink-2)}
+  .mirror .vs{font-size:22px;font-weight:650;white-space:nowrap}
+  .mirror .vs .ti{color:var(--c-ti)} .mirror .vs .te{color:var(--pos-2)}
+  .cta{
+    display:inline-block;margin-top:26px;padding:12px 22px;border-radius:12px;
+    border:1px dashed var(--axis);color:var(--muted);font-size:14px;
+  }
+  footer.epistemic{
+    border-top:1px solid var(--grid);margin-top:60px;padding:22px 24px 34px;
+    text-align:center;color:var(--muted);font-size:12px;
+  }
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  @media (max-width: 960px){
+    .rail-layout{grid-template-columns:1fr}
+    .rail{flex-direction:row;flex-wrap:wrap}
+    .waterline{flex-basis:100%}
+    .feeder-layout{grid-template-columns:1fr}
+    .verify-layout{grid-template-columns:1fr}
+    .drain-flex{flex-direction:column}
+    .batteries{flex-direction:row;flex-wrap:wrap}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="brand">CURRENTS<small>an atlas of the eight cognitive functions</small></div>
+  <nav class="atlas" aria-label="Function atlas">
+    <a class="soon" title="Phase 2" aria-disabled="true">Ne</a>
+    <a class="soon" title="Phase 2" aria-disabled="true">Ni</a>
+    <a class="soon" title="Phase 2" aria-disabled="true">Se</a>
+    <a class="soon" title="Phase 2" aria-disabled="true">Si</a>
+    <a class="soon" title="Phase 2" aria-disabled="true">Te</a>
+    <a class="active" href="#zone-a" aria-current="page">Ti</a>
+    <a class="soon" title="Phase 2" aria-disabled="true">Fe</a>
+    <a href="fi.html">Fi</a>
+  </nav>
+</header>
+
+<!-- ZONE A · LIVING GLYPH -->
+<section id="zone-a" aria-label="Living glyph — the Lattice">
+  <canvas id="glyphHero"></canvas>
+  <div class="hero-copy">
+    <span class="fn-tag">Introverted Thinking</span>
+    <h1><span class="fn">Ti</span> · The Lattice</h1>
+    <p>An internal crystalline framework, endlessly self-refining. Every idea that enters is
+    tested against the lattice — integrated with a quiet click of coherence, or cleanly rejected.</p>
+  </div>
+  <div class="hero-hint">move your cursor through the chamber · scroll to explore</div>
+</section>
+
+<!-- ZONE B · STACK POSITION RAIL -->
+<section class="zone" id="zone-b" aria-label="Stack position explorer">
+  <div class="zone-kicker">Zone B · Relational efficacy</div>
+  <h2>The same function, eight different animals</h2>
+  <p class="lede">Ti has no fixed identity — its power, speed, and reliability depend on where it sits
+  in a type's cognitive stack. Choose a depth and watch the lattice judge incoming claims: structures
+  that fit its logic <span style="color:var(--pos-1)">fold in</span> with a green pulse; structures that
+  don't <span style="color:var(--pos-sh)">bounce off</span> with a red one. The deeper the position,
+  the more often the judgment itself goes wrong. Below the waterline lies the shadow register:
+  positions Ti occupies unconsciously.</p>
+
+  <div class="rail-layout">
+    <div class="rail" role="group" aria-label="Stack depth slots" id="railSlots"></div>
+
+    <div class="glyph-stage">
+      <canvas id="glyphRail"></canvas>
+      <div class="stage-note" id="stageNote">rendering: Dominant preset</div>
+    </div>
+
+    <aside class="slot-caption">
+      <h3 id="capTitle">Dominant</h3>
+      <div class="types" id="capTypes">INTP · ISTP</div>
+      <p id="capText"></p>
+      <div class="dial-wrap">
+        <h4>Fidelity dial</h4>
+        <svg id="dial" viewBox="0 0 280 190" role="img" aria-labelledby="dialTitle">
+          <title id="dialTitle">Radar dial of five capability axes for the selected stack position</title>
+        </svg>
+      </div>
+      <div class="maturity">
+        <h4>Maturity slider</h4>
+        <input type="range" id="ageSlider" min="7" max="60" value="28" step="1"
+               aria-label="Age — functions develop over the lifespan">
+        <div class="age-row"><span>age 7</span><output id="ageOut">age 28</output><span>age 60</span></div>
+        <p class="age-note">With age the lattice itself grows and rigidifies — more nodes, more
+        interconnection, less wobble — and lower positions gain fidelity and stamina. Type is a
+        developmental trajectory, not a cage.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ZONE C · FEEDER COUPLING -->
+<section class="zone" id="zone-c" aria-label="Feeder coupling chamber">
+  <div class="zone-kicker">Zone C · Coupling</div>
+  <h2>What feeds Ti changes what Ti builds</h2>
+  <p class="lede">A judging function is only as good as its diet. Connect a perceiving function
+  and watch the lattice reshape itself around the kind of input it receives.</p>
+
+  <div class="feeder-chips" id="feederChips" role="group" aria-label="Choose a feeder function"></div>
+
+  <div class="feeder-layout">
+    <div class="feeder-stage"><canvas id="feederCanvas"></canvas></div>
+    <aside class="feeder-caption">
+      <h3 id="feedTitle">Ti ← Ne</h3>
+      <div class="pair" id="feedPair">the INTP coupling</div>
+      <p id="feedText"></p>
+      <div class="unstable" id="feedWarn">⚠ <span>Non-standard coupling — no perceiving input reaches the chamber, and the lattice starves.</span></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ZONE D · THE VERIFICATION LAB -->
+<section class="zone" id="zone-d" aria-label="The verification lab">
+  <div class="zone-kicker">Zone D · Verification</div>
+  <h2>When the world talks back</h2>
+  <p class="lede">Ti doesn't only build — it checks. Every observation arrives as a small structure
+  that must be reconciled with the lattice. Spawn one and watch what it does to the chamber's
+  stress and pleasure: unrelated facts park peacefully, causal connections integrate joyfully,
+  and rule violations force the lattice to tear itself apart and reorder around the exception.</p>
+
+  <div class="verify-layout">
+    <div class="verify-panel">
+      <button class="spawn-btn" id="btnIso">
+        <span class="dot" style="background:var(--c-s)"></span>
+        <span>Observe an unrelated fact<small>via Se — true, but unconnected. It parks beside the lattice.</small></span>
+      </button>
+      <button class="spawn-btn" id="btnLink">
+        <span class="dot" style="background:var(--c-n)"></span>
+        <span>Discover a causal connection<small>via Ne — an insight bridges the island to the lattice, then folds in.</small></span>
+      </button>
+      <button class="spawn-btn" id="btnConflict">
+        <span class="dot" style="background:var(--crit)"></span>
+        <span>Observe a rule violation<small>an encoded rule just broke. Re-observe, or rebuild everything it touches.</small></span>
+      </button>
+      <div class="meters">
+        <div class="meter stress"><label><span>⚡ Stress</span><span id="mStressVal">12%</span></label>
+          <div class="track"><div class="fill" id="mStress"></div></div></div>
+        <div class="meter pleasure"><label><span>✓ Coherence pleasure</span><span id="mPleasureVal">20%</span></label>
+          <div class="track"><div class="fill" id="mPleasure"></div></div></div>
+      </div>
+      <p class="verify-narr" id="verifyNarr">The lattice hums along at baseline. Spawn an observation
+      and watch Ti do what Ti actually does all day: verify.</p>
+    </div>
+    <div class="verify-stage"><canvas id="verifyCanvas"></canvas></div>
+  </div>
+</section>
+
+<!-- ZONE E · ENERGY ECONOMICS -->
+<section class="zone" id="zone-e" aria-label="Energy economics">
+  <div class="zone-kicker">Zone E · The libido ledger</div>
+  <h2>What Ti costs, by depth</h2>
+  <p class="lede">Every invocation of a function spends energy, and the price is set by stack position.
+  Selecting a slot in the rail above highlights its curve here — position and cost are one lesson.</p>
+
+  <div class="chart-card" id="card-cost">
+    <div class="chart-head">
+      <h3>Cost per activation</h3>
+      <span class="sub">energy units to invoke Ti once, by stack position</span>
+      <button class="table-toggle" data-table="costTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="costChart"></div>
+    <div class="data-table" id="costTable"></div>
+  </div>
+
+  <div class="chart-card" id="card-drain">
+    <div class="chart-head">
+      <h3>Sustained drain</h3>
+      <span class="sub">cumulative energy drained over continuous use — drag the scrubber</span>
+      <button class="table-toggle" data-table="drainTable" aria-expanded="false">Data table</button>
+    </div>
+    <div class="legend" id="drainLegend"></div>
+    <div class="drain-flex">
+      <div class="plot" id="drainChart"></div>
+      <div class="batteries" id="batteries" aria-hidden="true"></div>
+    </div>
+    <div class="scrub-row">
+      <label for="scrub">Time under load</label>
+      <input type="range" id="scrub" min="0" max="120" value="120" step="1">
+      <output id="scrubOut">120 min</output>
+    </div>
+    <div class="sr-only" aria-live="polite" id="scrubLive"></div>
+    <div class="data-table" id="drainTable"></div>
+  </div>
+
+  <div class="chart-card" id="card-recovery">
+    <div class="chart-head">
+      <h3>Recovery</h3>
+      <span class="sub">battery level through 30 minutes of exertion, then rest</span>
+      <button class="table-toggle" data-table="recTable" aria-expanded="false">Data table</button>
+    </div>
+    <div class="smalls" id="recCharts"></div>
+    <div class="data-table" id="recTable"></div>
+  </div>
+</section>
+
+<!-- ZONE F · FIELD NOTES -->
+<section class="zone" id="zone-f" aria-label="Field notes">
+  <div class="zone-kicker">Zone F · Field notes</div>
+  <h2>Ti among the others</h2>
+
+  <div class="mirror">
+    <div class="vs"><span class="ti">Ti</span> ↔ <span class="te">Te</span></div>
+    <p>Same element, opposite attitude. Ti refines an <em>internal</em> lattice until it is coherent;
+    Te assembles an <em>external</em> scaffold until it works. Ti asks "is this true?" —
+    Te asks "does this ship?" Each finds the other's question slightly beside the point.</p>
+  </div>
+
+  <div class="cards">
+    <div class="vignette"><h4>Ti at a dinner party</h4>
+      <p>Quiet for an hour, then one sentence that reorganizes the whole debate — followed by
+      mild surprise that anyone found it controversial.</p></div>
+    <div class="vignette"><h4>Ti debugging</h4>
+      <p>Refuses the quick patch. Will not rest until the <em>actual</em> cause is isolated,
+      named, and slotted into the model of how the system really works.</p></div>
+    <div class="vignette"><h4>Ti in an argument</h4>
+      <p>Attacks the structure, never the person — and is baffled when the person feels attacked
+      anyway. Concedes instantly, and completely, to the better framework.</p></div>
+  </div>
+
+  <span class="cta">Take Ti to the Sandbox → <em>(the Confluence Engine ships in Phase 3)</em></span>
+</section>
+
+<footer class="epistemic">
+  Cognitive function theory is an interpretive model from analytical psychology, not established
+  neuroscience. CURRENTS visualizes the model's internal logic — treat it as a lens, not a diagnosis.
+</footer>
+
+<div class="viz-tooltip" id="tooltip"></div>
+
+<script>
+/* ============================================================
+   CURRENTS · Ti page — Phase 1 build
+   One parametric glyph engine, reused in three contexts
+   ============================================================ */
+'use strict';
+
+/* ---------- utilities ---------- */
+const lerp = (a,b,t)=>a+(b-a)*t;
+const clamp = (v,a,b)=>Math.max(a,Math.min(b,v));
+const TAU = Math.PI*2;
+function mulberry32(seed){
+  return function(){
+    seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+    let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const CSSVAR = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const COL = {
+  ti: CSSVAR('--c-ti'), n: CSSVAR('--c-n'), s: CSSVAR('--c-s'), f: CSSVAR('--c-f'),
+  pos: [CSSVAR('--pos-1'), CSSVAR('--pos-2'), CSSVAR('--pos-3'), CSSVAR('--pos-4')],
+  sh: CSSVAR('--pos-sh'), warn: CSSVAR('--warn'), crit: CSSVAR('--crit'),
+  ink: CSSVAR('--ink'), ink2: CSSVAR('--ink-2'), muted: CSSVAR('--muted'),
+  grid: CSSVAR('--grid'), axis: CSSVAR('--axis'), surface: CSSVAR('--surface')
+};
+function hexA(hex, a){
+  const h = hex.replace('#','');
+  const r = parseInt(h.slice(0,2),16), g = parseInt(h.slice(2,4),16), b = parseInt(h.slice(4,6),16);
+  return `rgba(${r},${g},${b},${a})`;
+}
+function hexLerp(h1, h2, t){
+  const p = h=>[parseInt(h.slice(1,3),16), parseInt(h.slice(3,5),16), parseInt(h.slice(5,7),16)];
+  const [r1,g1,b1] = p(h1), [r2,g2,b2] = p(h2);
+  const c = v=>Math.round(clamp(v,0,255)).toString(16).padStart(2,'0');
+  return '#' + c(lerp(r1,r2,t)) + c(lerp(g1,g2,t)) + c(lerp(b1,b2,t));
+}
+const VERDICT = { good:'#0ca30c', bad:'#d03b3b' };   // status colors, reserved meaning (icon/label in UI)
+
+/* ============================================================
+   THE PARAMETRIC GLYPH ENGINE (design doc §2.2 + §3.1)
+   params: scale, fidelity, latency(ms), noise, duty, control
+   feeder: null | {color, rate, branchy, speed, spread, persistence}
+   ============================================================ */
+class TiGlyph {
+  constructor(canvas, opts = {}){
+    this.cv = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.opts = Object.assign({interactive:true, coreGlow:1, seed:7}, opts);
+    this.rng = mulberry32(this.opts.seed);
+    this.params  = {scale:1, fidelity:.95, latency:0, noise:0, duty:1, control:1, contrary:0};
+    this.target  = {...this.params};
+    this.feeder = null;          // set via setFeeder()
+    this.nodes = []; this.edges = []; this.particles = [];
+    /* --- verification layer (sublattices) --- */
+    this.subs = [];              // incoming / resident / merging / bouncing sublattices
+    this.bridges = [];           // temporary causal edges {a:subNodeRef|nodeRef, b:...}
+    this.bombard = false;        // Zone B mode: test incoming sublattices instead of particles
+    this.stress = 0.12; this.pleasure = 0.2;             // 0..1, decay to baseline
+    this.colorShift = 0;         // 0 = native cyan → 1 = conflict red
+    this.explode = 0;            // explosive-reorder envelope
+    this.pulseT = 0; this.pulseColor = '#ffffff';        // verdict pulse
+    this.structure = {countMul:1, k:3, rigidity:.4};     // maturity: size / connectivity / rigidity
+    this.latticeSeed = 101;
+    this.pointer = {x:null, y:null, hist:[]};
+    this.t = 0;
+    this.restructureAt = 12 + this.rng()*8;
+    this.dpr = Math.min(devicePixelRatio || 1, 2);
+    this._resize();
+    this._ro = new ResizeObserver(()=>this._resize());
+    this._ro.observe(canvas);
+    if (this.opts.interactive){
+      canvas.addEventListener('pointermove', e=>{
+        const r = canvas.getBoundingClientRect();
+        this.pointer.hist.push({x:e.clientX-r.left, y:e.clientY-r.top, t:performance.now()});
+        if (this.pointer.hist.length > 120) this.pointer.hist.shift();
+      });
+      canvas.addEventListener('pointerleave', ()=>{ this.pointer.hist = []; this.pointer.x = this.pointer.y = null; });
+    }
+    this.buildLattice();
+    for (let i=0;i<40;i++) this.spawnParticle(true);
+  }
+  _resize(){
+    const r = this.cv.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    this.cv.width = r.width * this.dpr;
+    this.cv.height = r.height * this.dpr;
+    this.W = r.width; this.H = r.height;
+    this.cx = this.W/2; this.cy = this.H/2;
+    this.baseR = Math.min(this.W, this.H) * 0.34;
+    if (REDUCED) this.renderStatic();
+  }
+  setTarget(p){ Object.assign(this.target, {contrary:0}, p); if (REDUCED) { Object.assign(this.params, this.target); this.renderStatic(); } }
+  color(){ return hexLerp(COL.ti, '#e04848', this.colorShift); }
+  setStructure(s){
+    const next = Object.assign({}, this.structure, s);
+    const sig = o=>`${o.countMul.toFixed(2)}|${o.k}|${o.rigidity.toFixed(2)}`;
+    const changed = sig(next) !== sig(this.structure);
+    this.structure = next;
+    if (changed){ this.buildLattice(); if (REDUCED) this.renderStatic(); }
+  }
+  pulse(color){ this.pulseT = 1; this.pulseColor = color; }
+  setFeeder(f){
+    this.feeder = f;
+    this.buildLattice();
+    if (REDUCED) this.renderStatic();
+  }
+  latticeSpec(){
+    // feeder shapes the lattice (design doc §2.4): breadth vs depth, persistence
+    const f = this.feeder;
+    return {
+      count:  f ? Math.round(lerp(22, 40, f.branchy)) : 30,
+      spread: f ? lerp(.72, 1.15, f.spread) : 1,
+      persistence: f ? f.persistence : .85
+    };
+  }
+  buildLattice(){
+    const spec = this.latticeSpec();
+    spec.count = Math.round(spec.count * this.structure.countMul);   // maturity grows the lattice
+    const rng = mulberry32(this.opts.seed + this.latticeSeed);
+    this.nodes = [];
+    for (let i=0;i<spec.count;i++){
+      const a = rng()*TAU, rr = Math.sqrt(rng()) * spec.spread;
+      this.nodes.push({
+        a, r: rr, x:0, y:0,
+        pulse: 0, born: this.t,
+        wob: rng()*TAU, wobSp: .2 + rng()*.4
+      });
+    }
+    // crystalline edges: k nearest neighbours — maturity raises k (rigidity through connectivity)
+    this.edges = [];
+    const K = Math.min(this.structure.k, spec.count - 1);
+    const pts = this.nodes.map(n=>({x:Math.cos(n.a)*n.r, y:Math.sin(n.a)*n.r}));
+    for (let i=0;i<pts.length;i++){
+      const d = pts.map((p,j)=> j===i ? 1e9 : (p.x-pts[i].x)**2 + (p.y-pts[i].y)**2);
+      const order = d.map((v,j)=>[v,j]).sort((a,b)=>a[0]-b[0]);
+      for (let k=0;k<K;k++){
+        const j = order[k][1];
+        if (!this.edges.some(e=>(e.a===i&&e.b===j)||(e.a===j&&e.b===i)))
+          this.edges.push({a:i, b:j, birth:this.t, life:1});
+      }
+    }
+  }
+  /* ---------- sublattices (verification layer) ---------- */
+  makeSubShape(homomorph){
+    // homomorph: copy a real subgraph of the main lattice (same geometry, scaled)
+    if (homomorph && this.nodes.length > 4 && this.edges.length > 3){
+      const rng = this.rng;
+      const e0 = this.edges[Math.floor(rng()*this.edges.length)];
+      const idx = new Set([e0.a, e0.b]);
+      for (const e of this.edges){
+        if (idx.size >= 4) break;
+        if (idx.has(e.a)) idx.add(e.b); else if (idx.has(e.b)) idx.add(e.a);
+      }
+      const ids = [...idx];
+      const R = this.baseR * this.params.scale;
+      const px = ids.map(i=>({x:Math.cos(this.nodes[i].a)*this.nodes[i].r*R*0.45,
+                              y:Math.sin(this.nodes[i].a)*this.nodes[i].r*R*0.45}));
+      const cxm = px.reduce((s,p)=>s+p.x,0)/px.length, cym = px.reduce((s,p)=>s+p.y,0)/px.length;
+      const nodes = px.map(p=>({x:p.x-cxm, y:p.y-cym}));
+      const edges = [];
+      this.edges.forEach(e=>{
+        const a = ids.indexOf(e.a), b = ids.indexOf(e.b);
+        if (a >= 0 && b >= 0) edges.push([a,b]);
+      });
+      if (edges.length) return {nodes, edges};
+    }
+    // non-homomorph: an angular, alien little cluster
+    const rng = this.rng, n = 4 + Math.floor(rng()*2), nodes = [], edges = [];
+    for (let i=0;i<n;i++){
+      const a = rng()*TAU, r = 5 + rng()*13;
+      nodes.push({x:Math.cos(a)*r, y:Math.sin(a)*r});
+    }
+    for (let i=1;i<n;i++) edges.push([i-1, i]);
+    edges.push([0, n-1]);
+    return {nodes, edges};
+  }
+  spawnSub(kind, opts = {}){
+    const rng = this.rng;
+    const homomorph = kind === 'homo' || kind === 'link';
+    const shape = this.makeSubShape(homomorph || kind === 'iso');
+    const a = opts.angle !== undefined ? opts.angle : rng()*TAU;
+    const R = this.baseR;
+    const speed = kind === 'conflict' ? 2.6 : 0.9 + rng()*0.5;
+    const sub = {
+      kind, shape,
+      x: Math.cos(a)*R*1.55, y: Math.sin(a)*R*1.55,
+      vx: -Math.cos(a)*speed, vy: -Math.sin(a)*speed,
+      rot: rng()*TAU, vrot: (rng()-0.5)*0.8,
+      color: opts.color || '#b9c4d4',
+      state: 'incoming', age: 0, alpha: 1,
+      verdict: opts.verdict, linkTo: opts.linkTo || null
+    };
+    this.subs.push(sub);
+    return sub;
+  }
+  subNodesAbs(sub){
+    const c = Math.cos(sub.rot), s = Math.sin(sub.rot);
+    return sub.shape.nodes.map(n=>({
+      x: this.cx + sub.x + n.x*c - n.y*s,
+      y: this.cy + sub.y + n.x*s + n.y*c
+    }));
+  }
+  nearestNodes(px, py, count){
+    return this.nodes
+      .map(n=>({n, d:(n.x-px)**2 + (n.y-py)**2}))
+      .sort((a,b)=>a.d-b.d).slice(0, count).map(o=>o.n);
+  }
+  spawnParticle(seedRandomPhase = false){
+    const p = this.params, f = this.feeder;
+    const rng = this.rng;
+    let x, y, vx, vy, col, branchy = 0, sz;
+    if (f){
+      // feeder particles enter from the emitter at the left conduit
+      x = this.W*0.10 - this.cx; y = (rng()-0.5) * this.baseR * 0.5;
+      const sp = lerp(.45, 1.5, f.speed);
+      vx = sp * (0.8 + rng()*0.4); vy = (rng()-0.5)*0.15;
+      col = f.color; branchy = f.branchy; sz = lerp(1.6, 2.4, f.speed);
+    } else {
+      // ambient: born at the ring, drift inward (introverted circulation)
+      const a = rng()*TAU, rr = 1.25 + rng()*0.25;
+      x = Math.cos(a)*this.baseR*rr; y = Math.sin(a)*this.baseR*rr;
+      const inward = 0.25 + rng()*0.3;
+      vx = -Math.cos(a)*inward + (rng()-0.5)*0.2;
+      vy = -Math.sin(a)*inward + (rng()-0.5)*0.2;
+      col = COL.ti; sz = 1.5 + rng();
+    }
+    this.particles.push({
+      x, y, vx, vy, col, sz, branchy,
+      age: seedRandomPhase ? rng()*6 : 0, state:'drift', // drift → tested → absorbed | rejected
+      tw: rng()*TAU
+    });
+  }
+  delayedPointer(){
+    const {latency} = this.params;
+    const h = this.pointer.hist;
+    if (!h.length) return null;
+    if (latency <= 16) return h[h.length-1];
+    const cutoff = performance.now() - latency;
+    for (let i=h.length-1;i>=0;i--) if (h[i].t <= cutoff) return h[i];
+    return null;
+  }
+  step(dt){
+    this.t += dt;
+    const p = this.params, tg = this.target;
+    // ease toward target params (the morph the user *feels*)
+    for (const k in tg) p[k] = lerp(p[k], tg[k], 1 - Math.pow(0.0015, dt));
+    // periodic lattice restructure ("the whole lattice restructures when an inconsistency is found")
+    if (this.t > this.restructureAt && !this.feeder){
+      this.restructureAt = this.t + 14 + this.rng()*10;
+      this.buildLattice();
+      this.ripple = 1;
+    }
+    if (this.ripple) this.ripple = Math.max(0, this.ripple - dt*0.8);
+    // verdict pulse decay
+    if (this.pulseT > 0) this.pulseT = Math.max(0, this.pulseT - dt*1.35);
+    // stress & pleasure decay to baseline
+    this.stress   += (0.12 - this.stress)   * (1 - Math.pow(0.7, dt));
+    this.pleasure += (0.20 - this.pleasure) * (1 - Math.pow(0.6, dt));
+    // lattice colour tracks stress beyond a threshold (conflict = red-shift)
+    const shiftTarget = clamp((this.stress - 0.35) * 1.75, 0, 1);
+    this.colorShift = lerp(this.colorShift, shiftTarget, 1 - Math.pow(0.08, dt));
+    // explosive reorder envelope + scheduled rebuild around the exception
+    if (this.explode > 0) this.explode = Math.max(0, this.explode - dt*0.4);
+    if (this._rebuildAt && this.t >= this._rebuildAt){
+      this._rebuildAt = 0; this.latticeSeed += 13; this.buildLattice(); this.ripple = 1;
+    }
+    // duty cycle: how much of the time the function is "awake"
+    const dutyWave = (Math.sin(this.t*0.9) + 1) / 2;
+    this.awake = p.duty >= 0.99 ? 1 : clamp((p.duty*1.25 - dutyWave) * 4 + 0.4, 0.12, 1);
+    // pointer attraction, filtered through latency + control
+    const ptr = this.delayedPointer();
+    let ax = 0, ay = 0;
+    if (ptr && this.opts.interactive){
+      const px = ptr.x - this.cx, py = ptr.y - this.cy;
+      const contrary = (p.contrary > 0 && Math.sin(this.t*0.7 + 2) > 1 - p.contrary*1.2) ? -1 : 1;
+      ax = px * 0.06 * p.control * contrary;
+      ay = py * 0.06 * p.control * contrary;
+    }
+    this.offX = lerp(this.offX||0, ax, 1 - Math.pow(0.01, dt));
+    this.offY = lerp(this.offY||0, ay, 1 - Math.pow(0.01, dt));
+    // lattice node positions (wobble grows as fidelity falls)
+    const R = this.baseR * p.scale;
+    // maturity rigidity damps the wobble — an older lattice holds its shape
+    const wobble = ((1 - p.fidelity) * R * 0.16 + p.noise * R * 0.05) * (1 - this.structure.rigidity*0.65);
+    for (const n of this.nodes){
+      n.wob += n.wobSp * dt * (1 + p.noise*3);
+      n.x = this.cx + this.offX + Math.cos(n.a)*n.r*R + Math.cos(n.wob)*wobble;
+      n.y = this.cy + this.offY + Math.sin(n.a)*n.r*R + Math.sin(n.wob*1.3)*wobble;
+      if (this.explode > 0){
+        n.x += (this.rng()-0.5) * this.explode * R * 0.3;
+        n.y += (this.rng()-0.5) * this.explode * R * 0.3;
+      }
+      n.pulse = Math.max(0, n.pulse - dt*2.2);
+    }
+    // particle behaviour
+    const spawnRate = this.bombard ? 0 : (this.feeder ? lerp(6, 20, this.feeder.rate) : 11);
+    // bombardment mode (Zone B): periodic incoming sublattices instead of particles
+    if (this.bombard){
+      this._subAcc = (this._subAcc||0) + dt;
+      const interval = 2.7 - 1.5*p.duty;              // deep positions test less often
+      if (this._subAcc > interval && this.subs.filter(s=>s.state==='incoming').length < 3){
+        this._subAcc = 0;
+        const homo = this.rng() < 0.55;
+        this.spawnSub(homo ? 'homo' : 'noise');
+      }
+    }
+    this._acc = (this._acc||0) + dt * spawnRate * (0.4 + 0.6*this.awake);
+    while (this._acc > 1){ this._acc--; this.spawnParticle(); }
+    const spd = dt * 60;
+    for (const pt of this.particles){
+      pt.age += dt; pt.tw += dt*3;
+      if (pt.state === 'drift'){
+        // feeder particles fork mid-flight if branchy (Ne)
+        if (pt.branchy > 0 && this.rng() < pt.branchy * dt * 0.9 && this.particles.length < 220){
+          this.particles.push({...pt, vy: pt.vy + (this.rng()-0.5)*0.9, sz: pt.sz*0.85, age:0, tw:this.rng()*TAU});
+        }
+        pt.x += pt.vx * spd; pt.y += pt.vy * spd;
+        // jitter from noise
+        pt.x += (this.rng()-0.5) * p.noise * 2.4;
+        pt.y += (this.rng()-0.5) * p.noise * 2.4;
+        // find nearest node & test against the lattice
+        let best = null, bd = 1e9;
+        for (const n of this.nodes){
+          const dd = (n.x-(this.cx+pt.x))**2 + (n.y-(this.cy+pt.y))**2;
+          if (dd < bd){ bd = dd; best = n; }
+        }
+        if (best && bd < 14*14){
+          const accepted = this.rng() < (0.3 + p.fidelity*0.55) * this.awake;
+          pt.state = accepted ? 'absorbed' : 'rejected';
+          if (accepted){ best.pulse = 1; pt.node = best; pt.age = 0; }
+          else {
+            const a = Math.atan2(pt.y, pt.x || 0.01);
+            pt.vx = Math.cos(a)*0.9; pt.vy = Math.sin(a)*0.9; pt.age = 0;
+          }
+        }
+        // gentle curve toward centre for ambient particles
+        if (!this.feeder){
+          pt.vx += -pt.x * 0.0003 * spd; pt.vy += -pt.y * 0.0003 * spd;
+        }
+      } else if (pt.state === 'rejected'){
+        pt.x += pt.vx * spd; pt.y += pt.vy * spd;
+      }
+    }
+    this.particles = this.particles.filter(pt=>{
+      if (pt.state === 'absorbed') return pt.age < 0.5;
+      if (pt.state === 'rejected') return pt.age < 1.6;
+      const lim = Math.max(this.W, this.H);
+      return pt.age < 14 && Math.abs(pt.x) < lim && Math.abs(pt.y) < lim;
+    });
+
+    /* --- sublattice lifecycle --- */
+    const R2 = this.baseR * p.scale;
+    for (const sub of this.subs){
+      sub.age += dt;
+      if (sub.state === 'incoming'){
+        sub.x += sub.vx * spd; sub.y += sub.vy * spd;
+        sub.rot += sub.vrot * dt;
+        const dist = Math.hypot(sub.x, sub.y);
+        if (sub.kind === 'iso'){
+          if (dist <= R2*0.95){ sub.state = 'resident'; sub.homeA = Math.atan2(sub.y, sub.x); sub.homeR = dist; }
+        } else if (sub.kind === 'link'){
+          const res = sub.linkTo;
+          const tx = res ? res.x*0.55 : 0, ty = res ? res.y*0.55 : 0;
+          const dxx = tx-sub.x, dyy = ty-sub.y, dd = Math.hypot(dxx, dyy);
+          sub.vx = dxx/Math.max(dd,1) * 2.0; sub.vy = dyy/Math.max(dd,1) * 2.0;
+          if (dd < 7){
+            sub.state = 'bridged'; sub.bridgeT = 0;
+            const near = this.nearestNodes(this.cx+sub.x, this.cy+sub.y, 2);
+            this.bridges = near.map((n,i)=>({sub, si: i % sub.shape.nodes.length, node:n}));
+            if (res) this.bridges.push({sub, si:0, resident:res, ri:0});
+            this.pleasure = 1;
+            this.stress = Math.max(0.05, this.stress - 0.25);
+            this.pulse(VERDICT.good);
+          }
+        } else if (sub.kind === 'conflict'){
+          if (dist <= R2*0.55){
+            sub.state = 'shatter'; sub.age = 0;
+            this.stress = 1;
+            this.explode = 1;
+            this._rebuildAt = this.t + 1.15;
+            this.pulse(VERDICT.bad);
+          }
+        } else { // bombardment: 'homo' | 'noise' — judged at the ring
+          if (dist <= R2*1.05){
+            const misjudge = this.rng() < (1 - p.fidelity) * 0.45;   // degraded Ti misjudges
+            const correct = sub.kind === 'homo';
+            const accept = misjudge ? !correct : correct;
+            if (accept){
+              sub.state = 'merging'; sub.age = 0;
+              const abs = this.subNodesAbs(sub);
+              sub.targets = abs.map(pt=>this.nearestNodes(pt.x, pt.y, 1)[0]);
+              this.pulse(VERDICT.good);
+              this.pleasure = Math.min(1, this.pleasure + 0.22);
+            } else {
+              sub.state = 'bouncing'; sub.age = 0;
+              const dd = Math.max(dist, 1);
+              sub.vx = sub.x/dd * 1.7; sub.vy = sub.y/dd * 1.7;
+              this.pulse(VERDICT.bad);
+              this.stress = Math.min(1, this.stress + 0.1);
+            }
+          }
+        }
+      } else if (sub.state === 'resident'){
+        sub.homeA += dt*0.05;
+        sub.x = Math.cos(sub.homeA)*sub.homeR; sub.y = Math.sin(sub.homeA)*sub.homeR;
+        sub.rot += sub.vrot*dt*0.3;
+      } else if (sub.state === 'bridged'){
+        sub.bridgeT += dt;
+        if (sub.bridgeT > 1.2){
+          sub.state = 'folding'; sub.age = 0;
+          const abs = this.subNodesAbs(sub);
+          sub.targets = abs.map(pt=>this.nearestNodes(pt.x, pt.y, 1)[0]);
+          const res = sub.linkTo;
+          if (res && res.state === 'resident'){
+            res.state = 'folding'; res.age = 0;
+            const rabs = this.subNodesAbs(res);
+            res.targets = rabs.map(pt=>this.nearestNodes(pt.x, pt.y, 1)[0]);
+          }
+          this.bridges = [];
+        }
+      } else if (sub.state === 'merging' || sub.state === 'folding'){
+        sub.alpha = clamp(1 - sub.age/0.9, 0, 1);
+        if (sub.age >= 0.9){
+          if (sub.targets) sub.targets.forEach(n=>{ if (n) n.pulse = 1; });
+          sub.done = true;
+        }
+      } else if (sub.state === 'bouncing'){
+        sub.x += sub.vx * spd; sub.y += sub.vy * spd;
+        sub.rot += sub.vrot*dt*2;
+        sub.alpha = clamp(1.3 - sub.age*0.75, 0, 1);
+        if (sub.age > 1.8) sub.done = true;
+      } else if (sub.state === 'shatter'){
+        sub.alpha = clamp(1 - sub.age/0.6, 0, 1);
+        if (sub.age > 0.6) sub.done = true;
+      }
+    }
+    this.subs = this.subs.filter(s=>!s.done);
+  }
+  draw(){
+    const {ctx, W, H} = this;
+    const p = this.params;
+    ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    const R = this.baseR * p.scale;
+    const gcx = this.cx + this.offX, gcy = this.cy + this.offY;
+    const dim = 0.25 + 0.75 * this.awake;
+
+    const TINT = this.color();   // cyan → red-shifted under conflict stress
+
+    // core glow — introverted: light condenses at the centre
+    const glow = ctx.createRadialGradient(gcx, gcy, 0, gcx, gcy, R*1.5);
+    glow.addColorStop(0, hexA(TINT, 0.16 * dim * this.opts.coreGlow));
+    glow.addColorStop(0.6, hexA(TINT, 0.045 * dim * this.opts.coreGlow));
+    glow.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, W, H);
+
+    // closed double ring (introverted attitude marker, §1.3)
+    ctx.lineWidth = 1.25;
+    for (const [rr, aa] of [[1.32, 0.35], [1.24, 0.18]]){
+      ctx.beginPath();
+      ctx.arc(gcx, gcy, R*rr + (this.ripple? Math.sin(this.t*20)*3*this.ripple : 0), 0, TAU);
+      ctx.strokeStyle = hexA(TINT, aa * dim);
+      ctx.stroke();
+    }
+
+    // lattice edges
+    for (const e of this.edges){
+      const A = this.nodes[e.a], B = this.nodes[e.b];
+      if (!A || !B) continue;
+      const flick = p.noise > 0.3 && this.rng() < p.noise*0.18 ? 0.25 : 1;
+      ctx.beginPath();
+      ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y);
+      ctx.strokeStyle = hexA(TINT, (0.14 + 0.4*p.fidelity) * dim * flick);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    // lattice nodes
+    for (const n of this.nodes){
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, 2 + n.pulse*3.4, 0, TAU);
+      ctx.fillStyle = hexA(TINT, (0.35 + 0.55*p.fidelity) * dim);
+      ctx.fill();
+      if (n.pulse > 0.02){ // the "click" of coherence
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 4 + (1-n.pulse)*16, 0, TAU);
+        ctx.strokeStyle = hexA('#ffffff', n.pulse*0.5);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+    // particles
+    for (const pt of this.particles){
+      let px = this.cx + pt.x, py = this.cy + pt.y, alpha, col = pt.col;
+      if (pt.state === 'absorbed' && pt.node){ px = pt.node.x; py = pt.node.y; alpha = (0.5 - pt.age)*1.6; }
+      else if (pt.state === 'rejected'){ alpha = clamp(1.2 - pt.age*0.8, 0, 0.8); col = pt.col; }
+      else alpha = clamp(0.25 + Math.sin(pt.tw)*0.15 + 0.25, 0, 0.75);
+      ctx.beginPath();
+      ctx.arc(px, py, pt.sz, 0, TAU);
+      ctx.fillStyle = hexA(col.startsWith('#') ? col : COL.ti, alpha * dim);
+      ctx.fill();
+    }
+    /* --- causal bridges --- */
+    for (const b of this.bridges){
+      const aPt = this.subNodesAbs(b.sub)[b.si];
+      const bPt = b.node ? {x:b.node.x, y:b.node.y}
+                : b.resident ? this.subNodesAbs(b.resident)[b.ri] : null;
+      if (!aPt || !bPt) continue;
+      ctx.beginPath();
+      ctx.moveTo(aPt.x, aPt.y); ctx.lineTo(bPt.x, bPt.y);
+      ctx.strokeStyle = hexA(b.sub.color, 0.65);
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+    }
+    /* --- sublattices --- */
+    for (const sub of this.subs){
+      const abs = this.subNodesAbs(sub);
+      let pts = abs;
+      if ((sub.state === 'merging' || sub.state === 'folding') && sub.targets){
+        const pr = Math.min(sub.age/0.9, 1), e = pr*pr*(3-2*pr);
+        pts = abs.map((pt,i)=>{
+          const tn = sub.targets[i];
+          return tn ? {x:lerp(pt.x, tn.x, e), y:lerp(pt.y, tn.y, e)} : pt;
+        });
+      } else if (sub.state === 'shatter'){
+        const e = sub.age*3;
+        pts = abs.map((pt,i)=>({x:pt.x + (pt.x-gcx)*e*0.3, y:pt.y + (pt.y-gcy)*e*0.3}));
+      }
+      const a = (sub.alpha !== undefined ? sub.alpha : 1) * dim;
+      for (const [i,j] of sub.shape.edges){
+        if (!pts[i] || !pts[j]) continue;
+        ctx.beginPath();
+        ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y);
+        ctx.strokeStyle = hexA(sub.color, 0.55*a);
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+      for (const pt of pts){
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, 2.1, 0, TAU);
+        ctx.fillStyle = hexA(sub.color, 0.9*a);
+        ctx.fill();
+      }
+    }
+    /* --- verdict pulse (green = perceived correct, red = violation) --- */
+    if (this.pulseT > 0.01){
+      const pa = this.pulseT;
+      ctx.beginPath();
+      ctx.arc(gcx, gcy, R*1.32, 0, TAU);
+      ctx.strokeStyle = hexA(this.pulseColor, pa*0.85);
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+      const pg = ctx.createRadialGradient(gcx, gcy, R*0.3, gcx, gcy, R*1.45);
+      pg.addColorStop(0, hexA(this.pulseColor, pa*0.10));
+      pg.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = pg;
+      ctx.fillRect(0, 0, W, H);
+    }
+    // static/noise speckle overlay for degraded positions
+    if (p.noise > 0.05){
+      const n = Math.round(p.noise * 46);
+      ctx.fillStyle = hexA('#ffffff', 0.05 + p.noise*0.06);
+      for (let i=0;i<n;i++){
+        ctx.fillRect(gcx + (this.rng()-0.5)*R*2.8, gcy + (this.rng()-0.5)*R*2.8, 1.4, 1.4);
+      }
+    }
+  }
+  renderStatic(){
+    // reduced-motion: a single, well-composed frame
+    for (let i=0;i<30;i++) this.step(1/30);
+    this.draw();
+  }
+  start(){
+    if (REDUCED){ this.renderStatic(); return; }
+    let last = performance.now();
+    const loop = (now)=>{
+      const dt = Math.min((now-last)/1000, 0.05);
+      last = now;
+      if (this._visible !== false){ this.step(dt); this.draw(); }
+      this._raf = requestAnimationFrame(loop);
+    };
+    this._raf = requestAnimationFrame(loop);
+    // pause off-viewport (perf budget, doc §6.1)
+    new IntersectionObserver(entries=>{
+      this._visible = entries[0].isIntersecting;
+    }, {threshold: 0.02}).observe(this.cv);
+  }
+}
+
+/* ---------- Zone A: hero glyph ---------- */
+const hero = new TiGlyph(document.getElementById('glyphHero'), {seed: 7, coreGlow: 1});
+hero.setTarget({scale:1, fidelity:.95, latency:0, noise:0, duty:1, control:1});
+hero.start();
+
+/* ============================================================
+   ZONE B · STACK POSITION RAIL  (doc §2.3, §3.1, §3.2)
+   ============================================================ */
+const SLOTS = [
+  {key:'dominant',  name:'Dominant',  sub:'1st · hero',            types:'INTP · ISTP', shadow:false, series:0,
+   params:{scale:1.00, fidelity:.95, latency:0,    noise:0,   duty:1,   control:1,   contrary:0},
+   dial:[.95,.95,.90,.95,.90],
+   text:'The world is a system to be understood. Analysis runs constantly and effortlessly, and feels like identity itself. The lattice is large, fast, and quiet — precision without strain.'},
+  {key:'auxiliary', name:'Auxiliary', sub:'2nd · parent',          types:'ENTP · ESTP', shadow:false, series:1,
+   params:{scale:.80,  fidelity:.85, latency:80,   noise:.05, duty:.85, control:.90, contrary:0},
+   dial:[.80,.85,.80,.85,.78],
+   text:'A superb editor rather than the author. Ti here serves the dominant perceiver — Ne’s possibilities or Se’s live data get rigorously stress-tested — but analysis is switched on deliberately rather than running the show.'},
+  {key:'tertiary',  name:'Tertiary',  sub:'3rd · eternal child',   types:'INFJ · ISFJ', shadow:false, series:2,
+   params:{scale:.55,  fidelity:.60, latency:250,  noise:.20, duty:.50, control:.60, contrary:0},
+   dial:[.50,.55,.50,.55,.45],
+   text:'A private hobby-logic. Real skill in narrow, well-loved domains, blooming with age — but under stress it can pair with the dominant into a self-sealed loop, polishing conclusions no one is allowed to audit.'},
+  {key:'inferior',  name:'Inferior',  sub:'4th · aspirational',    types:'ENFJ · ESFJ', shadow:false, series:3,
+   params:{scale:.40,  fidelity:.35, latency:700,  noise:.45, duty:.25, control:.35, contrary:0},
+   dial:[.25,.30,.30,.30,.35],
+   text:'Logic arrives late, harsh, and all-or-nothing. Long stretches of deferring to others’ frameworks, punctuated — usually under stress — by rigid, brittle certainty that doesn’t sound like them at all.'},
+  {key:'opposing',  name:'Opposing',  sub:'5th · shadow',          types:'ENTJ · ESTJ', shadow:true, series:4,
+   params:{scale:.46,  fidelity:.42, latency:600,  noise:.50, duty:.45, control:.40, contrary:.25},
+   dial:[.35,.40,.50,.30,.20],
+   text:'The argumentative defender. When their Te plans are challenged, Ti wakes up combative — nitpicking definitions and dismantling the critic’s logic, less to find truth than to protect the agenda.'},
+  {key:'critical',  name:'Critical Parent', sub:'6th · shadow',    types:'INTJ · ISTJ', shadow:true, series:4,
+   params:{scale:.44,  fidelity:.35, latency:900,  noise:.55, duty:.35, control:.30, contrary:.35},
+   dial:[.30,.45,.40,.25,.15],
+   text:'An inner fault-finder. Ti turns inward as a belittling voice — “your reasoning is sloppy, your definitions don’t hold” — harsh, sporadic, and aimed mostly at the self.'},
+  {key:'trickster', name:'Trickster', sub:'7th · shadow',          types:'ENFP · ESFP', shadow:true, series:4,
+   params:{scale:.42,  fidelity:.28, latency:1200, noise:.60, duty:.30, control:.20, contrary:.55},
+   dial:[.20,.25,.35,.15,.10],
+   text:'Logic as a trap to wriggle out of. Pure Ti consistency feels like a double-bind game; this position deflects it with absurdity or charm — and is blind, without malice, to the rules it’s accused of breaking.'},
+  {key:'demon',     name:'Demon',     sub:'8th · shadow',          types:'INFP · ISFP', shadow:true, series:4,
+   params:{scale:.40,  fidelity:.20, latency:1500, noise:.65, duty:.22, control:.12, contrary:.65},
+   dial:[.15,.30,.25,.10,.05],
+   text:'Rarely touched, and corrosive when it erupts: cold pseudo-logic aimed at the self, dismantling one’s own worth and dressing the demolition up as objectivity.'}
+];
+
+const railGlyph = new TiGlyph(document.getElementById('glyphRail'), {seed: 21, coreGlow: .9});
+railGlyph.bombard = true;   // Zone B: incoming sublattices are judged, not particles
+railGlyph.start();
+
+const railEl = document.getElementById('railSlots');
+let currentSlot = 0;
+let age = 28;
+
+function maturityBoost(slot){
+  // lower positions gain fidelity/duty with age (doc §3.2); dominant is near-flat
+  const m = clamp((age - 7) / 53, 0, 1);          // 0 at 7 → 1 at 60
+  const depthNeed = [0.02, 0.08, 0.30, 0.38, 0.18, 0.18, 0.14, 0.10][SLOTS.indexOf(slot)];
+  return (m - 0.4) * depthNeed;                    // age 28 ≈ neutral baseline
+}
+function effectiveParams(slot){
+  const b = maturityBoost(slot);
+  const p = {...slot.params};
+  p.fidelity = clamp(p.fidelity + b, 0.08, 0.98);
+  p.duty     = clamp(p.duty + b, 0.1, 1);
+  p.control  = clamp(p.control + b*0.7, 0.05, 1);
+  return p;
+}
+function effectiveDial(slot){
+  const b = maturityBoost(slot);
+  return slot.dial.map(v => clamp(v + b, 0.04, 1));
+}
+function structureForAge(){
+  // maturity grows and rigidifies the lattice: more nodes, higher connectivity, less wobble
+  const m = clamp((age - 7) / 53, 0, 1);
+  return {
+    countMul: 0.75 + 0.6*m,
+    k: m < 0.3 ? 2 : m < 0.72 ? 3 : 4,
+    rigidity: m
+  };
+}
+
+function selectSlot(i){
+  currentSlot = i;
+  const s = SLOTS[i];
+  railEl.querySelectorAll('.slot').forEach((el, j)=> el.setAttribute('aria-pressed', String(j===i)));
+  railGlyph.setTarget(effectiveParams(s));
+  railGlyph.setStructure(structureForAge());
+  document.getElementById('capTitle').textContent = s.name;
+  document.getElementById('capTypes').textContent = `${s.sub.split('·')[0].trim()} function · ${s.types}`;
+  document.getElementById('capText').textContent = s.text;
+  document.getElementById('stageNote').textContent = `rendering: ${s.name} preset` + (s.shadow ? ' · below the waterline' : '');
+  drawDial(effectiveDial(s), s.shadow);
+  highlightSeries(s.series);   // link to Zone D (doc §2.5)
+}
+
+SLOTS.forEach((s, i)=>{
+  if (i === 4){
+    const wl = document.createElement('div');
+    wl.className = 'waterline'; wl.textContent = 'the waterline · shadow register';
+    railEl.appendChild(wl);
+  }
+  const b = document.createElement('button');
+  b.className = 'slot' + (s.shadow ? ' shadow' : '');
+  b.setAttribute('aria-pressed', 'false');
+  b.innerHTML = `<span class="n">${i+1}</span><span>${s.name}<small>${s.types}</small></span>`;
+  b.addEventListener('click', ()=>selectSlot(i));
+  railEl.appendChild(b);
+});
+
+/* ---- fidelity dial (radar) ---- */
+const DIAL_AXES = ['Endurance','Precision','Speed','Control','Awareness'];
+const dialSvg = document.getElementById('dial');
+function dialPoint(i, v){
+  const cx = 140, cy = 100, R = 74;
+  const a = -Math.PI/2 + i * TAU/5;
+  return [cx + Math.cos(a)*R*v, cy + Math.sin(a)*R*v];
+}
+let dialShown = [0,0,0,0,0];
+function drawDial(vals, shadow){
+  dialSvg._target = vals; dialSvg._shadow = shadow;
+  if (REDUCED){ dialShown = vals.slice(); renderDial(); }
+}
+function renderDial(){
+  const col = dialSvg._shadow ? COL.sh : COL.ti;
+  let s = '';
+  // rings
+  for (const r of [0.33, 0.66, 1]){
+    const pts = DIAL_AXES.map((_,i)=>dialPoint(i, r).join(',')).join(' ');
+    s += `<polygon points="${pts}" fill="none" stroke="${COL.grid}" stroke-width="1"/>`;
+  }
+  // spokes + labels
+  DIAL_AXES.forEach((ax,i)=>{
+    const [x,y] = dialPoint(i, 1);
+    const [lx,ly] = dialPoint(i, 1.28);
+    s += `<line x1="140" y1="100" x2="${x}" y2="${y}" stroke="${COL.grid}" stroke-width="1"/>`;
+    s += `<text x="${lx}" y="${ly+3}" text-anchor="middle" class="axis-label">${ax}</text>`;
+  });
+  const pts = dialShown.map((v,i)=>dialPoint(i, Math.max(v, .04)).join(',')).join(' ');
+  s += `<polygon points="${pts}" fill="${hexA(col, .18)}" stroke="${col}" stroke-width="1.5" stroke-linejoin="round"/>`;
+  dialShown.forEach((v,i)=>{
+    const [x,y] = dialPoint(i, Math.max(v,.04));
+    s += `<circle cx="${x}" cy="${y}" r="2.6" fill="${col}"/>`;
+  });
+  dialSvg.innerHTML = `<title>Radar dial for the selected stack position</title>` + s;
+}
+if (!REDUCED){
+  (function dialLoop(){
+    const tg = dialSvg._target || SLOTS[0].dial;
+    let moving = false;
+    dialShown = dialShown.map((v,i)=>{
+      const nv = lerp(v, tg[i], 0.12);
+      if (Math.abs(nv - tg[i]) > 0.002) moving = true;
+      return nv;
+    });
+    renderDial();
+    requestAnimationFrame(dialLoop);
+  })();
+}
+
+/* ---- maturity slider ---- */
+const ageSlider = document.getElementById('ageSlider');
+ageSlider.addEventListener('input', ()=>{
+  age = +ageSlider.value;
+  document.getElementById('ageOut').textContent = `age ${age}`;
+  selectSlot(currentSlot);
+});
+
+/* ============================================================
+   ZONE C · FEEDER COUPLING  (doc §2.4)
+   feeder params: rate, branchy, speed, spread, persistence ∈ [0,1]
+   ============================================================ */
+const FEEDERS = [
+  {key:'ne', name:'Ne', color:COL.n, canonical:true, pair:'the INTP coupling',
+   cfg:{rate:.55, branchy:.85, speed:.35, spread:.95, persistence:.35},
+   text:'Breadth-first logic. Ne delivers forking, speculative input — the lattice grows broad and provisional, whole wings built and demolished cheaply. Frameworks for possibilities that don’t exist yet.'},
+  {key:'se', name:'Se', color:COL.s, canonical:true, pair:'the ISTP coupling',
+   cfg:{rate:.95, branchy:0, speed:1, spread:.15, persistence:.95},
+   text:'Tactical logic. Se delivers fast, dense, concrete input — the lattice grows narrow and load-bearing, tested against live physical data in real time. Troubleshooting the machine in front of you.'},
+  {key:'si', name:'Si', color:'#c07f10', canonical:false, pair:'the loop coupling (Ti–Si, INTP under stress)',
+   cfg:{rate:.4, branchy:0, speed:.3, spread:.2, persistence:1},
+   text:'Input drawn from the archive rather than the world: Ti re-proves old conclusions against old data. Rigorous, airless, and increasingly detached from anything new — the visual signature of a cognitive loop.'},
+  {key:'ni', name:'Ni', color:'#7148d8', canonical:false, pair:'a non-standard coupling',
+   cfg:{rate:.15, branchy:.15, speed:.2, spread:.5, persistence:.7},
+   text:'Speculative: a thin stream of pre-converged insight. Ti receives few inputs but heavy ones — and reorganizes wholesale around each arrival. No standard stack places Ni directly above Ti.'},
+  {key:'fe', name:'Fe', color:COL.f, canonical:false, unstable:true, pair:'judging feeding judging',
+   cfg:{rate:.12, branchy:0, speed:.3, spread:.4, persistence:.5},
+   text:'Two sorters, no gatherer. Fe hands Ti social verdicts rather than perceptions — the chamber idles hungry, with almost nothing arriving to test. This is why real stacks alternate perceiving and judging.'}
+];
+const feederGlyph = new TiGlyph(document.getElementById('feederCanvas'), {seed: 33, coreGlow:.85, interactive:false});
+feederGlyph.setTarget({scale:.8, fidelity:.9, latency:0, noise:0, duty:1, control:1});
+feederGlyph.start();
+// feeder emitter overlay: draw source glyph at left edge
+const _feederDraw = feederGlyph.draw.bind(feederGlyph);
+feederGlyph.draw = function(){
+  _feederDraw();
+  const f = this.feeder; if (!f) return;
+  const ctx = this.ctx, x = this.W*0.09, y = this.cy;
+  const g = ctx.createRadialGradient(x, y, 0, x, y, 46);
+  g.addColorStop(0, hexA(f.color, .5)); g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 46, 0, TAU); ctx.fill();
+  ctx.beginPath(); ctx.arc(x, y, 17, 0, TAU);
+  ctx.fillStyle = hexA(f.color, .9); ctx.fill();
+  ctx.fillStyle = '#0b0f18'; ctx.font = '600 12px system-ui,sans-serif';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(f.name, x, y+0.5);
+  // conduit
+  ctx.strokeStyle = hexA(f.color, .25); ctx.lineWidth = 8; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x+22, y); ctx.lineTo(this.cx - this.baseR*this.params.scale*1.15, y); ctx.stroke();
+};
+
+const chipsEl = document.getElementById('feederChips');
+let exoticShown = false;
+function renderChips(){
+  chipsEl.innerHTML = '';
+  FEEDERS.filter(f=>f.canonical || exoticShown).forEach(f=>{
+    const b = document.createElement('button');
+    b.className = 'chip';
+    b.style.color = '';
+    b.setAttribute('aria-pressed', String(feederGlyph.feeder && feederGlyph.feeder.key === f.key));
+    if (feederGlyph.feeder && feederGlyph.feeder.key === f.key) b.style.color = f.color;
+    b.innerHTML = `<span class="dot" style="background:${f.color}"></span>Ti ← ${f.name}`;
+    b.addEventListener('click', ()=>selectFeeder(f));
+    chipsEl.appendChild(b);
+  });
+  const t = document.createElement('button');
+  t.className = 'chip-toggle';
+  t.textContent = exoticShown ? 'hide exotic couplings' : 'show exotic couplings ▸';
+  t.addEventListener('click', ()=>{ exoticShown = !exoticShown; renderChips(); });
+  chipsEl.appendChild(t);
+}
+function selectFeeder(f){
+  feederGlyph.setFeeder({key:f.key, name:f.name, color:f.color, ...f.cfg});
+  feederGlyph.setTarget({scale:.8, fidelity: f.unstable ? .55 : .9, latency:0, noise: f.unstable ? .15 : 0, duty: f.unstable ? .55 : 1, control:1});
+  document.getElementById('feedTitle').textContent = `Ti ← ${f.name}`;
+  document.getElementById('feedPair').textContent = f.pair;
+  document.getElementById('feedText').textContent = f.text;
+  document.getElementById('feedWarn').classList.toggle('show', !!f.unstable);
+  renderChips();
+}
+selectFeeder(FEEDERS[0]);
+
+/* ============================================================
+   ZONE D · THE VERIFICATION LAB
+   Ti's lifecycle: verify observations against the encoded lattice
+   ============================================================ */
+const verifyGlyph = new TiGlyph(document.getElementById('verifyCanvas'), {seed: 55, coreGlow: .95});
+verifyGlyph.setTarget({scale:.85, fidelity:.92, latency:0, noise:0, duty:1, control:.7});
+verifyGlyph.setStructure({countMul:1.1, k:3, rigidity:.55});
+verifyGlyph.start();
+
+const narrEl = document.getElementById('verifyNarr');
+const vBtns = ['btnIso','btnLink','btnConflict'].map(id=>document.getElementById(id));
+const mStress = document.getElementById('mStress'), mPleasure = document.getElementById('mPleasure');
+const mStressVal = document.getElementById('mStressVal'), mPleasureVal = document.getElementById('mPleasureVal');
+let narrRun = 0;
+const narrate = t => { narrEl.textContent = t; };
+const schedule = (run, ms, fn) => setTimeout(()=>{ if (run === narrRun) fn(); }, ms);
+function updateMeters(){
+  const s = Math.round(verifyGlyph.stress*100), pl = Math.round(verifyGlyph.pleasure*100);
+  mStress.style.width = s + '%';   mStressVal.textContent = s + '%';
+  mPleasure.style.width = pl + '%'; mPleasureVal.textContent = pl + '%';
+}
+if (!REDUCED) (function mLoop(){ updateMeters(); requestAnimationFrame(mLoop); })();
+function ffwd(seconds){          // reduced-motion: advance to the next stable state, render once
+  if (!REDUCED) return;
+  const steps = Math.round(seconds*30);
+  for (let i=0;i<steps;i++) verifyGlyph.step(1/30);
+  verifyGlyph.draw();
+  updateMeters();
+}
+
+vBtns[0].addEventListener('click', ()=>{               // unrelated fact
+  narrRun++;
+  const isles = verifyGlyph.subs.filter(s=>s.kind==='iso').length;
+  if (isles >= 2){
+    narrate('Two islands already float unconnected — Ti tolerates loose facts, but it itches for a bridge. Try discovering a causal connection.');
+    return;
+  }
+  verifyGlyph.spawnSub('iso', {color: COL.s});
+  narrate('A new fact arrives — true, but unconnected. It parks beside the lattice as an isolated island, in its own color. No distress, no joy: not every observation must fit today.');
+  ffwd(4);
+});
+
+vBtns[1].addEventListener('click', ()=>{               // causal connection
+  narrRun++; const run = narrRun;
+  const go = ()=>{
+    if (run !== narrRun) return;
+    const r = verifyGlyph.subs.find(s=>s.kind==='iso' && s.state==='resident') || null;
+    verifyGlyph.spawnSub('link', {color: COL.n, linkTo: r});
+    narrate('An insight approaches: a small causal structure that claims the island and the lattice are the same fabric…');
+    ffwd(3);
+    schedule(run, 2800, ()=>{
+      narrate('The bridge proves out — pleasure spikes, stress eases — and the whole assembly folds into the main lattice and vanishes. Integrated: it is simply part of how the world works now.');
+      ffwd(3.2);
+    });
+  };
+  if (!verifyGlyph.subs.some(s=>s.kind==='iso')){
+    verifyGlyph.spawnSub('iso', {color: COL.s});
+    narrate('No island to connect yet — Se observes a fact first…');
+    ffwd(4);
+    if (REDUCED) go(); else schedule(run, 1900, go);
+  } else go();
+});
+
+vBtns[2].addEventListener('click', ()=>{               // rule violation
+  narrRun++; const run = narrRun;
+  vBtns.forEach(b=>b.disabled = true);
+  verifyGlyph.spawnSub('conflict', {color: COL.crit});
+  narrate('A rule just broke. Was it really broken? Stress floods the chamber while Ti re-observes —');
+  ffwd(2.2);
+  schedule(run, 2000, ()=>{
+    narrate('Re-observation confirms the exception. The lattice red-shifts and tears itself apart — everything connected to the broken rule must be rebuilt to accommodate it.');
+    ffwd(2.5);
+  });
+  schedule(run, 7200, ()=>{
+    narrate('…and settles. The exception is encoded, stress drains, the colour returns. The lattice is not the same one it was a minute ago — that is Ti doing its job.');
+    ffwd(6);
+    vBtns.forEach(b=>b.disabled = false);
+  });
+});
+
+/* ============================================================
+   ZONE E · ENERGY ECONOMICS  (doc §3.3)
+   ============================================================ */
+const tooltip = document.getElementById('tooltip');
+function showTip(html, x, y){
+  tooltip.innerHTML = html;
+  tooltip.style.display = 'block';
+  const w = tooltip.offsetWidth, h = tooltip.offsetHeight;
+  tooltip.style.left = Math.min(x + 14, innerWidth - w - 10) + 'px';
+  tooltip.style.top  = Math.max(10, y - h - 12) + 'px';
+}
+function hideTip(){ tooltip.style.display = 'none'; }
+
+/* ---- drain model ---- */
+function shadowDrain(t){
+  const base = 20 * Math.pow(t/60, 1.25);
+  let spikes = 0;
+  for (const [st, mag] of [[16,8],[41,12],[68,9],[97,9]]){
+    if (t >= st) spikes += mag * clamp((t - st)/2, 0, 1);   // sudden 2-minute lumps
+  }
+  const wiggle = t < 2 ? 0 : 1.6*Math.sin(t*0.9) + 1.2*Math.sin(t*2.3 + 1);
+  return clamp(base + spikes + wiggle, 0, 100);
+}
+const SERIES = [
+  {key:'dom',  label:'Dominant',  color:COL.pos[0],
+   f:t=> Math.max(0, 13*(t/60) - 2.2*Math.pow(Math.max(0, Math.sin(t/8.2)), 3))},
+  {key:'aux',  label:'Auxiliary', color:COL.pos[1], f:t=> 21*Math.pow(t/60, 1.08)},
+  {key:'tert', label:'Tertiary',  color:COL.pos[2], f:t=> 30*Math.pow(t/60, 1.4)},
+  {key:'inf',  label:'Inferior',  color:COL.pos[3], f:t=> Math.min(100, 82*Math.pow(t/60, 1.9))},
+  {key:'sh',   label:'Shadow',    color:COL.sh,     f:shadowDrain}
+];
+const GRIP_T = 60 * Math.pow(100/82, 1/1.9);   // where the inferior curve hits full depletion
+
+/* ---- chart 1 · cost per activation ---- */
+const COSTS = [
+  {label:'Dominant',  v:1.0, color:COL.pos[0], series:0},
+  {label:'Auxiliary', v:1.5, color:COL.pos[1], series:1},
+  {label:'Tertiary',  v:2.5, color:COL.pos[2], series:2},
+  {label:'Inferior',  v:4.0, color:COL.pos[3], series:3},
+  {label:'Shadow',    v:4.5, color:COL.sh, band:[3,6], series:4}
+];
+const costBars = [];
+(function buildCostChart(){
+  const W = 720, H = 240, ML = 40, MR = 96, MT = 18, MB = 30;
+  const pw = W - ML - MR, ph = H - MT - MB;
+  const ymax = 6.5;
+  const y = v => MT + ph - (v/ymax)*ph;
+  const bw = 24, slot = pw / COSTS.length;
+  let s = '';
+  for (const g of [0, 2, 4, 6]){
+    s += `<line x1="${ML}" y1="${y(g)}" x2="${W-MR}" y2="${y(g)}" stroke="${g===0?COL.axis:COL.grid}" stroke-width="1"/>`;
+    s += `<text x="${ML-8}" y="${y(g)+3.5}" text-anchor="end" class="tick-label">${g}</text>`;
+  }
+  s += `<text x="${ML-26}" y="${MT-6}" class="axis-label">energy units</text>`;
+  COSTS.forEach((c, i)=>{
+    const x = ML + slot*i + slot/2 - bw/2;
+    const base = y(0), top = y(c.v);
+    /* rounded data-end, square at the baseline (single path — no overlap artifacts) */
+    s += `<path class="cost-bar" data-i="${i}" fill="${c.color}" d="M${x} ${base} L${x} ${top+4}
+           Q${x} ${top} ${x+4} ${top} L${x+bw-4} ${top} Q${x+bw} ${top} ${x+bw} ${top+4} L${x+bw} ${base} Z"/>`;
+    s += `<text x="${x+bw/2}" y="${y(c.v)-8}" text-anchor="middle" class="direct-label">${c.v.toFixed(1)}×</text>`;
+    if (c.band){
+      const bx = x + bw + 10;
+      s += `<line x1="${bx}" y1="${y(c.band[0])}" x2="${bx}" y2="${y(c.band[1])}" stroke="${COL.muted}" stroke-width="1.5"/>`;
+      s += `<line x1="${bx-4}" y1="${y(c.band[0])}" x2="${bx+4}" y2="${y(c.band[0])}" stroke="${COL.muted}" stroke-width="1.5"/>`;
+      s += `<line x1="${bx-4}" y1="${y(c.band[1])}" x2="${bx+4}" y2="${y(c.band[1])}" stroke="${COL.muted}" stroke-width="1.5"/>`;
+      s += `<text x="${bx+9}" y="${y(4.5)-2}" class="axis-label">3–6×</text>`;
+      s += `<text x="${bx+9}" y="${y(4.5)+11}" class="axis-label">unpredictable</text>`;
+    }
+    s += `<text x="${x+bw/2}" y="${H-10}" text-anchor="middle" class="tick-label">${c.label}</text>`;
+    s += `<rect class="hit" data-i="${i}" x="${ML+slot*i}" y="${MT}" width="${slot}" height="${ph}" fill="transparent"/>`;
+  });
+  const svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bar chart: energy cost to invoke Ti once, by stack position" style="width:100%;height:auto">${s}</svg>`;
+  const host = document.getElementById('costChart');
+  host.innerHTML = svg;
+  host.querySelectorAll('.hit').forEach(r=>{
+    const i = +r.dataset.i, c = COSTS[i];
+    r.addEventListener('pointermove', e=>{
+      const pct = Math.round(c.v/10*100);
+      showTip(`<div class="t">${c.label} Ti</div>
+        <div class="row"><span class="k"><span class="sw" style="background:${c.color}"></span>one activation</span><b>${c.band?'3–6':c.v.toFixed(1)} u</b></div>
+        <div class="row"><span class="k">of a full charge</span><b>${c.band?'30–60':pct}%</b></div>`, e.clientX, e.clientY);
+    });
+    r.addEventListener('pointerleave', hideTip);
+  });
+  host.querySelectorAll('.cost-bar').forEach(b=> costBars.push(b));
+})();
+document.getElementById('costTable').innerHTML = `
+  <table><thead><tr><th>Position</th><th>Cost (units)</th><th>Share of a full charge</th></tr></thead><tbody>
+  ${COSTS.map(c=>`<tr><td>${c.label}</td><td>${c.band?'3–6 (erratic)':c.v.toFixed(1)}</td><td>${c.band?'30–60%':Math.round(c.v*10)+'%'}</td></tr>`).join('')}
+  </tbody></table>`;
+
+/* ---- chart 2 · sustained drain ---- */
+const D2 = {W:720, H:340, ML:42, MR:78, MT:16, MB:34, tmax:120, ymax:112};
+D2.pw = D2.W - D2.ML - D2.MR; D2.ph = D2.H - D2.MT - D2.MB;
+const dx = t => D2.ML + (t/D2.tmax)*D2.pw;
+const dy = v => D2.MT + D2.ph - (v/D2.ymax)*D2.ph;
+const drainLines = [];
+(function buildDrainChart(){
+  let s = '';
+  for (const g of [0, 25, 50, 75, 100]){
+    s += `<line x1="${D2.ML}" y1="${dy(g)}" x2="${D2.W-D2.MR}" y2="${dy(g)}" stroke="${g===0?COL.axis:COL.grid}" stroke-width="1"/>`;
+    s += `<text x="${D2.ML-8}" y="${dy(g)+3.5}" text-anchor="end" class="tick-label">${g}</text>`;
+  }
+  for (const t of [0, 30, 60, 90, 120]){
+    s += `<text x="${dx(t)}" y="${D2.H-12}" text-anchor="middle" class="tick-label">${t}</text>`;
+  }
+  s += `<text x="${D2.ML-28}" y="${D2.MT-2}" class="axis-label">% of full charge drained</text>`;
+  s += `<text x="${D2.W-D2.MR+18}" y="${D2.H-12}" text-anchor="start" class="axis-label">min</text>`;
+  // full-depletion ceiling
+  s += `<line x1="${D2.ML}" y1="${dy(100)}" x2="${D2.W-D2.MR}" y2="${dy(100)}" stroke="${COL.axis}" stroke-width="1"/>`;
+  s += `<text x="${D2.ML+4}" y="${dy(100)-5}" class="axis-label">full depletion</text>`;
+  // series paths
+  SERIES.forEach((sr, i)=>{
+    let d = '';
+    for (let t=0; t<=D2.tmax; t+=1){
+      d += (t===0?'M':'L') + dx(t).toFixed(1) + ' ' + dy(clamp(sr.f(t),0,105)).toFixed(1) + ' ';
+    }
+    s += `<path class="drain-line" data-i="${i}" d="${d}" fill="none" stroke="${sr.color}"
+          stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
+  });
+  // grip-risk marker on the inferior curve (status color + icon + label)
+  s += `<circle cx="${dx(GRIP_T)}" cy="${dy(100)}" r="4.5" fill="${COL.crit}" stroke="${COL.surface}" stroke-width="2"/>`;
+  s += `<text x="${dx(GRIP_T)}" y="${dy(100)-16}" text-anchor="middle" class="axis-label" fill="${COL.crit}">⚠ grip risk begins</text>`;
+  s += `<text x="${dx(GRIP_T)}" y="${dy(100)-28}" text-anchor="middle" class="tick-label">${Math.round(GRIP_T)} min of forced inferior Ti</text>`;
+  // direct end labels with simple collision nudge
+  const ends = SERIES.map((sr,i)=>({i, label:sr.label, color:sr.color, y:dy(clamp(sr.f(D2.tmax),0,105))}))
+    .sort((a,b)=>a.y-b.y);
+  for (let k=1;k<ends.length;k++) if (ends[k].y - ends[k-1].y < 14) ends[k].y = ends[k-1].y + 14;
+  for (const e of ends){
+    const trueY = dy(clamp(SERIES[e.i].f(D2.tmax),0,105));
+    if (Math.abs(e.y - trueY) > 5)
+      s += `<line x1="${D2.W-D2.MR+2}" y1="${trueY}" x2="${D2.W-D2.MR+12}" y2="${e.y}" stroke="${COL.muted}" stroke-width="1"/>`;
+    s += `<text x="${D2.W-D2.MR+15}" y="${e.y+3.5}" class="direct-label" data-i="${e.i}">${e.label}</text>`;
+  }
+  // playhead + hover crosshair + per-series scrub dots
+  s += `<line id="playhead" x1="${dx(120)}" y1="${D2.MT}" x2="${dx(120)}" y2="${D2.MT+D2.ph}" stroke="${hexA(COL.ink,.35)}" stroke-width="1"/>`;
+  SERIES.forEach((sr,i)=>{
+    s += `<circle class="scrub-dot" data-i="${i}" r="4" fill="${sr.color}" stroke="${COL.surface}" stroke-width="2"/>`;
+  });
+  s += `<line id="crosshair" y1="${D2.MT}" y2="${D2.MT+D2.ph}" stroke="${COL.axis}" stroke-width="1" style="display:none"/>`;
+  s += `<rect id="drainHit" x="${D2.ML}" y="${D2.MT}" width="${D2.pw}" height="${D2.ph}" fill="transparent"/>`;
+  document.getElementById('drainChart').innerHTML =
+    `<svg id="drainSvg" viewBox="0 0 ${D2.W} ${D2.H}" role="img"
+      aria-label="Line chart: cumulative energy drained over 120 minutes of continuous Ti use, one curve per stack position"
+      style="width:100%;height:auto">${s}</svg>`;
+  document.querySelectorAll('.drain-line').forEach(l=>drainLines.push(l));
+})();
+
+/* legend */
+const legendKeys = [];
+(function buildLegend(){
+  const host = document.getElementById('drainLegend');
+  SERIES.forEach((sr,i)=>{
+    const k = document.createElement('span');
+    k.className = 'key';
+    k.innerHTML = `<span class="sw" style="background:${sr.color}"></span>${sr.label}`;
+    host.appendChild(k); legendKeys.push(k);
+  });
+})();
+
+/* batteries */
+const batteryFills = [];
+(function buildBatteries(){
+  const host = document.getElementById('batteries');
+  SERIES.forEach(sr=>{
+    const d = document.createElement('div');
+    d.className = 'battery';
+    d.innerHTML = `<span>${sr.label}</span><div class="shell"><div class="fill" style="background:${sr.color};width:100%"></div></div>`;
+    host.appendChild(d);
+    batteryFills.push(d.querySelector('.fill'));
+  });
+})();
+
+/* scrubber wiring */
+const scrub = document.getElementById('scrub');
+const drainSvgEl = ()=>document.getElementById('drainSvg');
+function setScrub(t){
+  const svg = drainSvgEl();
+  svg.querySelector('#playhead').setAttribute('x1', dx(t));
+  svg.querySelector('#playhead').setAttribute('x2', dx(t));
+  svg.querySelectorAll('.scrub-dot').forEach(dot=>{
+    const sr = SERIES[+dot.dataset.i];
+    dot.setAttribute('cx', dx(t));
+    dot.setAttribute('cy', dy(clamp(sr.f(t),0,105)));
+  });
+  SERIES.forEach((sr,i)=>{
+    const remain = clamp(100 - sr.f(t), 0, 100);
+    batteryFills[i].style.width = remain.toFixed(0) + '%';
+  });
+  document.getElementById('scrubOut').textContent = `${t} min`;
+  document.getElementById('scrubLive').textContent =
+    `At ${t} minutes: ` + SERIES.map((sr,i)=>`${sr.label} ${clamp(100-sr.f(t),0,100).toFixed(0)}% charge left`).join(', ');
+}
+scrub.addEventListener('input', ()=>setScrub(+scrub.value));
+setScrub(120);
+
+/* crosshair + tooltip */
+(function drainHover(){
+  const svg = drainSvgEl();
+  const hit = svg.querySelector('#drainHit');
+  const ch = svg.querySelector('#crosshair');
+  hit.addEventListener('pointermove', e=>{
+    const r = svg.getBoundingClientRect();
+    const sx = D2.W / r.width;
+    const t = clamp(Math.round(((e.clientX - r.left)*sx - D2.ML) / D2.pw * D2.tmax), 0, D2.tmax);
+    ch.style.display = '';
+    ch.setAttribute('x1', dx(t)); ch.setAttribute('x2', dx(t));
+    showTip(`<div class="t">${t} min under load</div>` + SERIES.map(sr=>
+      `<div class="row"><span class="k"><span class="sw" style="background:${sr.color}"></span>${sr.label}</span><b>${clamp(sr.f(t),0,105).toFixed(0)}%</b></div>`
+    ).join(''), e.clientX, e.clientY);
+  });
+  hit.addEventListener('pointerleave', ()=>{ ch.style.display='none'; hideTip(); });
+})();
+
+/* drain table */
+(function drainTable(){
+  const ts = [0,15,30,45,60,75,90,105,120];
+  document.getElementById('drainTable').innerHTML = `
+    <table><thead><tr><th>Minutes</th>${SERIES.map(s=>`<th>${s.label}</th>`).join('')}</tr></thead><tbody>
+    ${ts.map(t=>`<tr><td>${t}</td>${SERIES.map(sr=>`<td>${clamp(sr.f(t),0,105).toFixed(0)}%</td>`).join('')}</tr>`).join('')}
+    </tbody></table>
+    <p style="font-size:11.5px;color:var(--muted);margin-top:8px">Values are % of a full charge drained by continuous use. The inferior curve reaches full depletion at ≈${Math.round(GRIP_T)} min — grip risk.</p>`;
+})();
+
+/* ---- chart 3 · recovery small multiples ---- */
+const RECOVERY = [
+  {label:'Dominant', color:COL.pos[0], note:'Refills in minutes — and partially during use (flow).',
+   f:t=> t<=30 ? 100 - SERIES[0].f(t) : lvl(0) + (100-lvl(0))*(1-Math.exp(-(t-30)/6))},
+  {label:'Auxiliary', color:COL.pos[1], note:'Quick, clean recovery.',
+   f:t=> t<=30 ? 100 - SERIES[1].f(t) : lvl(1) + (100-lvl(1))*(1-Math.exp(-(t-30)/10))},
+  {label:'Tertiary', color:COL.pos[2], note:'A slower refill; rest must be deliberate.',
+   f:t=> t<=30 ? 100 - SERIES[2].f(t) : lvl(2) + (100-lvl(2))*(1-Math.exp(-(t-30)/16))},
+  {label:'Inferior', color:COL.pos[3], note:'The hangover shelf: ~30 min where the whole system runs dim.',
+   f:t=> t<=30 ? 100 - SERIES[3].f(t) : (t<60 ? lvl(3) : lvl(3) + (100-lvl(3))*(1-Math.exp(-(t-60)/20)))},
+  {label:'Shadow', color:COL.sh, note:'Incomplete — some of the charge simply doesn’t come back today.',
+   f:t=> t<=30 ? 100 - SERIES[4].f(t) : lvl(4) + (93-lvl(4))*(1-Math.exp(-(t-30)/25))}
+];
+function lvl(i){ return 100 - SERIES[i].f(30); }
+(function buildRecovery(){
+  const host = document.getElementById('recCharts');
+  const W=210, H=120, ML=8, MR=8, MT=10, MB=18, tmax=90;
+  const rx = t => ML + (t/tmax)*(W-ML-MR);
+  const ry = v => MT + (H-MT-MB) - (v/100)*(H-MT-MB);
+  RECOVERY.forEach((rec,i)=>{
+    let s = `<rect x="${rx(0)}" y="${MT}" width="${rx(30)-rx(0)}" height="${H-MT-MB}" fill="${hexA(rec.color,.1)}"/>`;
+    s += `<line x1="${ML}" y1="${ry(0)}" x2="${W-MR}" y2="${ry(0)}" stroke="${COL.axis}" stroke-width="1"/>`;
+    s += `<line x1="${ML}" y1="${ry(100)}" x2="${W-MR}" y2="${ry(100)}" stroke="${COL.grid}" stroke-width="1"/>`;
+    let d = '';
+    for (let t=0;t<=tmax;t+=1) d += (t===0?'M':'L') + rx(t).toFixed(1) + ' ' + ry(clamp(rec.f(t),0,100)).toFixed(1) + ' ';
+    s += `<path d="${d}" fill="none" stroke="${rec.color}" stroke-width="2" stroke-linejoin="round"/>`;
+    s += `<text x="${rx(15)}" y="${H-5}" text-anchor="middle" class="tick-label">exertion</text>`;
+    s += `<text x="${rx(62)}" y="${H-5}" text-anchor="middle" class="tick-label">rest →</text>`;
+    const card = document.createElement('div');
+    card.className = 'small-multiple';
+    card.innerHTML = `<h4><span class="sw" style="background:${rec.color}"></span>${rec.label}</h4>
+      <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Recovery curve for ${rec.label} Ti" style="width:100%;height:auto">${s}</svg>
+      <p class="note">${rec.note}</p>`;
+    host.appendChild(card);
+  });
+})();
+(function recTable(){
+  const ts = [0,15,30,45,60,75,90];
+  document.getElementById('recTable').innerHTML = `
+    <table><thead><tr><th>Minutes</th>${RECOVERY.map(r=>`<th>${r.label}</th>`).join('')}</tr></thead><tbody>
+    ${ts.map(t=>`<tr><td>${t}</td>${RECOVERY.map(r=>`<td>${clamp(r.f(t),0,100).toFixed(0)}%</td>`).join('')}</tr>`).join('')}
+    </tbody></table>
+    <p style="font-size:11.5px;color:var(--muted);margin-top:8px">Battery level (%) through 30 minutes of exertion, then rest.</p>`;
+})();
+
+/* ---- table toggles ---- */
+document.querySelectorAll('.table-toggle').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const t = document.getElementById(b.dataset.table);
+    const open = t.classList.toggle('show');
+    b.setAttribute('aria-expanded', String(open));
+    b.textContent = open ? 'Hide table' : 'Data table';
+  });
+});
+
+/* ---- rail ↔ chart linkage (doc §2.5) ---- */
+function highlightSeries(idx){
+  drainLines.forEach(l=>{
+    const on = +l.dataset.i === idx;
+    l.setAttribute('stroke-width', on ? 3 : 2);
+    l.style.opacity = on ? 1 : 0.38;
+  });
+  document.querySelectorAll('#drainSvg .direct-label').forEach(t=>{
+    if (t.dataset.i !== undefined) t.style.opacity = (+t.dataset.i === idx) ? 1 : 0.45;
+  });
+  costBars.forEach(b=>{ b.style.opacity = (+b.dataset.i === idx) ? 1 : 0.4; });
+  legendKeys.forEach((k,i)=> k.classList.toggle('dim', i !== idx));
+}
+
+/* ---- init ---- */
+selectSlot(0);
+</script>
+</body>
+</html>
