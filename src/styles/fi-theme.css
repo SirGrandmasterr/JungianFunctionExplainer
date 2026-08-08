@@ -1,0 +1,10 @@
+/* Fi theme — rose accent */
+:root {
+  --c-accent: #f56a8c;
+  --c-accent-fg: #2b0712;
+  --slot-active-bg: #241019;
+  --pos-1: #f6a1b9;
+  --pos-2: #ec6d92;
+  --pos-3: #c94e72;
+  --pos-4: #9a3a57;
+}

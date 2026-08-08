@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ti — Introverted Thinking · CURRENTS</title>
+</head>
+<body>
+
+<header class="site"></header>
+
+<!-- ZONE A: HERO -->
+<section id="zone-a" aria-label="Introductory section">
+  <canvas id="glyphHero" aria-label="Interactive visual representation of Introverted Thinking as a crystalline lattice"></canvas>
+  <div class="hero-copy">
+    <span class="fn-tag">introverted thinking</span>
+    <h1>The Architecture of <span class="fn">Ti</span></h1>
+    <p>A crystalline lattice of coherence — testing every input against itself, forever refining.</p>
+  </div>
+  <div class="hero-hint">scroll to explore the watershed ↓</div>
+</section>
+
+<!-- ZONE B: STACK RAIL -->
+<section id="zone-b" class="zone" aria-labelledby="zb-head">
+  <p class="zone-kicker">Zone B · stack position</p>
+  <h2 id="zb-head">The Eight Faces of Ti</h2>
+  <p class="lede">Click any position to see how the lattice changes — from the effortless precision of a dominant to the corrosive static of the demon. Drag the maturity slider to watch the lower positions slowly gain fidelity with age.</p>
+
+  <div class="rail-layout">
+    <div class="rail" id="railSlots" role="tablist" aria-label="Stack positions for Ti"></div>
+
+    <div class="glyph-stage">
+      <canvas id="glyphRail" aria-label="Glyph stage showing the selected stack position"></canvas>
+      <div id="stageNote" class="stage-note">rendering: Dominant preset</div>
+    </div>
+
+    <div class="slot-caption">
+      <h3 id="capTitle">Dominant</h3>
+      <div id="capTypes" class="types">1st function · INTP · ISTP</div>
+      <p id="capText">Loading description…</p>
+
+      <div class="dial-wrap">
+        <h4>Fidelity Profile</h4>
+        <svg id="dial" viewBox="0 0 280 200" role="img" aria-label="Radar dial of performance parameters" style="width:100%;height:auto"></svg>
+      </div>
+
+      <div class="maturity">
+        <h4>Maturity & Development</h4>
+        <input type="range" id="ageSlider" min="7" max="60" value="28" aria-label="Age slider">
+        <div class="age-row">
+          <span>childhood (7)</span>
+          <span id="ageOut" style="color:var(--ink);font-weight:600">age 28</span>
+          <span>maturity (60)</span>
+        </div>
+        <p class="age-note">With age, lower stack positions gain fidelity, duty cycle, and structural complexity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE C: FEEDER COUPLING -->
+<section id="zone-c" class="zone" aria-labelledby="zc-head">
+  <p class="zone-kicker">Zone C · feeder coupling</p>
+  <h2 id="zc-head">What Feeds Into Ti?</h2>
+  <p class="lede">Every judging function needs a perceiving partner to deliver raw material. Click a feeder to watch how the lattice changes shape.</p>
+
+  <div class="feeder-chips" id="feederChips"></div>
+
+  <div class="feeder-layout">
+    <div class="feeder-stage">
+      <canvas id="feederCanvas" aria-label="Feeder coupling stage"></canvas>
+    </div>
+    <div class="feeder-caption">
+      <h3 id="feedTitle">Ti ← Ne</h3>
+      <div id="feedPair" class="pair">the INTP coupling</div>
+      <p id="feedText">Loading feeder narrative…</p>
+      <div id="feedWarn" class="unstable">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Unstable coupling: judging feeding judging without perception.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE D: VERIFICATION LAB -->
+<section id="zone-d" class="zone" aria-labelledby="zd-head">
+  <p class="zone-kicker">Zone D · verification lab</p>
+  <h2 id="zd-head">The Verification Lab</h2>
+  <p class="lede">Watch Ti process input in real time. Each button triggers a different lifecycle event inside the lattice.</p>
+
+  <div class="verify-layout">
+    <div class="verify-panel">
+      <button id="btnIso" class="spawn-btn">
+        <span class="dot" style="background:var(--c-s)"></span>
+        <span>Observe an unrelated fact<small>Se observes, Ti parks</small></span>
+      </button>
+      <button id="btnLink" class="spawn-btn">
+        <span class="dot" style="background:var(--c-n)"></span>
+        <span>Discover a causal connection<small>Ni suggests, Ti integrates</small></span>
+      </button>
+      <button id="btnConflict" class="spawn-btn">
+        <span class="dot" style="background:var(--crit)"></span>
+        <span>Witness a rule violation<small>the lattice must rebuild</small></span>
+      </button>
+
+      <div class="meters">
+        <div class="meter stress">
+          <label><span>System Stress</span><span id="mStressVal">12%</span></label>
+          <div class="track"><div id="mStress" class="fill" style="width:12%"></div></div>
+        </div>
+        <div class="meter pleasure">
+          <label><span>Coherence Pleasure</span><span id="mPleasureVal">20%</span></label>
+          <div class="track"><div id="mPleasure" class="fill" style="width:20%"></div></div>
+        </div>
+      </div>
+
+      <div id="verifyNarr" class="verify-narr">
+        Click a button above to send input into the chamber. Watch how Ti tests, integrates, or rebuilds around what arrives.
+      </div>
+    </div>
+
+    <div class="verify-stage">
+      <canvas id="verifyCanvas" aria-label="Verification laboratory simulation stage"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE E: ENERGY ECONOMICS -->
+<section id="zone-e" class="zone" aria-labelledby="ze-head">
+  <p class="zone-kicker">Zone E · energy economics</p>
+  <h2 id="ze-head">Energy Economics</h2>
+  <p class="lede">Every invocation of Ti costs energy. The lower it sits in the stack, the more expensive it becomes — and the faster the battery drains.</p>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Cost Per Activation</h3>
+      <span class="sub">energy units per invocation, by position</span>
+      <button class="table-toggle" data-table="costTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="costChart"></div>
+    <div id="costTable" class="data-table"></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Sustained Exertion Drain</h3>
+      <span class="sub">cumulative battery depletion over 120 minutes of continuous use</span>
+      <button class="table-toggle" data-table="drainTable" aria-expanded="false">Data table</button>
+    </div>
+
+    <div id="drainLegend" class="legend"></div>
+
+    <div class="drain-flex">
+      <div class="plot">
+        <div id="drainChart"></div>
+        <div class="scrub-row">
+          <label for="scrub">Scrub time:</label>
+          <input type="range" id="scrub" min="0" max="120" value="120" aria-label="Time scrubber in minutes">
+          <output id="scrubOut">120 min</output>
+        </div>
+        <div id="scrubLive" class="sr-only" aria-live="polite"></div>
+      </div>
+
+      <div class="batteries" id="batteries"></div>
+    </div>
+
+    <div id="drainTable" class="data-table"></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Recovery Profiles</h3>
+      <span class="sub">30 min exertion followed by rest (small multiples)</span>
+      <button class="table-toggle" data-table="recTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="recCharts" class="smalls"></div>
+    <div id="recTable" class="data-table"></div>
+  </div>
+</section>
+
+<!-- ZONE F: FIELD NOTES -->
+<section id="zone-f" class="zone" aria-labelledby="zf-head">
+  <p class="zone-kicker">Zone F · field notes</p>
+  <h2 id="zf-head">Field Notes</h2>
+  <p class="lede">Patterns from the wild — how Ti shows up in daily life.</p>
+
+  <div class="cards">
+    <div class="vignette">
+      <h4>The Silent Rewrite</h4>
+      <p>A dominant Ti user reads a new paper and says nothing for four days. Then they casually drop a conclusion that reorganizes everything — the lattice rebuilt itself silently.</p>
+    </div>
+    <div class="vignette">
+      <h4>The Loop</h4>
+      <p>Under stress, INTP Ti pairs with tertiary Si: re-proving old conclusions against old data. The lattice tightens without growing — rigorous, airless, increasingly detached from anything new.</p>
+    </div>
+    <div class="vignette">
+      <h4>The Inferior Eruption</h4>
+      <p>An ESFJ under stress suddenly becomes rigidly logical, arguing technicalities with an intensity that startles everyone — including themselves. Inferior Ti wakes up brittle and loud.</p>
+    </div>
+  </div>
+
+  <div class="mirror">
+    <div class="vs"><span class="ti">Ti</span> vs <span class="te">Te</span></div>
+    <p>Where <strong>Te</strong> asks <em>"does it work?"</em> and builds external structures, <strong>Ti</strong> asks <em>"is it true?"</em> and builds internal coherence. Te trades elegance for speed; Ti trades speed for truth.</p>
+  </div>
+</section>
+
+<div id="tooltip" class="viz-tooltip" role="tooltip"></div>
+
+<footer class="epistemic">
+  CURRENTS v1.0 · An interactive atlas of the eight cognitive functions · Built with Vanilla JS & WebGL2
+</footer>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>
