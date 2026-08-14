@@ -16,6 +16,13 @@ export function initFeederCoupling(cfg) {
   const chipsEl = document.getElementById('feederChips');
   let exoticShown = false;
 
+  /* Optional per-feeder caution text. A page that wants it wraps its default
+     banner copy in <span class="warn-text">; pages that don't keep the static
+     string they already ship with. */
+  const warnEl = document.getElementById('feedWarn');
+  const warnTextEl = warnEl && warnEl.querySelector('.warn-text');
+  const warnDefault = warnTextEl ? warnTextEl.textContent : '';
+
   /* ---- emitter overlay ---- */
   const _originalDraw = glyph.draw.bind(glyph);
   glyph.draw = function () {
@@ -93,7 +100,8 @@ export function initFeederCoupling(cfg) {
     document.getElementById('feedTitle').textContent = `${fnLabel} ← ${f.name}`;
     document.getElementById('feedPair').textContent = f.pair;
     document.getElementById('feedText').textContent = f.text;
-    document.getElementById('feedWarn').classList.toggle('show', !!f.unstable);
+    if (warnTextEl) warnTextEl.textContent = f.warn || warnDefault;
+    if (warnEl) warnEl.classList.toggle('show', !!(f.unstable || f.warn));
     renderChips();
   }
 

@@ -130,6 +130,20 @@ export function initStackRail(cfg) {
     railEl.appendChild(b);
   });
 
+  /* ---- keyboard: the rail is a tablist, so arrows step between slots ---- */
+  const ARROW = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
+  railEl.addEventListener('keydown', (e) => {
+    let next = null;
+    if (e.key in ARROW) next = (currentSlot + ARROW[e.key] + slots.length) % slots.length;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = slots.length - 1;
+    if (next === null) return;
+    e.preventDefault();
+    selectSlot(next);
+    const btns = railEl.querySelectorAll('.slot');
+    if (btns[next]) btns[next].focus();
+  });
+
   /* ---- maturity slider ---- */
   const ageSlider = document.getElementById('ageSlider');
   ageSlider.addEventListener('input', () => {

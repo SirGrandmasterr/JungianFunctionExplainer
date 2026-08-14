@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CURRENTS — An Interactive Atlas of the Eight Cognitive Functions</title>
+  <style>
+    .hero-landing {
+      max-width: 900px;
+      margin: 100px auto 40px;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .hero-landing h1 {
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-landing p {
+      font-size: 18px;
+      color: var(--ink-2);
+      max-width: 680px;
+      margin: 0 auto 40px;
+    }
+    .atlas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .card-fn {
+      background: var(--surface);
+      border: 1px solid var(--grid);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card-fn:hover {
+      border-color: var(--axis);
+      transform: translateY(-2px);
+    }
+    .card-fn.active {
+      border-color: var(--card-color);
+    }
+    .card-fn .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+    .card-fn h2 {
+      font-size: 22px;
+      font-weight: 650;
+      margin-bottom: 8px;
+    }
+    .card-fn p {
+      font-size: 13.5px;
+      color: var(--ink-2);
+      margin-bottom: 16px;
+    }
+    .card-fn .status {
+      font-size: 12px;
+      font-weight: 600;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/main-DdUE6z1A.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/header-CQ7pBJUX.js">
+  <link rel="stylesheet" crossorigin href="/assets/header-CbEzbQu9.css">
+</head>
+<body>
+
+<header class="site"></header>
+
+<div class="hero-landing">
+  <h1>CURRENTS</h1>
+  <p>An interactive atlas of the eight Jungian cognitive functions — processes brought to life through dynamic visual physics and energy economics.</p>
+</div>
+
+<div class="atlas-grid">
+  <!-- Ti -->
+  <a href="/ti/" class="card-fn active" style="--card-color: var(--c-t)">
+    <span class="badge" style="background: rgba(79, 201, 224, 0.15); color: var(--c-t)">Introverted Thinking</span>
+    <h2>Ti — The Lattice</h2>
+    <p>A crystalline structure of inner coherence, endlessly testing inputs and refining its framework.</p>
+    <span class="status" style="color: var(--c-t)">Explore Ti →</span>
+  </a>
+
+  <!-- Fi -->
+  <a href="/fi/" class="card-fn active" style="--card-color: var(--c-f)">
+    <span class="badge" style="background: rgba(245, 106, 140, 0.15); color: var(--c-f)">Introverted Feeling</span>
+    <h2>Fi — The Nebula</h2>
+    <p>A quiet nebula around a core tone, weighing experiences against an unargued inner compass.</p>
+    <span class="status" style="color: var(--c-f)">Explore Fi →</span>
+  </a>
+
+  <!-- Ne -->
+  <div class="card-fn" style="opacity: 0.6">
+    <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: var(--c-n)">Extraverted Intuition</span>
+    <h2>Ne — Divergence</h2>
+    <p>Explosive branching of possibilities, connecting disparate concepts in real time.</p>
+    <span class="status" style="color: var(--muted)">Phase 2</span>
+  </div>
+
+  <!-- Ni -->
+  <a href="/ni/" class="card-fn active" style="--card-color: var(--c-n)">
+    <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: var(--c-n)">Introverted Intuition</span>
+    <h2>Ni — The Convergence</h2>
+    <p>Many faint streams funnelled into one point, held quiet for a long while, then flaring into a single whole answer.</p>
+    <span class="status" style="color: var(--c-n)">Explore Ni →</span>
+  </a>
+
+  <!-- Se -->
+  <div class="card-fn" style="opacity: 0.6">
+    <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: var(--c-s)">Extraverted Sensing</span>
+    <h2>Se — Immediate Presence</h2>
+    <p>High-bandwidth engagement with the physical present in high resolution.</p>
+    <span class="status" style="color: var(--muted)">Phase 2</span>
+  </div>
+
+  <!-- Si -->
+  <div class="card-fn" style="opacity: 0.6">
+    <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: var(--c-s)">Introverted Sensing</span>
+    <h2>Si — Impressionistic Archive</h2>
+    <p>Detailed historical logging and bodily awareness, preserving past resonance.</p>
+    <span class="status" style="color: var(--muted)">Phase 2</span>
+  </div>
+
+  <!-- Te -->
+  <a href="/te/" class="card-fn active" style="--card-color: var(--c-t)">
+    <span class="badge" style="background: rgba(79, 201, 224, 0.15); color: var(--c-t)">Extraverted Thinking</span>
+    <h2>Te — The Scaffold</h2>
+    <p>Structure thrown up against the world, sorting what works from what doesn't and building toward the flag.</p>
+    <span class="status" style="color: var(--c-t)">Explore Te →</span>
+  </a>
+
+  <!-- Fe -->
+  <div class="card-fn" style="opacity: 0.6">
+    <span class="badge" style="background: rgba(245, 106, 140, 0.15); color: var(--c-f)">Extraverted Feeling</span>
+    <h2>Fe — Social Dynamics</h2>
+    <p>Harmonizing values across group dynamics and interpersonal fields.</p>
+    <span class="status" style="color: var(--muted)">Phase 2</span>
+  </div>
+</div>
+
+<footer class="epistemic">
+  CURRENTS v1.0 · An interactive atlas of the eight cognitive functions
+</footer>
+
+</body>
+</html>

@@ -14,7 +14,7 @@ const FUNCTIONS = [
 ];
 
 /* Set of function keys that have a live page */
-const LIVE = new Set(['ti', 'fi']);
+const LIVE = new Set(['ti', 'fi', 'te', 'ni']);
 
 /**
  * Render the CURRENTS header into the existing <header class="site"> element.
