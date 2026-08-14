@@ -11,11 +11,11 @@
 
 <!-- ZONE A: HERO -->
 <section id="zone-a" aria-label="Introductory section">
-  <canvas id="glyphHero" aria-label="Interactive visual representation of Introverted Intuition as an aperture: faint streams funnel inward, material circulates around a densifying core, and the core periodically flares into a single crystallized image"></canvas>
+  <canvas id="glyphHero" aria-label="Interactive visual representation of Introverted Intuition as a regression engine: scattered observations converge into one fitted trajectory with a confidence envelope, and a synthesized construct rides the line through time, morphing as it goes. Hover to steer the construct along the time axis"></canvas>
   <div class="hero-copy">
     <span class="fn-tag">introverted intuition</span>
     <h1>The Convergence of <span class="fn">Ni</span></h1>
-    <p>Dozens of faint streams funnelling inward for a long quiet while — and then one point that flares with an answer already whole.</p>
+    <p>A field of scattered observations, one trajectory fitted through them — and a single construct riding the line through time, already sure of where it bends.</p>
   </div>
   <div class="hero-hint">scroll to explore the watershed ↓</div>
 </section>
@@ -82,49 +82,68 @@
   </div>
 </section>
 
-<!-- ZONE D: PERCEPTION FIDELITY LAB -->
+<!-- ZONE D: THE REGRESSION ENGINE -->
 <section id="zone-d" class="zone" aria-labelledby="zd-head">
-  <p class="zone-kicker">Zone D · perception fidelity lab</p>
-  <h2 id="zd-head">The Perception Fidelity Lab</h2>
-  <p class="lede">Te verifies against results. Ni has nothing to verify against until the picture is finished — so this lab asks a different question: what happens when perception converges, and what happens when it converges on too little?</p>
+  <p class="zone-kicker">Zone D · the regression engine</p>
+  <h2 id="zd-head">The Regression Engine</h2>
+  <p class="lede">Ni fits one predictive trajectory through noisy, many-dimensional input, then rides it forward in time. This lab exposes the engine's live state — stress, pleasure, confidence, loss — and five ways a day can treat it. Trigger a scenario and watch the telemetry answer; hover the chamber at any time to steer the construct through time yourself.</p>
 
   <div class="verify-layout">
     <div class="verify-panel">
-      <button id="btnFragment" class="spawn-btn">
+      <button id="btnAha" class="spawn-btn">
         <span class="dot" style="background:var(--c-accent)"></span>
-        <span>Feed it a correlated fragment<small>faint on its own, and it means nothing yet</small></span>
+        <span>Aha! Synthesis<small>inject disparate data → synthesize paradigm</small></span>
       </button>
-      <button id="btnForce" class="spawn-btn">
-        <span class="dot" style="background:var(--warn)"></span>
-        <span>Force the picture now<small>converge on whatever is in there</small></span>
-      </button>
-      <button id="btnContradict" class="spawn-btn">
+      <button id="btnCassandra" class="spawn-btn">
         <span class="dot" style="background:var(--crit)"></span>
-        <span>Contradict the held image<small>one fact the picture cannot absorb</small></span>
+        <span>Cassandra Tragedy<small>forecast ignored → predicted failure occurs</small></span>
       </button>
-      <button id="btnLiteral" class="spawn-btn">
+      <button id="btnFlash" class="spawn-btn">
+        <span class="dot" style="background:var(--warn)"></span>
+        <span>Flash Tactical Interruption<small>"make the call now!"</small></span>
+      </button>
+      <button id="btnFocus" class="spawn-btn">
+        <span class="dot" style="background:#4fc9e0"></span>
+        <span>Deep Focus Simulation<small>enter a deep uninterrupted focus block</small></span>
+      </button>
+      <button id="btnOverfit" class="spawn-btn">
         <span class="dot" style="background:var(--c-s)"></span>
-        <span>Hand it the literal present<small>concrete, immediate, unmistakably here</small></span>
+        <span>Micromanagement Overfit<small>force granular spreadsheet formatting</small></span>
       </button>
 
-      <div class="meters">
+      <div class="telemetry">
+        <div class="cog-state">
+          <span class="lab">Cognitive state</span>
+          <span id="cogState" class="value">Optimal Equilibrium</span>
+        </div>
         <div class="meter stress">
-          <label><span>System Stress</span><span id="mStressVal">12%</span></label>
+          <label><span>Stress <i>S</i></span><span id="mStressVal">12%</span></label>
           <div class="track"><div id="mStress" class="fill" style="width:12%"></div></div>
         </div>
         <div class="meter pleasure">
-          <label><span>Convergence Pleasure</span><span id="mPleasureVal">20%</span></label>
+          <label><span>Pleasure <i>P</i></span><span id="mPleasureVal">20%</span></label>
           <div class="track"><div id="mPleasure" class="fill" style="width:20%"></div></div>
+        </div>
+        <div class="readouts">
+          <div class="ro">
+            <span class="k">Model loss</span>
+            <b id="tLoss">0.620</b>
+          </div>
+          <div class="ro">
+            <span class="k">Predictive confidence</span>
+            <b id="tConf">R² 0.30</b>
+            <div class="cells" id="tConfCells" aria-hidden="true"></div>
+          </div>
         </div>
       </div>
 
       <div id="verifyNarr" class="verify-narr">
-        The chamber runs on its own: streams enter, material circulates, the readout climbs. Nothing legible will happen for a while — that is the function, not a loading state. Feed it, force it, or contradict it.
+        The engine runs unattended: observations gather, a trajectory fits itself through them, and the construct rides the line from one end of time to the other, changing as it goes. Hover the chamber to take the tiller yourself — or perturb the engine below and watch the telemetry respond.
       </div>
     </div>
 
     <div class="verify-stage">
-      <canvas id="verifyCanvas" aria-label="Perception fidelity laboratory simulation stage"></canvas>
+      <canvas id="verifyCanvas" aria-label="The Ni regression engine: scattered observations, a fitted trajectory with a variance envelope, and a construct that can be steered back and forth along the time axis by hovering"></canvas>
     </div>
   </div>
 </section>

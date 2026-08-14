@@ -141,38 +141,53 @@ export function loadNiData() {
   ];
   function lvl(i) { return 100 - SERIES[i].f(30); }
 
-  /* ---- perception fidelity lab ----
-     Te's lab asks what happens when results come back. Ni has nothing to check
-     against until the picture is finished, so this one asks what happens when
-     perception converges — and when it converges on too little. */
-  const VERIFY = {
+  /* ---- the regression engine lab ----
+     Te's lab asks what happens when results come back. Ni is a predictive
+     instrument, so this one exposes the engine itself: five ways a day can
+     treat a long-range regression, each with a measured impact on the
+     stress/pleasure telemetry and its own choreography in the chamber. */
+  const LAB = {
     buttons: [
-      { id: 'btnFragment', label: 'Feed it a correlated fragment', sub: 'faint on its own, and it means nothing yet', color: COL.fn },
-      { id: 'btnForce', label: 'Force the picture now', sub: 'converge on whatever is in there', color: COL.warn },
-      { id: 'btnContradict', label: 'Contradict the held image', sub: 'one fact the picture cannot absorb', color: COL.crit },
-      { id: 'btnLiteral', label: 'Hand it the literal present', sub: 'concrete, immediate, unmistakably here', color: COL.s },
+      { id: 'btnAha', key: 'aha', label: 'Aha! Synthesis', sub: 'inject disparate data → synthesize paradigm', color: COL.fn,
+        impact: { stress: -0.50, pleasure: 0.90 }, followMs: 5600 },
+      { id: 'btnCassandra', key: 'cassandra', label: 'Cassandra Tragedy', sub: 'forecast ignored → predicted failure occurs', color: COL.crit,
+        impact: { stress: 0.85, pleasure: 0.30 }, followMs: 7000 },
+      { id: 'btnFlash', key: 'flash', label: 'Flash Tactical Interruption', sub: '"make the call now!"', color: COL.warn,
+        impact: { stress: 0.95, pleasure: -0.80 }, followMs: 6200 },
+      { id: 'btnFocus', key: 'focus', label: 'Deep Focus Simulation', sub: 'enter a deep uninterrupted focus block', color: '#4fc9e0',
+        impact: { stress: -0.80, pleasure: 0.75 }, followMs: 6200 },
+      { id: 'btnOverfit', key: 'overfit', label: 'Micromanagement Overfit', sub: 'force granular spreadsheet formatting', color: COL.s,
+        impact: { stress: 0.65, pleasure: -0.70 }, followMs: 6200 },
     ],
-    narrations: {
-      fragEarly: 'A fragment sinks in and starts to orbit. On its own it is not evidence of anything and carries no argument — the readout moves a little, and nothing legible has happened. Keep feeding it.',
-      fragMid: 'More material, still nothing to show for it. This is most of what Ni does: holding fragments in circulation, without a conclusion, for as long as it takes. From outside it is indistinguishable from doing nothing, which is a large part of why the function is hard to describe and easy to romanticise.',
-      fragLate: 'The streams are thickening and the core is getting dense. Still no answer — but the shape of one is close enough now that the chamber has stopped taking new material seriously and started closing on what it has.',
-      fragHeld: 'There is already an image in place, so the new material is being taken at a quarter rate — the chamber has what it came for and is not really looking any more. This is Ni\'s confirmation bias, and it is structural rather than moral: the aperture is busy. Contradict the image, or wait for it to release, and the readout starts moving properly again.',
-      fragFlare: '…and it lands. The core takes everything in orbit at once and the answer arrives whole — not assembled in front of you, not argued to, simply there and already certain. Now look at what happened to the fragments: they are gone. There is nothing left to show anybody. This is why Ni users say "I just know" and sound evasive when they mean it literally.',
-      force: 'Forced. The flare is exactly as bright, the image is exactly as hard-edged, and the pleasure meter reads the same as it did for the real one — check it. The only thing that differs is the arc it fired at: {pct}% of the material it needed. There is no signal from inside that this one is thinner. That is the whole problem with the function.',
-      forceAfter: 'The image is holding, and it is marked here only because this is a diagram. In a life it gets acted on: plans made, people re-read, a decision that will not be revisited. It will hold until something arrives that it cannot absorb.',
-      contradict: 'One fact the picture cannot hold. Watch what does not happen — it does not patch. The image comes apart, the orbiting material goes with it, and the readout drops to nothing…',
-      contradictEnd: '…and the long quiet starts again from zero. This is the real cost of Ni being wrong: not the error, but the fact that revision here is not editing, it is rebuilding from the beginning. It is also why somebody will defend an image well past the point where defending it is reasonable. The alternative is not a correction — it is another twelve minutes of nothing.',
-      contradictNone: 'There is no image to contradict yet. Feed it fragments until something converges, or force a flare — then bring the contradiction and watch what it costs.',
-      literal: 'Something concrete, immediate, and unambiguously here. It enters the aperture, crosses the entire chamber, and leaves without registering: no absorption, no orbit, no movement on the readout.',
-      literalEnd: 'Nothing was rejected. Nothing was noticed. The unregistered counter is the only trace it happened at all — the counterpart to Te throwing out a claim it cannot measure, and about as expensive. Present-tense facts arrive in a shape this chamber does not catch.',
+    /* cognitive state chips — thresholds live in the state engine; colors
+       and gloss live here with the rest of the content layer */
+    states: {
+      euphoric:    { label: 'Euphoric Flow',        color: '#17c964' },
+      equilibrium: { label: 'Optimal Equilibrium',  color: COL.fn },
+      cynical:     { label: 'Cynical Resignation',  color: COL.warn },
+      freeze:      { label: 'Overwhelm / Freeze',   color: COL.crit },
+      overfit:     { label: 'Overfitted Fatigue',   color: COL.sh },
     },
-    idle: 'The chamber runs on its own: streams enter, material circulates, the readout climbs. Nothing legible will happen for a while — that is the function, not a loading state. Feed it, force it, or contradict it.',
+    narrations: {
+      aha: 'Two dozen observations with no business belonging together — and for a moment they don\'t. Then the residuals collapse. One trajectory claims every outlier at once, the variance envelope pulls tight around it, and what was a cloud is suddenly a line with a direction. Note the order of events: the answer arrived, and then it was obvious.',
+      aha2: 'R² near unity, loss near zero, stress gone. This is the payment Ni works for — not praise, not results: compression. Twenty things became one thing, and the one thing predicts. The outliers that produced it are already indistinguishable from the line they joined.',
+      cassandra: 'The model saw this. The trajectory runs razor-sharp through the failure boundary — it has run through it for some time, and saying so out loud changed nothing. Watch the construct arrive at the crossing it named in advance.',
+      cassandra2: 'Failure, on schedule. The confidence readout never moved: the fit was precise the entire time, which is the specific cruelty of this scenario — being right early is indistinguishable, from outside, from being wrong right up until it stops being. The pleasure meter\'s small bitter lift is real, and it is not a nice feeling.',
+      flash: '"Make the call now." The trajectory shatters into high-frequency noise, the present tense barrages the viewport, and the one resource this engine actually runs on — simulation latency — is the one just revoked. It does not have a fast answer. It has a buffering answer, and the buffer has been ordered to stall.',
+      flash2: 'The barrage passes and the re-fit begins from a knocked-down R². Nothing was learned during the interruption; time under fire is not data, it is just time. What a deadline buys from Ni is not speed — it is whichever guess was lying around when the clock hit zero.',
+      focus: 'The door closes. The scatter fades — not solved, just no longer arriving — and the trajectory extends smoothly past now: one projected step, then another, then another, the envelope barely widening. This is the machine doing what it is priced for, at the depth it is priced for.',
+      focus2: 'Note what deep focus did not do: it added no data. Foresight got longer on the same observations, because uninterrupted simulation is how this engine converts held material into reach. The cheapest upgrade Ni ever gets is a closed door.',
+      overfit: 'Every cell formatted, every local wiggle honored. The trendline now passes through each noise point individually — R² on the training data is spectacular — and the extrapolation is garbage. Watch the horizon readout: zero steps forward. It has memorized the residuals and forgotten the direction.',
+      overfit2: 'This is what micromanagement costs a long-range instrument: generality. The construct still moves, but its makeup tracks trivia now, jittering to honor decimals. A model forced to account for every cell can no longer say where anything is going — precision about the present, purchased with the future.',
+      hover: 'You have the tiller. Left is earlier, right is later — and the construct\'s makeup at each point is what the model believes the concept looks like there. Notice it is the same object the whole way across: development, not replacement.',
+    },
+    idle: 'The engine runs unattended: observations gather, a trajectory fits itself through them, and the construct rides the line from one end of time to the other, changing as it goes. Hover the chamber to take the tiller yourself — or perturb the engine below and watch the telemetry respond.',
   };
 
   const HERO = {
     tag: 'introverted intuition',
     title: 'Introverted Intuition',
-    subtitle: 'Dozens of faint streams funnelling inward for a long quiet while — and then one point that flares with an answer already whole.',
+    subtitle: 'A field of scattered observations, one trajectory fitted through them — and a single construct riding the line through time, already sure of where it bends.',
   };
 
   const ZONE_B = {
@@ -186,9 +201,9 @@ export function loadNiData() {
     lede: 'Introverted judging is fed by extraverted perception — and extraverted judging by introverted perception. Ni is introverted perception, so its real partners are the extraverted judgers: Te and Fe. Click a feeder to watch what converges.',
   };
   const ZONE_D = {
-    kicker: 'Zone D · perception fidelity lab',
-    heading: 'The Perception Fidelity Lab',
-    lede: 'Te verifies against results. Ni has nothing to verify against until the picture is finished — so this lab asks a different question: what happens when perception converges, and what happens when it converges on too little?',
+    kicker: 'Zone D · the regression engine',
+    heading: 'The Regression Engine',
+    lede: 'Ni fits one predictive trajectory through noisy, many-dimensional input, then rides it forward in time. This lab exposes the engine\'s live state — stress, pleasure, confidence, loss — and five ways a day can treat it. Trigger a scenario and watch the telemetry answer; hover the chamber at any time to steer the construct through time yourself.',
   };
   const ZONE_E = {
     kicker: 'Zone E · energy economics',
@@ -207,5 +222,5 @@ export function loadNiData() {
     ],
   };
 
-  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, VERIFY, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
+  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
 }

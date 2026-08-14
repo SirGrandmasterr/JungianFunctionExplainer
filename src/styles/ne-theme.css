@@ -1,15 +1,15 @@
-/* Ni theme — intuition violet, condensed variant (introverted: deeper, denser) */
+/* Ne theme — intuition violet, radiant variant (extraverted: brighter, outward) */
 :root {
-  --c-accent: #8257f0;
-  --c-accent-fg: #150634;
-  --slot-active-bg: #191233;
-  --pos-1: #b98cff;
-  --pos-2: #9463f2;
-  --pos-3: #7040cc;
-  --pos-4: #4e2a94;
+  --c-accent: #9d6dff;
+  --c-accent-fg: #1c0a3d;
+  --slot-active-bg: #1a1133;
+  --pos-1: #cda9ff;
+  --pos-2: #a878fa;
+  --pos-3: #8551dd;
+  --pos-4: #6136ad;
 }
 
-/* ---------- Zone D · regression engine telemetry (Ni page only) ---------- */
+/* ---------- Zone D · divergence engine telemetry (Ne page only) ---------- */
 .telemetry { border-top: 1px solid var(--grid); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }
 .cog-state { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .cog-state .lab { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }

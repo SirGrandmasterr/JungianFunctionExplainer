@@ -4,20 +4,236 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ne — Extraverted Intuition · CURRENTS</title>
-  <script type="module">
-    import '../src/styles/base.css';
-    import { initHeader } from '../src/shared/header.js';
-    initHeader('ne');
-  </script>
 </head>
 <body>
+
 <header class="site"></header>
-<section class="zone" style="text-align: center; padding: 120px 24px;">
-  <span class="fn-tag" style="border-color: var(--c-n); color: var(--c-n)">Extraverted Intuition</span>
-  <h1 style="font-size: 42px; margin-bottom: 16px;">Ne — Divergence</h1>
-  <p class="lede" style="margin: 0 auto 32px;">This cognitive function page is planned for Phase 2 of CURRENTS.</p>
-  <a href="/ti/" class="cta">Explore Ti (Live) →</a>
-  <a href="/fi/" class="cta" style="margin-left: 12px;">Explore Fi (Live) →</a>
+
+<!-- ZONE A: HERO -->
+<section id="zone-a" aria-label="Introductory section">
+  <canvas id="glyphHero" aria-label="Interactive visual representation of Extraverted Intuition as a divergence engine: stimuli enter through an open ring and erupt into a branching tree of possibilities, with sparks escaping outward past the boundary. Sweep the cursor anywhere to grow new branches toward it"></canvas>
+  <div class="hero-copy">
+    <span class="fn-tag">extraverted intuition</span>
+    <h1>The Divergence of <span class="fn">Ne</span></h1>
+    <p>One stimulus, a tree of possibility erupting from it — every branch forking again before the last has finished growing, and the brightest sparks escaping the chamber entirely.</p>
+  </div>
+  <div class="hero-hint">scroll to explore the watershed ↓</div>
 </section>
+
+<!-- ZONE B: STACK RAIL -->
+<section id="zone-b" class="zone" aria-labelledby="zb-head">
+  <p class="zone-kicker">Zone B · stack position</p>
+  <h2 id="zb-head">The Eight Faces of Ne</h2>
+  <p class="lede">Click any position to see how the branching changes — from the effortless, omnidirectional bloom of a dominant to the demon's hostile what-ifs that fire only at what is loved. Watch the live-branch count: it tells the story before the caption does. Drag the maturity slider to watch the lower positions gain fidelity with age.</p>
+
+  <div class="rail-layout">
+    <div class="rail" id="railSlots" role="tablist" aria-label="Stack positions for Ne"></div>
+
+    <div class="glyph-stage">
+      <canvas id="glyphRail" aria-label="Glyph stage showing the selected stack position"></canvas>
+      <div id="stageNote" class="stage-note">rendering: Dominant preset</div>
+    </div>
+
+    <div class="slot-caption">
+      <h3 id="capTitle">Dominant</h3>
+      <div id="capTypes" class="types">1st function · ENTP · ENFP</div>
+      <p id="capText">Loading description…</p>
+
+      <div class="dial-wrap">
+        <h4>Fidelity Profile</h4>
+        <svg id="dial" viewBox="0 0 280 200" role="img" aria-label="Radar dial of performance parameters" style="width:100%;height:auto"></svg>
+      </div>
+
+      <div class="maturity">
+        <h4>Maturity &amp; Development</h4>
+        <input type="range" id="ageSlider" min="7" max="60" value="28" aria-label="Age slider">
+        <div class="age-row">
+          <span>childhood (7)</span>
+          <span id="ageOut" style="color:var(--ink);font-weight:600">age 28</span>
+          <span>maturity (60)</span>
+        </div>
+        <p class="age-note">With age, lower stack positions gain fidelity, duty cycle, and structural complexity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE C: FEEDER COUPLING -->
+<section id="zone-c" class="zone" aria-labelledby="zc-head">
+  <p class="zone-kicker">Zone C · feeder coupling</p>
+  <h2 id="zc-head">What Feeds Into Ne?</h2>
+  <p class="lede">Extraverted perception is fed by introverted judgment — and introverted perception by extraverted judgment. Ne is extraverted perception, so its real partners are the inner judges: Ti and Fi, the functions that decide which branches deserve to live. Click a feeder to watch what grows.</p>
+
+  <div class="feeder-chips" id="feederChips"></div>
+
+  <div class="feeder-layout">
+    <div class="feeder-stage">
+      <canvas id="feederCanvas" aria-label="Feeder coupling stage"></canvas>
+    </div>
+    <div class="feeder-caption">
+      <h3 id="feedTitle">Ne ← Ti</h3>
+      <div id="feedPair" class="pair">the ENTP · INTP coupling</div>
+      <p id="feedText">Loading feeder narrative…</p>
+      <div id="feedWarn" class="unstable">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span class="warn-text">Unstable coupling: perception feeding perception, with nothing judging either.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE D: THE DIVERGENCE ENGINE -->
+<section id="zone-d" class="zone" aria-labelledby="zd-head">
+  <p class="zone-kicker">Zone D · the divergence engine</p>
+  <h2 id="zd-head">The Divergence Engine</h2>
+  <p class="lede">Ne branches one stimulus into many possibilities, in public, at speed. This lab exposes the divergence engine's live state — stress, pleasure, breadth, open threads — and five ways a day can treat it. Trigger a scenario and watch the telemetry answer; sweep the chamber at any time to branch by hand.</p>
+
+  <div class="verify-layout">
+    <div class="verify-panel">
+      <button id="btnGraft" class="spawn-btn">
+        <span class="dot" style="background:var(--c-accent)"></span>
+        <span>Cross-Pollination<small>collide two foreign domains → hybrid idea</small></span>
+      </button>
+      <button id="btnPrune" class="spawn-btn">
+        <span class="dot" style="background:var(--crit)"></span>
+        <span>Forced Convergence<small>"pick one. now. in writing."</small></span>
+      </button>
+      <button id="btnScatter" class="spawn-btn">
+        <span class="dot" style="background:var(--warn)"></span>
+        <span>Another New Project<small>abandon the tree → plant a thrilling new one</small></span>
+      </button>
+      <button id="btnRiff" class="spawn-btn">
+        <span class="dot" style="background:#4fc9e0"></span>
+        <span>Riff Session<small>a live partner keeps saying "yes, and—"</small></span>
+      </button>
+      <button id="btnConfine" class="spawn-btn">
+        <span class="dot" style="background:var(--c-s)"></span>
+        <span>The Procedure<small>fully specified · zero degrees of freedom</small></span>
+      </button>
+
+      <div class="telemetry">
+        <div class="cog-state">
+          <span class="lab">Cognitive state</span>
+          <span id="cogState" class="value">Open Equilibrium</span>
+        </div>
+        <div class="meter stress">
+          <label><span>Stress <i>S</i></span><span id="mStressVal">12%</span></label>
+          <div class="track"><div id="mStress" class="fill" style="width:12%"></div></div>
+        </div>
+        <div class="meter pleasure">
+          <label><span>Pleasure <i>P</i></span><span id="mPleasureVal">26%</span></label>
+          <div class="track"><div id="mPleasure" class="fill" style="width:26%"></div></div>
+        </div>
+        <div class="readouts">
+          <div class="ro">
+            <span class="k">Open threads</span>
+            <b id="tThreads">0</b>
+          </div>
+          <div class="ro">
+            <span class="k">Breadth</span>
+            <b id="tBreadth">B 0.35</b>
+            <div class="cells" id="tBreadthCells" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="verifyNarr" class="verify-narr">
+        The engine runs unattended: stimuli drift in through the gap, every arrival forks into branches, and branches fork again before the first ones have finished growing. Sweep your cursor across the chamber to branch by hand — or run a scenario below and watch the telemetry answer.
+      </div>
+    </div>
+
+    <div class="verify-stage">
+      <canvas id="verifyCanvas" aria-label="The Ne divergence engine: stimuli enter an open aperture and branch into a living tree of possibilities; scenarios cross-pollinate, prune, scatter, riff with, or confine it. Sweep the cursor to grow branches by hand"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE E: ENERGY ECONOMICS -->
+<section id="zone-e" class="zone" aria-labelledby="ze-head">
+  <p class="zone-kicker">Zone E · energy economics</p>
+  <h2 id="ze-head">Energy Economics</h2>
+  <p class="lede">Every invocation of Ne costs energy. The lower it sits in the stack, the more expensive it becomes. Note the small notches in the dominant curve: a fresh branch that takes pays a little back — smaller and more frequent than Ni's rare deep insights. Note also which way the grip runs here — a collapsed Ne-dominant does not get more Ne, it floods into inferior Si.</p>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Cost Per Activation</h3>
+      <span class="sub">energy units per invocation, by position</span>
+      <button class="table-toggle" data-table="costTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="costChart"></div>
+    <div id="costTable" class="data-table"></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Sustained Exertion Drain</h3>
+      <span class="sub">cumulative battery depletion over 120 minutes of continuous use</span>
+      <button class="table-toggle" data-table="drainTable" aria-expanded="false">Data table</button>
+    </div>
+
+    <div id="drainLegend" class="legend"></div>
+
+    <div class="drain-flex">
+      <div class="plot">
+        <div id="drainChart"></div>
+        <div class="scrub-row">
+          <label for="scrub">Scrub time:</label>
+          <input type="range" id="scrub" min="0" max="120" value="120" aria-label="Time scrubber in minutes">
+          <output id="scrubOut">120 min</output>
+        </div>
+        <div id="scrubLive" class="sr-only" aria-live="polite"></div>
+      </div>
+
+      <div class="batteries" id="batteries"></div>
+    </div>
+
+    <div id="drainTable" class="data-table"></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Recovery Profiles</h3>
+      <span class="sub">30 min exertion followed by rest (small multiples)</span>
+      <button class="table-toggle" data-table="recTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="recCharts" class="smalls"></div>
+    <div id="recTable" class="data-table"></div>
+  </div>
+</section>
+
+<!-- ZONE F: FIELD NOTES -->
+<section id="zone-f" class="zone" aria-labelledby="zf-head">
+  <p class="zone-kicker">Zone F · field notes</p>
+  <h2 id="zf-head">Field Notes</h2>
+  <p class="lede">Patterns from the wild — how Ne shows up in daily life.</p>
+
+  <div class="cards">
+    <div class="vignette">
+      <h4>The Whiteboard</h4>
+      <p>Ten minutes into the meeting the board holds eleven directions, four of them good, and the Ne-dominant who produced them is delighted with all eleven. Asked to pick one, their energy visibly halves — generating options and closing them are different operations, and only one of them is this function's job.</p>
+    </div>
+    <div class="vignette">
+      <h4>The Loop</h4>
+      <p>Under stress, ENFP Ne pairs with tertiary Te: both extraverted, both outward, with Fi's quiet question — does this actually matter to me? — cut out between them. The idea becomes a project with a name and a logo inside an hour, ships half-grown, and joins the shelf by week three, because the function that would have vetoed it was never consulted.</p>
+    </div>
+    <div class="vignette">
+      <h4>The Grip</h4>
+      <p>An ENTP past the end of their reserves stops generating and floods into inferior Si — suddenly cataloguing old mistakes in forensic detail, auditing every bodily signal, eating the same comfort food in front of a show they have seen nine times. Not a personality change: a low-capacity chamber taking a dominant-sized flood.</p>
+    </div>
+  </div>
+
+  <div class="mirror">
+    <div class="vs"><span class="ti" style="color:var(--c-accent)">Ne</span> vs <span class="te" style="color:#8257f0">Ni</span></div>
+    <p>Same element, opposite attitude — the funnel reversed. <strong>Ne</strong> takes one input and fans it outward into many futures, all live at once, all cheap to hold, none of them chosen — range purchased with commitment. <strong>Ni</strong> runs the same violet the other way: many inputs funneled into one future that arrives whole, certain, and unable to show its work. One engine bets on breadth and pays in open threads; the other bets on depth and pays in revision. <a href="/ni/">Visit the other end of the funnel →</a></p>
+  </div>
+</section>
+
+<div id="tooltip" class="viz-tooltip" role="tooltip"></div>
+
+<footer class="epistemic">
+  CURRENTS v1.0 · An interactive atlas of the eight cognitive functions · Built with Vanilla JS &amp; WebGL2
+</footer>
+
+<script type="module" src="./main.js"></script>
 </body>
 </html>
