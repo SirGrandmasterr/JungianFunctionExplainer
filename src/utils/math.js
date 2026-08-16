@@ -71,6 +71,29 @@ export function rgbHex(c) {
   return '#' + h(c.r) + h(c.g) + h(c.b);
 }
 
+/** h,s,v in 0..1 → {r,g,b} in 0..1 */
+export function hsv(h, s, v) {
+  h = h - Math.floor(h);
+  const i = Math.floor(h * 6), f = h * 6 - i;
+  const p = v * (1 - s), q = v * (1 - f * s), t = v * (1 - (1 - f) * s);
+  switch (i % 6) {
+    case 0: return { r: v, g: t, b: p };
+    case 1: return { r: q, g: v, b: p };
+    case 2: return { r: p, g: v, b: t };
+    case 3: return { r: p, g: q, b: v };
+    case 4: return { r: t, g: p, b: v };
+    default: return { r: v, g: p, b: q };
+  }
+}
+
+/** {r,g,b} in 0..1 → hue in 0..1 (0 when achromatic) */
+export function rgbHue(r, g, b) {
+  const mx = Math.max(r, g, b), d = mx - Math.min(r, g, b);
+  if (d < 1e-6) return 0;
+  const h = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4;
+  return (h / 6) - Math.floor(h / 6);
+}
+
 export function varyColor(hex, rnd) {
   const c = hexRGB(hex);
   const t = (rnd() - 0.5) * 0.4;

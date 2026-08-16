@@ -11,7 +11,7 @@ import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
 import { initEnergyCharts } from '../src/shared/energy-charts.js';
 import { FiGlyph } from '../src/engines/fi-glyph.js';
-import { MistGPU } from '../src/engines/fi-mist-gpu.js';
+import { FluidGPU as Fluid } from '../src/engines/fi-fluid.js';
 import { loadFiData } from '../src/data/fi-data.js';
 
 // 1. Load header & data
@@ -19,12 +19,16 @@ initHeader('fi');
 const data = loadFiData();
 const { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY } = data;
 
+/* dev handle: lets tooling and the console drive the engines directly */
+const FI = (window.__FI = { glyphs: {} });
+
 // 2. Zone A: Hero Glyph
 const heroCanvas = document.getElementById('glyphHero');
 if (heroCanvas) {
-  const hero = new FiGlyph(heroCanvas, { seed: 7, coreGlow: 1, mistCount: 90000, MistGPU, COL });
+  const hero = new FiGlyph(heroCanvas, { seed: 7, coreGlow: 1, Fluid, COL, fluid: { dyeRes: 512 } });
   hero.setTarget({ scale: 1, fidelity: 0.95, latency: 0, noise: 0, duty: 1, control: 1 });
   hero.start();
+  FI.glyphs.hero = hero;
 }
 
 // 3. Zone E: Energy Economics
@@ -40,9 +44,10 @@ const energy = initEnergyCharts({
 // 4. Zone B: Stack Position Rail
 const railCanvas = document.getElementById('glyphRail');
 if (railCanvas) {
-  const railGlyph = new FiGlyph(railCanvas, { seed: 21, coreGlow: 0.9, MistGPU, COL });
+  const railGlyph = new FiGlyph(railCanvas, { seed: 21, coreGlow: 0.9, Fluid, COL });
   railGlyph.bombard = true;
   railGlyph.start();
+  FI.glyphs.rail = railGlyph;
 
   initStackRail({
     slots: SLOTS,
@@ -54,9 +59,10 @@ if (railCanvas) {
 // 5. Zone C: Feeder Coupling
 const feederCanvas = document.getElementById('feederCanvas');
 if (feederCanvas) {
-  const feederGlyph = new FiGlyph(feederCanvas, { seed: 33, coreGlow: 0.85, interactive: false, MistGPU, COL });
+  const feederGlyph = new FiGlyph(feederCanvas, { seed: 33, coreGlow: 0.85, interactive: false, Fluid, COL });
   feederGlyph.setTarget({ scale: 0.8, fidelity: 0.9, latency: 0, noise: 0, duty: 1, control: 1 });
   feederGlyph.start();
+  FI.glyphs.feeder = feederGlyph;
 
   initFeederCoupling({
     feeders: FEEDERS,
@@ -68,10 +74,11 @@ if (feederCanvas) {
 // 6. Zone D: Verification Lab
 const verifyCanvas = document.getElementById('verifyCanvas');
 if (verifyCanvas) {
-  const verifyGlyph = new FiGlyph(verifyCanvas, { seed: 55, coreGlow: 0.95, mistCount: 60000, MistGPU, COL });
+  const verifyGlyph = new FiGlyph(verifyCanvas, { seed: 55, coreGlow: 0.95, Fluid, COL });
   verifyGlyph.setTarget({ scale: 0.85, fidelity: 0.92, latency: 0, noise: 0, duty: 1, control: 0.7 });
   verifyGlyph.setStructure({ countMul: 1.1, k: 3, rigidity: 0.55 });
   verifyGlyph.start();
+  FI.glyphs.verify = verifyGlyph;
 
   const narrEl = document.getElementById('verifyNarr');
   const vBtns = ['btnAuthGood', 'btnAuthBad', 'btnFakeGood', 'btnFakeBad'].map(id => document.getElementById(id));

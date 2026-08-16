@@ -532,7 +532,7 @@ Every scenario is a mutation of `{ω, A, a, δ, presence, K, Kc}`. No scenario t
 
 **Canvas 2D path** (matches every existing engine; the safe default): render the interference field to a **half-resolution offscreen buffer**, one `createRadialGradient` per node stroked additively with `globalCompositeOperation = 'lighter'`, then upscale with `imageSmoothingEnabled = true`. At 7 nodes and half-res this holds the §6.1 budget of ≤2 ms/frame.
 
-**WebGL2 path** (justified by the same argument that earned `fi-mist-gpu.js` its shader — true wave interference is a per-pixel summation and degrades badly when faked):
+**WebGL2 path** (justified by the same argument that earned `fi-fluid.js` its shader — true wave interference is a per-pixel summation and degrades badly when faked):
 
 ```glsl
 uniform vec2  uNode[12];      uniform float uPhase[12];
@@ -575,7 +575,7 @@ void main() {
 }
 ```
 
-Ship the Canvas 2D path first; the shader is a swap behind the same `FeGlyph` façade, exactly as `fi-mist-gpu.js` sits behind `fi-glyph.js`.
+Ship the Canvas 2D path first; the shader is a swap behind the same `FeGlyph` façade, exactly as `fi-fluid.js` sits behind `fi-glyph.js`.
 
 ## 6.6 Reduced motion (§3.5 — non-negotiable)
 

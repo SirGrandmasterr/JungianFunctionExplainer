@@ -5,8 +5,15 @@
    diffuses in and twirls the mist; what rings false either
    glides off unabsorbed or tears straight through, dragging a
    vacuum and bleeding mist through the wound.
+
+   The mist itself is a fluid: pass `Fluid` (src/engines/fi-fluid.js)
+   and the nebula becomes a real Navier–Stokes dye field on a
+   sibling canvas behind this one — this layer then draws only the
+   core, the lattice, the arrivals and the rim. Without it, the CPU
+   blob mist below renders instead, and every event has a path in
+   both dialects.
    ============================================================ */
-import { TAU, lerp, clamp, mulberry32, hexA, hexRGB, mixRGB, rgbA, rgbHex, varyColor } from '../utils/math.js';
+import { TAU, lerp, clamp, mulberry32, hexA, hexRGB, mixRGB, rgbA, rgbHex, varyColor, hsv } from '../utils/math.js';
 import { REDUCED, CSSVAR } from '../utils/dom.js';
 
 const VERDICT = { good: '#0ca30c', bad: '#d03b3b' };
@@ -63,15 +70,23 @@ export class FiGlyph {
       });
       canvas.addEventListener('pointerleave', () => { this.pointer.hist = []; });
     }
-    this._splats = [];
-    if (opts.MistGPU) {
-      const mc = document.createElement('canvas');
-      mc.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
+    if (opts.Fluid) {
+      const fc = document.createElement('canvas');
+      fc.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;';
       if (getComputedStyle(this.cv).position === 'static') this.cv.style.position = 'relative';
       this.cv.style.zIndex = '1';
-      this.cv.parentElement.insertBefore(mc, this.cv);
-      const g = new opts.MistGPU(mc, { count: this.opts.mistCount || 50000, baseColor: this.COL.fn, seed: this.opts.seed, initR: this.baseR || 200 });
-      if (g.ok) { this.gpu = g; g.resize(); } else mc.remove();
+      this.cv.parentElement.insertBefore(fc, this.cv);
+      /* Only the hero is big enough to show the fine grid. Every other
+         chamber on the page gets the coarse profile — per-chamber cost
+         is dominated by pass count, so this is where the saving is. */
+      const small = Math.min(this.W || 0, this.H || 0) < 480;
+      const g = new opts.Fluid(fc, Object.assign({
+        baseColor: this.COL.fn, seed: this.opts.seed,
+        simRes: small ? 96 : 128,
+        dyeRes: small ? 256 : 384,
+        pressureIterations: small ? 9 : 12,
+      }, this.opts.fluid));
+      if (g.ok) this.gpu = g; else fc.remove();
     }
     this.buildLattice();
     this.buildMist();
@@ -115,6 +130,8 @@ export class FiGlyph {
     }
   }
   buildMist() {
+    /* the fluid is the mist — no proxy blobs to step or draw */
+    if (this.gpu) { this.mist = []; return; }
     const count = Math.round(120 * (0.8 + 0.35 * this.structure.countMul));
     const rng = mulberry32(this.opts.seed + 500 + this.latticeSeed);
     const R = this.baseR * this.params.scale;
@@ -132,9 +149,24 @@ export class FiGlyph {
       });
     }
   }
+  /** Event dye, taken to full chroma: what the chamber absorbs has to
+      read as vividly as what it emits, or the fluid swallows it. */
+  _dye(rgb, k = 0.5) {
+    const m = Math.max(rgb.r, rgb.g, rgb.b, 1) / 255;
+    return { r: rgb.r / 255 / m * k, g: rgb.g / 255 / m * k, b: rgb.b / 255 / m * k };
+  }
+  /** A saturated random colour on a given hue band — the vivid accents. */
+  _vivid(hue, k = 0.5, spread = 0.12) {
+    const c = hsv(hue + (this.rng() - 0.5) * spread, 0.72 + this.rng() * 0.28, 1);
+    return { r: c.r * k, g: c.g * k, b: c.b * k };
+  }
   addMistBlob(x, y, colRGB, opts = {}) {
     const R = this.baseR * this.params.scale;
-    if (this.gpu) this._splats.push({ x, y, r: 42, s: 0.5, col: [colRGB.r / 255, colRGB.g / 255, colRGB.b / 255] });
+    if (this.gpu) {
+      this.gpu.splat(x, y, opts.vx || 0, opts.vy || 0,
+        this._dye(colRGB, opts.dye ?? 0.42), opts.size ? opts.size * 2.4 : R * 0.15);
+      return;
+    }
     this.mist.push(Object.assign({
       x, y, vx: 0, vy: 0,
       homeR: clamp(Math.hypot(x, y) / Math.max(R, 1), 0.12, 1.02),
@@ -144,6 +176,16 @@ export class FiGlyph {
     }, opts));
   }
   bleed(x, y, dirX, dirY, n) {
+    if (this.gpu) {
+      /* a jet out of the wound: hot dye thrown along the exit vector */
+      for (let i = 0; i < n; i++) {
+        const sp = 210 + this.rng() * 460, j = (this.rng() - 0.5) * 1.0;
+        const c = Math.cos(j), s = Math.sin(j);
+        this.gpu.splat(x, y, (dirX * c - dirY * s) * sp, (dirX * s + dirY * c) * sp,
+          this._vivid(0.99, 0.5, 0.14), 18 + this.rng() * 22);
+      }
+      return;
+    }
     for (let i = 0; i < n; i++) {
       const sp = 55 + this.rng() * 70, j = (this.rng() - 0.5) * 0.9;
       const c = Math.cos(j), s = Math.sin(j);
@@ -198,7 +240,19 @@ export class FiGlyph {
       this.addMistBlob(pt.x - this.cx, pt.y - this.cy, sub.colRGB, opts.heavy ? { vx: -(pt.x - this.cx) * 0.25, vy: -(pt.y - this.cy) * 0.25 } : {});
       if (this.rng() < 0.8) this.glows.push({ x: pt.x - this.cx + (this.rng() - 0.5) * 20, y: pt.y - this.cy + (this.rng() - 0.5) * 20, size: 14 + this.rng() * 18, grow: 26, alpha: 0.3, col: sub.colRGB });
     }
-    if (this.gpu) this._splats.push({ x: sub.x, y: sub.y, r: 95, s: 0.6, col: [sub.colRGB.r / 255, sub.colRGB.g / 255, sub.colRGB.b / 255] });
+    if (this.gpu) {
+      /* the experience diffusing in: a bloom of its own colour, drawn
+         toward the core — heavy (grief) goes slower and stains deeper */
+      const R = this.baseR * this.params.scale;
+      const dye = this._dye(sub.colRGB, opts.heavy ? 0.85 : 0.6);
+      const pull = opts.heavy ? -0.55 : -1.15;
+      this.gpu.splat(sub.x, sub.y, sub.x * pull, sub.y * pull, dye, R * 0.34);
+      for (let i = 0; i < 4; i++) {
+        const a = this.rng() * TAU, rr = R * (0.1 + 0.28 * this.rng());
+        const x = sub.x + Math.cos(a) * rr * 0.5, y = sub.y + Math.sin(a) * rr * 0.5;
+        this.gpu.splat(x, y, -x * pull * 0.6, -y * pull * 0.6, dye, R * 0.14);
+      }
+    }
     this.vortices.push({ x: sub.x, y: sub.y, s: (this.rng() < 0.5 ? -1 : 1) * (opts.heavy ? 60 : 130), life: 1 });
   }
   spawnParticle(seedRandomPhase = false) {
@@ -216,7 +270,10 @@ export class FiGlyph {
       const inward = 0.25 + rng() * 0.3;
       vx = -Math.cos(a) * inward + (rng() - 0.5) * 0.2;
       vy = -Math.sin(a) * inward + (rng() - 0.5) * 0.2;
-      col = rgbHex(mixRGB(this.base, { r: 255, g: 245, b: 250 }, rng() * 0.25)); sz = 1.5 + rng();
+      /* ambient arrivals ride the chamber's current hue */
+      if (this.gpu) { const c = hsv(this.gpu.hue + (rng() - 0.5) * 0.3, 0.45 + rng() * 0.45, 1); col = rgbHex({ r: c.r * 255, g: c.g * 255, b: c.b * 255 }); }
+      else col = rgbHex(mixRGB(this.base, { r: 255, g: 245, b: 250 }, rng() * 0.25));
+      sz = 1.5 + rng();
     }
     this.particles.push({ x, y, vx, vy, col, sz, branchy, age: seedRandomPhase ? rng() * 6 : 0, state: 'drift', tw: rng() * TAU });
   }
@@ -390,17 +447,21 @@ export class FiGlyph {
       const bullets = [], pushes = [];
       for (const sub of this.subs) {
         if (sub.state === 'piercing' && bullets.length < 2) { const sp2 = Math.hypot(sub.vx, sub.vy) || 1; bullets.push({ x: sub.x, y: sub.y, dx: sub.vx / sp2, dy: sub.vy / sp2, on: sub.small ? 0.5 : 1 }); }
-        if (sub.state === 'gliding' && pushes.length < 2) pushes.push({ x: sub.x, y: sub.y, r: 46, s: 220 });
+        if (sub.state === 'gliding' && pushes.length < 2) pushes.push({ x: sub.x, y: sub.y, r: 46, s: 260 });
       }
       this.gpu.frame(dt, {
         R, swirl, noise: p.noise, awake: this.awake,
-        shift: this.colorShift,
-        alpha: 0.30 * (0.25 + 0.75 * this.awake) * (0.55 + 0.45 * p.fidelity) * (1 - 0.28 * this.mood),
-        base: [this.base.r / 255, this.base.g / 255, this.base.b / 255],
+        shift: this.colorShift, stress: this.stress, pleasure: this.pleasure, mood: this.mood,
+        /* the shadow positions must go dim and erratic, not dark — these
+           gates stack, so each one only ever takes about half */
+        emit: (0.55 + 0.45 * p.fidelity) * (0.70 + 0.30 * p.scale),
+        alpha: 1.05 * (0.55 + 0.45 * this.awake) * (0.62 + 0.38 * p.fidelity),
         center: { x: this.cx + (this.offX || 0), y: this.cy + (this.offY || 0) },
         vortices: this.vortices, bullets, pushes,
-        splats: this._splats.splice(0, 4),
       });
+      /* the 2D layer borrows the fluid's wandering hue, clamped near
+         the core rose so the glyph never stops being Fi's */
+      this.tint = mixRGB(this.base, this.gpu.tint, 0.5);
     }
   }
   sprite(col) {
