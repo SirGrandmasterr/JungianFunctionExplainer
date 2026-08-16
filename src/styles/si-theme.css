@@ -1,0 +1,28 @@
+/* Si theme — sensing amber, condensed variant (introverted: deeper, sedimentary) */
+:root {
+  --c-accent: #d78f1c;
+  --c-accent-fg: #2e1d05;
+  --slot-active-bg: #201709;
+  --pos-1: #f2c377;
+  --pos-2: #dda12f;
+  --pos-3: #b57c14;
+  --pos-4: #7d550e;
+}
+
+/* Zone D telemetry (.telemetry / .cog-state / .readouts / .cross-listen) now
+   lives in base.css — the Fe resonance lab uses the same components. */
+
+/* the ruling: enabled only while a deviation strobes on its ring (Si only) */
+.resolve-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.resolve-row button {
+  font: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
+  padding: 9px 10px; border-radius: 10px; text-align: center;
+  background: var(--surface-2); border: 1px solid var(--grid); color: var(--ink-2);
+  transition: border-color 0.15s, color 0.15s, opacity 0.15s;
+}
+.resolve-row button small { display: block; font-weight: 400; font-size: 10.5px; color: var(--muted); }
+.resolve-row button:disabled { opacity: 0.35; cursor: default; }
+.resolve-row #btnAccept:not(:disabled) { border-color: var(--c-accent); color: var(--ink); }
+.resolve-row #btnAccept:not(:disabled):hover { background: var(--slot-active-bg); }
+.resolve-row #btnReject:not(:disabled) { border-color: var(--axis); color: var(--ink); }
+.resolve-row #btnReject:not(:disabled):hover { border-color: var(--warn); }

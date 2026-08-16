@@ -3,19 +3,268 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fe — Extraverted Feeling · CURRENTS</title>
-  <script type="module" crossorigin src="/assets/fe-NiaLOFZX.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/header-CQ7pBJUX.js">
-  <link rel="stylesheet" crossorigin href="/assets/header-CbEzbQu9.css">
+  <title>Fe — Extraverted Feeling · CURRENTS</title>
+  <script type="module" crossorigin src="/assets/fe-CL4GkTE_.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/header-DTgPhmhG.js">
+  <link rel="modulepreload" crossorigin href="/assets/energy-charts-DVu3T2H4.js">
+  <link rel="stylesheet" crossorigin href="/assets/header-CriihPao.css">
+  <link rel="stylesheet" crossorigin href="/assets/fe-vbxVNzRF.css">
 </head>
 <body>
+
 <header class="site"></header>
-<section class="zone" style="text-align: center; padding: 120px 24px;">
-  <span class="fn-tag" style="border-color: var(--c-f); color: var(--c-f)">Extraverted Feeling</span>
-  <h1 style="font-size: 42px; margin-bottom: 16px;">Fe — Social Dynamics</h1>
-  <p class="lede" style="margin: 0 auto 32px;">This cognitive function page is planned for Phase 2 of CURRENTS.</p>
-  <a href="/ti/" class="cta">Explore Ti (Live) →</a>
-  <a href="/fi/" class="cta" style="margin-left: 12px;">Explore Fi (Live) →</a>
+
+<!-- ZONE A: HERO -->
+<section id="zone-a" aria-label="Introductory section">
+  <canvas id="glyphHero" aria-label="Interactive visual representation of Extraverted Feeling as a resonance field: a ring of independent oscillators standing outside a hexagonal chamber, coupled to each other by a lattice drawn between them, with conducting impulses leaving the nucleus through a gap in the rim. The interference pattern inside the chamber is produced entirely by the carriers outside it, and the nucleus takes its colour from their average. Hover a carrier to sound what Fe can tell about them"></canvas>
+  <div class="hero-copy">
+    <span class="fn-tag">extraverted feeling</span>
+    <h1>The Resonance Field of <span class="fn">Fe</span></h1>
+    <p>A ring of other people, standing outside the chamber, coupled by a lattice Fe draws between them. The nucleus has no colour of its own — it is the average of whoever is currently in the room.</p>
+  </div>
+  <div class="hero-hint">scroll to explore the watershed ↓</div>
 </section>
+
+<!-- ZONE B: STACK RAIL -->
+<section id="zone-b" class="zone" aria-labelledby="zb-head">
+  <p class="zone-kicker">Zone B · stack position</p>
+  <h2 id="zb-head">The Eight Faces of Fe</h2>
+  <p class="lede">Click any position to see how the room changes hands — from the dominant's effortless read to the demon's manufactured concord. Watch the two needles on the glyph: what Fe believes about the room, and what is actually true. At Dominant they sit on top of each other. By Trickster they have visibly come apart, and the misreading is being acted on. Drag the maturity slider to watch the ring grow and steady with age.</p>
+
+  <div class="rail-layout">
+    <div class="rail" id="railSlots" role="tablist" aria-label="Stack positions for Fe"></div>
+
+    <div class="glyph-stage">
+      <canvas id="glyphRail" aria-label="Glyph stage showing the selected stack position, with a believed-versus-actual concord readout"></canvas>
+      <div id="stageNote" class="stage-note">rendering: Dominant preset</div>
+    </div>
+
+    <div class="slot-caption">
+      <h3 id="capTitle">Dominant</h3>
+      <div id="capTypes" class="types">1st function · ENFJ · ESFJ</div>
+      <p id="capText">Loading description…</p>
+
+      <div class="dial-wrap">
+        <h4>Fidelity Profile</h4>
+        <svg id="dial" viewBox="0 0 280 200" role="img" aria-label="Radar dial of performance parameters" style="width:100%;height:auto"></svg>
+      </div>
+
+      <div class="maturity">
+        <h4>Maturity &amp; Development</h4>
+        <input type="range" id="ageSlider" min="7" max="60" value="28" aria-label="Age slider">
+        <div class="age-row">
+          <span>childhood (7)</span>
+          <span id="ageOut" style="color:var(--ink);font-weight:600">age 28</span>
+          <span>maturity (60)</span>
+        </div>
+        <p class="age-note">With age, lower stack positions gain fidelity and duty cycle — and the ring itself grows larger, reads more of itself at once, and steadies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE C: FEEDER COUPLING -->
+<section id="zone-c" class="zone" aria-labelledby="zc-head">
+  <p class="zone-kicker">Zone C · feeder coupling</p>
+  <h2 id="zc-head">What Feeds Into Fe?</h2>
+  <p class="lede">Extraverted judging is fed by introverted perception — Fe's real partners are Ni and Si, the inner perceivers that tell it what the room is made of. Click a feeder and watch what Fe starts conducting toward.</p>
+
+  <div class="feeder-chips" id="feederChips"></div>
+
+  <div class="feeder-layout">
+    <div class="feeder-stage">
+      <canvas id="feederCanvas" aria-label="Feeder coupling stage"></canvas>
+    </div>
+    <div class="feeder-caption">
+      <h3 id="feedTitle">Fe ← Ni</h3>
+      <div id="feedPair" class="pair">the INFJ · ENFJ coupling</div>
+      <p id="feedText">Loading feeder narrative…</p>
+      <div id="feedWarn" class="unstable">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span class="warn-text">Unstable coupling: judging feeding judging, with nothing perceiving for either.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE D: THE RESONANCE LAB -->
+<section id="zone-d" class="zone" aria-labelledby="zd-head">
+  <p class="zone-kicker">Zone D · the resonance lab</p>
+  <h2 id="zd-head">The Resonance Lab</h2>
+  <p class="lede">Ti verifies against its lattice and Fi against a core tone. Fe verifies against the field between people, so this lab spawns its events into the room rather than into the chamber. Three make it more coherent, three take something away — and one of them costs more than the other five combined.</p>
+
+  <div class="verify-layout">
+    <div class="verify-panel">
+      <p class="deck-label">harmony · high coherence</p>
+      <button id="btnSync" class="spawn-btn">
+        <span class="dot" style="background:var(--c-accent)"></span>
+        <span>Unspoken Sync<small>one person shifts; Fe matches, for free</small></span>
+      </button>
+      <button id="btnCelebrate" class="spawn-btn">
+        <span class="dot" style="background:var(--pos-1)"></span>
+        <span>The Room Lifts<small>collective celebration, everyone in phase</small></span>
+      </button>
+      <button id="btnReconcile" class="spawn-btn" disabled>
+        <span class="dot" style="background:#17c964"></span>
+        <span>Reconciliation<small>bridge a split field — the expensive one</small><span class="gate" id="reconcileGate">needs a split field</span></span>
+      </button>
+
+      <p class="deck-label dissonance">dissonance · overload &amp; disruption</p>
+      <button id="btnCovert" class="spawn-btn">
+        <span class="dot" style="background:var(--fe-ghost)"></span>
+        <span>The Cold Current<small>covert hostility behind a clean field</small></span>
+      </button>
+      <button id="btnDeadlock" class="spawn-btn">
+        <span class="dot" style="background:var(--warn)"></span>
+        <span>The Deadlock<small>two clusters, locked antiphase</small></span>
+      </button>
+      <button id="btnIsolate" class="spawn-btn">
+        <span class="dot" style="background:var(--crit)"></span>
+        <span>Cut Off<small>the ring goes dark; Fe finds out its colour</small></span>
+      </button>
+
+      <div class="telemetry">
+        <div class="cog-state">
+          <span class="lab">Cognitive state</span>
+          <span id="cogState" class="value">Open Field</span>
+        </div>
+        <div class="meter stress">
+          <label><span>Stress <i>S</i></span><span id="mStressVal">16%</span></label>
+          <div class="track"><div id="mStress" class="fill" style="width:16%"></div></div>
+        </div>
+        <div class="meter pleasure">
+          <label><span>Resonance Pleasure <i>P</i></span><span id="mPleasureVal">34%</span></label>
+          <div class="track"><div id="mPleasure" class="fill" style="width:34%"></div></div>
+        </div>
+        <div class="readouts">
+          <div class="ro">
+            <span class="k">Concord</span>
+            <b id="tConcord">62%</b>
+            <div class="cells" id="tConcordCells" aria-hidden="true"></div>
+          </div>
+          <div class="ro">
+            <span class="k">Conducting cost</span>
+            <b id="tCost">0.0 u</b>
+          </div>
+          <div class="ro">
+            <span class="k">Effort</span>
+            <b id="tEffort">14%</b>
+          </div>
+          <div class="ro">
+            <span class="k">Differentiation</span>
+            <b id="tDiff">55%</b>
+          </div>
+        </div>
+
+        <div class="twin">
+          <div class="tw-head"><span>trust gap · believed vs actual</span><span id="tTrust">3%</span></div>
+          <div class="mini believed"><span>Believed</span><div class="track"><div id="twBelieved" class="fill" style="width:62%"></div></div></div>
+          <div class="mini actual"><span>Actual</span><div class="track"><div id="twActual" class="fill" style="width:62%"></div></div></div>
+        </div>
+
+        <div class="cross-listen">
+          <div class="cl-head"><span>cross-listen · the same events, reaching Fi</span><a href="/fi/">visit Fi →</a></div>
+          <div class="mini gstress"><span>Fi stress</span><div class="track"><div id="sibStress" class="fill" style="width:18%"></div></div></div>
+          <div class="mini gpleasure"><span>Fi pleasure</span><div class="track"><div id="sibPleasure" class="fill" style="width:40%"></div></div></div>
+        </div>
+      </div>
+
+      <div id="verifyNarr" class="verify-narr">
+        The ring runs unattended: seven independent oscillators, coupled to each other and nudged by whatever Fe can spare, drifting toward a concord that never quite finishes. Spawn an event and watch the field answer. The two rows are not decoration — everything above the divider makes the room more coherent, and everything below it takes something away.
+      </div>
+    </div>
+
+    <div class="verify-stage">
+      <canvas id="verifyCanvas" aria-label="The Fe resonance lab: a ring of coupled carriers around an open hexagonal chamber, where harmony events lock the field into constructive interference and dissonance events mask, split, or sever it. Hover a carrier to sound what Fe can tell about them"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE E: ENERGY ECONOMICS -->
+<section id="zone-e" class="zone" aria-labelledby="ze-head">
+  <p class="zone-kicker">Zone E · energy economics</p>
+  <h2 id="ze-head">Energy Economics</h2>
+  <p class="lede">Every invocation of Fe costs energy. Note the notches in the dominant curve — the fastest micro-recovery in the atlas, because a room that locks pays a little back and rooms lock often. Note also which way the grip runs: a collapsed Fe-dominant does not get more Fe, it floods into inferior Ti — cold, absolute, and cutting people off with a rule.</p>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Cost Per Activation</h3>
+      <span class="sub">energy units per invocation, by position</span>
+      <button class="table-toggle" data-table="costTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="costChart"></div>
+    <div id="costTable" class="data-table"></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Sustained Exertion Drain</h3>
+      <span class="sub">cumulative battery depletion over 120 minutes of continuous use</span>
+      <button class="table-toggle" data-table="drainTable" aria-expanded="false">Data table</button>
+    </div>
+
+    <div id="drainLegend" class="legend"></div>
+
+    <div class="drain-flex">
+      <div class="plot">
+        <div id="drainChart"></div>
+        <div class="scrub-row">
+          <label for="scrub">Scrub time:</label>
+          <input type="range" id="scrub" min="0" max="120" value="120" aria-label="Time scrubber in minutes">
+          <output id="scrubOut">120 min</output>
+        </div>
+        <div id="scrubLive" class="sr-only" aria-live="polite"></div>
+      </div>
+
+      <div class="batteries" id="batteries"></div>
+    </div>
+
+    <div id="drainTable" class="data-table"></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Recovery Profiles</h3>
+      <span class="sub">30 min exertion followed by rest (small multiples)</span>
+      <button class="table-toggle" data-table="recTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="recCharts" class="smalls"></div>
+    <div id="recTable" class="data-table"></div>
+  </div>
+</section>
+
+<!-- ZONE F: FIELD NOTES -->
+<section id="zone-f" class="zone" aria-labelledby="zf-head">
+  <p class="zone-kicker">Zone F · field notes</p>
+  <h2 id="zf-head">Field Notes</h2>
+  <p class="lede">Patterns from the wild — how Fe shows up in daily life.</p>
+
+  <div class="cards">
+    <div class="vignette">
+      <h4>The Read</h4>
+      <p>An ENFJ walks into a room and reorganizes it in eleven seconds — seats a person next to the one who will draw them out, aims a question at whoever has been quiet, breaks a tension nobody else has registered yet. Asked afterwards what they did, they can rarely reconstruct it, because the read and the response were one operation and neither of them passed through language on the way.</p>
+    </div>
+    <div class="vignette">
+      <h4>The Loop</h4>
+      <p>An ESFJ under stress pairs dominant Fe with tertiary Ne: conducting toward people who are not in the room. What they might be thinking, what that message might have meant, how it is going to land. Full effort, no coupling. The function that would break it — Si's actual record of how these people actually behave — is exactly the one the loop stops consulting.</p>
+    </div>
+    <div class="vignette">
+      <h4>The Grip</h4>
+      <p>An INTP past the end of their reserves stops analyzing and floods into inferior Fe: an abrupt, raw, badly-calibrated need to know they are wanted here, from someone who spent the whole week explaining that social convention is arbitrary. Not a personality change — a low-capacity chamber taking a dominant-sized flood.</p>
+    </div>
+  </div>
+
+  <div class="mirror">
+    <div class="vs"><span class="ti" style="color:var(--c-accent)">Fe</span> vs <span class="te" style="color:#f56a8c">Fi</span></div>
+    <p>Same element, opposite attitude — and the whole difference is where the measurement is taken. <strong>Fi's perimeter is computed from its centre:</strong> one fixed core tone, sealed behind a closed boundary, and every arrival struck against it. <strong>Fe's centre is computed from its perimeter:</strong> the carriers stand outside the rim, the lattice is drawn between them rather than inside the chamber, and the nucleus takes the average of whoever is currently there. That is why they fail in opposite directions. Isolate Fi and the core still burns. Isolate Fe and there is no average left to take — which is a thing you can watch happen, one section up.</p>
+  </div>
+</section>
+
+<div id="tooltip" class="viz-tooltip" role="tooltip"></div>
+
+<footer class="epistemic">
+  CURRENTS v1.0 · An interactive atlas of the eight cognitive functions · Built with Vanilla JS &amp; WebGL2
+</footer>
+
 </body>
 </html>

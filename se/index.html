@@ -4,20 +4,239 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Se — Extraverted Sensing · CURRENTS</title>
-  <script type="module">
-    import '../src/styles/base.css';
-    import { initHeader } from '../src/shared/header.js';
-    initHeader('se');
-  </script>
 </head>
 <body>
+
 <header class="site"></header>
-<section class="zone" style="text-align: center; padding: 120px 24px;">
-  <span class="fn-tag" style="border-color: var(--c-s); color: var(--c-s)">Extraverted Sensing</span>
-  <h1 style="font-size: 42px; margin-bottom: 16px;">Se — Immediate Presence</h1>
-  <p class="lede" style="margin: 0 auto 32px;">This cognitive function page is planned for Phase 2 of CURRENTS.</p>
-  <a href="/ti/" class="cta">Explore Ti (Live) →</a>
-  <a href="/fi/" class="cta" style="margin-left: 12px;">Explore Fi (Live) →</a>
+
+<!-- ZONE A: HERO -->
+<section id="zone-a" aria-label="Introductory section">
+  <canvas id="glyphHero" aria-label="Interactive visual representation of Extraverted Sensing as a wide-open iris-aperture: a live particle field runs blurred outside the ring and crisp, saturated, and trailed inside it, while a gaze reticle saccades to whatever moves and locks it within a frame. Move the mouse to become the most vivid object in the field"></canvas>
+  <div class="hero-copy">
+    <span class="fn-tag">extraverted sensing</span>
+    <h1>The Naked Eye of <span class="fn">Se</span></h1>
+    <p>A wide-open iris in direct contact with the live field — the world through it sharper, faster, and more saturated than the world beside it. Nothing between. Nothing kept.</p>
+  </div>
+  <div class="hero-hint">scroll to explore the watershed ↓</div>
 </section>
+
+<!-- ZONE B: STACK RAIL -->
+<section id="zone-b" class="zone" aria-labelledby="zb-head">
+  <p class="zone-kicker">Zone B · stack position</p>
+  <h2 id="zb-head">The Eight Faces of Se</h2>
+  <p class="lede">Click any position to see how contact changes hands — from the dominant's zero-lag lock to the trickster's confident sightings of things that were never there. Watch the catch rate decay down the stack. Drag the maturity slider to watch the lower positions steady with age.</p>
+
+  <div class="rail-layout">
+    <div class="rail" id="railSlots" role="tablist" aria-label="Stack positions for Se"></div>
+
+    <div class="glyph-stage">
+      <canvas id="glyphRail" aria-label="Glyph stage showing the selected stack position"></canvas>
+      <div id="stageNote" class="stage-note">rendering: Dominant preset</div>
+    </div>
+
+    <div class="slot-caption">
+      <h3 id="capTitle">Dominant</h3>
+      <div id="capTypes" class="types">1st function · ESTP · ESFP</div>
+      <p id="capText">Loading description…</p>
+
+      <div class="dial-wrap">
+        <h4>Fidelity Profile</h4>
+        <svg id="dial" viewBox="0 0 280 200" role="img" aria-label="Radar dial of performance parameters" style="width:100%;height:auto"></svg>
+      </div>
+
+      <div class="maturity">
+        <h4>Maturity &amp; Development</h4>
+        <input type="range" id="ageSlider" min="7" max="60" value="28" aria-label="Age slider">
+        <div class="age-row">
+          <span>childhood (7)</span>
+          <span id="ageOut" style="color:var(--ink);font-weight:600">age 28</span>
+          <span>maturity (60)</span>
+        </div>
+        <p class="age-note">With age, lower stack positions gain fidelity, duty cycle, and a steadier gaze.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE C: FEEDER COUPLING -->
+<section id="zone-c" class="zone" aria-labelledby="zc-head">
+  <p class="zone-kicker">Zone C · feeder coupling</p>
+  <h2 id="zc-head">What Feeds Into Se?</h2>
+  <p class="lede">Extraverted perception is fed by introverted judgment — Se's real partners are Ti and Fi, the inner judges that tell the eye what matters. Click a feeder and watch salience reorganize.</p>
+
+  <div class="feeder-chips" id="feederChips"></div>
+
+  <div class="feeder-layout">
+    <div class="feeder-stage">
+      <canvas id="feederCanvas" aria-label="Feeder coupling stage"></canvas>
+    </div>
+    <div class="feeder-caption">
+      <h3 id="feedTitle">Se ← Ti</h3>
+      <div id="feedPair" class="pair">the ISTP · ESTP coupling</div>
+      <p id="feedText">Loading feeder narrative…</p>
+      <div id="feedWarn" class="unstable">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span class="warn-text">Unstable coupling: perception feeding perception, with nothing judging either.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE D: THE CONTACT LAB -->
+<section id="zone-d" class="zone" aria-labelledby="zd-head">
+  <p class="zone-kicker">Zone D · the contact lab</p>
+  <h2 id="zd-head">The Contact Lab</h2>
+  <p class="lede">Se is a contact instrument: its quality is measured in milliseconds-to-lock and openings used, not in conclusions. This lab runs the eye against a live field you control. Slide the intensity from empty room to street carnival, spawn events, and note which end of the slider reads as the emergency.</p>
+
+  <div class="verify-layout">
+    <div class="verify-panel">
+      <div class="intensity">
+        <h4>Field Intensity</h4>
+        <input type="range" id="fieldSlider" min="0" max="100" value="62" aria-label="Stimulus field intensity, from empty room to street carnival">
+        <div class="ends"><span>empty room</span><b id="fieldOut">62%</b><span>street carnival</span></div>
+      </div>
+
+      <button id="btnFlicker" class="spawn-btn">
+        <span class="dot" style="background:var(--c-accent)"></span>
+        <span>A Flicker in the Crowd<small>one element shifts for 300 ms</small></span>
+      </button>
+      <button id="btnWindow" class="spawn-btn">
+        <span class="dot" style="background:#4fc9e0"></span>
+        <span>A Closing Window<small>an opening appears — and starts shutting</small></span>
+      </button>
+      <button id="btnBlackout" class="spawn-btn">
+        <span class="dot" style="background:var(--crit)"></span>
+        <span>Lights Out<small>the field empties — nothing to perceive</small></span>
+      </button>
+
+      <div class="telemetry">
+        <div class="cog-state">
+          <span class="lab">Cognitive state</span>
+          <span id="cogState" class="value">Open Field</span>
+        </div>
+        <div class="meter stress">
+          <label><span>Stress <i>S</i></span><span id="mStressVal">10%</span></label>
+          <div class="track"><div id="mStress" class="fill" style="width:10%"></div></div>
+        </div>
+        <div class="meter pleasure">
+          <label><span>Contact Pleasure <i>P</i></span><span id="mPleasureVal">26%</span></label>
+          <div class="track"><div id="mPleasure" class="fill" style="width:26%"></div></div>
+        </div>
+        <div class="readouts">
+          <div class="ro">
+            <span class="k">Time to lock</span>
+            <b id="tLock">— ms</b>
+          </div>
+          <div class="ro">
+            <span class="k">Field clarity</span>
+            <b id="tClar">75%</b>
+            <div class="cells" id="tClarCells" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="cross-listen">
+          <div class="cl-head"><span>cross-listen · the same events, arriving at Si</span><a href="/si/">visit Si →</a></div>
+          <div class="mini gstress"><span>Si stress</span><div class="track"><div id="sibStress" class="fill" style="width:10%"></div></div></div>
+          <div class="mini gpleasure"><span>Si pleasure</span><div class="track"><div id="sibPleasure" class="fill" style="width:22%"></div></div></div>
+        </div>
+      </div>
+
+      <div id="verifyNarr" class="verify-narr">
+        The field runs live: drifters, movers, the occasional flare — and the eye hunting through it, locking whatever moves. Slide the field intensity and watch stress and pleasure trade places; spawn an event and watch the reticle answer; or hover the chamber to become the target yourself.
+      </div>
+    </div>
+
+    <div class="verify-stage">
+      <canvas id="verifyCanvas" aria-label="The Se contact lab: a live stimulus field with an intensity slider, a saccading gaze that locks flickers, a closing window it fires a response through, and a blackout that starves it"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE E: ENERGY ECONOMICS -->
+<section id="zone-e" class="zone" aria-labelledby="ze-head">
+  <p class="zone-kicker">Zone E · energy economics</p>
+  <h2 id="ze-head">Energy Economics</h2>
+  <p class="lede">Every invocation of Se costs energy. The lower it sits in the stack, the more expensive it becomes. Note the frequent small notches in the dominant curve: contact pays back in the moment, continuously. Note also which way the grip runs here — a collapsed Se-dominant does not get more Se, it floods into inferior Ni.</p>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Cost Per Activation</h3>
+      <span class="sub">energy units per invocation, by position</span>
+      <button class="table-toggle" data-table="costTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="costChart"></div>
+    <div id="costTable" class="data-table"></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Sustained Exertion Drain</h3>
+      <span class="sub">cumulative battery depletion over 120 minutes of continuous use</span>
+      <button class="table-toggle" data-table="drainTable" aria-expanded="false">Data table</button>
+    </div>
+
+    <div id="drainLegend" class="legend"></div>
+
+    <div class="drain-flex">
+      <div class="plot">
+        <div id="drainChart"></div>
+        <div class="scrub-row">
+          <label for="scrub">Scrub time:</label>
+          <input type="range" id="scrub" min="0" max="120" value="120" aria-label="Time scrubber in minutes">
+          <output id="scrubOut">120 min</output>
+        </div>
+        <div id="scrubLive" class="sr-only" aria-live="polite"></div>
+      </div>
+
+      <div class="batteries" id="batteries"></div>
+    </div>
+
+    <div id="drainTable" class="data-table"></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3>Recovery Profiles</h3>
+      <span class="sub">30 min exertion followed by rest (small multiples)</span>
+      <button class="table-toggle" data-table="recTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="recCharts" class="smalls"></div>
+    <div id="recTable" class="data-table"></div>
+  </div>
+</section>
+
+<!-- ZONE F: FIELD NOTES -->
+<section id="zone-f" class="zone" aria-labelledby="zf-head">
+  <p class="zone-kicker">Zone F · field notes</p>
+  <h2 id="zf-head">Field Notes</h2>
+  <p class="lede">Patterns from the wild — how Se shows up in daily life.</p>
+
+  <div class="cards">
+    <div class="vignette">
+      <h4>The Court</h4>
+      <p>Mid-game, an ESTP sees the defender's weight shift a half-second before the lane opens, and is already moving. Asked afterwards how they knew, they say they saw it — which is the whole answer. There was no inference to report. The perception and the move were one event, and the interview about it is the first part that costs effort.</p>
+    </div>
+    <div class="vignette">
+      <h4>The Loop</h4>
+      <p>An ESTP under pressure pairs dominant Se with tertiary Fe: the room's reaction becomes the only instrument, and every stunt buys the next one. Ti's quiet question — is this actually a good idea? — is the function the loop exists to avoid. From inside it feels like being on; from outside it looks like escalation.</p>
+    </div>
+    <div class="vignette">
+      <h4>The Grip</h4>
+      <p>An ESFP past the end of their reserves stops perceiving and starts foreboding — sudden grim certainties about what it all means and where it is heading, delivered with none of dominant intuition's craft. Not a personality change: a low-capacity chamber taking a dominant-sized flood.</p>
+    </div>
+  </div>
+
+  <div class="mirror">
+    <div class="vs"><span class="ti" style="color:var(--c-accent)">Se</span> vs <span class="te" style="color:var(--pos-3)">Si</span></div>
+    <p>Same element, opposite attitude — and the difference is what happens to the moment. <strong>Se</strong> rides it: full resolution, zero lag, nothing kept — the world as a place to act. <strong>Si</strong> banks it: metered intake, compared against every layer it has ever laid down — the world as a place to recognize. One is water that looks; the other is water that keeps. Se trades the record for the moment; Si trades the moment for a record no moment can take away.</p>
+  </div>
+</section>
+
+<div id="tooltip" class="viz-tooltip" role="tooltip"></div>
+
+<footer class="epistemic">
+  CURRENTS v1.0 · An interactive atlas of the eight cognitive functions · Built with Vanilla JS &amp; WebGL2
+</footer>
+
+<script type="module" src="./main.js"></script>
 </body>
 </html>

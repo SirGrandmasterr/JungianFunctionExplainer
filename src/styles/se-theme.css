@@ -1,0 +1,46 @@
+/* Se theme — sensing amber, radiant variant (extraverted: brighter, outward) */
+:root {
+  --c-accent: #f6a71f;
+  --c-accent-fg: #33200a;
+  --slot-active-bg: #241a0e;
+  --pos-1: #ffd27a;
+  --pos-2: #f7b23c;
+  --pos-3: #d98a18;
+  --pos-4: #9c5f10;
+}
+
+/* ---------- Zone D · contact lab telemetry (Se page only) ---------- */
+.telemetry { border-top: 1px solid var(--grid); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+.cog-state { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.cog-state .lab { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.cog-state .value {
+  font-size: 12px; font-weight: 650; padding: 3px 11px; border-radius: 12px;
+  border: 1px solid currentColor; color: var(--c-accent);
+  transition: color 0.4s; white-space: nowrap;
+}
+.meter label i { font-style: italic; }
+.readouts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.readouts .ro { background: var(--surface-2); border: 1px solid var(--grid); border-radius: 10px; padding: 8px 11px; min-width: 0; }
+.readouts .k { display: block; font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+.readouts b { font: 600 15px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); font-variant-numeric: tabular-nums; }
+.readouts .cells { display: flex; gap: 2px; margin-top: 6px; }
+.readouts .cells i { height: 4px; flex: 1; background: var(--axis); border-radius: 1px; transition: background 0.25s; }
+.readouts .cells i.on { background: var(--c-accent); }
+
+/* the master control: field intensity, empty room → street carnival */
+.intensity { background: var(--surface-2); border: 1px solid var(--grid); border-radius: 12px; padding: 12px 14px; }
+.intensity h4 { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.intensity input[type=range] { width: 100%; accent-color: var(--c-accent); }
+.intensity .ends { display: flex; justify-content: space-between; color: var(--muted); font-size: 10.5px; margin-top: 2px; }
+.intensity .ends b { color: var(--ink-2); font-weight: 600; }
+
+/* cross-listen: the same events, arriving at the amber sibling */
+.cross-listen { border-top: 1px solid var(--grid); padding-top: 12px; }
+.cross-listen .cl-head { display: flex; justify-content: space-between; align-items: baseline; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.cross-listen .cl-head a { font-size: 10.5px; letter-spacing: normal; text-transform: none; }
+.cross-listen .mini { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.cross-listen .mini span { font-size: 10px; color: var(--muted); width: 58px; letter-spacing: 0.08em; text-transform: uppercase; }
+.cross-listen .mini .track { flex: 1; height: 5px; border-radius: 3px; background: var(--surface-2); border: 1px solid var(--grid); overflow: hidden; }
+.cross-listen .mini .fill { height: 100%; border-radius: 3px; opacity: 0.55; transition: width 0.12s linear; }
+.cross-listen .mini.gstress .fill { background: linear-gradient(90deg, var(--warn), var(--crit)); }
+.cross-listen .mini.gpleasure .fill { background: linear-gradient(90deg, #0a7a3c, #17c964); }
