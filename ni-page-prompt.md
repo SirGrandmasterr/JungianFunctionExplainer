@@ -22,7 +22,7 @@ Get this page right and the remaining four (Ne, Se, Si) inherit both patterns fr
 1. `DESIGN.md` — the whole thing, but especially §1.3 (visual grammar), §2.2–2.8 (zone anatomy), §3.1 (parametric glyph model), §3.3 (energy suite), §5.3 (progressive disclosure), §5.6 (tone guardrails).
 2. `te/index.html`, `te/main.js`, `src/data/te-data.js` — the most recent and most refined page. This is the template to match.
 3. `src/engines/te-glyph.js` — how a glyph engine is structured (~950 lines: build/step/draw/renderStatic + a spawn API for the lab).
-4. `src/engines/fi-glyph.js` + `src/engines/fi-mist-gpu.js` — the other end of the aesthetic range, and proof that an engine may deviate from the Te shape entirely when the function demands it.
+4. `src/engines/fi-glyph.js` + `src/engines/fi-fluid.js` — the other end of the aesthetic range, and proof that an engine may deviate from the Te shape entirely when the function demands it.
 5. `src/shared/stack-rail.js`, `src/shared/feeder-coupling.js`, `src/shared/energy-charts.js`, `src/utils/math.js`, `src/utils/dom.js` — the shared machinery you get for free.
 
 ## The architecture you're extending
