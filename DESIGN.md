@@ -179,9 +179,55 @@ Generalization note: each judging function gets its own verification variant (Te
 
 As with Ti, the mechanic runs ambiently in Zone B: Se's rail glyph catches or misses background flickers with a hit rate that decays down the stack, while Si's rail glyph files arriving drops cleanly at Dominant and increasingly mis-files them in the lower slots — false alarms on the unchanged, unflagged drift on the changed. And the cross-listen inset makes the sibling economy unmissable: the carnival field that peaks Se's pleasure floods Si's stress; the unbroken routine that soothes Si starves Se into restlessness; the empty room is Se's emergency and Si's rest.
 
-## 2.6 Zone E — Energy Economics Panel
+## 2.6 Zone E — Energy Economics *(revised: the suite is now one shared page)*
 
-The interactive energy visualization suite specified fully in §3.3. Its layout position matters: it sits below the Verification Lab and is **linked** to the Stack Rail — the slot currently selected in Zone B highlights the corresponding curve in Zone E, so position and cost are learned as one lesson, not two.
+**As originally specified:** the interactive energy visualization suite of §3.3, sitting below the Verification Lab and linked to the Stack Rail, so that position and cost are learned as one lesson.
+
+**As built, and why it changed.** Once all eight pages existed, the suite turned out to be the same three charts eight times over against numbers that barely differ — the cost-per-activation ladder is *identical* across the eight (1.0 / 1.5 / 2.5 / 4.0 / 3–6), and after two hours of continuous use the eight drain curves at any given position span three to five percentage points. Meanwhile the comparison those numbers actually argue for — **position dominates function identity** — was the one comparison no single function page could ever show.
+
+So the suite moved to a shared page at **`/energy/`**, which is the only place the claim can be demonstrated rather than asserted:
+
+- **The shared law** — the cost ladder, once, stated as the finding it is.
+- **Across the eight** — all eight functions on one axis, held at a selectable stack position, with a spread figure *computed from the same models the curves are drawn from* so the prose cannot drift from the chart.
+- **Inside a single stack** — the original per-page view, function-selectable, with the grip marker.
+- **Recovery profiles** — small multiples for the selected function.
+- **The direction of collapse** — all eight grip clocks and inferior hand-offs in one grid.
+
+What remains in Zone E on a function page is a compact **energy summary**: the function's cost ladder as a bar strip, its grip clock, the function its collapse hands over to, and a link. This keeps §1.4's second principle intact — *the battery is never off-screen* — without repeating a chart suite eight times.
+
+The Zone B ↔ Zone E linkage is retired on function pages, since there is no longer a curve there to highlight; `initStackRail`'s `highlightSeries` callback is now optional.
+
+### 2.6a Audit of the energy model *(against Jung, Myers, Quenk, Beebe)*
+
+**The premise first: these numbers cannot be right or wrong against data, because no data exists.** Nobody has measured the energetic cost of a cognitive function, and type dynamics as a whole has thin empirical support — Reynierse's review of the eight type-dynamics studies cited in the 1998 MBTI Manual summarised them as "six studies that failed, one with a questionable interpretation, and one where contradictory evidence was offered as support." What *can* be checked is internal consistency and fidelity to the qualitative claims the literature does make. On that standard the model's shape holds up well and four specific things did not.
+
+**Holds up.** The dominant as the shallowest curve with micro-recovery notches matches the classical claim that the dominant is least effortful and can be restorative. The inferior as by far the steepest (`^1.9`) matches Jung and Myers on the inferior being undifferentiated and archaic. The tertiary at `^1.4` — affordable in bursts, not sustained — matches Beebe's Eternal Child. Modelling the shadow as jagged with a *cost band* rather than a point is a genuinely good instinct about a register that erupts rather than runs. And the dominant reaching full depletion at 7.7–8.9 h is a plausible long-hard-day clock.
+
+**Corrected.**
+
+1. **The grip marker named the wrong mechanism.** `GRIP_T` is the time for the *inferior* curve to exhaust itself under forced use (≈65 min), and it was labelled "grip risk begins". But the grip — Quenk's, and Jung's enantiodromia behind it — is triggered by the **dominant** running out; the inferior erupts because the conscious attitude can no longer hold the field, not because someone spent an hour using their inferior on purpose. The model already contained the right clock (dominant → 100% at 7.7–8.9 h); it simply was not the one being read. The field is now split into `infT` and `domT`, the marker is relabelled to what it actually shows, and the grip copy runs off `domT`.
+2. **An assumption was being reported as a finding.** The identical cost ladder is an *input* to the model, not something it discovered. Reworded.
+3. **An unstated duty-cycle assumption.** The Shadow curve drains more slowly than Inferior (43% vs 83% at 60 min) while costing *more* per activation (4.5 vs 4.0). That is coherent only if shadow functions run at a low duty cycle — defensible, and previously nowhere stated. Now stated.
+4. **Quenk's per-type grip material was duplicated.** It now lives once, in `typology.js`, read by both `/energy/` and `/phenomena/`.
+
+**Open, flagged, not unilaterally changed.**
+
+- **One Shadow curve stands in for four Beebe positions.** The stack rail has all eight slots but `SERIES` has five, and slots 5–8 all point at `series: 4`. Beebe does not treat the Opposing Personality and the Demon as equally reachable. Fixing this means four shadow series across eight data files and is a content decision, not a bug fix. Noted on the page.
+- **The per-function dominant coefficients have no stated rationale and their attitude ordering is internally inconsistent.** Raw values are Ti 13, Fi 13, Te 12.6, Fe 12.4, Ne 12.2, Ni 11.8, Se 11.5, Si 11.2 — i.e. judging > intuition > sensing, which is defensible if stated. But within the judging axis introverted costs *more* than extraverted (Ti > Te, Fi > Fe) while within the perceiving axis extraverted costs more than introverted (Ne > Ni, Se > Si). No single principle produces both, and Ti/Fi being the most draining dominants sits oddly with the idea that an introverted judging dominant is what its owner finds restful. This looks like drift — Ti and Fi were the first pages built and share the value 13 exactly, with later pages hand-tuned. Rescaling changes the site's claims and is left as an editorial call.
+
+## 2.6b `/phenomena/` — the named failure modes *(added)*
+
+A second shared page, on the same footing as `/energy/`: the things that happen *to* a stack, which are cross-function by nature and belong on no single function page.
+
+- **Loop and grip**, contrasted directly — they are constantly confused and are close to opposites. A loop is the auxiliary dropping out so the dominant runs on the tertiary (same direction, no corrective, a *narrowing*); a grip is the dominant running out so the inferior erupts (opposite direction, a *break*).
+- **The machinery underneath** — Jung's enantiodromia and compensation, of which the grip is the typological special case, plus individuation as the same correction taken voluntarily, and projection of the shadow functions.
+- **Beebe's shadow register** — all eight archetypal positions, with the selected type's actual functions bound to them.
+- **Slow phenomena** — type development by life stage, Myers' type falsification, persona identification, anima/animus possession, shadow activation.
+- **The four axes** — Ne↔Si, Se↔Ni, Te↔Fi, Fe↔Ti.
+
+**Provenance tagging is load-bearing, not ornamental.** This material spans four sources of very different evidential standing — Jung's own writing, the Myers tradition, two bodies of clinical work (Quenk on the inferior, Beebe on the archetypes), and a substantial amount of internet folk theory. Every claim carries a tag, and the loop in particular is marked as resting on a Grant-model assumption about tertiary attitude that neither Jung nor Myers committed to. This is §1.4.5 applied to content rather than to a footer.
+
+**The sixteen stacks are derived, not tabulated.** `src/data/typology.js` computes all eight positions from the four letters (J/P fixes which function takes the extraverted seat; tertiary is the auxiliary's opposite; Beebe's shadow half is the conscious half attitude-flipped) and the derivation is checked against a hand-written reference for all sixteen types. 128 hand-typed function slots would be 128 chances at a silent error.
 
 ## 2.7 Zone F — The Overclock Lab
 

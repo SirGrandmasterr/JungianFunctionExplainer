@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fe — Extraverted Feeling · CURRENTS</title>
-  <script type="module" crossorigin src="/assets/fe-Djwmzw1r.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/header-BaFUgrvS.js">
-  <link rel="modulepreload" crossorigin href="/assets/math-DT21pYWd.js">
-  <link rel="modulepreload" crossorigin href="/assets/energy-charts-DYEflvhl.js">
-  <link rel="modulepreload" crossorigin href="/assets/fe-glyph-6I4BPW7k.js">
-  <link rel="stylesheet" crossorigin href="/assets/header-DK44_xMw.css">
-  <link rel="stylesheet" crossorigin href="/assets/fe-vbxVNzRF.css">
+  <script type="module" crossorigin src="/assets/fe-7y4mrZAE.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/header-BBuxVNPY.js">
+  <link rel="modulepreload" crossorigin href="/assets/dom-E87FTS4S.js">
+  <link rel="modulepreload" crossorigin href="/assets/energy-teaser-CsPVRrV7.js">
+  <link rel="modulepreload" crossorigin href="/assets/fe-glyph-BO6qQrWM.js">
+  <link rel="modulepreload" crossorigin href="/assets/fe-data-C_woX0sn.js">
+  <link rel="stylesheet" crossorigin href="/assets/header-CI0x3pP4.css">
+  <link rel="stylesheet" crossorigin href="/assets/fe-m1H5ktPs.css">
 </head>
 <body>
 
@@ -94,6 +95,7 @@
   <p class="zone-kicker">Zone D · the resonance lab</p>
   <h2 id="zd-head">The Resonance Lab</h2>
   <p class="lede">Ti verifies against its lattice and Fi against a core tone. Fe verifies against the field between people, so this lab spawns its events into the room rather than into the chamber. Three make it more coherent, three take something away — and one of them costs more than the other five combined.</p>
+  <p class="lede legend"><b>Reading the glyph:</b> each person carries a hand showing their phase — when the room agrees, the hands line up. The band around the nucleus is the room's colours by weight, and the disc inside it is their average. That disc is the only colour Fe has.</p>
 
   <div class="verify-layout">
     <div class="verify-panel">
@@ -125,6 +127,11 @@
         <span>Cut Off<small>the ring goes dark; Fe finds out its colour</small></span>
       </button>
 
+      <!-- Six instruments, not twelve. Concord used to be reported four
+           separate times — a percentage, a twelve-cell strip, the "actual"
+           needle, and the canvas HUD — and effort twice, which is how a panel
+           ends up looking like a dashboard nobody reads. What survives is one
+           reading of each thing the lab actually teaches. -->
       <div class="telemetry">
         <div class="cog-state">
           <span class="lab">Cognitive state</span>
@@ -138,34 +145,26 @@
           <label><span>Resonance Pleasure <i>P</i></span><span id="mPleasureVal">34%</span></label>
           <div class="track"><div id="mPleasure" class="fill" style="width:34%"></div></div>
         </div>
-        <div class="readouts">
-          <div class="ro">
-            <span class="k">Concord</span>
-            <b id="tConcord">62%</b>
-            <div class="cells" id="tConcordCells" aria-hidden="true"></div>
-          </div>
-          <div class="ro">
-            <span class="k">Conducting cost</span>
-            <b id="tCost">0.0 u</b>
-          </div>
-          <div class="ro">
-            <span class="k">Effort</span>
-            <b id="tEffort">14%</b>
-          </div>
-          <div class="ro">
-            <span class="k">Differentiation</span>
-            <b id="tDiff">55%</b>
-          </div>
-        </div>
 
         <div class="twin">
-          <div class="tw-head"><span>trust gap · believed vs actual</span><span id="tTrust">3%</span></div>
+          <div class="tw-head"><span>the room · believed vs actual</span><span id="tTrust">3%</span></div>
           <div class="mini believed"><span>Believed</span><div class="track"><div id="twBelieved" class="fill" style="width:62%"></div></div></div>
           <div class="mini actual"><span>Actual</span><div class="track"><div id="twActual" class="fill" style="width:62%"></div></div></div>
         </div>
 
+        <div class="readouts">
+          <div class="ro">
+            <span class="k">Differentiation</span>
+            <b id="tDiff">55%</b>
+          </div>
+          <div class="ro">
+            <span class="k">This event cost</span>
+            <b id="tCost">0.0 u</b>
+          </div>
+        </div>
+
         <div class="cross-listen">
-          <div class="cl-head"><span>cross-listen · the same events, reaching Fi</span><a href="/fi/">visit Fi →</a></div>
+          <div class="cl-head"><span>the same events, reaching Fi</span><a href="/fi/">visit Fi →</a></div>
           <div class="mini gstress"><span>Fi stress</span><div class="track"><div id="sibStress" class="fill" style="width:18%"></div></div></div>
           <div class="mini gpleasure"><span>Fi pleasure</span><div class="track"><div id="sibPleasure" class="fill" style="width:40%"></div></div></div>
         </div>
@@ -188,51 +187,7 @@
   <h2 id="ze-head">Energy Economics</h2>
   <p class="lede">Every invocation of Fe costs energy. Note the notches in the dominant curve — the fastest micro-recovery in the atlas, because a room that locks pays a little back and rooms lock often. Note also which way the grip runs: a collapsed Fe-dominant does not get more Fe, it floods into inferior Ti — cold, absolute, and cutting people off with a rule.</p>
 
-  <div class="chart-card">
-    <div class="chart-head">
-      <h3>Cost Per Activation</h3>
-      <span class="sub">energy units per invocation, by position</span>
-      <button class="table-toggle" data-table="costTable" aria-expanded="false">Data table</button>
-    </div>
-    <div id="costChart"></div>
-    <div id="costTable" class="data-table"></div>
-  </div>
-
-  <div class="chart-card">
-    <div class="chart-head">
-      <h3>Sustained Exertion Drain</h3>
-      <span class="sub">cumulative battery depletion over 120 minutes of continuous use</span>
-      <button class="table-toggle" data-table="drainTable" aria-expanded="false">Data table</button>
-    </div>
-
-    <div id="drainLegend" class="legend"></div>
-
-    <div class="drain-flex">
-      <div class="plot">
-        <div id="drainChart"></div>
-        <div class="scrub-row">
-          <label for="scrub">Scrub time:</label>
-          <input type="range" id="scrub" min="0" max="120" value="120" aria-label="Time scrubber in minutes">
-          <output id="scrubOut">120 min</output>
-        </div>
-        <div id="scrubLive" class="sr-only" aria-live="polite"></div>
-      </div>
-
-      <div class="batteries" id="batteries"></div>
-    </div>
-
-    <div id="drainTable" class="data-table"></div>
-  </div>
-
-  <div class="chart-card">
-    <div class="chart-head">
-      <h3>Recovery Profiles</h3>
-      <span class="sub">30 min exertion followed by rest (small multiples)</span>
-      <button class="table-toggle" data-table="recTable" aria-expanded="false">Data table</button>
-    </div>
-    <div id="recCharts" class="smalls"></div>
-    <div id="recTable" class="data-table"></div>
-  </div>
+  <div class="energy-teaser" id="energyTeaser"></div>
 </section>
 
 <!-- ZONE F: FIELD NOTES -->

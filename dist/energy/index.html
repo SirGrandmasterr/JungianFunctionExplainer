@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Economics — All Eight Functions · CURRENTS</title>
+  <script type="module" crossorigin src="/assets/energy-CpMNzkT-.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/header-BBuxVNPY.js">
+  <link rel="modulepreload" crossorigin href="/assets/dom-E87FTS4S.js">
+  <link rel="modulepreload" crossorigin href="/assets/ti-data-BBYvnPfI.js">
+  <link rel="modulepreload" crossorigin href="/assets/te-data-CVjH37KE.js">
+  <link rel="modulepreload" crossorigin href="/assets/fi-data-6i3b5d84.js">
+  <link rel="modulepreload" crossorigin href="/assets/fe-data-C_woX0sn.js">
+  <link rel="modulepreload" crossorigin href="/assets/ne-data-B61G9YP_.js">
+  <link rel="modulepreload" crossorigin href="/assets/ni-data-BXlN4GlB.js">
+  <link rel="modulepreload" crossorigin href="/assets/se-data-C9-4w3MV.js">
+  <link rel="modulepreload" crossorigin href="/assets/si-data-m9UkYLKc.js">
+  <link rel="modulepreload" crossorigin href="/assets/typology-rtOHekD5.js">
+  <link rel="stylesheet" crossorigin href="/assets/header-CI0x3pP4.css">
+  <link rel="stylesheet" crossorigin href="/assets/energy-BsnIpG6n.css">
+</head>
+<body>
+
+<header class="site"></header>
+
+<div class="energy-hero">
+  <h1>Energy Economics</h1>
+  <p>Every invocation of every function costs something — and in this model what it costs is set almost entirely by <em>where in the stack it sits</em>, not by which function it is. Put all eight on the same axes and the point stops being arguable: moving a function one position down the stack changes its cost far more than swapping it for a different function ever does.</p>
+  <p>Which is also why this is one page rather than a section repeated eight times. The comparison that carries the lesson is the one between functions, and that is exactly the comparison a single function's page cannot show.</p>
+</div>
+
+<!-- 1 · THE SHARED LAW -->
+<section id="cost" class="zone" aria-labelledby="cost-head">
+  <p class="zone-kicker">one · the shared law</p>
+  <h2 id="cost-head">Cost Per Activation</h2>
+  <p class="lede">What one invocation costs, by stack position.</p>
+
+  <div class="chart-card">
+    <div class="law">
+      <p id="lawText">Checking…</p>
+    </div>
+    <div class="chart-head">
+      <h3>Energy units per invocation</h3>
+      <span class="sub">a dominant function is the cheapest thing the psyche owns</span>
+      <button class="table-toggle" data-table="costTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="costChart"></div>
+    <div id="costTable" class="data-table"></div>
+  </div>
+</section>
+
+<!-- 2 · CROSS-FUNCTION DRAIN -->
+<section id="compare" class="zone" aria-labelledby="cmp-head">
+  <p class="zone-kicker">two · across the eight</p>
+  <h2 id="cmp-head">Sustained Drain, Compared</h2>
+  <p class="lede">All eight functions on one axis, held at a single stack position. What is worth noticing is how little daylight there is between them — and then how far the whole bundle moves when you change the position underneath it. Where the functions genuinely differ is in <em>texture</em> rather than total: several dominant curves carry micro-recovery notches, and Fe's are the shallowest and most frequent in the atlas, because a room that locks pays a little back and rooms lock often.</p>
+
+  <div class="chart-card">
+    <p class="picker-label">Hold every function at this position</p>
+    <div class="picker" id="posPicker" role="group" aria-label="Stack position"></div>
+    <p class="finding" id="cmpFinding"></p>
+
+    <div class="chart-head">
+      <h3>Cumulative depletion over 120 minutes</h3>
+      <span class="sub" id="cmpSub">continuous use at dominant</span>
+      <button class="table-toggle" data-table="cmpTable" aria-expanded="false">Data table</button>
+    </div>
+
+    <div id="cmpLegend" class="legend"></div>
+
+    <div class="drain-flex">
+      <div class="plot">
+        <div id="cmpChart"></div>
+        <div class="scrub-row">
+          <label for="cmpScrub">Scrub time:</label>
+          <input type="range" id="cmpScrub" min="0" max="120" value="120" aria-label="Time scrubber in minutes">
+          <output id="cmpScrubOut">120 min</output>
+        </div>
+        <div id="cmpLive" class="sr-only" aria-live="polite"></div>
+      </div>
+      <div class="batteries" id="cmpBatteries"></div>
+    </div>
+
+    <div id="cmpTable" class="data-table"></div>
+  </div>
+</section>
+
+<!-- 3 · PER-FUNCTION DRILL-DOWN -->
+<section id="detail" class="zone" aria-labelledby="det-head">
+  <p class="zone-kicker">three · one function at a time</p>
+  <h2 id="det-head">Inside a Single Stack</h2>
+  <p class="lede">The same models, read the other way round: one function across all five positions.</p>
+  <p class="lede legend"><b>Two things to read carefully here.</b> First, the <em>Shadow</em> curve drains more slowly than <em>Inferior</em> while costing more per activation — that is only coherent because shadow functions are modelled as running at a low duty cycle: they erupt in bursts rather than being sustained, so they accumulate less total drain despite each use being dearer. Second, one Shadow curve stands in for all four of Beebe's shadow positions, which the <a href="/phenomena/#shadow">phenomena page</a> treats separately; the Opposing Personality and the Demon are not equally reachable, and this model does not yet distinguish them.</p>
+
+  <div class="chart-card">
+    <p class="picker-label">Function</p>
+    <div class="picker" id="fnPicker" role="group" aria-label="Cognitive function"></div>
+
+    <div class="chart-head">
+      <h3 id="detTitle">Fe · drain by position</h3>
+      <span class="sub">cumulative battery depletion over 120 minutes</span>
+      <button class="table-toggle" data-table="detTable" aria-expanded="false">Data table</button>
+    </div>
+
+    <div id="detLegend" class="legend"></div>
+
+    <div class="drain-flex">
+      <div class="plot">
+        <div id="detChart"></div>
+        <div class="scrub-row">
+          <label for="detScrub">Scrub time:</label>
+          <input type="range" id="detScrub" min="0" max="120" value="120" aria-label="Time scrubber in minutes">
+          <output id="detScrubOut">120 min</output>
+        </div>
+        <div id="detLive" class="sr-only" aria-live="polite"></div>
+      </div>
+      <div class="batteries" id="detBatteries"></div>
+    </div>
+
+    <p class="finding" id="detNote"></p>
+
+    <div id="detTable" class="data-table"></div>
+  </div>
+
+  <div class="chart-card">
+    <div class="chart-head">
+      <h3 id="recTitle">Recovery profiles</h3>
+      <span class="sub">30 min exertion followed by rest (small multiples)</span>
+      <button class="table-toggle" data-table="recTable" aria-expanded="false">Data table</button>
+    </div>
+    <div id="recCharts" class="smalls"></div>
+    <div id="recTable" class="data-table"></div>
+  </div>
+</section>
+
+<!-- 4 · GRIP -->
+<section id="grip" class="zone" aria-labelledby="grip-head">
+  <p class="zone-kicker">four · where collapse runs</p>
+  <h2 id="grip-head">The Direction of Collapse</h2>
+  <p class="lede">A function pushed past its reserves does not produce more of itself. It hands over to its inferior — the opposite element in the opposite attitude — which arrives with a dominant-sized flood and a fraction of the capacity to hold it. Jung called the general form of this <em>enantiodromia</em>: run any attitude to its extreme and it turns into its opposite. The hours below are how long sustained use of each <em>dominant</em> takes to reach full depletion on these curves, which is the clock the grip runs on. <a href="/phenomena/#two">What the grip is, and how it differs from a loop →</a></p>
+  <div class="grip-grid" id="gripGrid"></div>
+</section>
+
+<div id="tooltip" class="viz-tooltip" role="tooltip"></div>
+
+<footer class="epistemic">
+  CURRENTS v1.0 · An interactive atlas of the eight cognitive functions · Energy models are illustrative, not measured
+</footer>
+
+</body>
+</html>

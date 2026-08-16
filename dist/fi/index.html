@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fi — Introverted Feeling · CURRENTS</title>
-  <script type="module" crossorigin src="/assets/fi-sAS_stR0.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/header-BaFUgrvS.js">
-  <link rel="modulepreload" crossorigin href="/assets/math-DT21pYWd.js">
-  <link rel="modulepreload" crossorigin href="/assets/energy-charts-DYEflvhl.js">
-  <link rel="modulepreload" crossorigin href="/assets/fi-glyph-D1YvHVI9.js">
-  <link rel="stylesheet" crossorigin href="/assets/header-DK44_xMw.css">
+  <script type="module" crossorigin src="/assets/fi-C_mReUev.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/header-BBuxVNPY.js">
+  <link rel="modulepreload" crossorigin href="/assets/dom-E87FTS4S.js">
+  <link rel="modulepreload" crossorigin href="/assets/energy-teaser-CsPVRrV7.js">
+  <link rel="modulepreload" crossorigin href="/assets/fi-glyph-BXAGbfad.js">
+  <link rel="modulepreload" crossorigin href="/assets/fi-data-6i3b5d84.js">
+  <link rel="stylesheet" crossorigin href="/assets/header-CI0x3pP4.css">
   <link rel="stylesheet" crossorigin href="/assets/fi-D6q9AXST.css">
 </head>
 <body>
@@ -142,51 +143,7 @@
   <h2 id="ze-head">Energy Economics</h2>
   <p class="lede">Every invocation of Fi costs energy. The lower it sits in the stack, the more expensive it becomes — and the faster the battery drains.</p>
 
-  <div class="chart-card">
-    <div class="chart-head">
-      <h3>Cost Per Activation</h3>
-      <span class="sub">energy units per invocation, by position</span>
-      <button class="table-toggle" data-table="costTable" aria-expanded="false">Data table</button>
-    </div>
-    <div id="costChart"></div>
-    <div id="costTable" class="data-table"></div>
-  </div>
-
-  <div class="chart-card">
-    <div class="chart-head">
-      <h3>Sustained Exertion Drain</h3>
-      <span class="sub">cumulative battery depletion over 120 minutes of continuous use</span>
-      <button class="table-toggle" data-table="drainTable" aria-expanded="false">Data table</button>
-    </div>
-
-    <div id="drainLegend" class="legend"></div>
-
-    <div class="drain-flex">
-      <div class="plot">
-        <div id="drainChart"></div>
-        <div class="scrub-row">
-          <label for="scrub">Scrub time:</label>
-          <input type="range" id="scrub" min="0" max="120" value="120" aria-label="Time scrubber in minutes">
-          <output id="scrubOut">120 min</output>
-        </div>
-        <div id="scrubLive" class="sr-only" aria-live="polite"></div>
-      </div>
-
-      <div class="batteries" id="batteries"></div>
-    </div>
-
-    <div id="drainTable" class="data-table"></div>
-  </div>
-
-  <div class="chart-card">
-    <div class="chart-head">
-      <h3>Recovery Profiles</h3>
-      <span class="sub">30 min exertion followed by rest (small multiples)</span>
-      <button class="table-toggle" data-table="recTable" aria-expanded="false">Data table</button>
-    </div>
-    <div id="recCharts" class="smalls"></div>
-    <div id="recTable" class="data-table"></div>
-  </div>
+  <div class="energy-teaser" id="energyTeaser"></div>
 </section>
 
 <!-- ZONE F: FIELD NOTES -->
