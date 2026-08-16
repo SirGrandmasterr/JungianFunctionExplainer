@@ -59,6 +59,9 @@ nav.atlas a {
 nav.atlas a.active { color: var(--c-accent-fg, #062a33); background: var(--c-accent); border-color: var(--c-accent); font-weight: 600; }
 nav.atlas a.soon { opacity: 0.55; cursor: default; }
 nav.atlas a.soon:hover { text-decoration: none; }
+nav.atlas a.play { border-color: var(--axis); color: var(--ink-2); margin-left: 8px; }
+nav.atlas a.play:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: none; }
+nav.atlas a.play.active { background: var(--ink); border-color: var(--ink); color: var(--bg); font-weight: 600; }
 
 /* ---------- zone A: hero ---------- */
 #zone-a { position: relative; height: 92vh; min-height: 540px; overflow: hidden; }

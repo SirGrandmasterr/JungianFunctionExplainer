@@ -495,23 +495,44 @@ Then the meters animate — the chambers that paid, flash and drain *individuall
 
 ## 5.12 Worked example — one action, two Vessels
 
+> **These are computed figures, not illustrations.** Every number below is the actual output of `resolve()` as implemented, for scenario `credit-thief` at its authored briefing. When the implementation and this document disagreed, the implementation won and this table was regenerated — see §9.
+
 Scenario `credit-thief` (§6): in the sprint review, a colleague presents your architecture as their own. Briefing (this telling): `si: familiar-bad` (third time), `ni: foreseen`, `fi: fairness struck, −0.85`, surface: 9 people, tense-polite, promotion review in six days.
 
-**Action A1 — "Calmly correct the record, now, with evidence"** `{te:.5, se:.3, fe:.2}`, intensity .7:
+**Action A1 — "Correct the record, now, with evidence"** `{te:.5, se:.3, fe:.2}`, intensity .7:
 
 | | **INFP** (Fi·Ne·Si·Te) | **ENTJ** (Te·Ni·Se·Fi) |
 |---|---|---|
-| te .5 → | **Te inferior** ×4.0 = 14.0 u | **Te dominant** ×1.0 = 3.5 u |
-| se .3 → | Si tertiary ×2.5 ×τ = 7.9 u | Se tertiary ×2.5 = 5.3 u |
-| fe .2 → | Fi dominant ×1.0 ×τ = 2.1 u | **Fi inferior ×4.0 ×τ = 8.4 u** |
-| conviction subsidy | Fi mandate .85 → **−7.1 u** | Te mandate .70 → −4.2 u |
-| flow refund | — (dom carried 9%) | −0.9 u (dom carried 41%) |
-| **ENERGY** | **≈ 17 u** | **≈ 12 u** |
-| **STRESS** | **+4 net — spiky** (surge +5.5, exposure +3.9, value answered −5) | **≈ −1 net** (Fi-line strain +1.7, relief −4) |
-| **PLEASURE** | +8 (mostly vindication) | +8 (mostly machinery; this is Tuesday) |
-| **FORECAST** | 41% *(6% if fairness were only −0.2 — then A2 dominates)* | 63% |
+| te .5 → | **Te inferior** ×4.0 = **14.0 u** | Te dominant ×1.0 = 3.5 u |
+| se .3 → | Si tertiary ×2.5 ×τ1.5 = 7.9 u | Se tertiary ×2.5 ×g0.9 = 4.7 u |
+| fe .2 → | Fi dominant ×1.0 ×τ1.5 ×g1.2 = 2.5 u | **Fi inferior ×4.0 ×τ1.5 ×g1.2 = 10.1 u** |
+| conviction subsidy | fairness (.85) + stakes → −7.8 u | stakes (.80) + fairness → −5.5 u |
+| flow refund | — (dominant carries no *native* share) | −0.9 u (Te natively carries .50) |
+| **ENERGY** | **16.6 u** | **11.9 u** |
+| **STRESS** | **+5.4** — surge +5.5 · strain +1.1 · exposure +4.1 · fairness answered −4.3 · stakes answered −1.0 | **+2.2** — surge +2.2 · strain +1.1 · exposure +4.0 · stakes answered −4.0 · fairness answered −1.1 |
+| **PLEASURE** | +8.1 — machinery +1.7 · **vindication +6.4** | +10.8 — **machinery +4.2** · vindication +6.0 · flow +0.5 |
+| **FORECAST** | 16% | 42% |
 
-Three teachings, straight off the table: **(1)** both Vessels *can* do it, and even the energy gap is modest *today* — because conviction subsidized the INFP; **(2)** the real difference is *where the load lands* (the INFP's bill is an inferior surge and an exposure premium; the ENTJ's single most expensive line is the diplomacy — `fe → Fi inferior` — the confrontation is free, the *not scorching the room* is what costs); **(3)** drop the Fi valence to −0.2 and the INFP's forecast collapses to 6% — same person, same act, different *conditions*. And the INFP's cheap-looking alternative — A3, "let it pass, privately re-plan" — prices at ≈15 u of taxed machinery **plus** +13 defiance stress **plus** rumination interest per tick: the receipt that proves swallowing it wasn't the cheap option. That receipt is the thesis.
+Three teachings, straight off the table, and none of them asserted by the copy:
+
+**(1) Both Vessels do it, and the gap is smaller than anyone expects** — 16.6 u against 11.9 u, because conviction co-signed most of the INFP's bill. Ability was never the variable.
+
+**(2) The difference is *where the load lands*.** The INFP's single most expensive line is the confrontation itself (`te → Te inferior`, 14.0 u) and its pleasure is almost entirely vindication — it paid for a value, not for the work. The ENTJ's most expensive line is **the diplomacy** (`fe → Fi inferior`, 10.1 u): confronting costs it 3.5 u, and *not scorching the room* costs it three times that. Same act, mirrored bills.
+
+**(3) Conditions move the odds, not the type.** Sweeping the Fi valence with everything else held fixed:
+
+| `fi` valence | correct-now | quiet-replan | rumination |
+|---|---|---|---|
+| −0.95 | 16% | 3% | 2.3 /tick |
+| −0.85 | 16% | 4% | 2.1 /tick |
+| −0.60 | 15% | 7% | 1.6 /tick |
+| −0.40 | 13% | 10% | 1.2 /tick |
+| −0.20 | 11% | 15% | 0.8 /tick |
+| 0.00 | 8% | **23%** | 0.4 /tick |
+
+The lines cross around −0.4. Same person, same act, different past — the behaviour flips, and the *only* thing that changed is a fact about the experiencer that the scenario never contained.
+
+And the INFP's cheap-looking alternative, A3 "say nothing and quietly re-plan," prices at **20.4 u** — Ti-work through inferior Te, Ni-work through translated Ne, plus a **self-betrayal surcharge** — with **+15.7 stress** and **2.1/tick of rumination interest** that does not stop until the mandate is answered. Against a 16.6 u confrontation. **Silence is the more expensive option, and the receipt says so in itemized detail.** That receipt is the thesis.
 
 ---
 
@@ -683,6 +704,26 @@ Accessibility rides along, not after: reduced-motion swaps the circuit for annot
 
 ---
 
+# 9. Build log — what the implementation changed
+
+This spec was implemented, not just written. Four things only became visible once the code ran, and in each case the code is now the authority:
+
+1. **Exposure was billing people for thinking.** §5.6's exposure premium applied to any translated line whenever an audience was present — including for "say nothing and quietly re-plan," whose signature is entirely introverted. A silent internal act is performed nowhere the audience can reach. Exposure is now scaled by the *extraverted share of the signature*, so a purely interior action owes none of it. Without this the model claimed suppression was publicly humiliating, which is both wrong and the opposite of the point.
+
+2. **Conviction stacked into a loophole.** Summing every served mandate's strength meant a pile of mild agreements could subsidize an action as heavily as one deep conviction. Backing is now `strongest + 0.3 × (the rest)`: a person is carried through an expensive act by the one thing they cannot let go of.
+
+3. **Flow was refunding translated work.** The dominant "carrying ≥40% of the load" counted shares it was handling in translation — i.e. working *out of its own attitude*, which is the precise opposite of flow. The refund now requires native routing. This is why the ENTJ earns a flow refund on the confrontation and the INFP does not.
+
+4. **The Assembly named the vaguer Law.** A candidate can break Laws I and II at once (Se under a Ne dominant does). The refusal now names the *job* clash first — "two lenses, no valve" is concrete where "both hands outward" is abstract — and Law I is still taught by the candidates that break only it.
+
+**Architecture note — the clock.** §7.3 asked for an external clock as an engine contract addition. Investigating the eight engines showed a stronger reason for it than determinism: `start()` opens a rAF loop and an IntersectionObserver that no engine stores or cancels, and no engine has a teardown. Rebuilding a Vessel would strand a loop per chamber, permanently. The Playground therefore **never calls `start()`** — `Vessel` owns one clock and steps and draws all four chambers from it. The result needs no edit to any engine, cannot leak, and gives lockstep determinism for free. Two further hazards found and handled in `chamber.js`: `TiGlyph` reads its accent from `COL.ti` where the other seven read `COL.fn`, and `SeGlyph` seeds its stimulus field in absolute pixels at construction and never re-seeds — so chambers are only ever constructed after their slot has real layout.
+
+**Verified.** All 16 types derive from the two Laws with correct four-letter codes and legal stacks; the routing theorem holds with zero orphans across all 8 demands × 16 types (64 native, 64 translated); four different engines mount and paint simultaneously with correct per-element palettes and a clean rank falloff; the production build succeeds at 59 kB / 21.6 kB gzipped for the page.
+
+**Shipped in v1:** all four phases end to end — Assembly with the three Laws, the Vessel with its circuit and seesaws, three authored scenarios with the Briefing and monologues, and the Ledger with forecast, receipts, grip and the counterfactual. **Deferred, as designed:** the grip *deck* and recovery deck (§5.10 currently capsizes and recovers but does not swap the action deck), Compare Mode as a split canvas (the counterfactual ships as paired receipts), replay permalinks, and scenarios 4–8.
+
+---
+
 *Epistemic footer, carried from `DESIGN.md` §6.3, doubly binding here: the Playground animates an interpretive model, not measured psychology. Receipts are the model's arithmetic, not a person's worth — the copy never diagnoses, and every silhouette is a cost profile, not a cage.*
 
-*End — Playground Mode Specification v1.0*
+*End — Playground Mode Specification v1.0 · implemented August 2026*

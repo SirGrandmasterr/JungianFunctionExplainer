@@ -52,5 +52,17 @@ export function initHeader(activeKey) {
     nav.appendChild(a);
   }
 
+  /* The Playground sits apart from the eight: it is where they run together. */
+  const play = document.createElement('a');
+  play.className = 'play' + (activeKey === 'playground' ? ' active' : '');
+  play.textContent = 'Playground';
+  if (activeKey === 'playground') {
+    play.href = '#zone-build';
+    play.setAttribute('aria-current', 'page');
+  } else {
+    play.href = '/playground/';
+  }
+  nav.appendChild(play);
+
   header.appendChild(nav);
 }

@@ -13,6 +13,7 @@ export default defineConfig({
         si: resolve(__dirname, 'si/index.html'),
         te: resolve(__dirname, 'te/index.html'),
         fe: resolve(__dirname, 'fe/index.html'),
+        playground: resolve(__dirname, 'playground/index.html'),
         main: resolve(__dirname, 'index.html'),
       }
     }
