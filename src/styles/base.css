@@ -270,6 +270,39 @@ svg text { font-family: inherit; }
 .small-multiple h4 .sw { width: 9px; height: 9px; border-radius: 3px; }
 .small-multiple .note { font-size: 10.5px; color: var(--muted); min-height: 28px; }
 
+/* ---------- zone E: the energy summary ----------
+   The three-chart economics suite now lives once, at /energy/, where the
+   eight can actually be compared. What stays on a function page is the
+   smallest thing that keeps DESIGN §1.4's second principle true — the
+   battery is never off-screen — and hands the reader off. */
+.energy-teaser {
+  display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
+  background: var(--surface); border: 1px solid var(--grid);
+  border-radius: 16px; padding: 22px 24px;
+}
+.energy-teaser .cost-strip { display: flex; gap: 10px; align-items: flex-end; height: 64px; margin-bottom: 16px; }
+.energy-teaser .cost-strip .b { width: 26px; border-radius: 3px 3px 0 0; position: relative; min-height: 3px; }
+.energy-teaser .cost-strip .b i {
+  position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%);
+  font-style: normal; font-size: 9.5px; color: var(--muted); white-space: nowrap;
+}
+.energy-teaser .cost-strip .b b {
+  position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+  font-size: 9.5px; font-weight: 600; color: var(--ink-2); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.energy-teaser .body { flex: 1; min-width: 250px; }
+.energy-teaser .body p { font-size: 13.5px; color: var(--ink-2); margin-bottom: 12px; }
+.energy-teaser .body p b { color: var(--ink); font-weight: 600; }
+.energy-teaser a.go {
+  display: inline-block; padding: 9px 18px; border-radius: 10px;
+  border: 1px solid var(--c-accent); color: var(--c-accent);
+  font-size: 13.5px; font-weight: 600;
+}
+.energy-teaser a.go:hover { text-decoration: none; background: var(--surface-2); }
+.energy-teaser a.go.quiet { border-color: var(--grid); color: var(--ink-2); margin-left: 8px; }
+.energy-teaser a.go.quiet:hover { border-color: var(--axis); color: var(--ink); }
+
 /* ---------- zone F ---------- */
 #zone-f .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 8px; }
 .vignette { background: var(--surface); border: 1px solid var(--grid); border-radius: 14px; padding: 18px 20px; }

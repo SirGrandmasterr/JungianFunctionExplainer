@@ -13,9 +13,10 @@ export function loadFeData() {
     sh: CSSVAR('--pos-sh'), warn: CSSVAR('--warn'), crit: CSSVAR('--crit'),
     ink: CSSVAR('--ink'), ink2: CSSVAR('--ink-2'), muted: CSSVAR('--muted'),
     grid: CSSVAR('--grid'), axis: CSSVAR('--axis'), surface: CSSVAR('--surface'),
-    ghost: CSSVAR('--fe-ghost'), nul: CSSVAR('--fe-null'),
-    hueLo: parseFloat(CSSVAR('--fe-hue-lo')) || 322,
-    hueHi: parseFloat(CSSVAR('--fe-hue-hi')) || 368,
+    ghost: CSSVAR('--fe-ghost'), nul: CSSVAR('--fe-null'), heat: CSSVAR('--fe-heat') || '#ffb020',
+    /* the wide carrier band — see the note in fe-theme.css for why it is wide */
+    hueLo: parseFloat(CSSVAR('--fe-hue-lo')) || 300,
+    hueHi: parseFloat(CSSVAR('--fe-hue-hi')) || 396,
   };
 
   /* Type mappings follow the Beebe shadow rule: slots 5–8 are slots 1–4 with

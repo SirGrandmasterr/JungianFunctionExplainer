@@ -142,14 +142,23 @@ The cursor is treated as **an eighth node**. Moving it into the carrier ring add
   --pos-3: #e03963;
   --pos-4: #a82446;
 
-  /* carrier-node hue band: rose → coral, so hue variance stays in-family */
-  --fe-hue-lo: 322;      /* deg */
-  --fe-hue-hi: 368;      /* deg, wraps past 360 */
-  --fe-hue-cold: 258;    /* the out-of-key node — never color-alone (see below) */
-  --fe-null: #1a1220;    /* the standing null on a split field */
+  /* carrier-node hue band — see the revision note below */
+  --fe-hue-lo: 300;      /* deg */
+  --fe-hue-hi: 396;      /* deg, wraps past 360 into warm orange */
+  --fe-null: #150d1c;    /* the standing null on a split field */
   --fe-ghost: #7f5fd0;   /* counter-rotating covert pattern */
+  --fe-heat: #ffb020;    /* overload — drawn as a ring, never as nucleus fill */
 }
 ```
+
+**Revision — the band was too narrow to show the thing the page is about.** As first specified the carrier band ran 322–368°, i.e. 46° of rose-to-coral, on the reasoning that hue variance should stay in-family. Shipped that way, a seven-person room produced hues like `[331, 334, 335, 347, 353, 345, 344]` — and the mean of seven near-identical roses is that same rose. The nucleus was correctly computing a circular mean and there was no way for a viewer to tell, because **an average is only visible when its inputs visibly differ.** The single most important claim on the page was invisible for a palette reason.
+
+The band is now **300–396°** (96°: magenta → rose → coral → warm orange), and hues are **dealt from a golden-ratio low-discrepancy sequence** rather than sampled at random, so any number of carriers spans the band instead of occasionally clustering. It stops short of violet (258, intuition) and of amber (38, sensing), so §1.3's element families still read. The knock-on effect is that **The Room Lifts** finally teaches its lesson: differentiation measurably collapses 0.90 → 0.11 while concord hits 1.00, and the reader watches seven distinct people turn into twelve identical ones.
+
+Two further corrections follow from the same principle:
+
+- **Overload heat is a ring, not a tint.** Heat used to be blended into the nucleus *fill*. That meant the one element whose entire job is to report the mean of the room spent every effortful moment reporting something else — and worst of all during **Cut Off**, where effort pegs at 1.0 against invented phantoms, so the nucleus that was supposed to go grey went orange instead. Heat now draws as a ring outside the disc and the greying survives.
+- **The out-of-key node no longer needs its own cold hue.** `--fe-hue-cold` is dropped: with a 96° band, "out of key" is carried by the phase hand, the dashed spoke, and the tooltip, exactly as the accessibility note required — and a single violet carrier in a wide warm band would now read as an intuition-family intruder rather than as a person.
 
 **Accessibility note (§3.5):** the cold-hue node is *never* identified by hue alone. A node out of key simultaneously (a) counter-rotates, (b) draws its spoke dashed, and (c) reports in the node tooltip. The same rule governs the split field: the standing null is a geometric feature, not a color.
 
@@ -587,6 +596,9 @@ Ship the Canvas 2D path first; the shader is a swap behind the same `FeGlyph` fa
 ---
 
 # 7. Zone E — Energy economics
+
+> **Moved.** The three-chart suite below now lives once, at **`/energy/`**, for all eight functions — see `DESIGN.md` §2.6 for why. The models specified here are unchanged and are still sourced from `loadFeData()`; only their presentation moved. What remains in Zone E on this page is the compact summary rendered by `src/shared/energy-teaser.js`: the cost ladder, the grip clock, and the hand-off to Ti.
+
 
 ```js
 /* Fe's dominant curve carries frequent shallow notches: a room that locks

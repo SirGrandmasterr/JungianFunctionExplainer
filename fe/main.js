@@ -10,7 +10,7 @@ import { clamp } from '../src/utils/math.js';
 import { initHeader } from '../src/shared/header.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
-import { initEnergyCharts } from '../src/shared/energy-charts.js';
+import { initEnergyTeaser } from '../src/shared/energy-teaser.js';
 import { FeGlyph } from '../src/engines/fe-glyph.js';
 import { loadFeData } from '../src/data/fe-data.js';
 
@@ -31,14 +31,13 @@ if (heroCanvas) {
   FE.glyphs.hero = hero;
 }
 
-// 3. Zone E: Energy Economics (initialize first to provide highlightSeries callback)
-const energy = initEnergyCharts({
-  series: SERIES,
+// Zone E: the economics suite now lives once at /energy/, where the eight
+// can be compared; what stays here is the ladder, the grip clock, and a link.
+initEnergyTeaser({
   costs: COSTS,
-  recovery: RECOVERY,
   fnLabel: 'Fe',
   gripT: GRIP_T,
-  gripNote: 'forced inferior Fe',
+  gripInto: 'Ti',
 });
 
 // 4. Zone B: Stack Position Rail
@@ -54,7 +53,6 @@ if (railCanvas) {
   initStackRail({
     slots: SLOTS,
     glyph: railGlyph,
-    highlightSeries: energy.highlightSeries,
   });
 }
 
@@ -101,15 +99,9 @@ if (verifyCanvas) {
      renderer consumes ---- */
   const mStress = el('mStress'), mStressVal = el('mStressVal');
   const mPleasure = el('mPleasure'), mPleasureVal = el('mPleasureVal');
-  const tConcord = el('tConcord'), tCost = el('tCost');
-  const tEffort = el('tEffort'), tDiff = el('tDiff'), tTrust = el('tTrust');
+  const tCost = el('tCost'), tDiff = el('tDiff'), tTrust = el('tTrust');
   const twBelieved = el('twBelieved'), twActual = el('twActual');
   const cogEl = el('cogState');
-  const cellsEl = el('tConcordCells');
-  const cells = [];
-  if (cellsEl) {
-    for (let i = 0; i < 12; i++) { const c = document.createElement('i'); cellsEl.appendChild(c); cells.push(c); }
-  }
   let tick = 0, lastCog = '';
   lab.state.subscribe((s) => {
     if (mStress) {
@@ -117,16 +109,17 @@ if (verifyCanvas) {
       mStress.style.width = sv + '%'; mStressVal.textContent = sv + '%';
       mPleasure.style.width = pv + '%'; mPleasureVal.textContent = pv + '%';
     }
-    /* numeric readouts flicker less than the canvas HUD — every few frames */
+    /* numeric readouts flicker less than the canvas HUD — every few frames.
+       Concord is deliberately not printed as its own number here: it is the
+       "actual" needle immediately below, and it is the HUD bar on the canvas.
+       Effort likewise lives on the canvas, where it now also drives the ring
+       around the nucleus. */
     if ((tick++ & 3) === 0) {
-      if (tConcord) tConcord.textContent = Math.round(s.concord * 100) + '%';
       if (tCost) tCost.textContent = lab.costU.toFixed(1) + ' u';
-      if (tEffort) tEffort.textContent = Math.round(s.effort * 100) + '%';
       if (tDiff) tDiff.textContent = Math.round(s.diff * 100) + '%';
       if (tTrust) tTrust.textContent = Math.round(s.trust * 100) + '%';
       if (twBelieved) twBelieved.style.width = Math.round(s.believed * 100) + '%';
       if (twActual) twActual.style.width = Math.round(s.concord * 100) + '%';
-      cells.forEach((c, i) => c.classList.toggle('on', s.concord * 12 > i));
     }
     if (cogEl && s.state.key !== lastCog) {
       lastCog = s.state.key;

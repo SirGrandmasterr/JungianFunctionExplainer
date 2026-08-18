@@ -38,7 +38,7 @@
    physically reaches the carriers, and particles emitted into the
    environment rather than orbiting within.
    ============================================================ */
-import { TAU, lerp, clamp, mulberry32, hexA } from '../utils/math.js';
+import { TAU, lerp, clamp, mulberry32, hexA, hexRGB } from '../utils/math.js';
 import { REDUCED, CSSVAR } from '../utils/dom.js';
 import { FeState } from './fe-state.js';
 
@@ -94,10 +94,20 @@ export function readCOL() {
     grid: CSSVAR('--grid'), axis: CSSVAR('--axis'), surface: CSSVAR('--surface'),
     ghost: CSSVAR('--fe-ghost') || '#7f5fd0',
     nul: CSSVAR('--fe-null') || '#150d1c',
-    hueLo: parseFloat(CSSVAR('--fe-hue-lo')) || 322,
-    hueHi: parseFloat(CSSVAR('--fe-hue-hi')) || 368,
+    heat: CSSVAR('--fe-heat') || '#ffb020',
+    hueLo: parseFloat(CSSVAR('--fe-hue-lo')) || 300,
+    hueHi: parseFloat(CSSVAR('--fe-hue-hi')) || 396,
   };
 }
+
+/** Golden-ratio low-discrepancy sequence. Carrier hues are DEALT from this
+    rather than sampled at random: seven random draws from the band cluster
+    often enough that a room would regularly show up nearly monochrome, and a
+    monochrome room makes the averaging invisible on exactly the frames it
+    most needs to be visible. This guarantees any number of carriers spans
+    the band, and a carrier keeps its hue for life — a person's colour is
+    their identity, not a function of who else is currently standing there. */
+const PHI = 0.6180339887498949;
 
 export class FeGlyph {
   constructor(canvas, opts = {}) {
@@ -108,7 +118,13 @@ export class FeGlyph {
       opts
     );
     this.COL = opts.COL || readCOL();
-    if (this.COL.hueLo === undefined) Object.assign(this.COL, { hueLo: 322, hueHi: 368, ghost: '#7f5fd0', nul: '#150d1c' });
+    /* fill any key the caller's palette omitted, one at a time — an earlier
+       all-or-nothing guard keyed on hueLo alone let a partial palette through
+       and put `undefined` into a colour string */
+    for (const [k, v] of Object.entries({ hueLo: 300, hueHi: 396, ghost: '#7f5fd0', nul: '#150d1c', heat: '#ffb020' })) {
+      if (this.COL[k] === undefined || this.COL[k] === '') this.COL[k] = v;
+    }
+    this._hueSeq = 0;
     this.rng = mulberry32(this.opts.seed);
     this.params = { scale: 1, fidelity: 0.95, latency: 0, noise: 0, duty: 1, control: 1, contrary: 0 };
     this.target = { ...this.params };
@@ -146,6 +162,8 @@ export class FeGlyph {
     this.syncNode = null;
     this.impulses = [];
     this.pulseT = 0; this.pulseColor = '#ffffff';
+    /* eased offset of the nucleus toward the room's centre of mass */
+    this.cxo = 0; this.cyo = 0;
 
     /* ---- machinery ---- */
     this.fx = null;
@@ -221,8 +239,14 @@ export class FeGlyph {
 
   _mkNode(i, n, temp = false) {
     const rng = this.rng;
-    const hue = this.COL.hueLo + rng() * (this.COL.hueHi - this.COL.hueLo);
+    /* dealt from the sequence, not drawn from the hat — see PHI above */
+    const slot = (this._hueSeq++ * PHI) % 1;
+    const hue = this.COL.hueLo + slot * (this.COL.hueHi - this.COL.hueLo);
     const node = {
+      /* a second identity channel, so two carriers are still told apart
+         after the hue band collapses in a celebration and by a reader who
+         cannot separate the hues at all (§3.5) */
+      lum: 0.54 + (slot < 0.5 ? slot * 0.34 : (1 - slot) * 0.34),
       jit: (rng() - 0.5) * 0.16,
       an: (i / n) * TAU - Math.PI / 2,
       th: rng() * TAU,
@@ -294,7 +318,22 @@ export class FeGlyph {
   }
 
   _nodeRGB(n) {
-    return hsl2rgb(n.hue, n.hostile && n.revealed > 0.5 ? 0.5 : 0.68, 0.62);
+    return hsl2rgb(n.hue, n.hostile && n.revealed > 0.5 ? 0.52 : 0.74, n.lum || 0.62);
+  }
+
+  /** The room's amplitude-weighted centre of mass, in canvas space, as an
+      offset from the chamber centre. The nucleus rides this: when one side
+      of the room is loud, Fe is visibly pulled toward that side. A second,
+      non-colour channel for "the centre is a derived quantity" (§3.5). */
+  _centroid() {
+    let x = 0, y = 0, w = 0;
+    for (const n of this.nodes) {
+      if (n.phantom) continue;
+      const wt = n.a * n.alive;
+      x += Math.cos(n.an) * wt; y += Math.sin(n.an) * wt; w += wt;
+    }
+    if (w < 1e-6) return { x: 0, y: 0 };
+    return { x: (x / w) * this.g.ring * 0.42, y: (y / w) * this.g.ring * 0.42 };
   }
 
   /* ---------- shared glyph API (rail & feeder modules depend on this) ---------- */
@@ -631,6 +670,7 @@ export class FeGlyph {
       const read = shown + n.bias + P.noise * 0.4 * this._gauss();
       rx += Math.cos(read) * wt; ry += Math.sin(read) * wt; wr += wt;
     }
+    this.wSum = w;   /* total carrier weight — the denominator of the mean */
     const R = w > 1e-6 ? Math.hypot(zx, zy) / w : 0;
     const psi = w > 1e-6 ? Math.atan2(zy, zx) : this.psi;
     const Rread = wr > 1e-6 ? Math.hypot(rx, ry) / wr : 0;
@@ -664,6 +704,9 @@ export class FeGlyph {
        mean drifts arbitrarily far behind and pegs the effort meter for a
        coupling that is supposed to feel comfortable. */
     if (this.fcfg.history) psiD = this._sampleBuf(this.t - 1.2 * this.fcfg.history);
+    /* what Fe is actually aiming at — the nucleus hand and the conducting
+       beam both point here, so a laggy or feeder-skewed aim is visible */
+    this.psiD = psiD;
 
     /* ---- 3. the duty cycle, deterministically (replay depends on it) ---- */
     this._dutyPhase += dt / 0.9;
@@ -749,6 +792,10 @@ export class FeGlyph {
     this.haloA += ((0.08 + 0.5 * this.R) * this.presence - this.haloA) * (1 - Math.exp(-dt * 2));
     this.hue = angLerp(this.hue * Math.PI / 180, this._meanHue() * Math.PI / 180, 1 - Math.exp(-dt * 2)) * 180 / Math.PI;
     this.sat += (0.66 * this.presence - this.sat) * (1 - Math.exp(-dt * 1.5));
+    const cm = this._centroid();
+    const ck = 1 - Math.exp(-dt * 1.6);
+    this.cxo += (cm.x - this.cxo) * ck;
+    this.cyo += (cm.y - this.cyo) * ck;
     if (this.wavefront > 0) { this.wavefront += dt / 1.2; if (this.wavefront > 1) this.wavefront = 0; }
     this.pulseT = Math.max(0, this.pulseT - dt * 1.6);
   }
@@ -800,24 +847,36 @@ export class FeGlyph {
   }
 
   /* ---------- conducting impulses (extraverted: emitted, never orbited) ---------- */
+  /* Conducting, as one aimed act at a time.
+     This used to emit a small particle every 0.17 s at whoever was furthest
+     out of phase — six a second, several in flight at once, each a 3 px dot
+     crossing a bright field. The behaviour was right and completely
+     unreadable: it looked like drifting confetti rather than like a person
+     working on a room. Same targeting rule, same cost, but at most two in
+     flight, a beam you can follow, and a landing that is visible on the
+     carrier it lands on. Slower and fewer is what makes it legible AS an
+     action — and because the beam only exists while Fe is actually
+     conducting, its presence now carries information. */
   _impulses(dt) {
     this._emitAcc += dt;
     const P = this.params;
-    if (this._emitAcc > 0.17 && this.conductGate > 0.3 && (this._dutyPhase % 1) < P.duty) {
+    const inFlight = this.impulses.filter((im) => !im.done).length;
+    if (this._emitAcc > 0.42 && inFlight < 2 && this.conductGate > 0.3 && (this._dutyPhase % 1) < P.duty) {
       this._emitAcc = 0;
       let tgt = null, worst = 0.12;
       for (const n of this.nodes) {
         if (n.alive < 0.05 && !n.phantom) continue;
+        if (this.impulses.some((im) => !im.done && im.n === n)) continue;
         const off = Math.abs(angDiff(this.psi, n.th));
         if (off > worst) { worst = off; tgt = n; }
       }
-      if (tgt) this.impulses.push({ n: tgt, t: 0, dur: 0.46, sigma: tgt.sigma });
+      if (tgt) this.impulses.push({ n: tgt, t: 0, dur: 0.62, sigma: tgt.sigma });
     }
     for (const im of this.impulses) {
       im.t += dt;
       if (im.t >= im.dur && !im.done) { im.done = true; im.n.flash = 1; }
     }
-    this.impulses = this.impulses.filter((im) => im.t < im.dur + 0.12);
+    this.impulses = this.impulses.filter((im) => im.t < im.dur + 0.34);
   }
 
   /* ---------- pointer: the user is an eighth node ---------- */
@@ -917,19 +976,29 @@ export class FeGlyph {
     this._hexPath(g.rim); ctx.fill();
 
     ctx.globalCompositeOperation = 'lighter';
+    /* The interference pattern is TEXTURE, not the subject. It used to run at
+       0.30 alpha over 18 rings per carrier, which — composited additively
+       across seven carriers — filled the chamber with glare and left the
+       people, the actual subject of this glyph, indistinguishable from the
+       background. Halved and shortened: still genuinely additive, so
+       crest-on-crest still brightens and the constructive interference is
+       still real, but the carriers now sit on top of it. */
     const sharp = 0.35 + 0.65 * this.R;
-    ctx.lineWidth = lerp(4.4, 1.4, this.R);
+    ctx.lineWidth = lerp(3.4, 1.2, this.R);
     for (const n of this.nodes) {
       if (n.alive < 0.05) continue;
       const p = this._np(n);
       const ph = ((((n.th % TAU) + TAU) % TAU) / TAU);
       const c = this._nodeRGB(n);
       const jit = (1 - this.R) * g.lam * 0.22;
-      for (let k = 0; k < 18; k++) {
+      for (let k = 0; k < 16; k++) {
         const r = g.lam * (k + 1 - ph) + (k % 2 ? jit : -jit) * (1 - this.R);
         if (r < 3) continue;
-        const fall = Math.exp(-r / (g.R * 1.35));
-        const a = n.a * n.alive * fall * sharp * 0.30 * (n.phantom ? 0.3 : 1);
+        /* the falloff has to carry each carrier's crests all the way across
+           the chamber — shorten it and the middle hollows out, which reads as
+           a ring of light rather than as a field */
+        const fall = Math.exp(-r / (g.R * 1.45));
+        const a = n.a * n.alive * fall * sharp * 0.17 * (n.phantom ? 0.3 : 1);
         if (a < 0.004) break;
         ctx.strokeStyle = rgba(c, a);
         ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, TAU); ctx.stroke();
@@ -970,7 +1039,7 @@ export class FeGlyph {
     const a0 = mean(0), a1 = mean(1);
     const mid = Math.atan2(Math.sin(a0) + Math.sin(a1), Math.cos(a0) + Math.cos(a1));
     const dir = mid + Math.PI / 2;
-    const wNull = g.R * 0.13 * this.split;
+    const wNull = g.R * 0.18 * this.split;
     ctx.save();
     this._hexPath(g.rim); ctx.clip();
     ctx.translate(this.cx, this.cy);
@@ -981,22 +1050,41 @@ export class FeGlyph {
     grad.addColorStop(1, hexA(this.COL.nul, 0));
     ctx.fillStyle = grad;
     ctx.fillRect(-g.R * 2, -wNull, g.R * 4, wNull * 2);
-    ctx.strokeStyle = hexA(this.COL.nul, 0.9 * this.split);
-    ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.moveTo(-g.R * 2, 0); ctx.lineTo(g.R * 2, 0); ctx.stroke();
+    /* A null drawn as darkness alone stopped reading once the chamber itself
+       was darkened — a black band on a black floor is not a feature. The two
+       bright rails are not decoration either: the maxima flanking a node of a
+       standing wave are where the cancelled energy actually goes. */
+    const rail = ss(this.split * 1.4);
+    for (const s of [-1, 1]) {
+      const gr2 = ctx.createLinearGradient(-g.R * 2, 0, g.R * 2, 0);
+      gr2.addColorStop(0, rgba(hsl2rgb(this.hue, this.sat, 0.7), 0));
+      gr2.addColorStop(0.5, rgba(hsl2rgb(this.hue, this.sat, 0.7), 0.5 * rail));
+      gr2.addColorStop(1, rgba(hsl2rgb(this.hue, this.sat, 0.7), 0));
+      ctx.strokeStyle = gr2;
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.moveTo(-g.R * 2, s * wNull); ctx.lineTo(g.R * 2, s * wNull);
+      ctx.stroke();
+    }
     ctx.restore();
   }
 
   /** Extraverted: the light does not stay in. The halo IS the coupling
       medium, and it reaches all the way out to the carriers. */
   _drawHalo(ctx, g) {
+    /* The halo still has to bleed past the rim and physically reach the
+       carriers — that is one of the three redundant encodings of extraversion
+       (§1.3) and it is the coupling medium made visible. But at its old
+       weight it was a full-canvas wash that flattened everything into one
+       bright field. It now peaks at roughly a third of that and dies off
+       just past the carrier ring, so it reads as REACH rather than as fog. */
     const c = hsl2rgb(this.hue, this.sat, 0.58);
-    const gr = ctx.createRadialGradient(this.cx, this.cy, g.rim * 0.75, this.cx, this.cy, g.halo * 1.24);
-    gr.addColorStop(0, rgba(c, this.haloA * 0.85));
-    gr.addColorStop(0.55, rgba(c, this.haloA * 0.28));
+    const gr = ctx.createRadialGradient(this.cx, this.cy, g.rim * 0.7, this.cx, this.cy, g.ring * 1.04);
+    gr.addColorStop(0, rgba(c, this.haloA * 0.20));
+    gr.addColorStop(0.58, rgba(c, this.haloA * 0.07));
     gr.addColorStop(1, rgba(c, 0));
     ctx.fillStyle = gr;
-    ctx.beginPath(); ctx.arc(this.cx, this.cy, g.halo * 1.24, 0, TAU); ctx.fill();
+    ctx.beginPath(); ctx.arc(this.cx, this.cy, g.ring * 1.04, 0, TAU); ctx.fill();
   }
 
   /** Judging → a lattice. Extraverted judging → the lattice is out there,
@@ -1056,21 +1144,87 @@ export class FeGlyph {
     ctx.beginPath(); ctx.arc(gx, gy, g.R * 0.3, 0, TAU); ctx.fill();
   }
 
+  /** The beam is deliberately NOT drawn in a carrier hue. The carriers now
+      span 96° of hue between them, so anything Fe emits in a hue of its own
+      would read as an eighth person joining the room. Fe's action is
+      achromatic and hot: white at the head, the room's mean colour in the
+      wake. Effort looks like effort; people look like people. */
   _drawImpulses(ctx, g) {
+    const ox = this.cx + this.cxo, oy = this.cy + this.cyo;
     for (const im of this.impulses) {
       const p = this._np(im.n);
-      const t = ss(clamp(im.t / im.dur, 0, 1));
-      const x = lerp(this.cx, p.x, t), y = lerp(this.cy, p.y, t);
-      const col = im.sigma < 0 ? this.COL.crit : this.COL.fn;
-      const r = 3.4 * (1 - t * 0.35);
-      const gr = ctx.createRadialGradient(x, y, 0, x, y, r * 3.6);
-      gr.addColorStop(0, hexA(col, 0.85));
-      gr.addColorStop(1, hexA(col, 0));
-      ctx.fillStyle = gr;
-      ctx.beginPath(); ctx.arc(x, y, r * 3.6, 0, TAU); ctx.fill();
-      ctx.fillStyle = hexA(col, 0.95);
-      ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
+      const raw = clamp(im.t / im.dur, 0, 1);
+      const t = ss(raw);
+      const hot = im.sigma < 0 ? this.COL.crit : '#ffffff';
+      const wake = hsl2rgb(this.hue, this.sat, 0.66);
+
+      if (!im.done) {
+        const x = lerp(ox, p.x, t), y = lerp(oy, p.y, t);
+        /* the wake: a tapering trail from the chamber to the head, so the
+           gesture reads as a reach rather than as a floating dot */
+        const grd = ctx.createLinearGradient(ox, oy, x, y);
+        grd.addColorStop(0, rgba(wake, 0));
+        grd.addColorStop(1, rgba(wake, 0.5));
+        ctx.strokeStyle = grd;
+        ctx.lineWidth = 1 + 2.6 * t;
+        ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(x, y); ctx.stroke();
+
+        const r = 3.6;
+        const gr = ctx.createRadialGradient(x, y, 0, x, y, r * 4);
+        gr.addColorStop(0, hexA(hot, 0.9));
+        gr.addColorStop(1, hexA(hot, 0));
+        ctx.fillStyle = gr;
+        ctx.beginPath(); ctx.arc(x, y, r * 4, 0, TAU); ctx.fill();
+        ctx.fillStyle = hexA(hot, 0.98);
+        ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
+      } else {
+        /* the landing: a short ring on the carrier that took the nudge, so
+           conducting has a visible destination and not just a trajectory */
+        const k = clamp((im.t - im.dur) / 0.34, 0, 1);
+        const rr = (9 + 16 * k) * (im.n.phantom ? 0.6 : 1);
+        ctx.strokeStyle = hexA(hot, (1 - k) * (im.n.phantom ? 0.3 : 0.7));
+        ctx.lineWidth = 2 * (1 - k) + 0.6;
+        ctx.setLineDash(im.n.phantom ? [3, 4] : []);
+        ctx.beginPath(); ctx.arc(p.x, p.y, rr, 0, TAU); ctx.stroke();
+        ctx.setLineDash([]);
+      }
     }
+  }
+
+  /** Each carrier's phase, drawn as a hand on a dial.
+      The Kuramoto model was previously legible only as radial offsets in the
+      interference fringes, which is not something a person can read. Seven
+      hands swinging into alignment is something anyone can read without being
+      told what it means — and it carries synchrony on a channel that is not
+      colour, not brightness, and survives every scenario (§3.5). The solid
+      hand is the phase the carrier PRESENTS; a masked carrier's true phase is
+      the ghost hand, visible once Fe has sounded them. Covert hostility is
+      therefore a thing you can see: one hand agreeing, another not. */
+  /** `col` is an {r,g,b} — NOT a hex string. Handing a css `rgb(...)` string
+      to hexA() yields `rgba(NaN,…)`, which canvas rejects silently, leaving
+      the previous strokeStyle in place; the hands drew in whatever colour the
+      lattice happened to leave behind and were effectively invisible. */
+  _drawHand(ctx, p, r, ang, col, alpha, width, dashed) {
+    /* scaled off the node, not a fixed offset — a hand that is a short tick
+       against a 12 px disc is not a direction anyone can read across a room
+       of seven of them */
+    const inner = r + 3, outer = r + 9 + r * 0.95;
+    const tx = p.x + Math.cos(ang) * outer, ty = p.y + Math.sin(ang) * outer;
+    ctx.save();
+    ctx.strokeStyle = rgba(col, alpha);
+    ctx.lineWidth = width;
+    ctx.lineCap = 'round';
+    if (dashed) ctx.setLineDash([2.5, 2.5]);
+    ctx.beginPath();
+    ctx.moveTo(p.x + Math.cos(ang) * inner, p.y + Math.sin(ang) * inner);
+    ctx.lineTo(tx, ty);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    /* a tip, so the direction is readable at a glance and at small sizes */
+    ctx.fillStyle = rgba(col, alpha);
+    ctx.beginPath(); ctx.arc(tx, ty, width * 0.85, 0, TAU); ctx.fill();
+    ctx.restore();
   }
 
   _drawNodes(ctx, g) {
@@ -1079,16 +1233,21 @@ export class FeGlyph {
       if (n.alive < 0.02) continue;
       const p = this._np(n);
       const c = this._nodeRGB(n);
-      const r = (6.5 + 5.5 * n.a) * (0.6 + 0.4 * n.alive);
+      const r = (7.5 + 6 * n.a) * (0.6 + 0.4 * n.alive);
       const glow = 0.25 + 0.5 * n.a * n.alive + 0.6 * n.flash;
 
-      /* a socket of shadow first: the carriers sit inside the halo, and
-         without it they wash out into the very glow they are producing */
-      const sk = ctx.createRadialGradient(p.x, p.y, r * 0.6, p.x, p.y, r * 2.6);
-      sk.addColorStop(0, `rgba(6,8,14,${0.80 * n.alive})`);
-      sk.addColorStop(1, 'rgba(6,8,14,0)');
+      /* A socket of shadow first: the carriers sit inside the halo, and
+         without it they wash out into the very glow they are producing.
+         Deeper and wider than it was — each person now punches a clean hole
+         in the field and then sits bright inside it, which is what lets seven
+         individually-coloured people read as seven individuals rather than as
+         texture in a pink cloud. */
+      const sk = ctx.createRadialGradient(p.x, p.y, r * 0.5, p.x, p.y, r * 3.4);
+      sk.addColorStop(0, `rgba(5,7,12,${0.94 * n.alive})`);
+      sk.addColorStop(0.55, `rgba(5,7,12,${0.62 * n.alive})`);
+      sk.addColorStop(1, 'rgba(5,7,12,0)');
       ctx.fillStyle = sk;
-      ctx.beginPath(); ctx.arc(p.x, p.y, r * 2.6, 0, TAU); ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x, p.y, r * 3.4, 0, TAU); ctx.fill();
 
       const gr = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r * 3.4);
       gr.addColorStop(0, rgba(c, glow * 0.7 * n.alive));
@@ -1106,17 +1265,17 @@ export class FeGlyph {
       ctx.beginPath(); ctx.arc(p.x, p.y, r + 3.5, 0, TAU); ctx.stroke();
       ctx.setLineDash([]);
 
+      /* ---- the dial: a faint track, then the hand ---- */
+      ctx.strokeStyle = rgba(c, 0.28 * n.alive);
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(p.x, p.y, r + 9 + r * 0.95, 0, TAU); ctx.stroke();
+      /* the phase this carrier presents — for an unmasked one, simply theirs */
+      const shown = n.th + n.delta;
+      this._drawHand(ctx, p, r, shown, c, (0.92 + 0.08 * n.flash) * n.alive, 2.6, n.phantom);
       /* a carrier that has been probed and found to be masked shows its true
-         phase as a separate marker — never colour alone */
+         phase as a second hand — never colour alone */
       if (n.revealed && Math.abs(n.delta) > 0.3) {
-        const tx = p.x + Math.cos(n.th) * (r + 13), ty = p.y + Math.sin(n.th) * (r + 13);
-        ctx.strokeStyle = hexA(this.COL.ghost, 0.9);
-        ctx.lineWidth = 1.4;
-        ctx.setLineDash([2, 3]);
-        ctx.beginPath(); ctx.arc(p.x, p.y, r + 13, 0, TAU); ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.fillStyle = hexA(this.COL.ghost, 0.95);
-        ctx.beginPath(); ctx.arc(tx, ty, 2.6, 0, TAU); ctx.fill();
+        this._drawHand(ctx, p, r, n.th, hexRGB(this.COL.ghost), 0.95, 2, true);
       }
 
       /* Ni feeder: a prediction ghost, ahead of where they actually are */
@@ -1136,10 +1295,13 @@ export class FeGlyph {
       }
 
       if (this.opts.hud && n === this.hoverNode) {
-        const label = n.phantom ? 'not in the room'
+        /* the share is the point of the hover: this person is this much of
+           what Fe is currently feeling */
+        const share = this.wSum > 1e-6 ? (n.a * n.alive) / this.wSum : 0;
+        const label = n.phantom ? 'not in the room · 0% of the mean'
           : n.revealed && Math.abs(n.delta) > 0.3
             ? `masked · true phase ${Math.round(Math.abs(n.delta) * 180 / Math.PI)}° off`
-            : n.probe > 0.98 ? 'reads as agreement' : 'sounding…';
+            : n.probe > 0.98 ? `${Math.round(share * 100)}% of the mean` : 'sounding…';
         ctx.font = `${hs}px ${HUD_FONT}`;
         ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
         const wTxt = ctx.measureText(label).width;
@@ -1154,22 +1316,97 @@ export class FeGlyph {
   /** Fe's own locus. It has no colour of its own — hue is the circular mean
       of the ring, saturation is how much of the ring is left. Empty the ring
       and this goes grey, which is the entire argument of the page. */
-  _drawNucleus(ctx, g) {
-    const l = lerp(0.34, 0.72, this.R) * (0.4 + 0.6 * this.presence);
-    let c = hsl2rgb(this.hue, this.sat, l);
-    /* Overload heat: the chamber runs hot regardless of what colour the room
-       happens to be — but never hot enough to overrule the desaturation,
-       because a severed field going grey is the one thing this glyph most
-       has to say. Rumination against phantoms pegs effort at 1.0, and it
-       must not repaint an empty ring. */
-    if (this.effort > 0.4) {
-      const h = clamp((this.effort - 0.4) / 0.6, 0, 1) * 0.55 * this.presence;
-      const w = hsl2rgb(38, 0.95, 0.6);
-      c = { r: Math.round(lerp(c.r, w.r, h)), g: Math.round(lerp(c.g, w.g, h)), b: Math.round(lerp(c.b, w.b, h)) };
+  /** The collar: the arithmetic, drawn.
+      A ring of arcs immediately around the nucleus, one per carrier, in that
+      carrier's own colour, with arc length proportional to how much weight
+      they carry in the mean. The disc inside it is the result. Ring order is
+      preserved, so the collar is a miniature of the room — and because the
+      total sweep is scaled by presence, a room walking out leaves the collar
+      visibly hollow rather than silently re-normalizing to a full circle.
+      This is the one element that states Fe's whole claim as an operation
+      rather than as an outcome: these, averaged, make that. */
+  _drawCollar(ctx, g, x, y) {
+    const live = this.nodes
+      .filter((n) => !n.phantom && n.alive > 0.02)
+      .sort((a, b) => a.an - b.an);
+    const wSum = live.reduce((s, n) => s + n.a * n.alive, 0);
+    const rC = g.core * 2.15, thick = Math.max(2.4, g.core * 0.42);
+
+    /* the empty remainder — what the mean is missing */
+    ctx.strokeStyle = hexA(this.COL.axis, 0.5);
+    ctx.lineWidth = thick;
+    ctx.beginPath(); ctx.arc(x, y, rC, 0, TAU); ctx.stroke();
+    if (wSum < 1e-6) return;
+
+    let a0 = -Math.PI / 2;
+    const sweep = TAU * clamp(this.presence, 0, 1);
+    const hov = this.hoverNode;
+    let hovArc = null;
+    ctx.lineCap = 'butt';
+    for (const n of live) {
+      const seg = sweep * ((n.a * n.alive) / wSum);
+      if (seg < 0.002) continue;
+      const c = this._nodeRGB(n);
+      const on = n === hov;
+      ctx.strokeStyle = rgba(c, on ? 1 : (hov ? 0.42 : 0.94));
+      ctx.lineWidth = on ? thick * 1.7 : thick;
+      ctx.beginPath(); ctx.arc(x, y, rC, a0 + 0.016, a0 + seg - 0.016); ctx.stroke();
+      if (on) hovArc = { mid: a0 + seg / 2, c, share: (n.a * n.alive) / wSum };
+      a0 += seg;
     }
+
+    /* Sounding a carrier draws the line from that person to their share of
+       what Fe is currently feeling. The ring already says "the centre comes
+       from out there"; this says which part of it came from whom, which is
+       the claim at the resolution of a single person. */
+    if (hovArc) {
+      const p = this._np(hov);
+      const ax = x + Math.cos(hovArc.mid) * (rC + thick), ay = y + Math.sin(hovArc.mid) * (rC + thick);
+      const grd = ctx.createLinearGradient(p.x, p.y, ax, ay);
+      grd.addColorStop(0, rgba(hovArc.c, 0.85));
+      grd.addColorStop(1, rgba(hovArc.c, 0.25));
+      ctx.strokeStyle = grd;
+      ctx.lineWidth = 1.6;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(ax, ay); ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  }
+
+  /** Per-cluster mean phase and mean colour, for the forked nucleus hand.
+      Returns one entry per cluster that actually has live members. */
+  _clusterMeans() {
+    const out = [];
+    for (const cl of [0, 1]) {
+      let px = 0, py = 0, hx = 0, hy = 0, w = 0;
+      for (const n of this.nodes) {
+        if (n.phantom || n.cluster !== cl || n.alive < 0.2) continue;
+        const wt = n.a * n.alive, hr = n.hue * Math.PI / 180;
+        px += Math.cos(n.th) * wt; py += Math.sin(n.th) * wt;
+        hx += Math.cos(hr) * wt; hy += Math.sin(hr) * wt; w += wt;
+      }
+      if (w < 1e-6) continue;
+      out.push({
+        phase: Math.atan2(py, px),
+        rgb: hsl2rgb(Math.atan2(hy, hx) * 180 / Math.PI, 0.7, 0.62),
+      });
+    }
+    return out;
+  }
+
+  /** Fe's own locus. It has no colour of its own — hue is the circular mean
+      of the collar around it, saturation is how much of the ring is left, and
+      its position is the room's centre of mass. Empty the ring and this goes
+      grey and drifts back to nothing, which is the entire argument of the
+      page. */
+  _drawNucleus(ctx, g) {
+    const l = lerp(0.40, 0.74, this.R) * (0.42 + 0.58 * this.presence);
+    const c = hsl2rgb(this.hue, this.sat, l);
     const jitter = this.trust * 1.8;
-    const jx = this.cx + Math.sin(this.t * 31) * jitter;
-    const jy = this.cy + Math.cos(this.t * 27) * jitter;
+    /* the nucleus rides the room's centre of mass — a loud side of the room
+       physically pulls Fe toward it */
+    const jx = this.cx + this.cxo + Math.sin(this.t * 31) * jitter;
+    const jy = this.cy + this.cyo + Math.cos(this.t * 27) * jitter;
 
     const gr = ctx.createRadialGradient(jx, jy, 0, jx, jy, g.core * 4.2);
     gr.addColorStop(0, rgba(c, 0.95 * this.opts.coreGlow));
@@ -1178,12 +1415,49 @@ export class FeGlyph {
     ctx.fillStyle = gr;
     ctx.beginPath(); ctx.arc(jx, jy, g.core * 4.2, 0, TAU); ctx.fill();
 
+    this._drawCollar(ctx, g, jx, jy);
+
     const breath = 1 + 0.05 * Math.sin(this.t * 0.9 * TAU * 0.16);
-    ctx.fillStyle = rgba(c, 0.92);
+    ctx.fillStyle = rgba(c, 0.96);
     ctx.beginPath(); ctx.arc(jx, jy, g.core * breath, 0, TAU); ctx.fill();
-    ctx.strokeStyle = rgba(c, 0.5);
-    ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.arc(jx, jy, g.core * breath + 3, 0, TAU); ctx.stroke();
+
+    /* Overload heat is a RING, never the fill. It used to be blended into the
+       nucleus colour, which meant the one element whose entire job is to
+       report the mean of the room spent every effortful moment reporting
+       something else — a hard-working Fe read as orange no matter who was in
+       the room. Effort is real and has to show; it does not get to overwrite
+       the readout it is not about. */
+    /* an idle dominant room runs at a median effort near 0.28, so the ring
+       only starts above that — otherwise "working hard" is on most of the
+       time and stops meaning anything */
+    if (this.effort > 0.45) {
+      const h = clamp((this.effort - 0.45) / 0.55, 0, 1);
+      ctx.strokeStyle = hexA(this.COL.heat, 0.30 + 0.6 * h);
+      ctx.lineWidth = 1 + 3.2 * h;
+      ctx.beginPath(); ctx.arc(jx, jy, g.core * breath + 4.5, 0, TAU); ctx.stroke();
+    }
+
+    /* Fe's own hand, on the same dial the carriers use: where it is currently
+       aiming the room. Sync means this hand and theirs agree.
+
+       On a split field it FORKS. Two camps locked antiphase do not have one
+       mean for Fe to sit at, and drawing a single confident hand through the
+       middle of a room with two answers would be a lie the rest of the panel
+       then has to talk the reader out of. Two hands, each in its own camp's
+       colour, is the deadlock stated at a glance: there is no average left to
+       take, which is also precisely why conducting into it accomplishes
+       nothing and the effort meter pegs. */
+    if (this.presence > 0.08) {
+      const forks = this.split > 0.25 ? this._clusterMeans() : null;
+      if (forks && forks.length === 2) {
+        for (const f of forks) {
+          this._drawHand(ctx, { x: jx, y: jy }, g.core * 2.5, f.phase, f.rgb, 0.95, 3.2);
+        }
+      } else {
+        this._drawHand(ctx, { x: jx, y: jy }, g.core * 2.5,
+          this.psiD !== undefined ? this.psiD : this.psi, c, 0.95, 3.2);
+      }
+    }
   }
 
   _drawOverlays(ctx, g) {

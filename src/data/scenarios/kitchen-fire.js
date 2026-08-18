@@ -27,7 +27,7 @@ export const KITCHEN_FIRE = {
     si: { familiarity: 'unprecedented', precedent: 'never had a fire in this kitchen' },
     ni: { trajectory: 'blindside', note: 'no part of the evening pointed here' },
     ti: { modelFit: 'consistent', axiom: 'water on burning oil spreads it' },
-    fi: { valence: 0.2, value: 'nobody gets hurt on my watch' },
+    fi: { valence: 0.2, value: 'safety', note: 'nobody gets hurt on my watch' },
   },
 
   gates: {
@@ -38,6 +38,7 @@ export const KITCHEN_FIRE = {
     se: 0.8,          /* a loud world is what Se eats — even cheaper than idle */
     ne: 1.3,          /* nothing here is hypothetical; speculation is dead weight */
     fe: 1.1,
+    te: 0.75,         /* two objectives, rankable, resources in reach */
   },
 
   affinity: { se: 1.6, ne: 0.5, si: 0.8 },
@@ -56,7 +57,10 @@ export const KITCHEN_FIRE = {
       id: 'stop-the-water',
       label: 'Stop the person with the glass — first',
       detail: 'The fire is not the fastest-moving danger in the room.',
-      signature: { se: 0.4, fe: 0.35, ti: 0.25 },
+      /* Fi held the scenario's only real value ("nobody gets hurt") and was
+         never once in a signature — it was cited by three cards and given
+         work by none. This is the card where the value does the work. */
+      signature: { se: 0.35, fi: 0.3, fe: 0.2, ti: 0.15 },
       intensity: 0.75,
       mandates: { serves: ['fi.safety'], defers: ['te.stakes'] },
       outcome: 'The glass never lands. The fire burns four seconds longer, and nothing catches.',

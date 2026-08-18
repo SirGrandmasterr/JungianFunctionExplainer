@@ -36,6 +36,7 @@ export const THE_OFFER = {
     se: 1.35,        /* nothing to touch, nothing happening — Se runs on empty */
     ne: 0.8,
     te: 0.85,
+    fe: 1.55,        /* no audience at all — Fe has nothing to conduct and idles hot */
   },
 
   affinity: { ni: 1.5, ne: 1.4, se: 0.4, fe: 0.4 },
@@ -76,6 +77,18 @@ export const THE_OFFER = {
       intensity: 0.5,
       mandates: { serves: ['si.precedent'], defies: ['ni.trajectory', 'te.stakes'] },
       outcome: 'Everything stays exactly where it is. That is the whole of what happens, and it is not nothing.',
+    },
+    {
+      /* Ne and Fe were both entirely absent from this deck — a life decision
+         with nobody else in it and no branch worth speaking out loud. Both of
+         those are wrong: the people it costs are part of the decision. */
+      id: 'ask-the-people',
+      label: 'Ask the people it would cost',
+      detail: 'Not for permission. For the version of this you cannot see from inside your own head.',
+      signature: { fe: 0.4, ne: 0.35, fi: 0.25 },
+      intensity: 0.55,
+      mandates: { serves: ['fi.value'], defers: ['te.stakes'] },
+      outcome: 'Three conversations. One of them says a thing you had not thought of, and it is the reason you decide the way you decide.',
     },
   ],
 

@@ -52,6 +52,26 @@ export function initHeader(activeKey) {
     nav.appendChild(a);
   }
 
+  /* Energy sits apart from the eight for the same reason the Playground does:
+     it is one view OF all of them. It used to be a zone repeated on every
+     function page, which made the only interesting comparison — between
+     functions — the one thing it could not show. */
+  for (const x of [
+    { key: 'energy', label: 'Energy', href: '/energy/', anchor: '#cost' },
+    { key: 'phenomena', label: 'Phenomena', href: '/phenomena/', anchor: '#stack' },
+  ]) {
+    const a = document.createElement('a');
+    a.className = 'play' + (activeKey === x.key ? ' active' : '');
+    a.textContent = x.label;
+    if (activeKey === x.key) {
+      a.href = x.anchor;
+      a.setAttribute('aria-current', 'page');
+    } else {
+      a.href = x.href;
+    }
+    nav.appendChild(a);
+  }
+
   /* The Playground sits apart from the eight: it is where they run together. */
   const play = document.createElement('a');
   play.className = 'play' + (activeKey === 'playground' ? ' active' : '');
