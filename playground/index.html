@@ -50,7 +50,12 @@
 
     <!-- ---- centre: the Vessel ---- -->
     <div class="stage-col">
-      <div class="vessel-stage" id="vesselStage" aria-label="The Vessel"></div>
+      <!-- #vesselStage is on loan: while the lower zones are on screen it is
+           moved bodily into #vesselDock and moved back on the way up. The home
+           keeps its height either way, so the page never jumps. -->
+      <div class="stage-home" id="stageHome">
+        <div class="vessel-stage" id="vesselStage" aria-label="The Vessel"></div>
+      </div>
       <div class="stage-legend">
         <span class="above">above the Surface — the outer world</span>
         <span class="below">below — the interior</span>
@@ -65,20 +70,31 @@
           <button class="btn small" id="btnRebuild" type="button">Rebuild</button>
         </div>
         <p class="caption" id="asmCaption">Eight functions. Two choices. Sixteen people.</p>
+
+        <!-- Layer 3 (§2.3): the encoding, its sources, and its caveats. Opened
+             by hand or never — nothing on this page needs what is inside. -->
+        <details class="provenance" id="provenance" hidden>
+          <summary class="prov-toggle" id="provToggle"></summary>
+          <div class="prov-body" id="provBody"></div>
+        </details>
       </div>
 
-      <div class="panel vitals" id="vitals" hidden>
-        <h3 class="panel-h">Vitals</h3>
-        <div class="meter energy">
-          <label>Energy <b id="energyVal">100</b></label>
-          <div class="track"><div class="fill" id="energyFill" style="width:100%"></div></div>
+      <!-- travels to the dock with the stage; the home holds the slot -->
+      <div class="vitals-home" id="vitalsHome">
+        <div class="panel vitals" id="vitals" hidden>
+          <h3 class="panel-h">Vitals</h3>
+          <div class="meter energy">
+            <label>Energy <b id="energyVal">100</b></label>
+            <div class="track"><div class="fill" id="energyFill" style="width:100%"></div></div>
+          </div>
+          <div class="meter stress">
+            <label>Stress <b id="stressVal">0</b></label>
+            <div class="track"><div class="fill" id="stressFill" style="width:0%"></div></div>
+          </div>
+          <p class="rumination" id="rumination" role="status" hidden></p>
+          <div class="quad-chip" id="quadChip"><b>Flow</b><span>energy to spend, nothing pulling at you</span></div>
+          <button class="btn small wide" id="btnRest" type="button">Rest — end the day</button>
         </div>
-        <div class="meter stress">
-          <label>Stress <b id="stressVal">0</b></label>
-          <div class="track"><div class="fill" id="stressFill" style="width:0%"></div></div>
-        </div>
-        <div class="quad-chip" id="quadChip"><b>Flow</b><span>energy to spend, nothing pulling at you</span></div>
-        <button class="btn small wide" id="btnRest" type="button">Rest — end the day</button>
       </div>
 
       <ul class="lawbook" id="lawbook" aria-label="The Laws, as you meet them"></ul>
@@ -141,6 +157,15 @@
     </div>
   </div>
 </section>
+
+<!-- ===================== THE DOCK =====================
+     Not a second Vessel — the only one, relocated. The Ledger sits some two
+     thousand pixels below the stage, and an execution animation nobody can
+     see is an argument the page is failing to make. -->
+<aside class="vessel-dock" id="vesselDock" hidden aria-label="The Vessel, live">
+  <div class="dock-slot" id="dockSlot"></div>
+  <div class="dock-vitals" id="dockVitals"></div>
+</aside>
 
 <footer class="epistemic" id="epistemic"></footer>
 

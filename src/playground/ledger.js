@@ -43,6 +43,14 @@ export const ECON = {
   SUBSIDY_RATE: 0.35, /* conviction co-signs this much of the bill … */
   SUBSIDY_CAP: 0.50,  /* … up to half of it */
   BETRAYAL: 0.8,      /* self-betrayal surcharge on cost, × mandate strength */
+  MANDATE_MIN: 0.05,  /* below this, a push is noise rather than a mandate */
+
+  /* Directed pushes from the two interior lenses. Deliberately below the
+     judges' range: a lens argues for a direction it already sees, it does
+     not rule that something is right, and it should not be able to co-sign
+     an act as hard as a violated value can. */
+  MANDATE_NI: 0.6,    /* a foreseen trajectory, pushing along itself */
+  MANDATE_SI: 0.5,    /* a precedent that worked, pushing toward itself */
 
   FLOW_SHARE: 0.40,   /* dominant must carry this much of the load … */
   FLOW_REFUND: 0.25,  /* … to refund this much of its own line */
@@ -118,7 +126,72 @@ export function gate(fnKey, scenario = {}, briefing = {}) {
 /* ---------- mandates ---------- */
 
 /**
- * A judging chamber whose hook reads extreme develops a directed push.
+ * Where a directed push comes from, per chamber, *before* rank is applied.
+ * Each source answers one question: standing in this scenario, reading this
+ * briefing, what does a chamber of this element want done? `null` means it
+ * has nothing to push for — the instrument is reading neutral, or it is
+ * reading a state a chamber simply cannot argue from.
+ *
+ * The four judges rule on the situation, so each pushes whenever its own hook
+ * is off-centre. The two interior lenses push more narrowly and more weakly
+ * (ECON.MANDATE_NI / MANDATE_SI): a lens argues for a *direction it already
+ * sees* rather than ruling that something is right, so a blindside gives Ni
+ * nothing to push along and an unfamiliar — or a badly remembered — situation
+ * gives Si no precedent to push toward. Ne and Se have no source at all: an
+ * outward lens reports what is in front of it and takes no position on it,
+ * so there is nothing an action could serve or defy.
+ *
+ * This table is also what `auditMandates` probes, so the engine and its
+ * self-check cannot drift apart.
+ */
+const MANDATE_SOURCES = {
+  fi: (scenario, briefing) => {
+    const b = briefing.fi || {};
+    return {
+      id: `fi.${(b.value || 'value').replace(/\s+/g, '-')}`,
+      valence: b.valence ?? 0,
+      label: b.value || 'a personal value',
+    };
+  },
+
+  ti: (scenario, briefing) => {
+    const fit = (briefing.ti || {}).modelFit;
+    return {
+      id: 'ti.model',
+      valence: fit === 'contradiction' ? -0.8 : fit === 'consistent' ? 0.25 : 0,
+      label: (briefing.ti || {}).axiom || 'the model',
+    };
+  },
+
+  te: (scenario) => {
+    const te = (scenario.surface && scenario.surface.te) || {};
+    return { id: 'te.stakes', valence: te.stakes || 0, label: te.metric || 'the outcome' };
+  },
+
+  fe: (scenario) => {
+    const fe = (scenario.surface && scenario.surface.fe) || {};
+    return {
+      id: 'fe.expectation',
+      valence: fe.expectation ? clamp(0.25 + (fe.audience || 0) * 0.05, 0, 1) : 0,
+      label: fe.expectation || 'the room',
+    };
+  },
+
+  ni: (scenario, briefing) => {
+    const b = briefing.ni || {};
+    if (b.trajectory !== 'foreseen') return null;   /* a blindside has no line to hold */
+    return { id: 'ni.trajectory', valence: ECON.MANDATE_NI, label: b.note || 'the trajectory' };
+  },
+
+  si: (scenario, briefing) => {
+    const b = briefing.si || {};
+    if (b.familiarity !== 'familiar-good') return null;  /* a bad record is a warning, not a course */
+    return { id: 'si.precedent', valence: ECON.MANDATE_SI, label: b.precedent || 'the precedent' };
+  },
+};
+
+/**
+ * A chamber whose hook reads extreme develops a directed push.
  * Only chambers actually aboard produce one — which is precisely why
  * different types cannot let go of different things.
  */
@@ -126,35 +199,100 @@ export function liveMandates(stack, scenario = {}, briefing = {}) {
   const out = [];
   for (const rank of RANKS) {
     const fnKey = stack[rank];
-    if (!fnKey || FN[fnKey].cls !== 'judge') continue;
+    const source = fnKey && MANDATE_SOURCES[fnKey];
+    if (!source) continue;
 
-    let valence = 0, label = '', id = fnKey;
-    if (fnKey === 'fi') {
-      const b = briefing.fi || {};
-      valence = b.valence ?? 0;
-      label = b.value || 'a personal value';
-      id = `fi.${(b.value || 'value').replace(/\s+/g, '-')}`;
-    } else if (fnKey === 'ti') {
-      const fit = (briefing.ti || {}).modelFit;
-      valence = fit === 'contradiction' ? -0.8 : fit === 'consistent' ? 0.25 : 0;
-      label = (briefing.ti || {}).axiom || 'the model';
-      id = 'ti.model';
-    } else if (fnKey === 'te') {
-      valence = (scenario.surface && scenario.surface.te && scenario.surface.te.stakes) || 0;
-      label = (scenario.surface && scenario.surface.te && scenario.surface.te.metric) || 'the outcome';
-      id = 'te.stakes';
-    } else if (fnKey === 'fe') {
-      const fe = (scenario.surface && scenario.surface.fe) || {};
-      valence = fe.expectation ? clamp(0.25 + (fe.audience || 0) * 0.05, 0, 1) : 0;
-      label = fe.expectation || 'the room';
-      id = 'fe.expectation';
-    }
+    const m = source(scenario, briefing);
+    if (!m) continue;
 
-    const strength = Math.abs(valence) * ECON.W[rank];
-    if (strength < 0.05) continue;
-    out.push({ id, fn: fnKey, rank, valence, strength, label });
+    const strength = Math.abs(m.valence) * ECON.W[rank];
+    if (strength < ECON.MANDATE_MIN) continue;
+    out.push({ id: m.id, fn: fnKey, rank, valence: m.valence, strength, label: m.label });
   }
   return out.sort((a, b) => b.strength - a.strength);
+}
+
+/* ---------- the self-check ---------- */
+
+/**
+ * The full vocabulary of the four interior instruments, kept here rather than
+ * imported from the content layer so the ledger stays a pure module. It must
+ * stay in step with INSTRUMENTS in `data/playground-data.js`, which is what
+ * the Briefing panel renders; `auditMandates` sweeps it to ask what a scenario
+ * could ever produce, across every setting a player can reach.
+ */
+export const BRIEFING_VOCAB = {
+  si: { familiarity: ['familiar-good', 'familiar-bad', 'unprecedented'] },
+  ni: { trajectory: ['foreseen', 'blindside'] },
+  ti: { modelFit: ['consistent', 'contradiction'] },
+  fi: { valence: [-1, 0, 1] },
+};
+
+/** Every briefing a player can dial in, as the cartesian product of the above. */
+function briefingSweep() {
+  let out = [{}];
+  for (const [fnKey, fields] of Object.entries(BRIEFING_VOCAB)) {
+    for (const [field, values] of Object.entries(fields)) {
+      out = out.flatMap((b) => values.map((v) => ({ ...b, [fnKey]: { ...(b[fnKey] || {}), [field]: v } })));
+    }
+  }
+  return out;
+}
+
+/**
+ * Which functions could develop a mandate in this scenario, under *some*
+ * briefing, in *some* stack. Judged at `dom`, where the rank weight is 1 —
+ * the most generous slot there is. A push too faint to clear the floor even
+ * there can never be a mandate anywhere.
+ * @returns {Set<string>} function keys
+ */
+export function mandatableFns(scenario = {}) {
+  const out = new Set();
+  const sweep = briefingSweep();
+  for (const [fnKey, source] of Object.entries(MANDATE_SOURCES)) {
+    for (const b of sweep) {
+      const m = source(scenario, b);
+      if (m && Math.abs(m.valence) * ECON.W.dom >= ECON.MANDATE_MIN) { out.add(fnKey); break; }
+    }
+  }
+  return out;
+}
+
+/**
+ * Dev-time assertion: every mandate a scenario's actions couple to must be one
+ * the engine can actually produce there.
+ *
+ * A reference to a chamber that never develops a push in this scenario is not
+ * a harmless no-op. It is an authored intention — "declining defies the
+ * trajectory" — that silently never fires, and a silently-never-fires is the
+ * one failure this economy cannot show on a receipt. So it is shouted at load.
+ *
+ * @returns {Array<{scenario,action,stance,ref,fn}>} the dead references
+ */
+export function auditMandates(scenario = {}) {
+  const live = mandatableFns(scenario);
+  const dead = [];
+  for (const action of scenario.actions || []) {
+    for (const stance of ['serves', 'defies', 'defers']) {
+      for (const ref of (action.mandates || {})[stance] || []) {
+        const fn = String(ref).split('.')[0];
+        if (!live.has(fn)) dead.push({ scenario: scenario.id, action: action.id, stance, ref, fn });
+      }
+    }
+  }
+  if (dead.length) {
+    const fns = [...new Set(dead.map((d) => d.fn))].join(', ');
+    console.error(
+      `[currents] scenario "${scenario.id}": ${dead.length} mandate reference(s) can never fire — ` +
+      `no briefing makes ${fns} develop a push here, so these couplings are silently inert:\n` +
+      dead.map((d) => `    ${d.action} ${d.stance} ${d.ref}`).join('\n'));
+  }
+  return dead;
+}
+
+/** Run the self-check over a whole deck. Call from the app entry, in dev only. */
+export function auditScenarios(scenarios = []) {
+  return scenarios.flatMap((s) => auditMandates(s));
 }
 
 /** Actions couple to mandates by function prefix, so renaming a value can't break it. */
@@ -208,7 +346,15 @@ export function resolve(action, vessel, scenario = {}, briefing = {}) {
     ? Math.min(ECON.SUBSIDY_RATE * backing, ECON.SUBSIDY_CAP) * raw
     : 0;
 
-  /* ---- 3. self-betrayal: acting *with* a violation costs more to run ---- */
+  /* ---- 3. self-betrayal: acting *with* a violation costs more to run ----
+     The filter is attitude, not class, and it now catches Ni and Si too.
+     That is deliberate. The surcharge is not "you broke a rule"; it is the
+     cost of running an act while some part of you privately dissents, and
+     an interior lens dissents exactly as privately as an interior judge:
+     nobody in the room can see you overruling your own read of where this
+     was going. An extraverted chamber's mandate is answerable *out there*,
+     so defying it is argued with the world rather than carried in the body,
+     and it is charged as stress and interest but not as this. */
   const betrayed = mandates.filter((m) => m.stance === 'defied' && FN[m.fn].att === 'i');
   const betrayal = betrayed.reduce((s, m) => s + ECON.BETRAYAL * m.strength, 0) * raw * 0.5;
 

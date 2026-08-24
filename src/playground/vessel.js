@@ -27,6 +27,10 @@ export class Vessel {
     this.stage = stage;
     this.COL = opts.COL || {};
     this.onChamberClick = opts.onChamberClick || null;
+    /* The page has one clock, and it lives here. Anything else that needs to
+       advance in real time borrows it rather than starting a second rAF —
+       see `start()` for why this fires even when the geometry does not. */
+    this.onTick = opts.onTick || null;
 
     this.bg = document.createElement('canvas');
     this.bg.className = 'vessel-bg';
@@ -58,6 +62,18 @@ export class Vessel {
   }
 
   /* ---------- geometry ---------- */
+
+  /**
+   * Re-read the stage's box and re-place every chamber against it.
+   *
+   * The ResizeObserver calls this, and so must anything that moves the stage
+   * itself: observer delivery is a frame away, and a Vessel that has just
+   * been reparented into a quarter-size dock would spend that frame laid out
+   * for the box it left — four chambers overflowing a container that clips.
+   * Cheap enough to call directly, so the caller does not have to gamble on
+   * when the observer gets around to it.
+   */
+  resize() { this._resize(); }
 
   _resize() {
     const r = this.stage.getBoundingClientRect();
@@ -251,11 +267,16 @@ export class Vessel {
 
   start() {
     if (this._raf) return;
-    if (REDUCED) { this.step(1 / 30); this.draw(); return; }
+    /* Reduced motion means no animation, not no time: the geometry is drawn
+       once and left alone, and the loop below goes on turning purely so the
+       model clock keeps running. Same for a Vessel scrolled out of view —
+       what is being advanced is the psyche's day, not a frame rate. */
+    if (REDUCED) { this.step(1 / 30); this.draw(); }
     let last = performance.now();
     const loop = (now) => {
       const dt = Math.min((now - last) / 1000, 0.05); last = now;
-      if (this._visible !== false) { this.step(dt); this.draw(); }
+      if (this.onTick) this.onTick(dt);
+      if (!REDUCED && this._visible !== false) { this.step(dt); this.draw(); }
       this._raf = requestAnimationFrame(loop);
     };
     this._raf = requestAnimationFrame(loop);

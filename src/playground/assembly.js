@@ -12,7 +12,8 @@
    being taught it. Both paths are correct; that is the design.
    ============================================================ */
 import { FN, legalAux, refusal, deriveStack, typeCode, opposite, allTypes } from './types.js';
-import { ANCHOR, ASSEMBLY, LAWS, RANK_LABEL, SHELF_ORDER } from '../data/playground-data.js';
+import { ANCHOR, ASSEMBLY, AUTO, LAWS, PACE, RANK_LABEL, SHELF_ORDER } from '../data/playground-data.js';
+import { REDUCED } from '../utils/dom.js';
 
 const RANKS = ['dom', 'aux', 'tert', 'inf'];
 const COLUMN = { dom: 'left', aux: 'left', tert: 'right', inf: 'right' };
@@ -211,6 +212,7 @@ export class Assembly {
   }
 
   reset() {
+    this._closeAuto({ refresh: false });
     this.dom = null; this.aux = null; this.confirmed.clear();
     for (const r of RANKS) {
       this.slots[r].className = `aslot rank-${r}`;
@@ -263,7 +265,7 @@ export class Assembly {
     const el = this.slots[rank];
     el.classList.remove('ghost');
     el.classList.add('seated', 'just-seated');
-    setTimeout(() => el.classList.remove('just-seated'), 620);
+    setTimeout(() => el.classList.remove('just-seated'), PACE.seat);
     if (this.confirmed.size === 2) this._say(ASSEMBLY.entail);
     this._refresh();
   }
@@ -278,7 +280,7 @@ export class Assembly {
       `<span class="aslot-mark">${glyphMark(fnKey, rank === 'dom' ? 62 : rank === 'aux' ? 52 : 42)}</span>` +
       `<b class="aslot-fn">${FN[fnKey].label}</b>` +
       `<span class="aslot-label">${RANK_LABEL[rank]}${ghost ? ' · comes with' : ''}</span>`;
-    if (!ghost) { el.classList.add('just-seated'); setTimeout(() => el.classList.remove('just-seated'), 620); }
+    if (!ghost) { el.classList.add('just-seated'); setTimeout(() => el.classList.remove('just-seated'), PACE.seat); }
     this._placeSlots();
   }
 
@@ -288,7 +290,7 @@ export class Assembly {
     el.classList.remove('refuse');
     void el.offsetWidth;
     el.classList.add('refuse');
-    setTimeout(() => el.classList.remove('refuse'), 620);
+    setTimeout(() => el.classList.remove('refuse'), PACE.refuse);
     this._say(why.reason, why.law);
     if (why.law) this._noteLaw(why.law);
   }
@@ -346,7 +348,7 @@ export class Assembly {
       el.classList.toggle('seated', seated.has(fnKey));
       el.classList.toggle('candidate', !!legal && legal.has(fnKey));
       el.classList.toggle('dimmed', (!!legal && !legal.has(fnKey)) || (phase >= 2 && !seated.has(fnKey)));
-      el.disabled = phase === 3;
+      el.disabled = phase === 3 || !!this._auto;
     }
 
     if (this.ui.prompt) {
@@ -361,22 +363,164 @@ export class Assembly {
     if (phase === 3 && this.onComplete) this.onComplete(deriveStack(this.dom, this.aux));
   }
 
-  /** Play the same four beats on rails, for users who arrive knowing their
-      letters. Knowing the code must not exempt anyone from the two Laws. */
-  autoBuild(code, speed = 620) {
+  /* ---------- the auto-build (§2.4) ----------
+     The same four beats, on rails, for users who arrive knowing their letters.
+     They skipped the build, so the build comes to them: every beat is held for
+     as long as its caption takes to read, and the two refusals a manual builder
+     triggers by hand are staged rather than waited for. Knowing the code must
+     not exempt anyone from the two Laws — an auto-build that only ever revealed
+     Law III would teach the entailment and hide the constraints that cause it.
+     The whole sequence is skippable, because a cutscene you cannot leave is a
+     cutscene that gets sat through rather than watched. */
+
+  /**
+   * The two illegal candidates worth staging under a given dominant: one that
+   * breaks only Law II (same job) and one that breaks only Law I (same world).
+   * Each is picked so its refusal names exactly one Law — a candidate that
+   * breaks both, as Se does under Ne, gets reported as Law II and teaches Law I
+   * to nobody. Neither can collide with the real auxiliary, which by definition
+   * differs from the dominant on both counts.
+   */
+  _scriptedCandidates(dom) {
+    const d = FN[dom];
+    const pick = (test) => SHELF_ORDER.find((k) => k !== dom && k !== opposite(dom) && test(FN[k]));
+    return [
+      pick((f) => f.cls === d.cls && f.att !== d.att),   /* Law II — two of the same job   */
+      pick((f) => f.att === d.att && f.cls !== d.cls),   /* Law I  — two of the same world */
+    ];
+  }
+
+  /** @param {string} code  a four-letter type; unknown codes are ignored */
+  autoBuild(code) {
     const t = allTypes().find((x) => x.code === code.toUpperCase());
     if (!t) return;
-    this.reset();
-    const seq = [
-      () => this._attempt(t.stack.dom),
-      () => this._attempt(t.stack.aux),
-      () => this._confirm('tert'),
-      () => this._confirm('inf'),
-    ];
-    seq.forEach((fn, i) => setTimeout(fn, speed * (i + 1)));
+    this.reset();                                  /* also cancels a cutscene already running */
+
+    const [lawII, lawI] = this._scriptedCandidates(t.stack.dom);
+    const move = (ms) => (REDUCED ? 0 : ms);       /* motion-only beats collapse; captions never do */
+
+    this._auto = {
+      next: 0,
+      timer: null,
+      beats: [
+        { run: () => this._say(AUTO.open(t.code)), hold: PACE.lead },
+        { run: () => this._attempt(t.stack.dom) },
+        { run: () => this._fly(lawII), hold: move(PACE.fly) },
+        { run: () => this._land(lawII) },
+        { run: () => this._fly(lawI), hold: move(PACE.fly) },
+        { run: () => this._land(lawI) },
+        { run: () => this._attempt(t.stack.aux) },
+        { run: () => { this._confirm('tert'); this._say(AUTO.tert(t.stack.tert)); } },
+        { run: () => this._confirm('inf') },
+      ],
+    };
+    this._openSkip();
+    this._refresh();
+    this._beat();
+  }
+
+  /** Play the pending beat, then hold for as long as what it just said needs. */
+  _beat() {
+    const a = this._auto;
+    if (!a) return;
+    const b = a.beats[a.next++];
+    b.run();
+    if (a.next >= a.beats.length) return this._closeAuto();
+    a.timer = setTimeout(() => this._beat(), b.hold != null ? b.hold : this._readTime());
+  }
+
+  /** Dwell scaled to the caption on screen. Under reduced motion nothing moves,
+      so the caption is the entire beat — it gets its full read, not a skip. */
+  _readTime() {
+    if (REDUCED) return PACE.reduced;
+    const n = this.ui.caption ? this.ui.caption.textContent.length : 0;
+    return Math.min(PACE.readMax, Math.max(PACE.readMin, Math.round(n * PACE.read)));
+  }
+
+  /** A refused candidate makes the trip anyway, shelf to auxiliary slot: a Law
+      you watch something bounce off is a Law you remember. */
+  _fly(fnKey) {
+    if (!fnKey || REDUCED || this._skipping) return;
+    const item = this.items[fnKey];
+    const from = item && item.getBoundingClientRect();
+    const to = this.slots.aux.getBoundingClientRect();
+    if (!from || !to.width) return;
+    item.classList.add('attempting');
+    const g = document.createElement('div');
+    g.className = 'fly-ghost';
+    g.innerHTML = glyphMark(fnKey, 52);
+    g.style.left = `${from.left + from.width / 2}px`;
+    g.style.top = `${from.top + from.height / 2}px`;
+    g.style.transitionDuration = `${PACE.fly}ms`;
+    document.body.appendChild(g);
+    void g.offsetWidth;                            /* commit the start point, then aim */
+    g.style.left = `${to.left + to.width / 2}px`;
+    g.style.top = `${to.top + to.height / 2}px`;
+    this._flying = g;
+  }
+
+  /** …and is turned away. The reason is the same one-liner a hand-made attempt
+      gets, so the staged refusal and a real one cannot say different things. */
+  _land(fnKey) {
+    if (this._flying) {
+      const g = this._flying;
+      this._flying = null;
+      g.classList.add('rejected');
+      setTimeout(() => g.remove(), PACE.refuse);
+    }
+    if (this.items[fnKey]) this.items[fnKey].classList.remove('attempting');
+    const why = fnKey && refusal(this.dom, fnKey);
+    if (!why) return;
+    const said = { ...why, reason: AUTO.refused(fnKey, why.reason) };
+    /* Skipping, or motion-averse: the Law still gets named and written down —
+       only the shudder is dropped. */
+    if (this._skipping || REDUCED) {
+      this._say(said.reason, said.law);
+      return this._noteLaw(said.law);
+    }
+    this._refuse('aux', said);
+  }
+
+  /** The escape hatch. Everything the cutscene had left to say is still said —
+      both Laws noted, the stack finished — it just happens at once. */
+  skipAuto() {
+    const a = this._auto;
+    if (!a) return;
+    clearTimeout(a.timer);
+    this._skipping = true;
+    try { while (a.next < a.beats.length) a.beats[a.next++].run(); }
+    finally { this._skipping = false; }
+    this._closeAuto();
+  }
+
+  _openSkip() {
+    if (!this._skipBtn) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'asm-skip';
+      b.textContent = AUTO.skip;
+      this.layer.appendChild(b);
+      this._skipBtn = b;
+    }
+    if (!this._skipHit) {
+      /* Capture, so a click anywhere on the stage — empty space, a slot, or the
+         Skip button itself — skips instead of landing on whatever it hit. */
+      this._skipHit = (e) => { e.stopPropagation(); e.preventDefault(); this.skipAuto(); };
+      this.stage.addEventListener('click', this._skipHit, true);
+    }
+  }
+
+  _closeAuto({ refresh = true } = {}) {
+    if (!this._auto) return;
+    clearTimeout(this._auto.timer);
+    this._auto = null;
+    if (this._flying) { this._flying.remove(); this._flying = null; }
+    if (this._skipBtn) { this._skipBtn.remove(); this._skipBtn = null; }
+    if (this._skipHit) { this.stage.removeEventListener('click', this._skipHit, true); this._skipHit = null; }
+    if (refresh) this._refresh();
   }
 
   hide() { this.layer.style.display = 'none'; }
   show() { this.layer.style.display = ''; }
-  destroy() { if (this._ro) this._ro.disconnect(); this.layer.remove(); }
+  destroy() { this._closeAuto({ refresh: false }); if (this._ro) this._ro.disconnect(); this.layer.remove(); }
 }

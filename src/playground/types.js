@@ -103,24 +103,38 @@ export function rankOf(stack, fn) {
 }
 
 /**
- * The four-letter code, derived — never stored.
+ * The four-letter code broken into its four derivations — never stored.
  *   1st  the dominant's attitude
  *   2nd  whichever perceiving function sits in the top two
  *   3rd  whichever judging function sits in the top two
  *   4th  J if the extraverted member of the top two judges, else P
+ *
+ * Each part carries the function it was read off, so the Layer-3 drawer can
+ * explain a letter without re-deriving it. `typeCode` is this same derivation
+ * with the reasons dropped — one rule, so the chip and the explanation of the
+ * chip cannot disagree.
+ *
+ * @returns {?Array<{letter:string, of:string, fn:Object}>} null when no legal
+ *          code exists (a Free Play stack missing a lens, a valve, or a door).
  */
-export function typeCode(stack) {
-  const top = [FN[stack.dom], FN[stack.aux]];
+export function codeParts(stack) {
+  const top = [FN[stack.dom], FN[stack.aux]].filter(Boolean);
   const perc = top.find((f) => f.cls === 'perceive');
   const judg = top.find((f) => f.cls === 'judge');
   const ext = top.find((f) => f.att === 'e');
   if (!perc || !judg || !ext) return null;          /* Free Play: no legal code exists */
-  return (
-    FN[stack.dom].att.toUpperCase() +
-    perc.el.toUpperCase() +
-    judg.el.toUpperCase() +
-    (ext.cls === 'judge' ? 'J' : 'P')
-  );
+  return [
+    { letter: FN[stack.dom].att.toUpperCase(), of: 'attitude', fn: FN[stack.dom] },
+    { letter: perc.el.toUpperCase(), of: 'perceive', fn: perc },
+    { letter: judg.el.toUpperCase(), of: 'judge', fn: judg },
+    { letter: ext.cls === 'judge' ? 'J' : 'P', of: 'orientation', fn: ext },
+  ];
+}
+
+/** The four letters, joined. */
+export function typeCode(stack) {
+  const parts = codeParts(stack);
+  return parts ? parts.map((p) => p.letter).join('') : null;
 }
 
 /** Every legal (dom, aux) pair, as assembled Vessels. Derived, so it cannot drift. */
