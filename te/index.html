@@ -135,51 +135,7 @@
   <h2 id="ze-head">Energy Economics</h2>
   <p class="lede">Every invocation of Te costs energy. The lower it sits in the stack, the more expensive it becomes — and the faster the battery drains. Note the small notches in the dominant curve: for Te, finishing things visibly pays a little back.</p>
 
-  <div class="chart-card">
-    <div class="chart-head">
-      <h3>Cost Per Activation</h3>
-      <span class="sub">energy units per invocation, by position</span>
-      <button class="table-toggle" data-table="costTable" aria-expanded="false">Data table</button>
-    </div>
-    <div id="costChart"></div>
-    <div id="costTable" class="data-table"></div>
-  </div>
-
-  <div class="chart-card">
-    <div class="chart-head">
-      <h3>Sustained Exertion Drain</h3>
-      <span class="sub">cumulative battery depletion over 120 minutes of continuous use</span>
-      <button class="table-toggle" data-table="drainTable" aria-expanded="false">Data table</button>
-    </div>
-
-    <div id="drainLegend" class="legend"></div>
-
-    <div class="drain-flex">
-      <div class="plot">
-        <div id="drainChart"></div>
-        <div class="scrub-row">
-          <label for="scrub">Scrub time:</label>
-          <input type="range" id="scrub" min="0" max="120" value="120" aria-label="Time scrubber in minutes">
-          <output id="scrubOut">120 min</output>
-        </div>
-        <div id="scrubLive" class="sr-only" aria-live="polite"></div>
-      </div>
-
-      <div class="batteries" id="batteries"></div>
-    </div>
-
-    <div id="drainTable" class="data-table"></div>
-  </div>
-
-  <div class="chart-card">
-    <div class="chart-head">
-      <h3>Recovery Profiles</h3>
-      <span class="sub">30 min exertion followed by rest (small multiples)</span>
-      <button class="table-toggle" data-table="recTable" aria-expanded="false">Data table</button>
-    </div>
-    <div id="recCharts" class="smalls"></div>
-    <div id="recTable" class="data-table"></div>
-  </div>
+  <div class="energy-teaser" id="energyTeaser"></div>
 </section>
 
 <!-- ZONE F: FIELD NOTES -->

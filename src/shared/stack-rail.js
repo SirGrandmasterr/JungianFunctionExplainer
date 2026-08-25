@@ -111,7 +111,9 @@ export function initStackRail(cfg) {
     document.getElementById('stageNote').textContent =
       `rendering: ${s.name} preset` + (s.shadow ? ' · below the waterline' : '');
     drawDial(effectiveDial(s), s.shadow);
-    highlightSeries(s.series);
+    /* optional: the drain charts this used to drive now live at /energy/,
+       so a page without them simply passes nothing */
+    if (highlightSeries) highlightSeries(s.series);
   }
 
   /* ---- build slot buttons ---- */

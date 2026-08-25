@@ -33,11 +33,17 @@ export const CREDIT_THIEF = {
   gates: {
     si: { 'familiar-good': 0.7, 'familiar-bad': 1.0, unprecedented: 1.6 },
     ni: { foreseen: 0.7, blindside: 1.5 },
-    ti: { consistent: 0.8, contradiction: 1.1 },
-    fi: { 'rings-true': 0.8, neutral: 1.0, 'rings-false': 1.2 },
-    fe: 1.2,          /* nine people is a full room to conduct */
-    se: 0.9,
+    ti: { consistent: 0.8, contradiction: 1.25 },
+    fi: { 'rings-true': 0.8, neutral: 1.0, 'rings-false': 1.45 },
+    fe: 1.35,         /* nine people is a full room to conduct */
+    se: 0.85,
+    ne: 1.2,          /* speculation mid-meeting is dead weight; the facts are known */
+    te: 0.75,         /* the commit history exists and is checkable — Te is fed here */
   },
+
+  /* Without these the deck priced almost identically for all sixteen types,
+     which is the one thing the reference scenario must not do. */
+  affinity: { fe: 1.35, fi: 1.3, te: 1.25, se: 1.1, si: 0.8, ne: 0.6 },
 
   /* ---- the deck. Signatures sum to 1. Doing nothing is on it, and priced. ---- */
   actions: [
@@ -76,6 +82,19 @@ export const CREDIT_THIEF = {
       intensity: 0.6,
       mandates: { serves: ['fi.fairness'], defers: ['fe.expectation'] },
       outcome: 'No accusation is ever made. Two people work it out; the rest do not.',
+    },
+    {
+      /* Fi is the moral centre of this scenario and had no action of its own:
+         every card served or defied fi.fairness while none of them gave Fi
+         anything to do. A function can be the reason a situation matters and
+         still never be handed the work. */
+      id: 'name-the-cost',
+      label: 'Say what it actually cost you',
+      detail: 'Not the record. The part where you stopped putting your name on things.',
+      signature: { fi: 0.5, fe: 0.3, se: 0.2 },
+      intensity: 0.65,
+      mandates: { serves: ['fi.fairness'], defies: ['fe.expectation'] },
+      outcome: 'It is not the move the room was braced for, and it is the one nobody can argue with. Two people find you afterwards; neither is your manager.',
     },
   ],
 

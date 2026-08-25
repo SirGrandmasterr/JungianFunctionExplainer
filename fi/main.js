@@ -9,7 +9,7 @@ import { REDUCED } from '../src/utils/dom.js';
 import { initHeader } from '../src/shared/header.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
-import { initEnergyCharts } from '../src/shared/energy-charts.js';
+import { initEnergyTeaser } from '../src/shared/energy-teaser.js';
 import { FiGlyph } from '../src/engines/fi-glyph.js';
 import { FluidGPU as Fluid } from '../src/engines/fi-fluid.js';
 import { loadFiData } from '../src/data/fi-data.js';
@@ -31,14 +31,13 @@ if (heroCanvas) {
   FI.glyphs.hero = hero;
 }
 
-// 3. Zone E: Energy Economics
-const energy = initEnergyCharts({
-  series: SERIES,
+// Zone E: the economics suite now lives once at /energy/, where the eight
+// can be compared; what stays here is the ladder, the grip clock, and a link.
+initEnergyTeaser({
   costs: COSTS,
-  recovery: RECOVERY,
   fnLabel: 'Fi',
   gripT: GRIP_T,
-  gripNote: 'forced inferior Fi',
+  gripInto: 'Te',
 });
 
 // 4. Zone B: Stack Position Rail
@@ -52,7 +51,6 @@ if (railCanvas) {
   initStackRail({
     slots: SLOTS,
     glyph: railGlyph,
-    highlightSeries: energy.highlightSeries,
   });
 }
 

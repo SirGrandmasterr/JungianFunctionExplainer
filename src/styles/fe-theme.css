@@ -10,11 +10,21 @@
   --pos-3: #e03963;
   --pos-4: #a82446;
 
-  /* carrier-node hue band: rose → coral, so hue variance stays in-family */
-  --fe-hue-lo: 322;
-  --fe-hue-hi: 368;
+  /* Carrier-node hue band — magenta → rose → coral → warm orange.
+     The original 322–368 band was 46° wide, which made every person in the
+     room the same pink and therefore made the one thing this glyph exists to
+     show — a NUCLEUS THAT IS THE AVERAGE OF ITS RING — literally invisible:
+     the mean of seven identical roses is that same rose, so nothing about
+     the centre ever looked derived. The band is now 96° and the hues are
+     dealt out by a low-discrepancy sequence rather than sampled at random,
+     so a room always spans it and the mean always visibly lands between
+     people. It stops short of violet (258, intuition) at one end and amber
+     (38, sensing) at the other, so the §1.3 element families still read. */
+  --fe-hue-lo: 300;
+  --fe-hue-hi: 396;     /* deg, wraps past 360 into warm orange */
   --fe-null: #150d1c;   /* the standing null on a split field */
   --fe-ghost: #7f5fd0;  /* the counter-rotating pattern under a masked field */
+  --fe-heat: #ffb020;   /* overload — drawn as a RING, never as nucleus fill */
 }
 
 /* ---------- Zone D · resonance lab (Fe page only) ----------
@@ -32,6 +42,18 @@
   display: block; font-size: 10.5px; font-weight: 400; color: var(--warn);
 }
 #btnReconcile:not(:disabled) .gate { color: #17c964; }
+
+/* The reading key for the glyph's grammar. It sits under the Zone D lede
+   rather than beside the hero because that is where the reader first has a
+   reason to care what a hand is. */
+.lede.legend {
+  font-size: 13px;
+  border-left: 2px solid var(--axis);
+  padding-left: 12px;
+  color: var(--ink-2);
+  margin-top: -6px;
+}
+.lede.legend b { color: var(--ink); font-weight: 600; }
 
 /* the twin-needle trust gap: believed concord against actual */
 .twin { border-top: 1px solid var(--grid); padding-top: 12px; }

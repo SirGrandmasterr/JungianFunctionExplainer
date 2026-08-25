@@ -1,0 +1,4 @@
+# Dev-only canvas captures written by the /__shot endpoint in vite.config.js.
+# (dist/ and node_modules/ are deliberately not listed — this repo already
+# tracks them, so ignoring them here would do nothing but mislead.)
+.shots/
