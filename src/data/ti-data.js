@@ -18,37 +18,41 @@ export function loadTiData() {
   const SLOTS = [
     { key: 'dominant', name: 'Dominant', sub: '1st · hero', types: 'INTP · ISTP', shadow: false, series: 0,
       params: { scale: 1.00, fidelity: .95, latency: 0, noise: 0, duty: 1, control: 1, contrary: 0 },
-      dial: [.95, .95, .90, .95, .90],
       text: 'The world is a system to be understood. Analysis runs constantly and effortlessly, and feels like identity itself. The lattice is large, fast, and quiet — precision without strain.' },
     { key: 'auxiliary', name: 'Auxiliary', sub: '2nd · parent', types: 'ENTP · ESTP', shadow: false, series: 1,
       params: { scale: .80, fidelity: .85, latency: 80, noise: .05, duty: .85, control: .90, contrary: 0 },
-      dial: [.80, .85, .80, .85, .78],
       text: 'A superb editor rather than the author. Ti here serves the dominant perceiver — Ne\'s possibilities or Se\'s live data get rigorously stress-tested — but analysis is switched on deliberately rather than running the show.' },
     { key: 'tertiary', name: 'Tertiary', sub: '3rd · eternal child', types: 'INFJ · ISFJ', shadow: false, series: 2,
       params: { scale: .55, fidelity: .60, latency: 250, noise: .20, duty: .50, control: .60, contrary: 0 },
-      dial: [.50, .55, .50, .55, .45],
       text: 'A private hobby-logic. Real skill in narrow, well-loved domains, blooming with age — but under stress it can pair with the dominant into a self-sealed loop, polishing conclusions no one is allowed to audit.' },
     { key: 'inferior', name: 'Inferior', sub: '4th · aspirational', types: 'ENFJ · ESFJ', shadow: false, series: 3,
       params: { scale: .40, fidelity: .35, latency: 700, noise: .45, duty: .25, control: .35, contrary: 0 },
-      dial: [.25, .30, .30, .30, .35],
       text: 'Logic arrives late, harsh, and all-or-nothing. Long stretches of deferring to others\' frameworks, punctuated — usually under stress — by rigid, brittle certainty that doesn\'t sound like them at all.' },
     { key: 'opposing', name: 'Opposing', sub: '5th · shadow', types: 'ENTJ · ESTJ', shadow: true, series: 4,
       params: { scale: .46, fidelity: .42, latency: 600, noise: .50, duty: .45, control: .40, contrary: .25 },
-      dial: [.35, .40, .50, .30, .20],
       text: 'The argumentative defender. When their Te plans are challenged, Ti wakes up combative — nitpicking definitions and dismantling the critic\'s logic, less to find truth than to protect the agenda.' },
     { key: 'critical', name: 'Critical Parent', sub: '6th · shadow', types: 'INTJ · ISTJ', shadow: true, series: 4,
       params: { scale: .44, fidelity: .35, latency: 900, noise: .55, duty: .35, control: .30, contrary: .35 },
-      dial: [.30, .45, .40, .25, .15],
       text: 'An inner fault-finder. Ti turns inward as a belittling voice — "your reasoning is sloppy, your definitions don\'t hold" — harsh, sporadic, and aimed mostly at the self.' },
     { key: 'trickster', name: 'Trickster', sub: '7th · shadow', types: 'ENFP · ESFP', shadow: true, series: 4,
       params: { scale: .42, fidelity: .28, latency: 1200, noise: .60, duty: .30, control: .20, contrary: .55 },
-      dial: [.20, .25, .35, .15, .10],
       text: 'Logic as a trap to wriggle out of. Pure Ti consistency feels like a double-bind game; this position deflects it with absurdity or charm — and is blind, without malice, to the rules it\'s accused of breaking.' },
     { key: 'demon', name: 'Demon', sub: '8th · shadow', types: 'INFP · ISFP', shadow: true, series: 4,
       params: { scale: .40, fidelity: .20, latency: 1500, noise: .65, duty: .22, control: .12, contrary: .65 },
-      dial: [.15, .30, .25, .10, .05],
       text: 'Rarely touched, and corrosive when it erupts: cold pseudo-logic aimed at the self, dismantling one\'s own worth and dressing the demolition up as objectivity.' },
   ];
+
+  /* §3.2 character: the five dial axes are derived in stack-rail.js from the
+     same §3.1 params the glyph renders. These declared weights are the only
+     place Ti may differ from the position template, and each carries its
+     argument — nothing about the dial is authored per-slot any more. */
+  const CHARACTER = {
+    endurance: { w: 0.95, why: 'analysis is the idle state, not an exertion — the lattice refines all day' },
+    precision: { w: 1.00, why: 'the entire instrument is a consistency test; precision is the product' },
+    speed:     { w: 0.72, why: 'Ti trades speed for truth — long deliberation, then the click' },
+    control:   { w: 0.95, why: 'stepwise and deliberate; every restructure is chosen' },
+    awareness: { w: 0.95, why: 'the lattice can be walked and shown — Ti knows how it knows' },
+  };
 
   const FEEDERS = [
     { key: 'ne', name: 'Ne', color: COL.n, canonical: true, pair: 'the INTP coupling',
@@ -165,18 +169,25 @@ export function loadTiData() {
     lede: 'Every invocation of Ti costs energy. The lower it sits in the stack, the more expensive it becomes — and the faster the battery drains.',
   };
 
-  /* zone F */
+  /* zone E · field notes (rendered by shared/field-notes.js) */
   const ZONE_F = {
-    kicker: 'Zone F · field notes',
+    kicker: 'Zone E · field notes',
     heading: 'Field Notes',
     lede: 'Patterns from the wild — how Ti shows up in daily life.',
-    mirror: { label: 'Ti', counterpart: 'Te', counterpartColor: COL.pos[1] },
+    mirror: {
+      label: 'Ti', counterpart: 'Te', counterpartColor: COL.pos[1],
+      html: 'Where <strong>Te</strong> asks <em>"does it work?"</em> and builds external structures, <strong>Ti</strong> asks <em>"is it true?"</em> and builds internal coherence. Te trades elegance for speed; Ti trades speed for truth.',
+    },
     vignettes: [
-      { title: 'The Silent Rewrite', text: 'A dominant Ti user reads a new paper and says nothing for four days. Then they casually drop a conclusion that reorganizes everything — the lattice rebuilt itself silently.' },
-      { title: 'The Loop', text: 'Under stress, INTP Ti pairs with tertiary Si: re-proving old conclusions against old data. The lattice tightens without growing — rigorous, airless, increasingly detached from anything new.' },
-      { title: 'The Inferior Eruption', text: 'An ESFJ under stress suddenly becomes rigidly logical, arguing technicalities with an intensity that startles everyone — including themselves. Inferior Ti wakes up brittle and loud.' },
+      { kind: 'field sighting', title: 'The Silent Rewrite', text: 'A dominant Ti user reads a new paper and says nothing for four days. Then they casually drop a conclusion that reorganizes everything — the lattice rebuilt itself silently.' },
+      { kind: 'the loop', title: 'The Loop', text: 'Under stress, INTP Ti pairs with tertiary Si: re-proving old conclusions against old data. The lattice tightens without growing — rigorous, airless, increasingly detached from anything new.' },
+      { kind: 'the grip', title: 'The Inferior Eruption', text: 'An ESFJ under stress suddenly becomes rigidly logical, arguing technicalities with an intensity that startles everyone — including themselves. Inferior Ti wakes up brittle and loud.' },
+      { kind: 'as a tertiary', title: 'The Hobby Taxonomy', text: 'Tertiary Ti in an INFJ or ISFJ: logic kept as a garden rather than a residence. It builds the flawless spreadsheet for the shared house, the private taxonomy of teas, the quietly airtight argument rehearsed and never delivered — and it is dropped mid-proof the moment a person in the room needs something, because in this stack coherence is a pleasure and harmony is a duty.' },
+      { kind: 'the accusation', title: '"You\'re Just Arguing to Argue"', text: 'What the room sees: agreement dismantled for sport. What is happening: Ti tests a claim the way an engineer loads a bridge — because someone might have to stand on it. The tell is that the testing is symmetrical: offer a Ti user a better attack on their own position and they take it with visible gratitude, which no one arguing for sport has ever done.' },
+      { kind: 'the misread', title: 'Mistaken for Te', text: 'Both run cool and both say "that\'s wrong," so the pair get collapsed constantly. The tell is what closes the case. Te closes on results — decided, shipped, next — and finds continued analysis self-indulgent. Ti reopens a settled matter at midnight because one definition still wobbles, and finds shipping on a wobbly definition faintly scandalous. One optimizes the verdict; the other audits the reasoning that produced it.' },
+      { kind: 'the wrong instrument', title: 'The Condolence Call', text: 'A friend in grief does not have a defective model of the situation, and improving the model is the only move this instrument natively owns. Dominant Ti at a bedside produces impeccable root-cause analysis, correct in every particular and wrong in kind — the moment calls for witness, not diagnosis. Mature Ti users learn to bring a different function to that door; the lattice waits in the car.' },
     ],
   };
 
-  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, VERIFY, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
+  return { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, VERIFY, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
 }

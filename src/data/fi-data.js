@@ -18,37 +18,41 @@ export function loadFiData() {
   const SLOTS = [
     { key: 'dominant', name: 'Dominant', sub: '1st · hero', types: 'INFP · ISFP', shadow: false, series: 0,
       params: { scale: 1.00, fidelity: .95, latency: 0, noise: 0, duty: 1, control: 1, contrary: 0 },
-      dial: [.95, .95, .90, .95, .90],
       text: 'The world is measured against an inner tone. Conviction is effortless and constant — not argued, simply known. The core burns steady; the hierarchy of what matters is deep, calm, and exact.' },
     { key: 'auxiliary', name: 'Auxiliary', sub: '2nd · parent', types: 'ENFP · ESFP', shadow: false, series: 1,
       params: { scale: .80, fidelity: .85, latency: 80, noise: .05, duty: .85, control: .90, contrary: 0 },
-      dial: [.80, .85, .80, .85, .78],
       text: 'The compass behind the explorer. Fi here vets what the dominant perceiver drags home — "is this us? could I live with this?" — quiet in the background, decisive at exactly the moments that matter.' },
     { key: 'tertiary', name: 'Tertiary', sub: '3rd · eternal child', types: 'ISTJ · INTJ', shadow: false, series: 2,
       params: { scale: .55, fidelity: .60, latency: 250, noise: .20, duty: .50, control: .60, contrary: 0 },
-      dial: [.50, .55, .50, .55, .45],
       text: 'A private moral sense, real but narrow — fierce loyalty to a few people and principles, guarded like contraband and dismissed in public as "just being practical". It blooms, quietly, with age.' },
     { key: 'inferior', name: 'Inferior', sub: '4th · aspirational', types: 'ESTJ · ENTJ', shadow: false, series: 3,
       params: { scale: .40, fidelity: .35, latency: 700, noise: .45, duty: .25, control: .35, contrary: 0 },
-      dial: [.25, .30, .30, .30, .35],
       text: 'Feeling arrives late and off-balance. Long stretches of "emotions are noise in the data", punctuated — under stress — by waves of wounded, moralizing sentiment that don\'t sound like them at all.' },
     { key: 'opposing', name: 'Opposing', sub: '5th · shadow', types: 'ENFJ · ESFJ', shadow: true, series: 4,
       params: { scale: .46, fidelity: .42, latency: 600, noise: .50, duty: .45, control: .40, contrary: .25 },
-      dial: [.35, .40, .50, .30, .20],
       text: 'The stubborn conscience. When their Fe harmonizing is challenged, Fi wakes up contrary — "I don\'t care what the room needs, this is where I stand" — protective, prickly, and briefly immovable.' },
     { key: 'critical', name: 'Critical Parent', sub: '6th · shadow', types: 'INFJ · ISFJ', shadow: true, series: 4,
       params: { scale: .44, fidelity: .35, latency: 900, noise: .55, duty: .35, control: .30, contrary: .35 },
-      dial: [.30, .45, .40, .25, .15],
       text: 'An inner voice that interrogates the heart: "do you even know what you want? your feelings are self-indulgent." Harsh, sporadic, and aimed mostly at the self.' },
     { key: 'trickster', name: 'Trickster', sub: '7th · shadow', types: 'ESTP · ENTP', shadow: true, series: 4,
       params: { scale: .42, fidelity: .28, latency: 1200, noise: .60, duty: .30, control: .20, contrary: .55 },
-      dial: [.20, .25, .35, .15, .10],
       text: 'Personal conviction as a trap to wriggle out of. Asked what they truly feel, this position deflects with charm or contrarian play — blind, without malice, to the difference between a value and a preference.' },
     { key: 'demon', name: 'Demon', sub: '8th · shadow', types: 'ISTP · INTP', shadow: true, series: 4,
       params: { scale: .40, fidelity: .20, latency: 1500, noise: .65, duty: .22, control: .12, contrary: .65 },
-      dial: [.15, .30, .25, .10, .05],
       text: 'Rarely touched, and volcanic when it erupts: a conviction of worthlessness or betrayal so total it presents itself as objective fact — moral certainty aimed inward like a weapon.' },
   ];
+
+  /* §3.2 character: the five dial axes are derived in stack-rail.js from the
+     same §3.1 params the glyph renders. These declared weights are the only
+     place Fi may differ from the position template, and each carries its
+     argument — nothing about the dial is authored per-slot any more. */
+  const CHARACTER = {
+    endurance: { w: 1.00, why: 'conviction is effortless and constant — the core burns without fuel' },
+    precision: { w: 0.92, why: 'the hierarchy of what matters is deep, calm, and exact' },
+    speed:     { w: 0.70, why: 'deep and still — the verdict is total, and rarely fast' },
+    control:   { w: 0.90, why: 'steerable up to the line a value draws; immovable past it' },
+    awareness: { w: 0.97, why: 'the most self-transparent seat in the stack: the tone is always audible' },
+  };
 
   const FEEDERS = [
     { key: 'ne', name: 'Ne', color: COL.n, canonical: true, pair: 'the INFP coupling',
@@ -165,18 +169,25 @@ export function loadFiData() {
     lede: 'Every invocation of Fi costs energy. The lower it sits in the stack, the more expensive it becomes — and the faster the battery drains.',
   };
 
-  /* zone F */
+  /* zone E · field notes (rendered by shared/field-notes.js) */
   const ZONE_F = {
-    kicker: 'Zone F · field notes',
+    kicker: 'Zone E · field notes',
     heading: 'Field Notes',
     lede: 'Patterns from the wild — how Fi shows up in daily life.',
-    mirror: { label: 'Fi', counterpart: 'Fe', counterpartColor: COL.f },
+    mirror: {
+      label: 'Fi', counterpart: 'Fe', counterpartColor: COL.f,
+      html: 'Where <strong>Fe</strong> reads the emotional tone of the room and builds social harmony, <strong>Fi</strong> reads the emotional tone of the self and builds personal integrity. Fe trades individual preference for group unity; Fi trades group approval for internal truth.',
+    },
     vignettes: [
-      { title: 'The Silent Compass', text: 'An INFP sits quietly in a meeting where everyone agrees on a compromise. Suddenly they say "no" — not loudly, not with a ten-point argument, but with an absolute firmness that stops the room.' },
-      { title: 'The Loop', text: 'Under stress, INFP Fi pairs with tertiary Si: replaying old wounds and old kindnesses against the core tone, re-feeling verdicts instead of re-testing them. Tender, airless, and detached from anything new.' },
-      { title: 'The Inferior Eruption', text: 'An ESTJ under stress suddenly breaks down into overwhelming, wounded moralizing — accusing others of betrayal and heartlessness with an intensity that startles everyone.' },
+      { kind: 'field sighting', title: 'The Silent Compass', text: 'An INFP sits quietly in a meeting where everyone agrees on a compromise. Suddenly they say "no" — not loudly, not with a ten-point argument, but with an absolute firmness that stops the room.' },
+      { kind: 'the loop', title: 'The Loop', text: 'Under stress, INFP Fi pairs with tertiary Si: replaying old wounds and old kindnesses against the core tone, re-feeling verdicts instead of re-testing them. Tender, airless, and detached from anything new.' },
+      { kind: 'the grip', title: 'The Inferior Eruption', text: 'An ESTJ under stress suddenly breaks down into overwhelming, wounded moralizing — accusing others of betrayal and heartlessness with an intensity that startles everyone.' },
+      { kind: 'as a tertiary', title: 'The Locked Drawer', text: 'Tertiary Fi in an ISTJ: a private moral ledger under a procedural exterior. It surfaces as the one client they will not take, the one joke that ends a friendship, the standing donation nobody hears about — commitments held for decades and explained, if pressed, as "just how I do things." The values are real; the vocabulary for them was never built.' },
+      { kind: 'the accusation', title: '"Selfish"', text: 'The charge arrives sooner or later, usually mid-negotiation, usually from someone fluent in Fe. What is actually happening: Fi will not counterfeit agreement, and in a room that trades on visible accord, declining to fake it reads as defection. The refusal is not carelessness — an unfaked yes is the one currency Fi thinks worth paying anyone in, and it is priced accordingly.' },
+      { kind: 'the misread', title: 'Mistaken for No Opinion', text: 'Weeks of amiable flexibility about restaurants, plans, and process — then a line is crossed and a verdict arrives whole, final, and non-negotiable. The tell that separates this from mere agreeableness: the position was settled long before the meeting, in private. Fe negotiates its stance in the room; Fi\'s stance predates the room, and the room is simply the last to find out.' },
+      { kind: 'the wrong instrument', title: 'The Mediation', text: 'Ask Fi to chair a compromise between two parties it finds both partly wrong, and the instrument jams. It evaluates everything against one core tone and has no native operation for splitting the difference between other people\'s. It can do the job — through principle, at cost — while the table mistakes its silence for assent and its verdicts for stubbornness. This is Fe\'s home ground; Fi visits on foreign plates.' },
     ],
   };
 
-  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, VERIFY, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
+  return { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, VERIFY, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
 }

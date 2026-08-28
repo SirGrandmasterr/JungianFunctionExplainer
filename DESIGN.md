@@ -197,6 +197,18 @@ What remains in Zone E on a function page is a compact **energy summary**: the f
 
 The Zone B ↔ Zone E linkage is retired on function pages, since there is no longer a curve there to highlight; `initStackRail`'s `highlightSeries` callback is now optional.
 
+> **2026-08-28 — the teaser is retired too.** The compact energy summary described
+> above no longer exists: it was a speed bump between the lab and the field notes,
+> and `/energy/` is one click away in the header. §1.4's "the battery is never
+> off-screen" is hereby overruled for function pages. The two facts the teaser
+> carried that `/energy/` cannot show *in the context of the function being read* —
+> the grip clock and the inferior hand-off — moved to the Zone B slot caption,
+> rendered by `stack-rail.js` when the **Inferior** slot is selected (where the
+> reader is already looking at the seat in question), with a link to
+> `/energy/#grip`. The page body keeps a second route to `/energy/` in the Field
+> Notes closing CTA row. `src/shared/energy-teaser.js` and the `.energy-teaser`
+> styles are deleted.
+
 ### 2.6a Audit of the energy model *(against Jung, Myers, Quenk, Beebe)*
 
 **The premise first: these numbers cannot be right or wrong against data, because no data exists.** Nobody has measured the energetic cost of a cognitive function, and type dynamics as a whole has thin empirical support — Reynierse's review of the eight type-dynamics studies cited in the 1998 MBTI Manual summarised them as "six studies that failed, one with a questionable interpretation, and one where contradictory evidence was offered as support." What *can* be checked is internal consistency and fidelity to the qualitative claims the literature does make. On that standard the model's shape holds up well and four specific things did not.
@@ -233,9 +245,30 @@ A second shared page, on the same footing as `/energy/`: the things that happen 
 
 A deliberately game-like sub-page section (full spec §3.4): a throttle the user pushes, a function that visibly redlines, and the symptomatology of overuse (loops, grip, burnout) emerging as *consequences of the user's own action*. Placed after the energy panel so the user already understands the battery it is about to drain.
 
+> **2026-08-28 — letter retired.** The Overclock Lab was never built, and with the
+> energy zone gone (§2.6) the shipped pages would otherwise have run A → D and then
+> jumped letters. Field Notes is now **Zone E** in the code, contiguous after the
+> lab; the Overclock Lab, if it is ever built, gets a fresh letter rather than a
+> reserved one. The loop/grip material it was meant to dramatize lives at
+> `/phenomena/`.
+
 ## 2.8 Zone G — Field Notes
 
 Closing zone: a side-by-side comparison with the function's **attitude sibling** (Ti vs. Te — same element, opposite attitude, drawn as mirror-image glyphs), three short real-world vignettes ("Ti at a dinner party / debugging / in an argument"), and the primary CTA: **"Take Ti to the Sandbox →"**, which carries the function (in its currently-selected stack position) into the Sandbox as a pre-placed module — a deliberate bridge from learning to play.
+
+> **2026-08-28 — grown, data-driven, and the CTA finally built.** Field Notes ships
+> as **Zone E** on the pages (see §2.7 note) and is rendered by
+> `src/shared/field-notes.js` from `ZONE_F` data in `src/data/<fn>-data.js` —
+> the copy no longer lives in eight hand-edited HTML files. Each page carries
+> seven notes, each labelled by *kind*: the original three (a field sighting, the
+> loop, the grip) plus four new kinds — the function as somebody's tertiary, the
+> accusation it characteristically attracts (and what is actually happening), the
+> function it gets misread as (and the tell), and the situation where it is the
+> wrong instrument. The closing CTA promised here now exists: the Playground
+> accepts `?type=XXXX`, so "Take X to the Playground →" deep-links the type that
+> carries the function in the Zone B seat currently selected — position travels
+> with the click, which is what this section promised. A quiet companion link
+> keeps the page-body route to `/energy/`.
 
 ---
 
@@ -261,6 +294,25 @@ The user never sees this table — they *feel* it when dragging the glyph down t
 Beside the rail, a compact **radar dial** with five axes — *Endurance, Precision, Speed, Voluntary Control, Self-Awareness* — re-plots as the glyph moves through slots, giving analytically-minded users the same information the glyph conveys kinetically (redundant encoding, deliberately).
 
 A horizontal **Maturity Slider (age 7 → 60)** borrows the botanical metaphor: functions develop over the lifespan in roughly stack order. Scrubbing it shows the tertiary and inferior curves rising with age — the visual argument that type is a developmental trajectory, not a cage. The dial and glyph both respond to it, and so does the glyph's *structure*: with age the lattice itself gains nodes, connects each node to more neighbours, and rigidifies (its idle wobble damps) — experience literally enlarging and stiffening the encoded model of the world.
+
+> **2026-08-28 — the dial is derived, not authored.** The shipped dial had drifted
+> from this spec in the way redundant encodings always do: 320 hand-authored
+> numbers (8 functions × 8 slots × 5 axes) living beside — and disagreeing with —
+> the §3.1 params the glyph actually renders. The dial is now computed in
+> `stack-rail.js` from those same params (Endurance from duty, Precision from
+> fidelity−noise, Speed from latency, Control from control−contrary, Awareness
+> from fidelity×(1−contrary)), times one **declared per-function character
+> weight per axis** (`CHARACTER` in each data file, 40 numbers total, each with
+> its reason attached). The maturity slider reaches the dial through
+> `effectiveParams` — the same boost the glyph renders — so the two ageing models
+> are one; a consequence worth knowing is that **Speed no longer rises with
+> age**, because maturity boosts fidelity/duty/control and never latency.
+> Every axis label and plotted point now answers hover, tap, and keyboard focus
+> with its definition and its derivation, and a generated "read as text" block
+> under the dial is the §3.5 alternative. Where the derived values sharply
+> contradict the old authored ones (shadow-slot Speed, Fi's Demon
+> precision-over-endurance inversion, Ni's auxiliary "faster than dominant"),
+> the old numbers were the drift.
 
 ## 3.3 Energy Expenditure Graphs *(brief requirement #2)*
 

@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Si — Introverted Sensing · CURRENTS</title>
-  <script type="module" crossorigin src="/assets/si-BRgVftaZ.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/header-BBuxVNPY.js">
-  <link rel="modulepreload" crossorigin href="/assets/dom-DepwpK2T.js">
-  <link rel="modulepreload" crossorigin href="/assets/energy-teaser-Br-q0fAq.js">
-  <link rel="modulepreload" crossorigin href="/assets/si-data-qxWXniRM.js">
-  <link rel="stylesheet" crossorigin href="/assets/header-CI0x3pP4.css">
+  <script type="module" crossorigin src="/assets/si-Do7Jp0ny.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/header-C2tG3OYt.js">
+  <link rel="modulepreload" crossorigin href="/assets/dom-6kYVTdCz.js">
+  <link rel="modulepreload" crossorigin href="/assets/tooltip-CLIe8VMx.js">
+  <link rel="modulepreload" crossorigin href="/assets/field-notes-Bh9osMXl.js">
+  <link rel="modulepreload" crossorigin href="/assets/si-data-t46Na0d6.js">
+  <link rel="stylesheet" crossorigin href="/assets/header-2EoKKWtJ.css">
   <link rel="stylesheet" crossorigin href="/assets/si-D1wELPs7.css">
 </head>
 <body>
@@ -18,7 +19,7 @@
 
 <!-- ZONE A: HERO -->
 <section id="zone-a" aria-label="Introductory section">
-  <canvas id="glyphHero" aria-label="Interactive visual representation of Introverted Sensing as a still pool seen from above: concentric sediment strata, the oldest fused bright at the core, with metered drops sinking to the ring they match — the whole ring lights when past and present agree, and strobes when the familiar arrives changed. Hover the strata to sound what each ring keeps"></canvas>
+  <canvas id="glyphHero" aria-label="Interactive visual representation of Introverted Sensing as a still pool seen from above: concentric sediment strata, the oldest fused bright at the core, with metered drops sinking to the ring they match — the whole ring lights when past and present agree, and strobes when the familiar arrives changed. Point at or press a ring to sound what it keeps"></canvas>
   <div class="hero-copy">
     <span class="fn-tag">introverted sensing</span>
     <h1>The Still Pool of <span class="fn">Si</span></h1>
@@ -147,7 +148,7 @@
       </div>
 
       <div id="verifyNarr" class="verify-narr">
-        The pool runs unattended: metered drops arriving one at a time, each interrogated by the depths — matched, flagged, or filed as new. Spawn an arrival and watch the meters answer; when the record disputes one, the ruling is yours. Hover the strata to sound what each ring keeps.
+        The pool runs unattended: metered drops arriving one at a time, each interrogated by the depths — matched, flagged, or filed as new. Spawn an arrival and watch the meters answer; when the record disputes one, the ruling is yours. <span data-pointer="fine">Hover the strata</span><span data-pointer="coarse">Press and hold a ring</span> to sound what each ring keeps.
       </div>
     </div>
 
@@ -157,40 +158,13 @@
   </div>
 </section>
 
-<!-- ZONE E: ENERGY ECONOMICS -->
+<!-- ZONE E: FIELD NOTES (the energy summary retired to /energy/ — DESIGN §2.6) -->
 <section id="zone-e" class="zone" aria-labelledby="ze-head">
-  <p class="zone-kicker">Zone E · energy economics</p>
-  <h2 id="ze-head">Energy Economics</h2>
-  <p class="lede">Every invocation of Si costs energy. The lower it sits in the stack, the more expensive it becomes. Note the notches in the dominant curve: a completed ritual pays a little back. Note also which way the grip runs here — a collapsed Si-dominant does not get more Si, it floods into inferior Ne.</p>
-
-  <div class="energy-teaser" id="energyTeaser"></div>
-</section>
-
-<!-- ZONE F: FIELD NOTES -->
-<section id="zone-f" class="zone" aria-labelledby="zf-head">
-  <p class="zone-kicker">Zone F · field notes</p>
-  <h2 id="zf-head">Field Notes</h2>
+  <p class="zone-kicker">Zone E · field notes</p>
+  <h2 id="ze-head">Field Notes</h2>
   <p class="lede">Patterns from the wild — how Si shows up in daily life.</p>
 
-  <div class="cards">
-    <div class="vignette">
-      <h4>The Hum</h4>
-      <p>The machine sounds wrong. Nobody else in the shop hears it — the gauges all read normal — but an ISTJ who has stood beside it for nine years has already shut it down. The bearing that was failing gets found on the bench. Asked how they knew, they say it did not sound like itself: a complete technical explanation from inside the archive, and no explanation at all from outside it.</p>
-    </div>
-    <div class="vignette">
-      <h4>The Loop</h4>
-      <p>An ISTJ under stress pairs dominant Si with tertiary Fi: the record turns inward and starts serving grievances — every slight on file, re-read nightly with the emotional charge refreshed. Te's outside audit is the function the loop avoids. The archive has never been more detailed, or less useful.</p>
-    </div>
-    <div class="vignette">
-      <h4>The Grip</h4>
-      <p>An ENTP past the end of their reserves stops generating futures and floods into inferior Si — suddenly certain the mole is cancer, re-living a decade-old embarrassment at full resolution, gripped by the body's every signal. Not a personality change: a low-capacity chamber taking a dominant-sized flood.</p>
-    </div>
-  </div>
-
-  <div class="mirror">
-    <div class="vs"><span class="ti" style="color:var(--c-accent)">Si</span> vs <span class="te" style="color:var(--pos-1)">Se</span></div>
-    <p>Same element, opposite attitude — and the difference is what happens to the moment. <strong>Si</strong> banks it: metered intake, every arrival compared against every layer ever laid down — the world as a place to recognize. <strong>Se</strong> rides it: full resolution, zero lag, nothing kept — the world as a place to act. One is water that keeps; the other is water that looks. Si trades the moment for a record no moment can take away; Se trades the record for the moment itself.</p>
-  </div>
+  <div id="fieldNotes"></div>
 </section>
 
 <div id="tooltip" class="viz-tooltip" role="tooltip"></div>

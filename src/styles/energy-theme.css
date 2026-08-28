@@ -106,6 +106,3 @@
   color: var(--warn); font-variant-numeric: tabular-nums; margin-bottom: 6px;
 }
 .grip-card p { font-size: 12px; color: var(--muted); }
-
-/* NOTE: `.energy-teaser` lives in base.css — the eight function pages use it
-   and this stylesheet is only loaded here. */

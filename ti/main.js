@@ -9,14 +9,15 @@ import { REDUCED } from '../src/utils/dom.js';
 import { initHeader } from '../src/shared/header.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
-import { initEnergyTeaser } from '../src/shared/energy-teaser.js';
+import { initLabLayout } from '../src/shared/lab-layout.js';
+import { initFieldNotes } from '../src/shared/field-notes.js';
 import { TiGlyph } from '../src/engines/ti-glyph.js';
 import { loadTiData } from '../src/data/ti-data.js';
 
 // 1. Load header & data
 initHeader('ti');
 const data = loadTiData();
-const { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY } = data;
+const { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY } = data;
 
 // 2. Zone A: Hero Glyph
 const heroCanvas = document.getElementById('glyphHero');
@@ -26,14 +27,9 @@ if (heroCanvas) {
   hero.start();
 }
 
-// Zone E: the economics suite now lives once at /energy/, where the eight
-// can be compared; what stays here is the ladder, the grip clock, and a link.
-initEnergyTeaser({
-  costs: COSTS,
-  fnLabel: 'Ti',
-  gripT: GRIP_T,
-  gripInto: 'Fe',
-});
+// 3. Zone E: Field Notes (the energy summary retired to /energy/ — its grip
+// facts now live on the Zone B inferior caption)
+const fieldNotes = initFieldNotes({ zone: data.ZONE_F, fnLabel: 'Ti' });
 
 // 4. Zone B: Stack Position Rail
 const railCanvas = document.getElementById('glyphRail');
@@ -45,6 +41,10 @@ if (railCanvas) {
   initStackRail({
     slots: SLOTS,
     glyph: railGlyph,
+    character: CHARACTER,
+    fnLabel: 'Ti',
+    grip: { minutes: GRIP_T, into: 'Fe' },
+    onSelect: (slot) => fieldNotes.setSlot(slot),
   });
 }
 
@@ -152,3 +152,7 @@ if (verifyCanvas) {
     });
   }
 }
+
+// On narrow viewports the lab's chamber, meters, and narration pin together
+// so a scenario press and its consequence share a frame.
+initLabLayout();

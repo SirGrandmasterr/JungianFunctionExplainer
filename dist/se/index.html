@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Se — Extraverted Sensing · CURRENTS</title>
-  <script type="module" crossorigin src="/assets/se-VrcFs2e1.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/header-BBuxVNPY.js">
-  <link rel="modulepreload" crossorigin href="/assets/dom-DepwpK2T.js">
-  <link rel="modulepreload" crossorigin href="/assets/energy-teaser-Br-q0fAq.js">
-  <link rel="modulepreload" crossorigin href="/assets/se-data-GBuAMjv3.js">
-  <link rel="stylesheet" crossorigin href="/assets/header-CI0x3pP4.css">
-  <link rel="stylesheet" crossorigin href="/assets/se-DMlsVe6H.css">
+  <script type="module" crossorigin src="/assets/se-Bw4lxIt1.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/header-C2tG3OYt.js">
+  <link rel="modulepreload" crossorigin href="/assets/dom-6kYVTdCz.js">
+  <link rel="modulepreload" crossorigin href="/assets/tooltip-CLIe8VMx.js">
+  <link rel="modulepreload" crossorigin href="/assets/field-notes-Bh9osMXl.js">
+  <link rel="modulepreload" crossorigin href="/assets/se-data-CL3su2tk.js">
+  <link rel="stylesheet" crossorigin href="/assets/header-2EoKKWtJ.css">
+  <link rel="stylesheet" crossorigin href="/assets/se-DkOC16lX.css">
 </head>
 <body>
 
@@ -18,7 +19,7 @@
 
 <!-- ZONE A: HERO -->
 <section id="zone-a" aria-label="Introductory section">
-  <canvas id="glyphHero" aria-label="Interactive visual representation of Extraverted Sensing as a wide-open iris-aperture: a live particle field runs blurred outside the ring and crisp, saturated, and trailed inside it, while a gaze reticle saccades to whatever moves and locks it within a frame. Move the mouse to become the most vivid object in the field"></canvas>
+  <canvas id="glyphHero" aria-label="Interactive visual representation of Extraverted Sensing as a wide-open iris-aperture: a live particle field runs blurred outside the ring and crisp, saturated, and trailed inside it, while a gaze reticle saccades to whatever moves and locks it within a frame. Move or drag the pointer to become the most vivid object in the field"></canvas>
   <div class="hero-copy">
     <span class="fn-tag">extraverted sensing</span>
     <h1>The Naked Eye of <span class="fn">Se</span></h1>
@@ -148,7 +149,7 @@
       </div>
 
       <div id="verifyNarr" class="verify-narr">
-        The field runs live: drifters, movers, the occasional flare — and the eye hunting through it, locking whatever moves. Slide the field intensity and watch stress and pleasure trade places; spawn an event and watch the reticle answer; or hover the chamber to become the target yourself.
+        The field runs live: drifters, movers, the occasional flare — and the eye hunting through it, locking whatever moves. Slide the field intensity and watch stress and pleasure trade places; spawn an event and watch the reticle answer; or <span data-pointer="fine">hover the chamber</span><span data-pointer="coarse">press and drag in the chamber</span> to become the target yourself.
       </div>
     </div>
 
@@ -158,40 +159,13 @@
   </div>
 </section>
 
-<!-- ZONE E: ENERGY ECONOMICS -->
+<!-- ZONE E: FIELD NOTES (the energy summary retired to /energy/ — DESIGN §2.6) -->
 <section id="zone-e" class="zone" aria-labelledby="ze-head">
-  <p class="zone-kicker">Zone E · energy economics</p>
-  <h2 id="ze-head">Energy Economics</h2>
-  <p class="lede">Every invocation of Se costs energy. The lower it sits in the stack, the more expensive it becomes. Note the frequent small notches in the dominant curve: contact pays back in the moment, continuously. Note also which way the grip runs here — a collapsed Se-dominant does not get more Se, it floods into inferior Ni.</p>
-
-  <div class="energy-teaser" id="energyTeaser"></div>
-</section>
-
-<!-- ZONE F: FIELD NOTES -->
-<section id="zone-f" class="zone" aria-labelledby="zf-head">
-  <p class="zone-kicker">Zone F · field notes</p>
-  <h2 id="zf-head">Field Notes</h2>
+  <p class="zone-kicker">Zone E · field notes</p>
+  <h2 id="ze-head">Field Notes</h2>
   <p class="lede">Patterns from the wild — how Se shows up in daily life.</p>
 
-  <div class="cards">
-    <div class="vignette">
-      <h4>The Court</h4>
-      <p>Mid-game, an ESTP sees the defender's weight shift a half-second before the lane opens, and is already moving. Asked afterwards how they knew, they say they saw it — which is the whole answer. There was no inference to report. The perception and the move were one event, and the interview about it is the first part that costs effort.</p>
-    </div>
-    <div class="vignette">
-      <h4>The Loop</h4>
-      <p>An ESTP under pressure pairs dominant Se with tertiary Fe: the room's reaction becomes the only instrument, and every stunt buys the next one. Ti's quiet question — is this actually a good idea? — is the function the loop exists to avoid. From inside it feels like being on; from outside it looks like escalation.</p>
-    </div>
-    <div class="vignette">
-      <h4>The Grip</h4>
-      <p>An ESFP past the end of their reserves stops perceiving and starts foreboding — sudden grim certainties about what it all means and where it is heading, delivered with none of dominant intuition's craft. Not a personality change: a low-capacity chamber taking a dominant-sized flood.</p>
-    </div>
-  </div>
-
-  <div class="mirror">
-    <div class="vs"><span class="ti" style="color:var(--c-accent)">Se</span> vs <span class="te" style="color:var(--pos-3)">Si</span></div>
-    <p>Same element, opposite attitude — and the difference is what happens to the moment. <strong>Se</strong> rides it: full resolution, zero lag, nothing kept — the world as a place to act. <strong>Si</strong> banks it: metered intake, compared against every layer it has ever laid down — the world as a place to recognize. One is water that looks; the other is water that keeps. Se trades the record for the moment; Si trades the moment for a record no moment can take away.</p>
-  </div>
+  <div id="fieldNotes"></div>
 </section>
 
 <div id="tooltip" class="viz-tooltip" role="tooltip"></div>

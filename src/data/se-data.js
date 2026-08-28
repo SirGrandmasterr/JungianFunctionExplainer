@@ -4,7 +4,7 @@
    to the Extraverted Sensing page.
    ============================================================ */
 import { clamp } from '../utils/math.js';
-import { CSSVAR } from '../utils/dom.js';
+import { CSSVAR, COARSE } from '../utils/dom.js';
 
 export function loadSeData() {
   const COL = {
@@ -21,39 +21,43 @@ export function loadSeData() {
   const SLOTS = [
     { key: 'dominant', name: 'Dominant', sub: '1st · hero', types: 'ESTP · ESFP', shadow: false, series: 0,
       params: { scale: 1.00, fidelity: .95, latency: 0, noise: 0, duty: 1, control: 1, contrary: 0 },
-      dial: [.88, .86, .97, .80, .58],
       text: 'The world arrives at full resolution and zero delay, and it is simply obvious — what moved, what changed, where the opening is. Attention goes wherever the action is without being sent, the body answers before a plan exists, and none of it costs anything. The present is not a stream to keep up with; it is the place they already live.' },
     { key: 'auxiliary', name: 'Auxiliary', sub: '2nd · parent', types: 'ISTP · ISFP', shadow: false, series: 1,
       params: { scale: .80, fidelity: .85, latency: 80, noise: .05, duty: .85, control: .90, contrary: 0 },
-      dial: [.74, .80, .84, .74, .58],
       text: 'Contact in service of an inner judge. The scene is read cleanly — then handed inward, to a framework or a value, before anything is done about it. Less appetite than a dominant, more selection: the eye opens fully for what the craft or the feeling currently cares about, and idles politely through the rest.' },
     { key: 'tertiary', name: 'Tertiary', sub: '3rd · eternal child', types: 'ENTJ · ENFJ', shadow: false, series: 2,
       params: { scale: .55, fidelity: .60, latency: 250, noise: .20, duty: .50, control: .60, contrary: 0 },
-      dial: [.48, .46, .58, .48, .38],
       text: 'Presence in bursts, usually downstream of a plan. The room gets genuinely seen — at the dinner, on the court, on the stage — and then the long-range machinery resumes and the senses drop back to executive summary. It improves markedly with age, mostly as permission: it turns out the world is allowed to be enjoyed directly.' },
     { key: 'inferior', name: 'Inferior', sub: '4th · aspirational', types: 'INTJ · INFJ', shadow: false, series: 3,
       /* the inferior's flood-open under stress is the grip — the eye carries
          a trace of `contrary` here without the shadow register's hostility */
       params: { scale: .40, fidelity: .35, latency: 700, noise: .45, duty: .25, control: .35, contrary: .12 },
-      dial: [.24, .26, .34, .24, .30],
       text: 'The present as static between insights. Physical detail arrives late, partial, and slightly untrustworthy — where the keys are, what was just said, the state of the body — until stress cuts the long view entirely and the senses flood open all at once: the grip, with its bingeing, recklessness, and sudden appetite for intensity that does not sound like them.' },
     { key: 'opposing', name: 'Opposing', sub: '5th · shadow', types: 'ISTJ · ISFJ', shadow: true, series: 4,
       params: { scale: .46, fidelity: .42, latency: 600, noise: .50, duty: .45, control: .40, contrary: .25 },
-      dial: [.34, .40, .44, .30, .22],
       text: 'Contact as contradiction. When the record says one thing and the room plainly shows another, Se wakes up combative — a blunt, unusually vivid *look at it, it is right there* — held exactly long enough to defend the archive, then dropped.' },
     { key: 'critical', name: 'Critical Parent', sub: '6th · shadow', types: 'ESTJ · ESFJ', shadow: true, series: 4,
       params: { scale: .44, fidelity: .35, latency: 900, noise: .55, duty: .35, control: .30, contrary: .35 },
-      dial: [.28, .34, .40, .26, .16],
       text: 'An inner sergeant with perfect timing and no warmth. It surfaces to name what was physically missed — you did not see it, you were too slow, you looked ridiculous — precise about the moment, useless about what to do with it.' },
     { key: 'trickster', name: 'Trickster', sub: '7th · shadow', types: 'INTP · INFP', shadow: true, series: 4,
       params: { scale: .42, fidelity: .28, latency: 1200, noise: .60, duty: .30, control: .20, contrary: .55 },
-      dial: [.20, .24, .36, .16, .10],
       text: 'The present as a prank. Objects genuinely vanish and reappear, doorframes attack, the obvious thing on the table goes unseen for ten minutes — and occasionally the reverse: total confident certainty about a physical detail that was never there. Neither state announces which one is running.' },
     { key: 'demon', name: 'Demon', sub: '8th · shadow', types: 'ENTP · ENFP', shadow: true, series: 4,
       params: { scale: .40, fidelity: .20, latency: 1500, noise: .65, duty: .22, control: .12, contrary: .65 },
-      dial: [.14, .18, .30, .10, .06],
       text: 'Rarely touched, and crude when it erupts: sensation used as a weapon against the self — the punishing workout, the blackout night, the hand put through the wall. Not perception at all by then; just voltage, applied directly.' },
   ];
+
+  /* §3.2 character: the five dial axes are derived in stack-rail.js from the
+     same §3.1 params the glyph renders. These declared weights are the only
+     place Se may differ from the position template, and each carries its
+     argument — nothing about the dial is authored per-slot any more. */
+  const CHARACTER = {
+    endurance: { w: 0.90, why: 'contact pays back in the moment — a live field can be ridden for hours' },
+    precision: { w: 0.90, why: 'full resolution at zero lag, for exactly as long as the contact lasts' },
+    speed:     { w: 0.97, why: 'locks within a single frame — the fastest event in the psyche' },
+    control:   { w: 0.85, why: 'follows the field\'s action more readily than an inner agenda' },
+    awareness: { w: 0.60, why: 'contact runs ahead of self-report: it acts, then finds out it acted' },
+  };
 
   /* Extraverted perception is fed by introverted judgment; Se's canonical
      partners are the inner judges Ti and Fi — the functions that tell the
@@ -182,9 +186,9 @@ export function loadSeData() {
       windowMiss: 'Shut. The response fired exactly as designed — and arrived at a wall, because from this slot the signal spends hundreds of milliseconds in transit before the launch even begins. Select a higher slot in Zone B and spawn another window: position is the difference between an opening and a story about one.',
       blackout: 'The field is gone. Watch what the eye does with nothing: dilates, hunts, and starts paying for silence — stress climbing on an empty room the way other functions pay for chaos. The last thing it saw is already dying as an afterimage. Note the small glint leaving it, labelled for Si: the stratum its sibling would have kept. Se itself keeps nothing.',
       blackout2: 'Contact restored, and the meters snap back — no residue, no backlog, no grudge. The blackout cost exactly what it lasted and nothing more. Functions that keep records recover slowly; the one that keeps nothing is also the one that resets instantly.',
-      hover: 'The cursor is now the most vivid object in the field, and the eye treats it accordingly: zero-lag tracking, tracers leaping at every quick move. You are experiencing the dominant preset — drop this glyph to Inferior in Zone B and the same cursor becomes something the gaze trails behind, catches, and loses.',
+      hover: `${COARSE ? 'Your touch' : 'The cursor'} is now the most vivid object in the field, and the eye treats it accordingly: zero-lag tracking, tracers leaping at every quick move. You are experiencing the dominant preset — drop this glyph to Inferior in Zone B and the same ${COARSE ? 'touch' : 'cursor'} becomes something the gaze trails behind, catches, and loses.`,
     },
-    idle: 'The field runs live: drifters, movers, the occasional flare — and the eye hunting through it, locking whatever moves. Slide the field intensity and watch stress and pleasure trade places; spawn an event and watch the reticle answer; or hover the chamber to become the target yourself.',
+    idle: `The field runs live: drifters, movers, the occasional flare — and the eye hunting through it, locking whatever moves. Slide the field intensity and watch stress and pleasure trade places; spawn an event and watch the reticle answer; or ${COARSE ? 'press and drag in the chamber' : 'hover the chamber'} to become the target yourself.`,
   };
 
   const HERO = {
@@ -213,17 +217,25 @@ export function loadSeData() {
     heading: 'Energy Economics',
     lede: 'Every invocation of Se costs energy. The lower it sits in the stack, the more expensive it becomes. Note the frequent small notches in the dominant curve: contact pays back in the moment, continuously. Note also which way the grip runs here — a collapsed Se-dominant does not get more Se, it floods into inferior Ni.',
   };
+  /* zone E · field notes (rendered by shared/field-notes.js) */
   const ZONE_F = {
-    kicker: 'Zone F · field notes',
+    kicker: 'Zone E · field notes',
     heading: 'Field Notes',
     lede: 'Patterns from the wild — how Se shows up in daily life.',
-    mirror: { label: 'Se', counterpart: 'Si', counterpartColor: 'var(--pos-3)' },
+    mirror: {
+      label: 'Se', counterpart: 'Si', counterpartColor: 'var(--pos-3)',
+      html: 'Same element, opposite attitude — and the difference is what happens to the moment. <strong>Se</strong> rides it: full resolution, zero lag, nothing kept — the world as a place to act. <strong>Si</strong> banks it: metered intake, compared against every layer it has ever laid down — the world as a place to recognize. One is water that looks; the other is water that keeps. Se trades the record for the moment; Si trades the moment for a record no moment can take away.',
+    },
     vignettes: [
-      { title: 'The Court', text: 'Mid-game, an ESTP sees the defender\'s weight shift a half-second before the lane opens, and is already moving. Asked afterwards how they knew, they say they saw it — which is the whole answer. There was no inference to report. The perception and the move were one event, and the interview about it is the first part that costs effort.' },
-      { title: 'The Loop', text: 'An ESTP under pressure pairs dominant Se with tertiary Fe: the room\'s reaction becomes the only instrument, and every stunt buys the next one. Ti\'s quiet question — is this actually a good idea? — is the function the loop exists to avoid. From inside it feels like being on; from outside it looks like escalation.' },
-      { title: 'The Grip', text: 'An ESFP past the end of their reserves stops perceiving and starts foreboding — sudden grim certainties about what it all means and where it is heading, delivered with none of dominant intuition\'s craft. Not a personality change: a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'field sighting', title: 'The Court', text: 'Mid-game, an ESTP sees the defender\'s weight shift a half-second before the lane opens, and is already moving. Asked afterwards how they knew, they say they saw it — which is the whole answer. There was no inference to report. The perception and the move were one event, and the interview about it is the first part that costs effort.' },
+      { kind: 'the loop', title: 'The Loop', text: 'An ESTP under pressure pairs dominant Se with tertiary Fe: the room\'s reaction becomes the only instrument, and every stunt buys the next one. Ti\'s quiet question — is this actually a good idea? — is the function the loop exists to avoid. From inside it feels like being on; from outside it looks like escalation.' },
+      { kind: 'the grip', title: 'The Grip', text: 'An ESFP past the end of their reserves stops perceiving and starts foreboding — sudden grim certainties about what it all means and where it is heading, delivered with none of dominant intuition\'s craft. Not a personality change: a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'as a tertiary', title: 'The Scheduled Body', text: 'Tertiary Se in an ENTJ or ENFJ: presence, purchased in blocks. The motorcycle weekend, the boxing class at six, the kitchen renovated to restaurant grade — real contact with the physical world, genuinely relished, and booked into the calendar by the long-range machinery that runs the rest of the week. The tell is the transition: fully in the body on Saturday, and by Monday the senses have gone back to executive summary.' },
+      { kind: 'the accusation', title: '"Reckless"', text: 'The verdict is usually delivered by someone whose risk estimate ran on precedent rather than on the scene. What the accuser cannot see is the resolution: the rider read this surface, this camber, this grip, at frame rate, and priced the move against data they will never have from the guardrail. Dominant Se\'s error rate is often lowest exactly where the stakes are highest — that is what full contact buys. The honest caveat sits lower in the stack: the same move from the tertiary or inferior seat is running on a fraction of the resolution and all of the appetite.' },
+      { kind: 'the misread', title: 'Mistaken for Ne', text: 'Both read as "spontaneous," and the two get swapped in both directions. The tell is the object of the appetite. Se wants the actual thing at actual intensity — this wave, this crowd, this engine — and finds talking about hypothetical waves a poor substitute for water. Ne wants the possibility and will trade the concert in front of it for a better idea of a concert. Watch where the attention lands when both are in one room: one on the stage, one on what the venue could become.' },
+      { kind: 'the wrong instrument', title: 'The Five-Year Plan', text: 'Hand Se the strategy offsite — the market in 2031, the succession question, the bet whose payoff no one in the room will see this year — and the sharpest instrument in the building has nothing to grip. Contact needs a surface, and the future does not have one yet. A strong Se-dominant does not fake the long view; they partner with someone who has it, and take the part of the plan that touches ground this quarter — which, done at their resolution, is a contribution no planner can match.' },
     ],
   };
 
-  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
+  return { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
 }

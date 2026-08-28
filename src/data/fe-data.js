@@ -4,7 +4,7 @@
    to the Extraverted Feeling page.
    ============================================================ */
 import { clamp } from '../utils/math.js';
-import { CSSVAR } from '../utils/dom.js';
+import { CSSVAR, COARSE } from '../utils/dom.js';
 
 export function loadFeData() {
   const COL = {
@@ -25,37 +25,29 @@ export function loadFeData() {
   const SLOTS = [
     { key: 'dominant', name: 'Dominant', sub: '1st · hero', types: 'ENFJ · ESFJ', shadow: false, series: 0,
       params: { scale: 1.00, fidelity: .95, latency: 0, noise: 0, duty: 1, control: 1, contrary: 0 },
-      dial: [.90, .92, .95, .90, .82],
       text: 'The state of the room is the primary datum, read continuously and without effort — who has gone quiet, who is being talked over, where the tension is sitting. Harmony is not a preference here but a load-bearing structure: something the person is holding up, usually without being asked and usually without anyone noticing until they stop.' },
     { key: 'auxiliary', name: 'Auxiliary', sub: '2nd · parent', types: 'INFJ · ISFJ', shadow: false, series: 1,
       params: { scale: .80, fidelity: .85, latency: 80, noise: .05, duty: .85, control: .90, contrary: 0 },
-      dial: [.80, .84, .80, .82, .76],
       text: 'Harmony in the service of an inner perception. The room still gets read accurately, but the conducting is selective and scheduled — care delivered deliberately, to the people the dominant function has decided matter, rather than sprayed across every gathering. Warm in a narrower band, and considerably harder to exhaust.' },
     { key: 'tertiary', name: 'Tertiary', sub: '3rd · eternal child', types: 'ENTP · ESTP', shadow: false, series: 2,
       params: { scale: .55, fidelity: .60, latency: 250, noise: .20, duty: .50, control: .60, contrary: 0 },
-      dial: [.48, .52, .62, .54, .42],
       text: 'Charm as an instrument. Real warmth, genuinely felt and deliberately deployed — the room worked rather than held, with an accuracy that is good enough for the next twenty minutes and rarely checked afterwards. It drops the moment the game is won, which is what tells you it was tertiary rather than dominant.' },
     { key: 'inferior', name: 'Inferior', sub: '4th · aspirational', types: 'ISTP · INTP', shadow: false, series: 3,
       /* the inferior's flood-open under depletion is the grip — a trace of
          `contrary` here without the shadow register's hostility */
       params: { scale: .40, fidelity: .35, latency: 700, noise: .45, duty: .25, control: .35, contrary: .12 },
-      dial: [.24, .28, .30, .28, .34],
       text: 'Belonging arrives late and all-or-nothing. Long stretches of treating social convention as arbitrary noise, punctuated — under real depletion — by an abrupt and badly-calibrated need to know they are wanted here. The read is slow and low-resolution, so it lands either far too hard or not at all, and it surprises them more than anyone.' },
     { key: 'opposing', name: 'Opposing', sub: '5th · shadow', types: 'INFP · ISFP', shadow: true, series: 4,
       params: { scale: .46, fidelity: .42, latency: 600, noise: .50, duty: .45, control: .40, contrary: .25 },
-      dial: [.34, .38, .44, .30, .24],
       text: 'Contrary harmonizing. When an inner value is pressed, this position performs the group tone with unnerving precision — matching the room exactly — in order to refuse it more visibly. Fe used as a weapon against Fe: the harmony is real enough to be recognized and pointedly withheld.' },
     { key: 'critical', name: 'Critical Parent', sub: '6th · shadow', types: 'ENFP · ESFP', shadow: true, series: 4,
       params: { scale: .44, fidelity: .35, latency: 900, noise: .55, duty: .35, control: .30, contrary: .35 },
-      dial: [.28, .32, .38, .26, .18],
       text: 'Weaponized decorum. It surfaces as a verdict about how someone else is affecting the room — you are making everyone uncomfortable, nobody wants to hear this — delivered with total confidence and aimed at whoever is nearest. The reading behind it is rarely checked, and the person delivering it is not, at that moment, harmonizing anything.' },
     { key: 'trickster', name: 'Trickster', sub: '7th · shadow', types: 'ISTJ · INTJ', shadow: true, series: 4,
       params: { scale: .42, fidelity: .28, latency: 1200, noise: .60, duty: .30, control: .20, contrary: .55 },
-      dial: [.22, .24, .30, .16, .12],
       text: 'Social reading that returns confident garbage. The room is misjudged — warmth read as mockery, a joke read as an attack, an ally read as a threat — and the misjudgment is acted on immediately and without review. Watch the trust gap on the glyph: what this position believes about the room and what is true have visibly come apart.' },
     { key: 'demon', name: 'Demon', sub: '8th · shadow', types: 'ESTJ · ENTJ', shadow: true, series: 4,
       params: { scale: .40, fidelity: .20, latency: 1500, noise: .65, duty: .22, control: .12, contrary: .65 },
-      dial: [.16, .20, .24, .10, .08],
       text: 'Concord as a weapon: manufacturing a group tone in order to isolate someone inside it. The conducting term has inverted — the room is being driven apart on purpose — while the readout still reports that this is all in everyone\'s interest. Rarely reached, and unmistakable when it is.' },
   ];
 
@@ -71,6 +63,18 @@ export function loadFeData() {
        phantom   Ne: seed the ring with people who are not in it
        stale     Te: carrier phases stop updating; conduct on assumption
        weight    pleasure yield per locked carrier */
+  /* §3.2 character: the five dial axes are derived in stack-rail.js from the
+     same §3.1 params the glyph renders. These declared weights are the only
+     place Fe may differ from the position template, and each carries its
+     argument — nothing about the dial is authored per-slot any more. */
+  const CHARACTER = {
+    endurance: { w: 0.95, why: 'rooms are its element — the field it maintains also carries it' },
+    precision: { w: 0.90, why: 'reads a room to fine tolerances; masking is the one thing that beats the read' },
+    speed:     { w: 0.92, why: 'the read and the response are one operation' },
+    control:   { w: 0.92, why: 'conducts deliberately, toward a field it chooses' },
+    awareness: { w: 0.85, why: 'aimed outward: what the room feels is sharper than what Fe itself does' },
+  };
+
   const FEEDERS = [
     { key: 'ni', name: 'Ni', color: '#7148d8', canonical: true, pair: 'the INFJ · ENFJ coupling',
       cfg: { nodes: 5, horizon: 0.9, weight: 1.0 },
@@ -193,7 +197,7 @@ export function loadFeData() {
       celebrate2: 'Now watch the differentiation readout fall. Perfect concord is perfect sameness: the individual hues have averaged into one, and the carriers are no longer distinguishable from the field they are making. Fe\'s characteristic failure is visible here at the exact moment of its greatest success — a room this synchronized has stopped being able to tell its members apart, and the first person to sound a different note will be experienced as an attack.',
       reconcile: 'Effort at maximum, stress climbing, and for the first stretch nothing improves at all. This is what the work looks like from inside: Fe spending everything it has against a field that has not yet moved. The inter-cluster coupling is ramping from repulsive to positive in real time — you are watching a room be argued out of a position.',
       reconcile2: 'The null closes and one wavefront crosses both halves at once. Now look at the cost readout: better than four units, against under half a unit for the sync you spawned earlier. Fe\'s best moment is also its most expensive by an order of magnitude, which is the entire reason Fe-dominants burn out on rooms that will not resolve — not because they care too much, but because this is the actual price of the thing they are good at.',
-      covert: 'Concord is reading high and the stress meter is climbing anyway. Nothing in the field is visibly wrong — the fringes are clean, the carriers report agreement — and the trust gap is the only instrument registering anything at all. That faint counter-rotating pattern underneath is the true field beating against the displayed one. This is the most characteristic Fe experience there is, and the reason it is so hard to defend: a real signal, detected before any evidence for it exists. Hover the carriers. Whether you find the masked pair depends on where Fe is sitting in the stack.',
+      covert: `Concord is reading high and the stress meter is climbing anyway. Nothing in the field is visibly wrong — the fringes are clean, the carriers report agreement — and the trust gap is the only instrument registering anything at all. That faint counter-rotating pattern underneath is the true field beating against the displayed one. This is the most characteristic Fe experience there is, and the reason it is so hard to defend: a real signal, detected before any evidence for it exists. ${COARSE ? 'Press and hold each carrier.' : 'Hover the carriers.'} Whether you find the masked pair depends on where Fe is sitting in the stack.`,
       deadlock: 'Two clusters, locked in antiphase, and the conducting term is running near maximum while doing nothing whatsoever. Watch the cost readout keep climbing anyway — Fe cannot decline to work on a split room; the effort is not voluntary. And watch the nucleus: it takes the mean of the field, and the mean of two opposites is grey. This is what people mean when they describe being torn in half by a conflict they are not even a party to. Nothing here resolves on its own.',
       isolate: 'The carriers are going dark and the nucleus is going with them. This is the structural fact the whole page has been building toward: Fe\'s colour is a computed average of the field around it, and with no field there is no average. Fi alone still burns rose — its core tone does not need an audience. Fe alone has nothing to be.',
       isolate2: 'And now the effort meter is climbing again with nobody in the room. Those faint dashed carriers are not people; they are simulated ones, invented so there is a field to harmonize with. Full cost, no coupling, and the readout cannot tell the difference. This is rumination drawn exactly as it works: an orchestration engine that cannot idle, running against an audience it made up.',
@@ -229,17 +233,25 @@ export function loadFeData() {
     heading: 'Energy Economics',
     lede: 'Every invocation of Fe costs energy. Note the notches in the dominant curve — the fastest micro-recovery in the atlas, because a room that locks pays a little back and rooms lock often. Note also which way the grip runs: a collapsed Fe-dominant does not get more Fe, it floods into inferior Ti — cold, absolute, and cutting people off with a rule.',
   };
+  /* zone E · field notes (rendered by shared/field-notes.js) */
   const ZONE_F = {
-    kicker: 'Zone F · field notes',
+    kicker: 'Zone E · field notes',
     heading: 'Field Notes',
     lede: 'Patterns from the wild — how Fe shows up in daily life.',
-    mirror: { label: 'Fe', counterpart: 'Fi', counterpartColor: '#f56a8c' },
+    mirror: {
+      label: 'Fe', counterpart: 'Fi', counterpartColor: '#f56a8c',
+      html: 'Same element, opposite attitude — and the whole difference is where the measurement is taken. <strong>Fi\'s perimeter is computed from its centre:</strong> one fixed core tone, sealed behind a closed boundary, and every arrival struck against it. <strong>Fe\'s centre is computed from its perimeter:</strong> the carriers stand outside the rim, the lattice is drawn between them rather than inside the chamber, and the nucleus takes the average of whoever is currently there. That is why they fail in opposite directions. Isolate Fi and the core still burns. Isolate Fe and there is no average left to take — which is a thing you can watch happen, one section up.',
+    },
     vignettes: [
-      { title: 'The Read', text: 'An ENFJ walks into a room and reorganizes it in eleven seconds — seats a person next to the one who will draw them out, aims a question at whoever has been quiet, breaks a tension nobody else has registered yet. Asked afterwards what they did, they can rarely reconstruct it, because the read and the response were one operation and neither of them passed through language on the way.' },
-      { title: 'The Loop', text: 'An ESFJ under stress pairs dominant Fe with tertiary Ne: conducting toward people who are not in the room. What they might be thinking, what that message might have meant, how it is going to land. Full effort, no coupling. The function that would break it — Si\'s actual record of how these people actually behave — is exactly the one the loop stops consulting.' },
-      { title: 'The Grip', text: 'An INTP past the end of their reserves stops analyzing and floods into inferior Fe: an abrupt, raw, badly-calibrated need to know they are wanted here, from someone who spent the whole week explaining that social convention is arbitrary. Not a personality change — a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'field sighting', title: 'The Read', text: 'An ENFJ walks into a room and reorganizes it in eleven seconds — seats a person next to the one who will draw them out, aims a question at whoever has been quiet, breaks a tension nobody else has registered yet. Asked afterwards what they did, they can rarely reconstruct it, because the read and the response were one operation and neither of them passed through language on the way.' },
+      { kind: 'the loop', title: 'The Loop', text: 'An ESFJ under stress pairs dominant Fe with tertiary Ne: conducting toward people who are not in the room. What they might be thinking, what that message might have meant, how it is going to land. Full effort, no coupling. The function that would break it — Si\'s actual record of how these people actually behave — is exactly the one the loop stops consulting.' },
+      { kind: 'the grip', title: 'The Grip', text: 'An INTP past the end of their reserves stops analyzing and floods into inferior Fe: an abrupt, raw, badly-calibrated need to know they are wanted here, from someone who spent the whole week explaining that social convention is arbitrary. Not a personality change — a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'as a tertiary', title: 'The Showtime Switch', text: 'Tertiary Fe in an ESTP or ENTP: the room-read deployed in bursts, as a tool. The bar warms up, the client relaxes, the heckler gets folded into the act — genuine skill, genuinely enjoyed, and switched off in the parking lot without a second thought. The field was real while it lasted; what this seat does not do is stay behind to maintain it, which is the difference between playing the instrument and being its keeper.' },
+      { kind: 'the accusation', title: '"You\'re Being Fake"', text: 'The charge lands on Fe more than on any other function, and it inverts the mechanics. The warmth toward someone Fe privately finds difficult is not counterfeit feeling; it is infrastructure — the room\'s temperature is a thing this function maintains the way other people maintain bridges, and the maintenance does not stop for personal weather. The smile is load-bearing. Calling it fake is like calling a lighthouse insincere for shining at boats it doesn\'t know.' },
+      { kind: 'the misread', title: 'Mistaken for Fi', text: 'Both read as "the warm one," so the attitudes get collapsed. The tell is whose signal moves them first. Fe registers the room\'s discomfort before its own — it can be personally furious and still catch the new hire\'s confusion mid-sentence. Fi registers its own line before the room\'s — it can sit peacefully in a tense meeting until a value is touched, then move against the whole field alone. One conducts the weather; the other keeps a compass through it.' },
+      { kind: 'the wrong instrument', title: 'The Room That Needs to Break', text: 'Some fields should not be harmonized: the meeting where a bad plan needs to die loudly, the consensus that is quietly excluding someone, the peace that is only the absence of a confrontation someone owes. Here Fe\'s reflex — close the gap, restore the lock — works against the actual repair, smoothing a rupture that was doing surgical work. The instrument measures coherence, and some rooms need their coherence taken apart before it is worth having.' },
     ],
   };
 
-  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
+  return { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
 }

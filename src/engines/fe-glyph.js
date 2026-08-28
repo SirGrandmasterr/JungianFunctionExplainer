@@ -187,13 +187,16 @@ export class FeGlyph {
     this._ro.observe(canvas);
 
     if (this.opts.interactive) {
-      canvas.addEventListener('pointermove', (e) => {
+      const onPoint = (e) => {
         const r = canvas.getBoundingClientRect();
         this.pointer.x = e.clientX - r.left;
         this.pointer.y = e.clientY - r.top;
         this.steered = true;
         if (REDUCED) { this.step(1 / 30); this.draw(); }
-      });
+      };
+      canvas.addEventListener('pointermove', onPoint);
+      /* touch has no hover: press-and-hold is how a carrier gets sounded */
+      canvas.addEventListener('pointerdown', onPoint);
       canvas.addEventListener('pointerleave', () => {
         this.pointer.x = this.pointer.y = null;
         this.hoverNode = null;

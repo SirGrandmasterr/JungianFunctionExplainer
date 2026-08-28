@@ -4,7 +4,7 @@
    to the Introverted Intuition page.
    ============================================================ */
 import { clamp } from '../utils/math.js';
-import { CSSVAR } from '../utils/dom.js';
+import { CSSVAR, COARSE } from '../utils/dom.js';
 
 export function loadNiData() {
   const COL = {
@@ -21,38 +21,30 @@ export function loadNiData() {
   const SLOTS = [
     { key: 'dominant', name: 'Dominant', sub: '1st · hero', types: 'INTJ · INFJ', shadow: false, series: 0,
       params: { scale: 1.00, fidelity: .95, latency: 0, noise: 0, duty: 1, control: 1, contrary: 0 },
-      dial: [.92, .88, .35, .55, .80],
       text: 'Everything is read for where it is going. The work itself is invisible — long stretches in which nothing legible happens — and then an answer arrives whole, already certain, with no account of how it got there. Being asked to show the steps is genuinely hard, because the steps were never held separately.' },
     { key: 'auxiliary', name: 'Auxiliary', sub: '2nd · parent', types: 'ENTJ · ENFJ', shadow: false, series: 1,
       params: { scale: .80, fidelity: .85, latency: 80, noise: .05, duty: .85, control: .90, contrary: 0 },
-      dial: [.78, .78, .45, .72, .72],
       text: 'The long read in service of something already underway. Ni here supplies direction rather than identity — a sense of where this is heading, which the dominant judging function converts into a plan or a room to manage. Quicker to state, easier to argue with, and far less likely to sit on one image for a decade.' },
     { key: 'tertiary', name: 'Tertiary', sub: '3rd · eternal child', types: 'ISTP · ISFP', shadow: false, series: 2,
       params: { scale: .55, fidelity: .60, latency: 250, noise: .20, duty: .50, control: .60, contrary: 0 },
-      dial: [.48, .50, .40, .48, .42],
       text: 'Pattern reading that arrives in bursts and is trusted unevenly. A sudden clear sense of how a situation plays out — usually sound, occasionally a whole story built on nothing — with little interest in defending either. It steadies with age, mostly by learning which of its own hunches to check.' },
     { key: 'inferior', name: 'Inferior', sub: '4th · aspirational', types: 'ESTP · ESFP', shadow: false, series: 3,
       /* the inferior doom-vision *is* a premature convergence — total certainty
          on very little — so it carries a trace of `contrary` without the
          shadow register's cursor-fighting */
       params: { scale: .40, fidelity: .35, latency: 700, noise: .45, duty: .25, control: .35, contrary: .12 },
-      dial: [.24, .28, .30, .26, .32],
       text: 'The future arrives as a verdict rather than a forecast. Long stretches of living in the present, punctuated — usually under fatigue or stress — by sudden total certainty that this ends badly, always was going to, and is not open to discussion. It shows up in a register that does not sound like them.' },
     { key: 'opposing', name: 'Opposing', sub: '5th · shadow', types: 'ENTP · ENFP', shadow: true, series: 4,
       params: { scale: .46, fidelity: .42, latency: 600, noise: .50, duty: .45, control: .40, contrary: .25 },
-      dial: [.34, .38, .48, .30, .22],
       text: 'The counter-vision. When somebody else\'s single read of the future starts closing options down, Ni wakes up combative and produces a rival certainty — one darker, more inevitable ending, held exactly long enough to refuse the first one.' },
     { key: 'critical', name: 'Critical Parent', sub: '6th · shadow', types: 'INTP · INFP', shadow: true, series: 4,
       params: { scale: .44, fidelity: .35, latency: 900, noise: .55, duty: .35, control: .30, contrary: .35 },
-      dial: [.28, .42, .38, .26, .16],
       text: 'An inner forecaster with one bad habit. Ni turns inward and issues verdicts about how one\'s own life goes — this is what you are, this is where it ends — total, unsourced, and aimed at nobody else.' },
     { key: 'trickster', name: 'Trickster', sub: '7th · shadow', types: 'ESTJ · ESFJ', shadow: true, series: 4,
       params: { scale: .42, fidelity: .28, latency: 1200, noise: .60, duty: .30, control: .20, contrary: .55 },
-      dial: [.20, .24, .34, .16, .10],
       text: 'Implication as a rigged game. Either nothing is between the lines or everything is, so this position alternates between missing subtext that was plainly there and constructing an elaborate one nobody meant — without malice, and usually without noticing which it just did.' },
     { key: 'demon', name: 'Demon', sub: '8th · shadow', types: 'ISTJ · ISFJ', shadow: true, series: 4,
       params: { scale: .40, fidelity: .20, latency: 1500, noise: .65, duty: .22, control: .12, contrary: .65 },
-      dial: [.14, .28, .26, .10, .06],
       text: 'Rarely touched, and total when it erupts: one black certainty about how all of this ends, applied to everything at once, immune to evidence, and unbothered that yesterday\'s version of it said something different.' },
   ];
 
@@ -69,6 +61,18 @@ export function loadNiData() {
        persistence how long material stays held before the picture leaks away
        sealed      judgment supplied from inside only (a loop)
        starve      perception feeding perception: nothing judges anything */
+  /* §3.2 character: the five dial axes are derived in stack-rail.js from the
+     same §3.1 params the glyph renders. These declared weights are the only
+     place Ni may differ from the position template, and each carries its
+     argument — nothing about the dial is authored per-slot any more. */
+  const CHARACTER = {
+    endurance: { w: 0.95, why: 'convergence is patient — the funnel runs for hours without strain' },
+    precision: { w: 0.90, why: 'one trajectory, fitted tight; the envelope narrows as it runs' },
+    speed:     { w: 0.40, why: 'convergence waits for the fit — insight arrives whole, and late' },
+    control:   { w: 0.60, why: 'insights arrive on their own schedule; the tiller answers slowly' },
+    awareness: { w: 0.85, why: 'certain of the shape, unable to show its work' },
+  };
+
   const FEEDERS = [
     { key: 'te', name: 'Te', color: '#17d4ef', canonical: true, pair: 'the INTJ · ENTJ coupling',
       cfg: { rate: .10, weight: 1.05, speed: .40, spread: .34, persistence: .95, aim: 3.14 },
@@ -181,7 +185,7 @@ export function loadNiData() {
       overfit2: 'This is what micromanagement costs a long-range instrument: generality. The construct still moves, but its makeup tracks trivia now, jittering to honor decimals. A model forced to account for every cell can no longer say where anything is going — precision about the present, purchased with the future.',
       hover: 'You have the tiller. Left is earlier, right is later — and the construct\'s makeup at each point is what the model believes the concept looks like there. Notice it is the same object the whole way across: development, not replacement.',
     },
-    idle: 'The engine runs unattended: observations gather, a trajectory fits itself through them, and the construct rides the line from one end of time to the other, changing as it goes. Hover the chamber to take the tiller yourself — or perturb the engine below and watch the telemetry respond.',
+    idle: `The engine runs unattended: observations gather, a trajectory fits itself through them, and the construct rides the line from one end of time to the other, changing as it goes. ${COARSE ? 'Press and drag left–right in the chamber' : 'Hover the chamber'} to take the tiller yourself — or perturb the engine below and watch the telemetry respond.`,
   };
 
   const HERO = {
@@ -210,17 +214,25 @@ export function loadNiData() {
     heading: 'Energy Economics',
     lede: 'Every invocation of Ni costs energy. The lower it sits in the stack, the more expensive it becomes. Note the small notches in the dominant curve: an insight that lands pays a little back. Note also which way the grip runs here — a collapsed Ni-dominant does not get more Ni, it floods into inferior Se.',
   };
+  /* zone E · field notes (rendered by shared/field-notes.js) */
   const ZONE_F = {
-    kicker: 'Zone F · field notes',
+    kicker: 'Zone E · field notes',
     heading: 'Field Notes',
     lede: 'Patterns from the wild — how Ni shows up in daily life.',
-    mirror: { label: 'Ni', counterpart: 'Ne', counterpartColor: 'var(--c-n)' },
+    mirror: {
+      label: 'Ni', counterpart: 'Ne', counterpartColor: 'var(--c-n)',
+      html: 'Same element, opposite attitude — and the difference is which way the funnel points. <strong>Ne</strong> takes one input and fans it into many futures, all live at once, all cheap to hold, none of them chosen. <strong>Ni</strong> takes many inputs and funnels them into one, and that one arrives whole, expensive to change, and impossible to show. Ne trades commitment for range; Ni trades range for a conviction it cannot source.',
+    },
     vignettes: [
-      { title: 'The Meeting', text: 'Ten minutes in, an Ni-dominant knows how the project ends, and says so. Asked why, they produce a reason that is true but is not the reason — it is the nearest sayable thing to a read that never had steps. Six months later they turn out to be right, which does nothing at all to improve the next explanation.' },
-      { title: 'The Loop', text: 'Under stress, INFJ Ni pairs with tertiary Ti: both introverted, both inward, with Fe\'s contact with actual people cut out between them. The read gets more elaborate, more internally consistent, and more certain, and nobody outside that head has touched it in weeks.' },
-      { title: 'The Grip', text: 'An INTJ past the end of their reserves stops seeing where anything is going and floods into inferior Se — buying things, driving too fast, eating and drinking past the point of noticing, working the body until it is the only thing in the room. Not a personality change: a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'field sighting', title: 'The Meeting', text: 'Ten minutes in, an Ni-dominant knows how the project ends, and says so. Asked why, they produce a reason that is true but is not the reason — it is the nearest sayable thing to a read that never had steps. Six months later they turn out to be right, which does nothing at all to improve the next explanation.' },
+      { kind: 'the loop', title: 'The Loop', text: 'Under stress, INFJ Ni pairs with tertiary Ti: both introverted, both inward, with Fe\'s contact with actual people cut out between them. The read gets more elaborate, more internally consistent, and more certain, and nobody outside that head has touched it in weeks.' },
+      { kind: 'the grip', title: 'The Grip', text: 'An INTJ past the end of their reserves stops seeing where anything is going and floods into inferior Se — buying things, driving too fast, eating and drinking past the point of noticing, working the body until it is the only thing in the room. Not a personality change: a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'as a tertiary', title: 'The Mechanic\'s Hunch', text: 'Tertiary Ni in an ISTP or ISFP: a quiet convergence engine under a hands-on exterior. It surfaces as the mechanic who stops mid-job because the fault is "not going to be the alternator," the climber who reroutes for a reason that arrives as certainty before it arrives as weather. Narrow-band, body-adjacent foresight — trusted about machines and terrain, and rarely invited to opine about anything else.' },
+      { kind: 'the accusation', title: '"You Can\'t Just Know That"', text: 'The accusation treats a missing derivation as a missing basis. What is actually missing is an interface: the funnel consumed hundreds of observations and returned only the destination, and the intermediate steps were never stored anywhere retrievable. The correct response to an Ni read is neither faith nor dismissal — it is treating it as a measurement from an instrument that cannot print its raw data, and testing it like any other measurement.' },
+      { kind: 'the misread', title: 'Mistaken for Si', text: 'Both are quiet, careful, and interior, so the two introverted perceivers get collapsed — usually as "detail people." The tell is what "how do you know?" retrieves. Si produces the record: the date, the precedent, the last three times this exact thing happened. Ni produces the shape: where this is heading, stripped of every particular that built the trajectory. One archives the past at full resolution; the other compresses it beyond recovery and keeps only the vector.' },
+      { kind: 'the wrong instrument', title: 'The Brainstorm', text: 'Ask Ni for twenty quick options and watch the instrument refuse the spec: it will sit silent through the sticky-note flurry and eventually offer one option, late, fully formed, with the argument for it welded on. The convergence that makes it valuable is exactly what makes it wrong here — a funnel cannot be run as a sprinkler. Teams that know this stop grading Ni on volume and start handing it the shortlist instead.' },
     ],
   };
 
-  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
+  return { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
 }

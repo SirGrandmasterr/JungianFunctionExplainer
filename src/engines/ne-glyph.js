@@ -100,7 +100,7 @@ export class NeGlyph {
     this._ro.observe(canvas);
 
     if (this.opts.interactive) {
-      canvas.addEventListener('pointermove', (e) => {
+      const onPoint = (e) => {
         const r = canvas.getBoundingClientRect();
         this.pointer.x = e.clientX - r.left;
         this.pointer.y = e.clientY - r.top;
@@ -108,7 +108,10 @@ export class NeGlyph {
         if (this.pointer.hist.length > 120) this.pointer.hist.shift();
         /* with animation off, a sweep is a direct branch-and-redraw */
         if (REDUCED) { this._hoverSpawn(true); this.draw(); }
-      });
+      };
+      canvas.addEventListener('pointermove', onPoint);
+      /* touch has no hover: a press or drag is how the chamber gets pointed at */
+      canvas.addEventListener('pointerdown', onPoint);
       canvas.addEventListener('pointerleave', () => {
         this.pointer.hist = []; this.pointer.x = this.pointer.y = null;
       });

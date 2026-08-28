@@ -9,14 +9,15 @@ import { REDUCED } from '../src/utils/dom.js';
 import { initHeader } from '../src/shared/header.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
-import { initEnergyTeaser } from '../src/shared/energy-teaser.js';
+import { initLabLayout } from '../src/shared/lab-layout.js';
+import { initFieldNotes } from '../src/shared/field-notes.js';
 import { NiGlyph } from '../src/engines/ni-glyph.js';
 import { loadNiData } from '../src/data/ni-data.js';
 
 // 1. Load header & data
 initHeader('ni');
 const data = loadNiData();
-const { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB } = data;
+const { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB } = data;
 
 /* dev handle: lets tooling and the console drive the engines directly */
 const NI = (window.__NI = { glyphs: {} });
@@ -30,14 +31,9 @@ if (heroCanvas) {
   NI.glyphs.hero = hero;
 }
 
-// Zone E: the economics suite now lives once at /energy/, where the eight
-// can be compared; what stays here is the ladder, the grip clock, and a link.
-initEnergyTeaser({
-  costs: COSTS,
-  fnLabel: 'Ni',
-  gripT: GRIP_T,
-  gripInto: 'Se',
-});
+// 3. Zone E: Field Notes (the energy summary retired to /energy/ — its grip
+// facts now live on the Zone B inferior caption)
+const fieldNotes = initFieldNotes({ zone: data.ZONE_F, fnLabel: 'Ni' });
 
 // 4. Zone B: Stack Position Rail
 const railCanvas = document.getElementById('glyphRail');
@@ -50,6 +46,10 @@ if (railCanvas) {
   initStackRail({
     slots: SLOTS,
     glyph: railGlyph,
+    character: CHARACTER,
+    fnLabel: 'Ni',
+    grip: { minutes: GRIP_T, into: 'Se' },
+    onSelect: (slot) => fieldNotes.setSlot(slot),
   });
 }
 
@@ -139,10 +139,16 @@ if (verifyCanvas) {
 
   /* first time the user takes the tiller, say what the tiller is */
   let steerNoted = false;
-  verifyCanvas.addEventListener('pointermove', () => {
+  const noteSteer = () => {
     if (!steerNoted && lab.steered && narrRun === 0) {
       steerNoted = true;
       narrate(N.hover);
     }
-  });
+  };
+  verifyCanvas.addEventListener('pointermove', noteSteer);
+  verifyCanvas.addEventListener('pointerdown', noteSteer);
 }
+
+// On narrow viewports the lab's chamber, meters, and narration pin together
+// so a scenario press and its consequence share a frame.
+initLabLayout();

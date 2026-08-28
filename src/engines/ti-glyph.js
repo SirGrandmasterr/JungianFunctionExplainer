@@ -49,11 +49,14 @@ export class TiGlyph {
     this._ro = new ResizeObserver(() => this._resize());
     this._ro.observe(canvas);
     if (this.opts.interactive) {
-      canvas.addEventListener('pointermove', (e) => {
+      const onPoint = (e) => {
         const r = canvas.getBoundingClientRect();
         this.pointer.hist.push({ x: e.clientX - r.left, y: e.clientY - r.top, t: performance.now() });
         if (this.pointer.hist.length > 120) this.pointer.hist.shift();
-      });
+      };
+      canvas.addEventListener('pointermove', onPoint);
+      /* touch has no hover: a press or drag is how the chamber gets pointed at */
+      canvas.addEventListener('pointerdown', onPoint);
       canvas.addEventListener('pointerleave', () => { this.pointer.hist = []; this.pointer.x = this.pointer.y = null; });
     }
     this.buildLattice();

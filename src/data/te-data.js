@@ -18,40 +18,44 @@ export function loadTeData() {
   const SLOTS = [
     { key: 'dominant', name: 'Dominant', sub: '1st · hero', types: 'ENTJ · ESTJ', shadow: false, series: 0,
       params: { scale: 1.00, fidelity: .95, latency: 0, noise: 0, duty: 1, control: 1, contrary: 0 },
-      dial: [.95, .95, .90, .95, .90],
       text: 'The world is a machine that could be running better. Structure goes up constantly and effortlessly — goals, sequences, owners, dates — and competence feels like identity itself. The scaffold is large, brisk, and metronomic: the flag keeps moving because the work keeps shipping.' },
     { key: 'auxiliary', name: 'Auxiliary', sub: '2nd · parent', types: 'INTJ · ISTJ', shadow: false, series: 1,
       params: { scale: .80, fidelity: .85, latency: 80, noise: .05, duty: .85, control: .90, contrary: 0 },
-      dial: [.80, .85, .80, .85, .78],
       text: 'The executive arm rather than the visionary. Te here serves the dominant perceiver — Ni\'s long read or Si\'s proven record gets turned into a plan with dates on it — but the structure is raised deliberately, in service of something, rather than for its own sake.' },
     { key: 'tertiary', name: 'Tertiary', sub: '3rd · eternal child', types: 'ENFP · ESFP', shadow: false, series: 2,
       params: { scale: .55, fidelity: .60, latency: 250, noise: .20, duty: .50, control: .60, contrary: 0 },
-      dial: [.50, .55, .50, .55, .45],
       text: 'Competence that arrives in bursts. Genuine organizing skill in the few domains they care about — a beautiful spreadsheet built at 1 a.m. for a project that matters — and near-total indifference to it everywhere else. It steadies with age.' },
     { key: 'inferior', name: 'Inferior', sub: '4th · aspirational', types: 'INFP · ISFP', shadow: false, series: 3,
       params: { scale: .40, fidelity: .35, latency: 700, noise: .45, duty: .25, control: .35, contrary: 0 },
-      dial: [.25, .30, .30, .30, .35],
       text: 'Efficiency arrives late, blunt, and all-or-nothing. Long stretches of resisting metrics as reductive, punctuated — usually under stress — by frantic list-making and harsh verdicts about who is and isn\'t competent, delivered in a voice that doesn\'t sound like them.' },
     { key: 'opposing', name: 'Opposing', sub: '5th · shadow', types: 'INTP · ISTP', shadow: true, series: 4,
       params: { scale: .46, fidelity: .42, latency: 600, noise: .50, duty: .45, control: .40, contrary: .25 },
-      dial: [.35, .40, .50, .30, .20],
       text: 'The counter-organizer. When their own framework is overridden by somebody else\'s process, Te wakes up combative — producing a rival plan, rival numbers, a rival schedule — less to get the thing done than to refuse being managed.' },
     { key: 'critical', name: 'Critical Parent', sub: '6th · shadow', types: 'ENTP · ESTP', shadow: true, series: 4,
       params: { scale: .44, fidelity: .35, latency: 900, noise: .55, duty: .35, control: .30, contrary: .35 },
-      dial: [.30, .45, .40, .25, .15],
       text: 'An inner efficiency auditor. Te turns inward as a scolding voice — "you\'re disorganized, you waste time, look how little you actually finished" — harsh, sporadic, and aimed mostly at the self.' },
     { key: 'trickster', name: 'Trickster', sub: '7th · shadow', types: 'INFJ · ISFJ', shadow: true, series: 4,
       params: { scale: .42, fidelity: .28, latency: 1200, noise: .60, duty: .30, control: .20, contrary: .55 },
-      dial: [.20, .25, .35, .15, .10],
       text: 'Process as a trap to sidestep. Metrics and org charts feel like a rigged game; this position deflects them with vagueness or with over-compliance so literal it breaks the system — and is blind, without malice, to the deadlines it\'s accused of missing.' },
     { key: 'demon', name: 'Demon', sub: '8th · shadow', types: 'ENFJ · ESFJ', shadow: true, series: 4,
       params: { scale: .40, fidelity: .20, latency: 1500, noise: .65, duty: .22, control: .12, contrary: .65 },
-      dial: [.15, .30, .25, .10, .05],
       text: 'Rarely touched, and brutal when it erupts: people reduced to their output, relationships audited for return, and one\'s own worth calculated in deliverables — then found wanting, in a voice that calls itself objective.' },
   ];
 
   /* Introverted judging is fed by extraverted perception; extraverted judging
      is fed by introverted perception. Te's canonical partners are Ni and Si. */
+  /* §3.2 character: the five dial axes are derived in stack-rail.js from the
+     same §3.1 params the glyph renders. These declared weights are the only
+     place Te may differ from the position template, and each carries its
+     argument — nothing about the dial is authored per-slot any more. */
+  const CHARACTER = {
+    endurance: { w: 0.92, why: 'built for throughput, sustained by visible progress' },
+    precision: { w: 0.85, why: 'Te trades elegance for speed — good-enough tolerances, shipped' },
+    speed:     { w: 0.90, why: 'external cadence: measure, decide, next' },
+    control:   { w: 0.95, why: 'organized around explicit goals — it goes where it is pointed' },
+    awareness: { w: 0.85, why: 'shows its metrics, not its workings — the audit lives outside' },
+  };
+
   const FEEDERS = [
     { key: 'ni', name: 'Ni', color: '#7148d8', canonical: true, pair: 'the ENTJ · INTJ coupling',
       cfg: { rate: .22, branchy: .10, speed: .28, spread: .95, persistence: 1.0 },
@@ -173,17 +177,25 @@ export function loadTeData() {
     heading: 'Energy Economics',
     lede: 'Every invocation of Te costs energy. The lower it sits in the stack, the more expensive it becomes — and the faster the battery drains.',
   };
+  /* zone E · field notes (rendered by shared/field-notes.js) */
   const ZONE_F = {
-    kicker: 'Zone F · field notes',
+    kicker: 'Zone E · field notes',
     heading: 'Field Notes',
     lede: 'Patterns from the wild — how Te shows up in daily life.',
-    mirror: { label: 'Te', counterpart: 'Ti', counterpartColor: '#3a93ad' },
+    mirror: {
+      label: 'Te', counterpart: 'Ti', counterpartColor: '#3a93ad',
+      html: 'Same element, opposite attitude — and the difference is where the structure lives. <strong>Ti</strong> asks <em>"is it true?"</em> and builds a private lattice nobody else can inspect; <strong>Te</strong> asks <em>"does it work?"</em> and builds in public, where the world can return a number. Ti trades speed for coherence; Te trades coherence for traction.',
+    },
     vignettes: [
-      { title: 'The Reorg', text: 'A dominant Te user restructures a struggling team in a week. Reporting lines are cleaner, the numbers improve, and three people find out their jobs changed from an org chart. Both halves of that sentence are Te.' },
-      { title: 'The Loop', text: 'Under stress, ENTJ Te pairs with tertiary Se: both extraverted, both outward, with Ni\'s long view cut out between them. Cut, execute, buy, move — relentless competence with nobody left asking whether the goal is still the right one.' },
-      { title: 'The Inferior Eruption', text: 'An INFP under pressure suddenly turns brittle and procedural — spreadsheets at 2 a.m., a hard verdict about who is and isn\'t pulling their weight, and a coldness that startles everyone, including them.' },
+      { kind: 'field sighting', title: 'The Reorg', text: 'A dominant Te user restructures a struggling team in a week. Reporting lines are cleaner, the numbers improve, and three people find out their jobs changed from an org chart. Both halves of that sentence are Te.' },
+      { kind: 'the loop', title: 'The Loop', text: 'Under stress, ENTJ Te pairs with tertiary Se: both extraverted, both outward, with Ni\'s long view cut out between them. Cut, execute, buy, move — relentless competence with nobody left asking whether the goal is still the right one.' },
+      { kind: 'the grip', title: 'The Inferior Eruption', text: 'An INFP under pressure suddenly turns brittle and procedural — spreadsheets at 2 a.m., a hard verdict about who is and isn\'t pulling their weight, and a coldness that startles everyone, including them.' },
+      { kind: 'as a tertiary', title: 'The Weekend Project Manager', text: 'Tertiary Te in an ENFP or ESFP: bursts of formidable organization in service of whatever the dominant perceiver fell in love with this month. The festival gets a spreadsheet, the band gets an LLC, the trip gets a color-coded itinerary — genuine executive competence, switched on late, run hot, and retired the moment the interest that summoned it moves on.' },
+      { kind: 'the accusation', title: '"Steamroller"', text: 'What the room reports: flattened. What is happening: Te externalizes structure to end ambiguity, because to this function an undecided question is a cost being paid hourly by everyone in the building. The verdict was not aimed at anyone — which is precisely the complaint, and the thing mature Te learns to budget for: people are not line items, and being scheduled feels different from being seen.' },
+      { kind: 'the misread', title: 'Mistaken for Not Caring', text: 'Te affection is routinely missed because it ships as logistics: the tires checked before your trip, the appointment booked before you mentioned it twice, the dying friend\'s insurance paperwork done overnight. The tell is where the throughput goes. Watch whose problems keep quietly getting solved, and the sentiment becomes legible — written in a notation the room mistook for admin.' },
+      { kind: 'the wrong instrument', title: 'The Feelings Meeting', text: 'A partner who says "I don\'t want it fixed, I want you to hear it" has handed Te a task with no deliverable, and the instrument stalls: it can measure, plan, and close, and none of those is the ask. Run anyway, it produces action items for a grief — correct, costed, and beside the point. The measurable is this function\'s entire jurisdiction; the evening in question is governed elsewhere.' },
     ],
   };
 
-  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, VERIFY, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
+  return { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, VERIFY, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
 }

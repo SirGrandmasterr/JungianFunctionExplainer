@@ -9,7 +9,8 @@ import { REDUCED } from '../src/utils/dom.js';
 import { initHeader } from '../src/shared/header.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
-import { initEnergyTeaser } from '../src/shared/energy-teaser.js';
+import { initLabLayout } from '../src/shared/lab-layout.js';
+import { initFieldNotes } from '../src/shared/field-notes.js';
 import { FiGlyph } from '../src/engines/fi-glyph.js';
 import { FluidGPU as Fluid } from '../src/engines/fi-fluid.js';
 import { loadFiData } from '../src/data/fi-data.js';
@@ -17,7 +18,7 @@ import { loadFiData } from '../src/data/fi-data.js';
 // 1. Load header & data
 initHeader('fi');
 const data = loadFiData();
-const { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY } = data;
+const { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY } = data;
 
 /* dev handle: lets tooling and the console drive the engines directly */
 const FI = (window.__FI = { glyphs: {} });
@@ -31,14 +32,9 @@ if (heroCanvas) {
   FI.glyphs.hero = hero;
 }
 
-// Zone E: the economics suite now lives once at /energy/, where the eight
-// can be compared; what stays here is the ladder, the grip clock, and a link.
-initEnergyTeaser({
-  costs: COSTS,
-  fnLabel: 'Fi',
-  gripT: GRIP_T,
-  gripInto: 'Te',
-});
+// 3. Zone E: Field Notes (the energy summary retired to /energy/ — its grip
+// facts now live on the Zone B inferior caption)
+const fieldNotes = initFieldNotes({ zone: data.ZONE_F, fnLabel: 'Fi' });
 
 // 4. Zone B: Stack Position Rail
 const railCanvas = document.getElementById('glyphRail');
@@ -51,6 +47,10 @@ if (railCanvas) {
   initStackRail({
     slots: SLOTS,
     glyph: railGlyph,
+    character: CHARACTER,
+    fnLabel: 'Fi',
+    grip: { minutes: GRIP_T, into: 'Te' },
+    onSelect: (slot) => fieldNotes.setSlot(slot),
   });
 }
 
@@ -154,3 +154,7 @@ if (verifyCanvas) {
     });
   }
 }
+
+// On narrow viewports the lab's chamber, meters, and narration pin together
+// so a scenario press and its consequence share a frame.
+initLabLayout();

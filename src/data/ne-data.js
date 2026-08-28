@@ -4,7 +4,7 @@
    to the Extraverted Intuition page.
    ============================================================ */
 import { clamp } from '../utils/math.js';
-import { CSSVAR } from '../utils/dom.js';
+import { CSSVAR, COARSE } from '../utils/dom.js';
 
 export function loadNeData() {
   const COL = {
@@ -20,40 +20,44 @@ export function loadNeData() {
   const SLOTS = [
     { key: 'dominant', name: 'Dominant', sub: '1st · hero', types: 'ENTP · ENFP', shadow: false, series: 0,
       params: { scale: 1.00, fidelity: .95, latency: 0, noise: 0, duty: 1, control: 1, contrary: 0 },
-      dial: [.80, .50, .95, .55, .70],
       text: 'Everything is raw material for what it could become. Branching is effortless, constant, and identity-defining — a fact arrives and is already three analogies and a business idea, none of them finished, all of them live. The strain is never generating; it is being asked to stop.' },
     { key: 'auxiliary', name: 'Auxiliary', sub: '2nd · parent', types: 'INTP · INFP', shadow: false, series: 1,
       params: { scale: .80, fidelity: .85, latency: 80, noise: .05, duty: .85, control: .90, contrary: 0 },
-      dial: [.68, .58, .82, .68, .74],
       text: 'Divergence in service of a judge. The dominant introverted judgment — a framework, a felt conviction — hands Ne its problems, and Ne returns options: possible causes, possible framings, possible lives. Narrower than a dominant\'s spray, easier to stop, and far more likely to hand the good branch over instead of growing it for its own sake.' },
     { key: 'tertiary', name: 'Tertiary', sub: '3rd · eternal child', types: 'ESTJ · ESFJ', shadow: false, series: 2,
       params: { scale: .55, fidelity: .60, latency: 250, noise: .20, duty: .50, control: .60, contrary: 0 },
-      dial: [.45, .40, .60, .48, .40],
       text: 'Possibility as a weekend visitor. Real brainstorming ability that shows up in bursts — the offsite with sticky notes, the renovation scheme at midnight — trusted unevenly and dropped fast when the plan reasserts itself. It steadies with age, mostly by being let out on purpose instead of by accident.' },
     { key: 'inferior', name: 'Inferior', sub: '4th · aspirational', types: 'ISTJ · ISFJ', shadow: false, series: 3,
       /* the inferior what-if engine fires as catastrophe — every unfamiliar
          option at once, all ending badly — so it carries a trace of
          `contrary` without the shadow register's cursor-fighting */
       params: { scale: .40, fidelity: .35, latency: 700, noise: .45, duty: .25, control: .35, contrary: .10 },
-      dial: [.22, .30, .35, .24, .30],
       text: 'Possibility arrives mostly as threat. Long stretches of trusting the proven way, punctuated — under fatigue or forced change — by what-ifs that are sudden, catastrophic, and weirdly total: every unfamiliar option at once, all of them ending badly, in a voice that does not sound like them.' },
     { key: 'opposing', name: 'Opposing', sub: '5th · shadow', types: 'INTJ · INFJ', shadow: true, series: 4,
       params: { scale: .46, fidelity: .42, latency: 600, noise: .50, duty: .45, control: .40, contrary: .25 },
-      dial: [.32, .34, .55, .28, .20],
       text: 'The counter-brainstorm. When somebody\'s scatter of options threatens the single long read, Ne wakes up combative — spraying rival possibilities not to explore them but to demonstrate that options are cheap, and that cheapness is the argument against them.' },
     { key: 'critical', name: 'Critical Parent', sub: '6th · shadow', types: 'ENTJ · ENFJ', shadow: true, series: 4,
       params: { scale: .44, fidelity: .35, latency: 900, noise: .55, duty: .35, control: .30, contrary: .35 },
-      dial: [.26, .40, .45, .24, .16],
       text: 'An inner heckler of roads not taken. Ne turns inward and audits one\'s own commitments — you never considered the other offer, the other city, the other life — sporadic, unhelpful, and aimed at decisions already made and unmakeable.' },
     { key: 'trickster', name: 'Trickster', sub: '7th · shadow', types: 'ISTP · ISFP', shadow: true, series: 4,
       params: { scale: .42, fidelity: .28, latency: 1200, noise: .60, duty: .30, control: .20, contrary: .55 },
-      dial: [.18, .22, .40, .14, .10],
       text: 'Hypotheticals as a rigged game. Either the alternative scenario is invisible or it is absurd — this position alternates between missing the plausible what-if entirely and producing one so outlandish it discredits the exercise, without malice, and usually without noticing which it just did.' },
     { key: 'demon', name: 'Demon', sub: '8th · shadow', types: 'ESTP · ESFP', shadow: true, series: 4,
       params: { scale: .40, fidelity: .20, latency: 1500, noise: .65, duty: .22, control: .12, contrary: .65 },
-      dial: [.12, .24, .35, .10, .06],
       text: 'Rarely touched, and corrosive when it erupts: possibility itself turns hostile, and the vivid present is suddenly surrounded by everything that could go wrong with it — all of it at once, none of it actionable, aimed at whatever is currently loved.' },
   ];
+
+  /* §3.2 character: the five dial axes are derived in stack-rail.js from the
+     same §3.1 params the glyph renders. These declared weights are the only
+     place Ne may differ from the position template, and each carries its
+     argument — nothing about the dial is authored per-slot any more. */
+  const CHARACTER = {
+    endurance: { w: 0.80, why: 'burns bright and wide, not long — breadth is bought with open threads' },
+    precision: { w: 0.55, why: 'provisional by design: half-grown branches, held loosely on purpose' },
+    speed:     { w: 0.95, why: 'forks arrive mid-thought — the divergence itself is nearly free' },
+    control:   { w: 0.60, why: 'branches grow toward attention, not under command' },
+    awareness: { w: 0.75, why: 'notices what it is doing about a beat after doing it' },
+  };
 
   /* Extraverted perception is fed by introverted judgment; introverted
      perception by extraverted judgment. Ne is extraverted *perception*, so
@@ -189,7 +193,7 @@ export function loadNeData() {
       confine2: 'Notice the stress meter: it ground upward the whole time instead of spiking, and it is still climbing. This is the expensive way to get compliance from an Ne-heavy person — the work gets done, at a cost invisible to whoever wrote the checklist. The bloom when the template lifts is real. It is also the reason the next confinement is harder.',
       hover: 'You have the branch point. Wherever you sweep, the tree grows toward your attention — possibilities are cheap, instant, and yours. Notice they fork before you have finished looking at them: this engine does not wait for permission.',
     },
-    idle: 'The engine runs unattended: stimuli drift in through the gap, every arrival forks into branches, and branches fork again before the first ones have finished growing. Sweep your cursor across the chamber to branch by hand — or run a scenario below and watch the telemetry answer.',
+    idle: `The engine runs unattended: stimuli drift in through the gap, every arrival forks into branches, and branches fork again before the first ones have finished growing. ${COARSE ? 'Drag a finger across the chamber' : 'Sweep your cursor across the chamber'} to branch by hand — or run a scenario below and watch the telemetry answer.`,
   };
 
   const HERO = {
@@ -219,16 +223,23 @@ export function loadNeData() {
     lede: 'Every invocation of Ne costs energy. The lower it sits in the stack, the more expensive it becomes. Note the small notches in the dominant curve: a fresh branch that takes pays a little back — smaller and more frequent than Ni\'s rare deep insights. Note also which way the grip runs here — a collapsed Ne-dominant does not get more Ne, it floods into inferior Si.',
   };
   const ZONE_F = {
-    kicker: 'Zone F · field notes',
+    kicker: 'Zone E · field notes',
     heading: 'Field Notes',
     lede: 'Patterns from the wild — how Ne shows up in daily life.',
-    mirror: { label: 'Ne', counterpart: 'Ni', counterpartColor: '#8257f0' },
+    mirror: {
+      label: 'Ne', counterpart: 'Ni', counterpartColor: '#8257f0',
+      html: 'Same element, opposite attitude — the funnel reversed. <strong>Ne</strong> takes one input and fans it outward into many futures, all live at once, all cheap to hold, none of them chosen — range purchased with commitment. <strong>Ni</strong> runs the same violet the other way: many inputs funneled into one future that arrives whole, certain, and unable to show its work. One engine bets on breadth and pays in open threads; the other bets on depth and pays in revision. <a href="/ni/">Visit the other end of the funnel →</a>',
+    },
     vignettes: [
-      { title: 'The Whiteboard', text: 'Ten minutes into the meeting the board holds eleven directions, four of them good, and the Ne-dominant who produced them is delighted with all eleven. Asked to pick one, their energy visibly halves — generating options and closing them are different operations, and only one of them is this function\'s job.' },
-      { title: 'The Loop', text: 'Under stress, ENFP Ne pairs with tertiary Te: both extraverted, both outward, with Fi\'s quiet question — does this actually matter to me? — cut out between them. The idea becomes a project with a name and a logo inside an hour, ships half-grown, and joins the shelf by week three, because the function that would have vetoed it was never consulted.' },
-      { title: 'The Grip', text: 'An ENTP past the end of their reserves stops generating and floods into inferior Si — suddenly cataloguing old mistakes in forensic detail, auditing every bodily signal, eating the same comfort food in front of a show they have seen nine times. Not a personality change: a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'field sighting', title: 'The Whiteboard', text: 'Ten minutes into the meeting the board holds eleven directions, four of them good, and the Ne-dominant who produced them is delighted with all eleven. Asked to pick one, their energy visibly halves — generating options and closing them are different operations, and only one of them is this function\'s job.' },
+      { kind: 'the loop', title: 'The Loop', text: 'Under stress, ENFP Ne pairs with tertiary Te: both extraverted, both outward, with Fi\'s quiet question — does this actually matter to me? — cut out between them. The idea becomes a project with a name and a logo inside an hour, ships half-grown, and joins the shelf by week three, because the function that would have vetoed it was never consulted.' },
+      { kind: 'the grip', title: 'The Grip', text: 'An ENTP past the end of their reserves stops generating and floods into inferior Si — suddenly cataloguing old mistakes in forensic detail, auditing every bodily signal, eating the same comfort food in front of a show they have seen nine times. Not a personality change: a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'as a tertiary', title: 'The Fenced Meadow', text: 'Tertiary Ne in an ESTJ or ESFJ: divergence on a leash. In the planning meeting it is a genuine asset — three workable variants, one clever contingency, produced on schedule and visibly enjoyed. Then execution starts, the gate closes, and the same person who generated the options becomes the one who rules further options out of order. The branching is real; it is simply not allowed to touch anything load-bearing.' },
+      { kind: 'the accusation', title: '"You Never Finish Anything"', text: 'The shelf of abandoned projects is real, and so is the misdiagnosis. Ne\'s output is not unfinished things; it is finished *divergence* — the value was extracted the moment the possibility space was mapped, and what the accusation prices at zero is every idea the accuser is currently executing that arrived through this function. The cost is real and worth naming; calling it laziness names the wrong line item.' },
+      { kind: 'the misread', title: 'Mistaken for Se', text: 'Both read as "spontaneous," so the two extraverted perceivers get swapped constantly. The tell is what the spontaneity is aimed at. Se wants the actual texture of the actual moment — this wave, this crowd, this bike at this speed. Ne wants the adjacent possible, and will cheerfully talk through the entire concert about what the venue could become. One is in the room; the other is in the room next door that does not exist yet.' },
+      { kind: 'the wrong instrument', title: 'The Signed Contract', text: 'There are rooms where the option space is supposed to be zero: the signed contract, the safety checklist, the surgical protocol. Ne in these rooms keeps seeing the better variant — and here, uniquely, noticing possibilities is itself the hazard, because the checklist works precisely by not being reconsidered at step nine. Knowing which rooms those are is not Ne\'s job; that is what the judging partner in the stack is for.' },
     ],
   };
 
-  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
+  return { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
 }

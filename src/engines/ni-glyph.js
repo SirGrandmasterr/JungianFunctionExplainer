@@ -105,7 +105,7 @@ export class NiGlyph {
     this._ro.observe(canvas);
 
     if (this.opts.interactive) {
-      canvas.addEventListener('pointermove', (e) => {
+      const onPoint = (e) => {
         const r = canvas.getBoundingClientRect();
         this.pointer.x = e.clientX - r.left;
         this.pointer.y = e.clientY - r.top;
@@ -113,7 +113,10 @@ export class NiGlyph {
         if (this.pointer.hist.length > 120) this.pointer.hist.shift();
         /* with animation off, steering is a direct scrub-and-redraw */
         if (REDUCED && this.construct) { this._steerReduced(); }
-      });
+      };
+      canvas.addEventListener('pointermove', onPoint);
+      /* touch has no hover: a horizontal drag is the tiller */
+      canvas.addEventListener('pointerdown', onPoint);
       canvas.addEventListener('pointerleave', () => {
         this.pointer.hist = []; this.pointer.x = this.pointer.y = null;
       });

@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fe — Extraverted Feeling · CURRENTS</title>
-  <script type="module" crossorigin src="/assets/fe-JJdq57aI.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/header-BBuxVNPY.js">
-  <link rel="modulepreload" crossorigin href="/assets/dom-DepwpK2T.js">
-  <link rel="modulepreload" crossorigin href="/assets/energy-teaser-Br-q0fAq.js">
-  <link rel="modulepreload" crossorigin href="/assets/fe-data-C-5uTEGx.js">
-  <link rel="stylesheet" crossorigin href="/assets/header-CI0x3pP4.css">
+  <script type="module" crossorigin src="/assets/fe-qtxNcHwr.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/header-C2tG3OYt.js">
+  <link rel="modulepreload" crossorigin href="/assets/dom-6kYVTdCz.js">
+  <link rel="modulepreload" crossorigin href="/assets/tooltip-CLIe8VMx.js">
+  <link rel="modulepreload" crossorigin href="/assets/field-notes-Bh9osMXl.js">
+  <link rel="modulepreload" crossorigin href="/assets/fe-data-ggKyZ3dm.js">
+  <link rel="stylesheet" crossorigin href="/assets/header-2EoKKWtJ.css">
   <link rel="stylesheet" crossorigin href="/assets/fe-m1H5ktPs.css">
 </head>
 <body>
@@ -18,7 +19,7 @@
 
 <!-- ZONE A: HERO -->
 <section id="zone-a" aria-label="Introductory section">
-  <canvas id="glyphHero" aria-label="Interactive visual representation of Extraverted Feeling as a resonance field: a ring of independent oscillators standing outside a hexagonal chamber, coupled to each other by a lattice drawn between them, with conducting impulses leaving the nucleus through a gap in the rim. The interference pattern inside the chamber is produced entirely by the carriers outside it, and the nucleus takes its colour from their average. Hover a carrier to sound what Fe can tell about them"></canvas>
+  <canvas id="glyphHero" aria-label="Interactive visual representation of Extraverted Feeling as a resonance field: a ring of independent oscillators standing outside a hexagonal chamber, coupled to each other by a lattice drawn between them, with conducting impulses leaving the nucleus through a gap in the rim. The interference pattern inside the chamber is produced entirely by the carriers outside it, and the nucleus takes its colour from their average. Point at or press a carrier to sound what Fe can tell about them"></canvas>
   <div class="hero-copy">
     <span class="fn-tag">extraverted feeling</span>
     <h1>The Resonance Field of <span class="fn">Fe</span></h1>
@@ -175,45 +176,18 @@
     </div>
 
     <div class="verify-stage">
-      <canvas id="verifyCanvas" aria-label="The Fe resonance lab: a ring of coupled carriers around an open hexagonal chamber, where harmony events lock the field into constructive interference and dissonance events mask, split, or sever it. Hover a carrier to sound what Fe can tell about them"></canvas>
+      <canvas id="verifyCanvas" aria-label="The Fe resonance lab: a ring of coupled carriers around an open hexagonal chamber, where harmony events lock the field into constructive interference and dissonance events mask, split, or sever it. Point at or press a carrier to sound what Fe can tell about them"></canvas>
     </div>
   </div>
 </section>
 
-<!-- ZONE E: ENERGY ECONOMICS -->
+<!-- ZONE E: FIELD NOTES (the energy summary retired to /energy/ — DESIGN §2.6) -->
 <section id="zone-e" class="zone" aria-labelledby="ze-head">
-  <p class="zone-kicker">Zone E · energy economics</p>
-  <h2 id="ze-head">Energy Economics</h2>
-  <p class="lede">Every invocation of Fe costs energy. Note the notches in the dominant curve — the fastest micro-recovery in the atlas, because a room that locks pays a little back and rooms lock often. Note also which way the grip runs: a collapsed Fe-dominant does not get more Fe, it floods into inferior Ti — cold, absolute, and cutting people off with a rule.</p>
-
-  <div class="energy-teaser" id="energyTeaser"></div>
-</section>
-
-<!-- ZONE F: FIELD NOTES -->
-<section id="zone-f" class="zone" aria-labelledby="zf-head">
-  <p class="zone-kicker">Zone F · field notes</p>
-  <h2 id="zf-head">Field Notes</h2>
+  <p class="zone-kicker">Zone E · field notes</p>
+  <h2 id="ze-head">Field Notes</h2>
   <p class="lede">Patterns from the wild — how Fe shows up in daily life.</p>
 
-  <div class="cards">
-    <div class="vignette">
-      <h4>The Read</h4>
-      <p>An ENFJ walks into a room and reorganizes it in eleven seconds — seats a person next to the one who will draw them out, aims a question at whoever has been quiet, breaks a tension nobody else has registered yet. Asked afterwards what they did, they can rarely reconstruct it, because the read and the response were one operation and neither of them passed through language on the way.</p>
-    </div>
-    <div class="vignette">
-      <h4>The Loop</h4>
-      <p>An ESFJ under stress pairs dominant Fe with tertiary Ne: conducting toward people who are not in the room. What they might be thinking, what that message might have meant, how it is going to land. Full effort, no coupling. The function that would break it — Si's actual record of how these people actually behave — is exactly the one the loop stops consulting.</p>
-    </div>
-    <div class="vignette">
-      <h4>The Grip</h4>
-      <p>An INTP past the end of their reserves stops analyzing and floods into inferior Fe: an abrupt, raw, badly-calibrated need to know they are wanted here, from someone who spent the whole week explaining that social convention is arbitrary. Not a personality change — a low-capacity chamber taking a dominant-sized flood.</p>
-    </div>
-  </div>
-
-  <div class="mirror">
-    <div class="vs"><span class="ti" style="color:var(--c-accent)">Fe</span> vs <span class="te" style="color:#f56a8c">Fi</span></div>
-    <p>Same element, opposite attitude — and the whole difference is where the measurement is taken. <strong>Fi's perimeter is computed from its centre:</strong> one fixed core tone, sealed behind a closed boundary, and every arrival struck against it. <strong>Fe's centre is computed from its perimeter:</strong> the carriers stand outside the rim, the lattice is drawn between them rather than inside the chamber, and the nucleus takes the average of whoever is currently there. That is why they fail in opposite directions. Isolate Fi and the core still burns. Isolate Fe and there is no average left to take — which is a thing you can watch happen, one section up.</p>
-  </div>
+  <div id="fieldNotes"></div>
 </section>
 
 <div id="tooltip" class="viz-tooltip" role="tooltip"></div>

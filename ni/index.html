@@ -11,7 +11,7 @@
 
 <!-- ZONE A: HERO -->
 <section id="zone-a" aria-label="Introductory section">
-  <canvas id="glyphHero" aria-label="Interactive visual representation of Introverted Intuition as a regression engine: scattered observations converge into one fitted trajectory with a confidence envelope, and a synthesized construct rides the line through time, morphing as it goes. Hover to steer the construct along the time axis"></canvas>
+  <canvas id="glyphHero" aria-label="Interactive visual representation of Introverted Intuition as a regression engine: scattered observations converge into one fitted trajectory with a confidence envelope, and a synthesized construct rides the line through time, morphing as it goes. Point at or drag across the chamber to steer the construct along the time axis"></canvas>
   <div class="hero-copy">
     <span class="fn-tag">introverted intuition</span>
     <h1>The Convergence of <span class="fn">Ni</span></h1>
@@ -86,7 +86,7 @@
 <section id="zone-d" class="zone" aria-labelledby="zd-head">
   <p class="zone-kicker">Zone D · the regression engine</p>
   <h2 id="zd-head">The Regression Engine</h2>
-  <p class="lede">Ni fits one predictive trajectory through noisy, many-dimensional input, then rides it forward in time. This lab exposes the engine's live state — stress, pleasure, confidence, loss — and five ways a day can treat it. Trigger a scenario and watch the telemetry answer; hover the chamber at any time to steer the construct through time yourself.</p>
+  <p class="lede">Ni fits one predictive trajectory through noisy, many-dimensional input, then rides it forward in time. This lab exposes the engine's live state — stress, pleasure, confidence, loss — and five ways a day can treat it. Trigger a scenario and watch the telemetry answer; <span data-pointer="fine">hover the chamber at any time</span><span data-pointer="coarse">press and drag left–right in the chamber</span> to steer the construct through time yourself.</p>
 
   <div class="verify-layout">
     <div class="verify-panel">
@@ -138,50 +138,23 @@
       </div>
 
       <div id="verifyNarr" class="verify-narr">
-        The engine runs unattended: observations gather, a trajectory fits itself through them, and the construct rides the line from one end of time to the other, changing as it goes. Hover the chamber to take the tiller yourself — or perturb the engine below and watch the telemetry respond.
+        The engine runs unattended: observations gather, a trajectory fits itself through them, and the construct rides the line from one end of time to the other, changing as it goes. <span data-pointer="fine">Hover the chamber</span><span data-pointer="coarse">Press and drag left–right in the chamber</span> to take the tiller yourself — or perturb the engine below and watch the telemetry respond.
       </div>
     </div>
 
     <div class="verify-stage">
-      <canvas id="verifyCanvas" aria-label="The Ni regression engine: scattered observations, a fitted trajectory with a variance envelope, and a construct that can be steered back and forth along the time axis by hovering"></canvas>
+      <canvas id="verifyCanvas" aria-label="The Ni regression engine: scattered observations, a fitted trajectory with a variance envelope, and a construct that can be steered back and forth along the time axis by pointing or dragging"></canvas>
     </div>
   </div>
 </section>
 
-<!-- ZONE E: ENERGY ECONOMICS -->
+<!-- ZONE E: FIELD NOTES (the energy summary retired to /energy/ — DESIGN §2.6) -->
 <section id="zone-e" class="zone" aria-labelledby="ze-head">
-  <p class="zone-kicker">Zone E · energy economics</p>
-  <h2 id="ze-head">Energy Economics</h2>
-  <p class="lede">Every invocation of Ni costs energy. The lower it sits in the stack, the more expensive it becomes. Note the small notches in the dominant curve: an insight that lands pays a little back. Note also which way the grip runs here — a collapsed Ni-dominant does not get more Ni, it floods into inferior Se.</p>
-
-  <div class="energy-teaser" id="energyTeaser"></div>
-</section>
-
-<!-- ZONE F: FIELD NOTES -->
-<section id="zone-f" class="zone" aria-labelledby="zf-head">
-  <p class="zone-kicker">Zone F · field notes</p>
-  <h2 id="zf-head">Field Notes</h2>
+  <p class="zone-kicker">Zone E · field notes</p>
+  <h2 id="ze-head">Field Notes</h2>
   <p class="lede">Patterns from the wild — how Ni shows up in daily life.</p>
 
-  <div class="cards">
-    <div class="vignette">
-      <h4>The Meeting</h4>
-      <p>Ten minutes in, an Ni-dominant knows how the project ends, and says so. Asked why, they produce a reason that is true but is not the reason — it is the nearest sayable thing to a read that never had steps. Six months later they turn out to be right, which does nothing at all to improve the next explanation.</p>
-    </div>
-    <div class="vignette">
-      <h4>The Loop</h4>
-      <p>Under stress, INFJ Ni pairs with tertiary Ti: both introverted, both inward, with Fe's contact with actual people cut out between them. The read gets more elaborate, more internally consistent, and more certain, and nobody outside that head has touched it in weeks.</p>
-    </div>
-    <div class="vignette">
-      <h4>The Grip</h4>
-      <p>An INTJ past the end of their reserves stops seeing where anything is going and floods into inferior Se — buying things, driving too fast, eating and drinking past the point of noticing, working the body until it is the only thing in the room. Not a personality change: a low-capacity chamber taking a dominant-sized flood.</p>
-    </div>
-  </div>
-
-  <div class="mirror">
-    <div class="vs"><span class="ti" style="color:var(--c-accent)">Ni</span> vs <span class="te" style="color:var(--c-n)">Ne</span></div>
-    <p>Same element, opposite attitude — and the difference is which way the funnel points. <strong>Ne</strong> takes one input and fans it into many futures, all live at once, all cheap to hold, none of them chosen. <strong>Ni</strong> takes many inputs and funnels them into one, and that one arrives whole, expensive to change, and impossible to show. Ne trades commitment for range; Ni trades range for a conviction it cannot source.</p>
-  </div>
+  <div id="fieldNotes"></div>
 </section>
 
 <div id="tooltip" class="viz-tooltip" role="tooltip"></div>

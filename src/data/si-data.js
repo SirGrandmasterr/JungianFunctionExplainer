@@ -4,7 +4,7 @@
    to the Introverted Sensing page.
    ============================================================ */
 import { clamp } from '../utils/math.js';
-import { CSSVAR } from '../utils/dom.js';
+import { CSSVAR, COARSE } from '../utils/dom.js';
 
 export function loadSiData() {
   const COL = {
@@ -21,37 +21,29 @@ export function loadSiData() {
   const SLOTS = [
     { key: 'dominant', name: 'Dominant', sub: '1st · hero', types: 'ISTJ · ISFJ', shadow: false, series: 0,
       params: { scale: 1.00, fidelity: .95, latency: 0, noise: 0, duty: 1, control: 1, contrary: 0 },
-      dial: [.95, .90, .45, .82, .70],
       text: 'The present is read against the deepest archive in the psyche, and the comparison is instant: same as always, or off. Deviation registers before reasoning does — the hum a third lower, the handshake a shade brief — and stability is not a preference but bedrock. What the record confirms costs nothing; what contradicts it is felt bodily, like a step where the floor is not where the foot expected it.' },
     { key: 'auxiliary', name: 'Auxiliary', sub: '2nd · parent', types: 'ESTJ · ESFJ', shadow: false, series: 1,
       params: { scale: .80, fidelity: .85, latency: 80, noise: .05, duty: .85, control: .90, contrary: 0 },
-      dial: [.82, .80, .50, .74, .62],
       text: 'The archive in service of an agenda. Precedent, procedure, and the known-good way are supplied on demand to a dominant judge that acts on them — Si as institutional memory, retrieved quickly and defended only as hard as the plan requires. Less identity than a dominant, more utility: the record is a tool here, not a home.' },
     { key: 'tertiary', name: 'Tertiary', sub: '3rd · eternal child', types: 'INTP · INFP', shadow: false, series: 2,
       params: { scale: .55, fidelity: .60, latency: 250, noise: .20, duty: .50, control: .60, contrary: 0 },
-      dial: [.52, .50, .38, .48, .44],
       text: 'A private museum, visited irregularly. Comfort rituals, remembered rooms, the same meal from the same place — ballast for a life otherwise run on possibility. Under stress it turns curator-in-reverse, replaying old failures at full fidelity. With age it steadies into something kinder: a continuity the dominant functions cannot supply.' },
     { key: 'inferior', name: 'Inferior', sub: '4th · aspirational', types: 'ENTP · ENFP', shadow: false, series: 3,
       /* the inferior's flood-open under depletion is the grip — the record
          carries a trace of `contrary` here without the shadow's hostility */
       params: { scale: .40, fidelity: .35, latency: 700, noise: .45, duty: .25, control: .35, contrary: .12 },
-      dial: [.26, .28, .30, .26, .32],
       text: 'The record as a rumor. Details, dates, and where-things-are live in a fog until something breaks — and under real depletion the archive floods open as hypochondria and haunting: every bodily signal checked against every remembered symptom, every past mistake suddenly present tense. The grip, for a function that spent the whole day being ignored.' },
     { key: 'opposing', name: 'Opposing', sub: '5th · shadow', types: 'ESTP · ESFP', shadow: true, series: 4,
       params: { scale: .46, fidelity: .42, latency: 600, noise: .50, duty: .45, control: .40, contrary: .25 },
-      dial: [.36, .40, .40, .30, .22],
       text: 'The record as an obstacle. When precedent is used to close a live option — we tried that, it does not work — Si wakes up combative and produces counter-testimony: a vivid memory of the time it did. Held exactly long enough to win the point, then dropped.' },
     { key: 'critical', name: 'Critical Parent', sub: '6th · shadow', types: 'ISTP · ISFP', shadow: true, series: 4,
       params: { scale: .44, fidelity: .35, latency: 900, noise: .55, duty: .35, control: .30, contrary: .35 },
-      dial: [.30, .36, .34, .26, .18],
       text: 'An inner registrar with a grudge. It surfaces to read old entries against the self — you always do this, it went wrong last time too, remember — precise citations, hostile filing, and no interest in the cases that went well.' },
     { key: 'trickster', name: 'Trickster', sub: '7th · shadow', types: 'ENTJ · ENFJ', shadow: true, series: 4,
       params: { scale: .42, fidelity: .28, latency: 1200, noise: .60, duty: .30, control: .20, contrary: .55 },
-      dial: [.22, .26, .30, .16, .12],
       text: 'The archive as a rigged index. Either the precedent is missing when needed — the same mistake, made fresh, with total confidence — or a false precedent arrives wearing perfect detail: a meeting remembered vividly that never happened. Neither failure announces itself, which is the trick.' },
     { key: 'demon', name: 'Demon', sub: '8th · shadow', types: 'INTJ · INFJ', shadow: true, series: 4,
       params: { scale: .40, fidelity: .20, latency: 1500, noise: .65, duty: .22, control: .12, contrary: .65 },
-      dial: [.16, .22, .24, .10, .08],
       text: 'Rarely touched, and corrosive when it erupts: the past weaponized against the self — an inventory of every old failure presented as the permanent record, immune to context, indifferent to growth, formatted as fact.' },
   ];
 
@@ -68,6 +60,18 @@ export function loadSiData() {
        loopRings which few entries the loop re-reads, nightly
        starve    perception feeding perception: hypotheticals that never match
        aim       arrival bias angle (the feeder sits at the left rim) */
+  /* §3.2 character: the five dial axes are derived in stack-rail.js from the
+     same §3.1 params the glyph renders. These declared weights are the only
+     place Si may differ from the position template, and each carries its
+     argument — nothing about the dial is authored per-slot any more. */
+  const CHARACTER = {
+    endurance: { w: 1.00, why: 'the marathon register — checklists and rituals run all day at near-zero cost' },
+    precision: { w: 0.95, why: 'the psyche\'s proofreader: deviations named to the shade and the semitone' },
+    speed:     { w: 0.48, why: 'nothing is answered until the record has been consulted' },
+    control:   { w: 0.88, why: 'deliberate and methodical — it resists being hurried, not being steered' },
+    awareness: { w: 0.75, why: 'the record is vivid, the recording invisible: the archive reads as the world' },
+  };
+
   const FEEDERS = [
     { key: 'te', name: 'Te', color: '#17d4ef', canonical: true, pair: 'the ISTJ · ESTJ coupling',
       cfg: { rate: .50, weight: 1.0, variety: .55, audit: true, aim: 3.14 },
@@ -180,9 +184,9 @@ export function loadSiData() {
       deviantAuto: 'Left unruled, the pool ruled for itself — and a settled archive defaults to its own record. That is not stubbornness; it is the prior doing its job. But notice that the ruling happened either way: deviation cannot simply be left standing. An open dispute with the record is the one state Si cannot hold.',
       novel: 'No stratum answers. Watch it search — ring after ring dimming as it passes, the pool contracting a shade, the whole chamber running the flinch of a system asked to file something it has never seen. Nothing here is dramatic; the stress climbs slowly. Novelty is not a catastrophe for Si. It is a cost.',
       novel2: 'Settled at the rim: a provisional band, thin and dim — the first layer of a future familiarity. Spawn it again and watch the price fall; by the third arrival it will have a home that answers and a chime of its own. Nothing is comfortable the first time. Almost anything can become comfortable.',
-      hover: 'You are sounding the pool. Each ring under the cursor reports its record — what it holds, how often it has been fed, how bright it still runs. The deep center is the oldest material in the psyche: first rooms, first foods, first safety. It does not dim.',
+      hover: `You are sounding the pool. Each ring under the ${COARSE ? 'finger' : 'cursor'} reports its record — what it holds, how often it has been fed, how bright it still runs. The deep center is the oldest material in the psyche: first rooms, first foods, first safety. It does not dim.`,
     },
-    idle: 'The pool runs unattended: metered drops arriving one at a time, each interrogated by the depths — matched, flagged, or filed as new. Spawn an arrival and watch the meters answer; when the record disputes one, the ruling is yours. Hover the strata to sound what each ring keeps.',
+    idle: `The pool runs unattended: metered drops arriving one at a time, each interrogated by the depths — matched, flagged, or filed as new. Spawn an arrival and watch the meters answer; when the record disputes one, the ruling is yours. ${COARSE ? 'Press and hold a ring' : 'Hover the strata'} to sound what each ring keeps.`,
   };
 
   const HERO = {
@@ -211,17 +215,25 @@ export function loadSiData() {
     heading: 'Energy Economics',
     lede: 'Every invocation of Si costs energy. The lower it sits in the stack, the more expensive it becomes. Note the notches in the dominant curve: a completed ritual pays a little back. Note also which way the grip runs here — a collapsed Si-dominant does not get more Si, it floods into inferior Ne.',
   };
+  /* zone E · field notes (rendered by shared/field-notes.js) */
   const ZONE_F = {
-    kicker: 'Zone F · field notes',
+    kicker: 'Zone E · field notes',
     heading: 'Field Notes',
     lede: 'Patterns from the wild — how Si shows up in daily life.',
-    mirror: { label: 'Si', counterpart: 'Se', counterpartColor: 'var(--pos-1)' },
+    mirror: {
+      label: 'Si', counterpart: 'Se', counterpartColor: 'var(--pos-1)',
+      html: 'Same element, opposite attitude — and the difference is what happens to the moment. <strong>Si</strong> banks it: metered intake, every arrival compared against every layer ever laid down — the world as a place to recognize. <strong>Se</strong> rides it: full resolution, zero lag, nothing kept — the world as a place to act. One is water that keeps; the other is water that looks. Si trades the moment for a record no moment can take away; Se trades the record for the moment itself.',
+    },
     vignettes: [
-      { title: 'The Hum', text: 'The machine sounds wrong. Nobody else in the shop hears it — the gauges all read normal — but an ISTJ who has stood beside it for nine years has already shut it down. The bearing that was failing gets found on the bench. Asked how they knew, they say it did not sound like itself: a complete technical explanation from inside the archive, and no explanation at all from outside it.' },
-      { title: 'The Loop', text: 'An ISTJ under stress pairs dominant Si with tertiary Fi: the record turns inward and starts serving grievances — every slight on file, re-read nightly with the emotional charge refreshed. Te\'s outside audit is the function the loop avoids. The archive has never been more detailed, or less useful.' },
-      { title: 'The Grip', text: 'An ENTP past the end of their reserves stops generating futures and floods into inferior Si — suddenly certain the mole is cancer, re-living a decade-old embarrassment at full resolution, gripped by the body\'s every signal. Not a personality change: a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'field sighting', title: 'The Hum', text: 'The machine sounds wrong. Nobody else in the shop hears it — the gauges all read normal — but an ISTJ who has stood beside it for nine years has already shut it down. The bearing that was failing gets found on the bench. Asked how they knew, they say it did not sound like itself: a complete technical explanation from inside the archive, and no explanation at all from outside it.' },
+      { kind: 'the loop', title: 'The Loop', text: 'An ISTJ under stress pairs dominant Si with tertiary Fi: the record turns inward and starts serving grievances — every slight on file, re-read nightly with the emotional charge refreshed. Te\'s outside audit is the function the loop avoids. The archive has never been more detailed, or less useful.' },
+      { kind: 'the grip', title: 'The Grip', text: 'An ENTP past the end of their reserves stops generating futures and floods into inferior Si — suddenly certain the mole is cancer, re-living a decade-old embarrassment at full resolution, gripped by the body\'s every signal. Not a personality change: a low-capacity chamber taking a dominant-sized flood.' },
+      { kind: 'as a tertiary', title: 'The Ballast', text: 'Tertiary Si in an INTP or INFP: the archive as ballast under a theory-lab. The same tea in the same mug, the same walking route at the same hour, the same album for the same mood — a small, fiercely defended set of physical constants that keeps a possibility-driven mind anchored somewhere. It looks like mere habit until travel disrupts it, and the week\'s thinking quietly degrades with the routine.' },
+      { kind: 'the accusation', title: '"You\'re Just Afraid of Change"', text: 'What the accusation misses is that the record is doing cost accounting. Si remembers what the last "improvement" actually cost — the migration that lost the invoices, the reorg that lost three people — at a resolution the person proposing the next one does not have. The tell that it is not timidity: bring evidence of the tested kind, a pilot, a precedent, a rollback plan, and Si moves — reluctantly, then durably. What it resists is not the new; it is the unpriced.' },
+      { kind: 'the misread', title: 'Mistaken for Having No Imagination', text: 'Because Si rarely speculates aloud, it gets filed as unimaginative — which mistakes direction for absence. The imagination runs backward, at archival resolution: the kitchen of a childhood house reconstructible down to the latch, a colleague\'s exact wording from a meeting years closed. Ask a question that points into the record instead of out of it and the detail comes back with a vividness the forward-facing functions cannot touch.' },
+      { kind: 'the wrong instrument', title: 'The Unprecedented', text: 'A comparator needs precedent, and some situations have none: the first day in a country the record has never seen, the market behaving in a way no file matches, the diagnosis nobody rehearsed. Si\'s first move — search the archive — returns nothing, and the pool dims while it keeps searching. This is where the stack\'s intuitive seat earns its keep, whatever position it holds; the record resumes authority the moment the unprecedented has happened once.' },
     ],
   };
 
-  return { COL, SLOTS, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
+  return { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB, HERO, ZONE_B, ZONE_C, ZONE_D, ZONE_E, ZONE_F };
 }
