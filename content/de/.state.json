@@ -4,2194 +4,1167 @@
     "site.dial.axis.awareness.label": {
       "srcHash": "d8bba16fe1aab532",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:15.362Z",
-      "review": {
-        "srcHash": "d8bba16fe1aab532",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Consciousness",
-        "at": "2026-08-29T20:59:32.821Z"
-      }
+      "at": "2026-08-29T21:31:36.263Z"
     },
     "site.dial.axis.awareness.def": {
       "srcHash": "6b13c86667810620",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:14.924Z",
-      "review": {
-        "srcHash": "6b13c86667810620",
-        "v": 3,
-        "ok": false,
-        "issue": "The back-translation changes 'acts on its own' (autonomous action) to 'acts upon itself' (reflexive action).",
-        "back": "Self-knowledge: a seat is known by the clarity of what it produces, and one that acts upon itself is opaque to its owner.",
-        "at": "2026-08-29T20:59:32.285Z"
-      }
+      "at": "2026-08-29T21:31:39.634Z"
     },
     "site.dial.axis.control.def": {
       "srcHash": "a7aaf7ce0bbbe491",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:16.225Z",
-      "review": {
-        "srcHash": "a7aaf7ce0bbbe491",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "How reliably the seat does what its owner intends, minus its stubborn traits.",
-        "at": "2026-08-29T20:59:35.241Z"
-      }
+      "at": "2026-08-29T21:31:40.834Z"
     },
     "site.dial.axis.control.label": {
       "srcHash": "6e46de5537829430",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:16.678Z",
-      "review": {
-        "srcHash": "6e46de5537829430",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Control",
-        "at": "2026-08-29T20:59:35.592Z"
-      }
+      "at": "2026-08-29T21:31:41.396Z"
     },
     "site.dial.axis.endurance.def": {
       "srcHash": "9fa64032cb9fc967",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:17.298Z",
-      "review": {
-        "srcHash": "9fa64032cb9fc967",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "How long this seat can stay awake and carry loads.",
-        "at": "2026-08-29T20:59:36.866Z"
-      }
+      "at": "2026-08-29T21:31:42.220Z"
     },
     "site.dial.axis.endurance.label": {
       "srcHash": "cabdc25b4a4c8099",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:17.741Z",
-      "review": {
-        "srcHash": "cabdc25b4a4c8099",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Endurance",
-        "at": "2026-08-29T20:59:37.328Z"
-      }
+      "at": "2026-08-29T21:31:42.745Z"
     },
     "site.dial.axis.precision.def": {
       "srcHash": "52a8eb25dd963f46",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:18.665Z",
-      "review": {
-        "srcHash": "52a8eb25dd963f46",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "How coherent the output is – the fidelity of the glyph, impaired by static noise.",
-        "at": "2026-08-29T20:59:38.617Z"
-      }
+      "at": "2026-08-29T21:31:44.160Z"
     },
     "site.dial.axis.precision.label": {
       "srcHash": "44b66c872f44ef85",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:19.120Z",
-      "review": {
-        "srcHash": "44b66c872f44ef85",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "precision",
-        "at": "2026-08-29T20:59:38.945Z"
-      }
+      "at": "2026-08-29T21:31:46.851Z"
     },
     "site.dial.axis.speed.def": {
       "srcHash": "d725339bf21bd12a",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:19.966Z",
-      "review": {
-        "srcHash": "d725339bf21bd12a",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "How quickly the seat responds to a call – its response latency, scaled to 0–1.",
-        "at": "2026-08-29T20:59:40.013Z"
-      }
+      "at": "2026-08-29T21:31:49.144Z"
     },
     "site.dial.derivationNote": {
       "srcHash": "914b44a6291d7fa8",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:21.334Z",
-      "review": {
-        "srcHash": "914b44a6291d7fa8",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Derived from the same parameters from which the glyph is rendered; the ripeness slider feeds both.",
-        "at": "2026-08-29T20:59:41.500Z"
-      }
+      "at": "2026-08-29T21:31:52.871Z"
     },
     "site.dial.axis.speed.label": {
       "srcHash": "db01618075d49e72",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:21.656Z",
-      "review": {
-        "srcHash": "db01618075d49e72",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Tempo",
-        "at": "2026-08-29T20:59:40.375Z"
-      }
+      "at": "2026-08-29T21:31:53.511Z"
     },
     "site.dial.presetLabel": {
       "srcHash": "1d38483974065baa",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:22.237Z",
-      "review": {
-        "srcHash": "1d38483974065baa",
-        "v": 3,
-        "ok": false,
-        "issue": "The term 'preset' was changed to 'default', which can imply a different functional state in UI design.",
-        "back": "{name} default",
-        "at": "2026-08-29T20:59:42.179Z"
-      }
+      "at": "2026-08-29T21:31:54.234Z"
     },
     "site.dial.presetLabelAged": {
       "srcHash": "a30802f4d0197876",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:22.785Z",
-      "review": {
-        "srcHash": "a30802f4d0197876",
-        "v": 3,
-        "ok": false,
-        "issue": "The word 'age' was incorrectly translated as 'change'.",
-        "back": "{name} Preset · Change {n}",
-        "at": "2026-08-29T20:59:43.287Z"
-      }
+      "at": "2026-08-29T21:31:55.114Z"
     },
     "site.dial.readAsText": {
       "srcHash": "b805871be645a618",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:23.223Z",
-      "review": {
-        "srcHash": "b805871be645a618",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Read profile as text",
-        "at": "2026-08-29T20:59:43.696Z"
-      }
+      "at": "2026-08-29T21:31:56.211Z"
     },
     "site.dial.rowCharacter": {
       "srcHash": "b7ff571194f3840d",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:23.656Z",
-      "review": {
-        "srcHash": "b7ff571194f3840d",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "{fn} character",
-        "at": "2026-08-29T20:59:44.509Z"
-      }
+      "at": "2026-08-29T21:31:56.823Z"
     },
     "site.dial.rowPositionTerm": {
       "srcHash": "3802818382011d06",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:24.066Z",
-      "review": {
-        "srcHash": "3802818382011d06",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Position term",
-        "at": "2026-08-29T20:59:45.015Z"
-      }
+      "at": "2026-08-29T21:31:57.713Z"
     },
     "site.dial.svgAria": {
       "srcHash": "4535d1b48513c864",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:24.554Z",
-      "review": {
-        "srcHash": "4535d1b48513c864",
-        "v": 3,
-        "ok": false,
-        "issue": "The specific visual metaphor of a 'radar dial' was lost and replaced with a generic 'display'.",
-        "back": "Display of performance parameters",
-        "at": "2026-08-29T20:59:46.452Z"
-      }
+      "at": "2026-08-29T21:31:58.733Z"
     },
     "site.dial.svgAriaInteractive": {
       "srcHash": "4831baded15069e7",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:25.642Z",
-      "review": {
-        "srcHash": "4831baded15069e7",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Fidelity Profile Radar. Focus on and use the arrow keys to examine each axis, or read the text version below.",
-        "at": "2026-08-29T20:59:46.831Z"
-      }
+      "at": "2026-08-29T21:32:05.749Z"
     },
     "site.feeder.chip": {
       "srcHash": "f484d3404daa0493",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "verbatim",
-      "at": "2026-08-29T20:46:25.642Z"
+      "at": "2026-08-29T21:32:04.044Z"
     },
     "site.dial.svgTitle": {
       "srcHash": "ad55d4c02f617dfa",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:26.114Z",
-      "review": {
-        "srcHash": "ad55d4c02f617dfa",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Loyalty profile for the selected stack position",
-        "at": "2026-08-29T20:59:47.715Z"
-      }
+      "at": "2026-08-29T21:32:04.043Z"
     },
     "site.feeder.hideExotic": {
       "srcHash": "baa518a06431bb9a",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:26.642Z",
-      "review": {
-        "srcHash": "baa518a06431bb9a",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Hide exotic couplings",
-        "at": "2026-08-29T20:59:48.077Z"
-      }
+      "at": "2026-08-29T21:32:07.212Z"
     },
     "site.feeder.showExotic": {
       "srcHash": "6503c8236b8c202c",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:27.671Z",
-      "review": {
-        "srcHash": "6503c8236b8c202c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Exotic couplings show",
-        "at": "2026-08-29T20:59:49.610Z"
-      }
+      "at": "2026-08-29T21:32:09.896Z"
     },
     "site.feeder.loading": {
       "srcHash": "bb7fed859f2da1d6",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:28.198Z",
-      "review": {
-        "srcHash": "bb7fed859f2da1d6",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Feeder narrative is loading...",
-        "at": "2026-08-29T20:59:49.219Z"
-      }
+      "at": "2026-08-29T21:32:10.963Z"
     },
     "site.feeder.stageAria": {
       "srcHash": "1104e42600047732",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:28.779Z",
-      "review": {
-        "srcHash": "1104e42600047732",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "feeder coupling stage",
-        "at": "2026-08-29T20:59:50.683Z"
-      }
+      "at": "2026-08-29T21:32:11.934Z"
     },
     "site.feeder.unstableJudging": {
       "srcHash": "539fc7c535a25bf7",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:29.551Z",
-      "review": {
-        "srcHash": "539fc7c535a25bf7",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Unstable coupling: a judging-provider that delivers judging without perception.",
-        "at": "2026-08-29T20:59:51.039Z"
-      }
+      "at": "2026-08-29T21:32:13.125Z"
     },
     "site.fieldNotes.ctaEnergy": {
       "srcHash": "92027289deacda1c",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:30.406Z",
-      "review": {
-        "srcHash": "92027289deacda1c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "What {fn} costs, compared to the other seven →",
-        "at": "2026-08-29T20:59:52.655Z"
-      }
+      "at": "2026-08-29T21:32:14.347Z"
     },
     "site.fieldNotes.ctaPlayground": {
       "srcHash": "e5c205e318fadd4b",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:30.997Z",
-      "review": {
-        "srcHash": "e5c205e318fadd4b",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Go to {fn} Playground →",
-        "at": "2026-08-29T20:59:53.054Z"
-      }
+      "at": "2026-08-29T21:32:15.187Z"
     },
     "site.fieldNotes.mirrorVs": {
       "srcHash": "9c12629dea8d271a",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:32.332Z",
-      "review": {
-        "srcHash": "9c12629dea8d271a",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "{fn} vs. {counterpart}",
-        "at": "2026-08-29T20:59:54.487Z"
-      }
+      "at": "2026-08-29T21:32:17.550Z"
     },
     "site.fieldNotes.ctaSeated": {
       "srcHash": "a6ada24dc525e0a9",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:31.677Z",
-      "review": {
-        "srcHash": "a6ada24dc525e0a9",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "appears as {type}'s {position}",
-        "at": "2026-08-29T20:59:54.098Z"
-      }
+      "at": "2026-08-29T21:32:16.760Z"
     },
     "site.footer.line": {
       "srcHash": "881496c3378409dd",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:34.296Z",
-      "review": {
-        "srcHash": "881496c3378409dd",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "CURRENTS v1.0 · An interactive atlas of the eight cognitive functions · Created with Vanilla JS & WebGL2",
-        "at": "2026-08-29T20:59:55.987Z"
-      }
+      "at": "2026-08-29T21:32:19.240Z"
     },
     "site.header.brandSub": {
       "srcHash": "e0e08b00f694a22c",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:34.808Z",
-      "review": {
-        "srcHash": "e0e08b00f694a22c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "an atlas of the eight cognitive functions",
-        "at": "2026-08-29T20:59:56.340Z"
-      }
+      "at": "2026-08-29T21:32:20.182Z"
     },
     "site.hero.hint": {
       "srcHash": "4913bf1bf55aabf1",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:35.432Z",
-      "review": {
-        "srcHash": "4913bf1bf55aabf1",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Scroll to explore the catchment area ↓",
-        "at": "2026-08-29T20:59:57.510Z"
-      }
+      "at": "2026-08-29T21:32:21.153Z"
     },
     "site.i18n.notice": {
       "srcHash": "0a62dd9fa261dcfd",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:36.469Z",
-      "review": {
-        "srcHash": "0a62dd9fa261dcfd",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "This page was automatically translated from the English original and may contain errors – the English version is the original version.",
-        "at": "2026-08-29T20:59:57.942Z"
-      }
+      "at": "2026-08-29T21:32:22.857Z"
     },
     "site.i18n.switcherAria": {
       "srcHash": "6a11403964692dff",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:36.907Z",
-      "review": {
-        "srcHash": "6a11403964692dff",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Language",
-        "at": "2026-08-29T20:59:59.076Z"
-      }
+      "at": "2026-08-29T21:32:23.403Z"
     },
     "site.nav.atlasAria": {
       "srcHash": "3d23c0d517727c43",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:37.367Z",
-      "review": {
-        "srcHash": "3d23c0d517727c43",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Function Atlas",
-        "at": "2026-08-29T20:59:59.429Z"
-      }
+      "at": "2026-08-29T21:32:24.014Z"
     },
     "site.nav.energy": {
       "srcHash": "50dc36d4f8359e03",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:37.769Z",
-      "review": {
-        "srcHash": "50dc36d4f8359e03",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Energy",
-        "at": "2026-08-29T21:00:00.230Z"
-      }
+      "at": "2026-08-29T21:32:24.490Z"
     },
     "site.nav.phase2": {
       "srcHash": "433870dda34bc61b",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:38.267Z",
-      "review": {
-        "srcHash": "433870dda34bc61b",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Phase 2",
-        "at": "2026-08-29T21:00:00.567Z"
-      }
+      "at": "2026-08-29T21:32:25.118Z"
     },
     "site.nav.phenomena": {
       "srcHash": "b3585ae039c86800",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:39.098Z",
-      "review": {
-        "srcHash": "b3585ae039c86800",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Phenomena",
-        "at": "2026-08-29T21:00:01.444Z"
-      }
+      "at": "2026-08-29T21:32:25.828Z"
     },
     "site.nav.playground": {
       "srcHash": "14ad7874c9a10b2f",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:39.549Z",
-      "review": {
-        "srcHash": "14ad7874c9a10b2f",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "playground",
-        "at": "2026-08-29T21:00:01.796Z"
-      }
+      "at": "2026-08-29T21:32:26.632Z"
     },
     "site.position.auxiliary.name": {
       "srcHash": "dc18f791742fc600",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:40.216Z",
-      "review": {
-        "srcHash": "dc18f791742fc600",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "helper function",
-        "at": "2026-08-29T21:00:02.596Z"
-      }
+      "at": "2026-08-29T21:32:27.629Z"
     },
     "site.position.auxiliary.ord": {
       "srcHash": "b7fcc4fa4e7cda7b",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:40.933Z",
-      "review": {
-        "srcHash": "b7fcc4fa4e7cda7b",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "2.",
-        "at": "2026-08-29T21:00:02.965Z"
-      }
+      "at": "2026-08-29T21:32:28.162Z"
     },
     "site.position.critical.name": {
       "srcHash": "3e88545e82ec47f6",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:41.651Z",
-      "review": {
-        "srcHash": "3e88545e82ec47f6",
-        "v": 3,
-        "ok": false,
-        "issue": "The back-translation adds the word 'function', changing the specific term 'Parent' to a more general description.",
-        "back": "Critical parental function",
-        "at": "2026-08-29T21:00:04.145Z"
-      }
+      "at": "2026-08-29T21:32:28.928Z"
     },
     "site.position.critical.ord": {
       "srcHash": "59cf7c9abb3d8774",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:42.147Z",
-      "review": {
-        "srcHash": "59cf7c9abb3d8774",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "6.",
-        "at": "2026-08-29T21:00:04.534Z"
-      }
+      "at": "2026-08-29T21:32:29.521Z"
     },
     "site.position.demon.name": {
       "srcHash": "8cfd7a492ec58600",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:42.953Z",
-      "review": {
-        "srcHash": "8cfd7a492ec58600",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Demon",
-        "at": "2026-08-29T21:00:05.438Z"
-      }
+      "at": "2026-08-29T21:32:30.250Z"
     },
     "site.position.demon.ord": {
       "srcHash": "4939321bf51f5221",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:43.417Z",
-      "review": {
-        "srcHash": "4939321bf51f5221",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "8.",
-        "at": "2026-08-29T21:00:05.831Z"
-      }
+      "at": "2026-08-29T21:32:30.913Z"
     },
     "site.position.dominant.name": {
       "srcHash": "2ec191d24b999a8a",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:43.886Z",
-      "review": {
-        "srcHash": "2ec191d24b999a8a",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "dominant",
-        "at": "2026-08-29T21:00:06.626Z"
-      }
+      "at": "2026-08-29T21:32:31.417Z"
     },
     "site.position.dominant.ord": {
       "srcHash": "974e3a093b236ab2",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:44.289Z",
-      "review": {
-        "srcHash": "974e3a093b236ab2",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "1.",
-        "at": "2026-08-29T21:00:07.002Z"
-      }
+      "at": "2026-08-29T21:32:32.037Z"
     },
     "site.position.inferior.name": {
       "srcHash": "9f7aa0b4e53d0689",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:44.711Z",
-      "review": {
-        "srcHash": "9f7aa0b4e53d0689",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "inferior",
-        "at": "2026-08-29T21:00:07.791Z"
-      }
+      "at": "2026-08-29T21:32:32.587Z"
     },
     "site.position.inferior.ord": {
       "srcHash": "c6c8706dbfef0d42",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:45.438Z",
-      "review": {
-        "srcHash": "c6c8706dbfef0d42",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "4.",
-        "at": "2026-08-29T21:00:08.289Z"
-      }
+      "at": "2026-08-29T21:32:33.125Z"
     },
     "site.position.opposing.name": {
       "srcHash": "8114920661fb63ac",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:45.899Z",
-      "review": {
-        "srcHash": "8114920661fb63ac",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Opposite",
-        "at": "2026-08-29T21:00:09.118Z"
-      }
+      "at": "2026-08-29T21:32:33.750Z"
     },
     "site.position.opposing.ord": {
       "srcHash": "8534bc046036211c",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:46.475Z",
-      "review": {
-        "srcHash": "8534bc046036211c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "5.",
-        "at": "2026-08-29T21:00:09.752Z"
-      }
+      "at": "2026-08-29T21:32:34.492Z"
     },
     "site.position.shadow.name": {
       "srcHash": "543609b01ddb62a9",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:46.950Z",
-      "review": {
-        "srcHash": "543609b01ddb62a9",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Shadows",
-        "at": "2026-08-29T21:00:11.679Z"
-      }
+      "at": "2026-08-29T21:32:35.209Z"
     },
     "site.position.tertiary.name": {
       "srcHash": "899b14986432f387",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:47.394Z",
-      "review": {
-        "srcHash": "899b14986432f387",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "tertiary",
-        "at": "2026-08-29T21:00:12.651Z"
-      }
+      "at": "2026-08-29T21:32:35.910Z"
     },
     "site.position.tertiary.ord": {
       "srcHash": "80bf76add32fa1d4",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:47.807Z",
-      "review": {
-        "srcHash": "80bf76add32fa1d4",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "3.",
-        "at": "2026-08-29T21:00:14.187Z"
-      }
+      "at": "2026-08-29T21:32:36.498Z"
     },
     "site.position.trickster.name": {
       "srcHash": "6c239e10ab038b73",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:48.253Z",
-      "review": {
-        "srcHash": "6c239e10ab038b73",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Trickster",
-        "at": "2026-08-29T21:00:14.743Z"
-      }
+      "at": "2026-08-29T21:32:37.083Z"
     },
     "site.position.trickster.ord": {
       "srcHash": "2b3972de59289742",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:48.651Z",
-      "review": {
-        "srcHash": "2b3972de59289742",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "7.",
-        "at": "2026-08-29T21:00:16.546Z"
-      }
+      "at": "2026-08-29T21:32:37.731Z"
     },
     "site.rail.ageMax": {
       "srcHash": "0e21679da0f17fbd",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:49.112Z",
-      "review": {
-        "srcHash": "0e21679da0f17fbd",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Maturity (60)",
-        "at": "2026-08-29T21:00:17.033Z"
-      }
+      "at": "2026-08-29T21:32:38.504Z"
     },
     "site.rail.ageMin": {
       "srcHash": "9504f9ebbaea1d3e",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:49.462Z",
-      "review": {
-        "srcHash": "9504f9ebbaea1d3e",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Childhood (7)",
-        "at": "2026-08-29T21:00:18.868Z"
-      }
+      "at": "2026-08-29T21:32:39.130Z"
     },
     "site.rail.ageNote": {
       "srcHash": "a73e3c5eb533f33e",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:50.245Z",
-      "review": {
-        "srcHash": "a73e3c5eb533f33e",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "With increasing age, lower stack positions gain precision, duty cycle, and structural complexity.",
-        "at": "2026-08-29T21:00:19.467Z"
-      }
+      "at": "2026-08-29T21:32:41.139Z"
     },
     "site.rail.ageOut": {
       "srcHash": "92d36f04335dee7b",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:50.665Z",
-      "review": {
-        "srcHash": "92d36f04335dee7b",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Age {n}",
-        "at": "2026-08-29T21:00:20.720Z"
-      }
+      "at": "2026-08-29T21:32:42.015Z"
     },
     "site.rail.ageSliderAria": {
       "srcHash": "dce073ced9ee3577",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:51.136Z",
-      "review": {
-        "srcHash": "dce073ced9ee3577",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Age slider",
-        "at": "2026-08-29T21:00:21.246Z"
-      }
+      "at": "2026-08-29T21:32:42.769Z"
     },
     "site.rail.captionTypes": {
       "srcHash": "c901b9b7b1e89105",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:51.641Z",
-      "review": {
-        "srcHash": "c901b9b7b1e89105",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "{ord} Function · {types}",
-        "at": "2026-08-29T21:00:23.098Z"
-      }
+      "at": "2026-08-29T21:32:43.562Z"
     },
     "site.rail.dialHeading": {
       "srcHash": "f30e5f3ad9ea8313",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:52.009Z",
-      "review": {
-        "srcHash": "f30e5f3ad9ea8313",
-        "v": 3,
-        "ok": false,
-        "issue": "The term 'Fidelity' (referring to accuracy/faithfulness) was changed to 'loyalty'.",
-        "back": "profile loyalty",
-        "at": "2026-08-29T21:00:24.113Z"
-      }
+      "at": "2026-08-29T21:32:44.228Z"
     },
     "site.rail.gripLink": {
       "srcHash": "3a8b800a4730f335",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:52.499Z",
-      "review": {
-        "srcHash": "3a8b800a4730f335",
-        "v": 3,
-        "ok": false,
-        "issue": "The term 'collapse' was replaced with 'Grip', which is a specific Jungian concept and a different meaning.",
-        "back": "All eight Grip watches →",
-        "at": "2026-08-29T21:00:29.763Z"
-      }
+      "at": "2026-08-29T21:32:51.313Z"
     },
     "site.rail.gripNoteHtml": {
       "srcHash": "37fa94f9e3f594ea",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:54.895Z",
-      "review": {
-        "srcHash": "37fa94f9e3f594ea",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "<strong>The seat that is being flooded.</strong> Since {fn} must run continuously from here, it empties in ≈{minutes} min. And if a dominant-{fn}-stack burns out, the flood hits here — the inhabitant of this seat, <strong>{into}</strong>, breaks out, without any of {fn}'s practice.",
-        "at": "2026-08-29T21:00:30.366Z"
-      }
+      "at": "2026-08-29T21:32:50.354Z"
     },
     "site.rail.loadingCaption": {
       "srcHash": "c7f5c89eb67f913f",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:55.623Z",
-      "review": {
-        "srcHash": "c7f5c89eb67f913f",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Description is loading...",
-        "at": "2026-08-29T21:00:32.070Z"
-      }
+      "at": "2026-08-29T21:32:52.255Z"
     },
     "site.rail.maturityHeading": {
       "srcHash": "c2e341fe85cc4ef0",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:56.091Z",
-      "review": {
-        "srcHash": "c2e341fe85cc4ef0",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Maturity & Development",
-        "at": "2026-08-29T21:00:32.605Z"
-      }
+      "at": "2026-08-29T21:32:52.935Z"
     },
     "site.rail.stageAria": {
       "srcHash": "5f1fe61130c778e6",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:57.882Z",
-      "review": {
-        "srcHash": "5f1fe61130c778e6",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Glyph of the level that indicates the selected stack position",
-        "at": "2026-08-29T21:00:34.430Z"
-      }
+      "at": "2026-08-29T21:32:53.957Z"
     },
     "site.rail.stageNote": {
       "srcHash": "38a0ce44e9b91c56",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:57.332Z",
-      "review": {
-        "srcHash": "38a0ce44e9b91c56",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "{name} Preset",
-        "at": "2026-08-29T21:00:34.927Z"
-      }
+      "at": "2026-08-29T21:32:54.771Z"
     },
     "site.rail.stageNoteShadow": {
       "srcHash": "24bac07863f5b91d",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:58.371Z",
-      "review": {
-        "srcHash": "24bac07863f5b91d",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "{name} Preset · below the waterline",
-        "at": "2026-08-29T21:00:36.414Z"
-      }
+      "at": "2026-08-29T21:32:56.055Z"
     },
     "site.rail.waterline": {
       "srcHash": "a7f22e33ee2b468b",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:58.828Z",
-      "review": {
-        "srcHash": "a7f22e33ee2b468b",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "the waterline · shadow register",
-        "at": "2026-08-29T21:00:36.954Z"
-      }
+      "at": "2026-08-29T21:32:57.055Z"
     },
     "site.zone.aAria": {
       "srcHash": "c07bfd7564dd6a00",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:59.259Z",
-      "review": {
-        "srcHash": "c07bfd7564dd6a00",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Introduction",
-        "at": "2026-08-29T21:00:38.435Z"
-      }
+      "at": "2026-08-29T21:32:57.951Z"
     },
     "site.zone.bKicker": {
       "srcHash": "4e5a7c7ef8a9da02",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:46:59.736Z",
-      "review": {
-        "srcHash": "4e5a7c7ef8a9da02",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Zone B · Stack-Position",
-        "at": "2026-08-29T21:00:39.023Z"
-      }
+      "at": "2026-08-29T21:32:58.664Z"
     },
     "site.zone.cKicker": {
       "srcHash": "3518974af606babb",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:00.291Z",
-      "review": {
-        "srcHash": "3518974af606babb",
-        "v": 3,
-        "ok": false,
-        "issue": "The back-translation contains a German word 'Zubringer' instead of the English term 'feeder'.",
-        "back": "Zone C · Zubringer-coupling",
-        "at": "2026-08-29T21:00:41.350Z"
-      }
+      "at": "2026-08-29T21:32:59.650Z"
     },
     "site.zone.eHeading": {
       "srcHash": "9f99124762024024",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:00.724Z",
-      "review": {
-        "srcHash": "9f99124762024024",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Field notes",
-        "at": "2026-08-29T21:00:41.887Z"
-      }
+      "at": "2026-08-29T21:33:00.404Z"
     },
     "site.zone.eKicker": {
       "srcHash": "b670e38b0322767c",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:01.216Z",
-      "review": {
-        "srcHash": "b670e38b0322767c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Zone E · Field Notes",
-        "at": "2026-08-29T21:00:43.887Z"
-      }
+      "at": "2026-08-29T21:33:01.554Z"
     },
     "ti.character.awareness.why": {
       "srcHash": "7692823fb568a623",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:02.402Z",
-      "review": {
-        "srcHash": "7692823fb568a623",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "the model can be run and shown — Ti knows how it knows",
-        "at": "2026-08-29T21:00:44.364Z"
-      }
+      "at": "2026-08-29T21:33:03.935Z",
+      "text": "das Modell kann durchlaufen und gezeigt werden — Ti weiß, wie es weiß"
     },
     "ti.character.control.why": {
       "srcHash": "7a42faf707bac995",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:01.849Z",
-      "review": {
-        "srcHash": "7a42faf707bac995",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "step by step and deliberately; every restructuring is consciously chosen",
-        "at": "2026-08-29T21:00:46.120Z"
-      }
+      "at": "2026-08-29T21:33:02.548Z",
+      "text": "schrittweise und bedacht; jede Umstrukturierung ist bewusst gewählt"
     },
     "ti.character.endurance.why": {
       "srcHash": "924611d008be480e",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:03.079Z",
-      "review": {
-        "srcHash": "924611d008be480e",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "An analysis is a state of rest, no effort – it runs all day without strain",
-        "at": "2026-08-29T21:00:46.654Z"
-      }
+      "at": "2026-08-29T21:33:05.260Z",
+      "text": "Analyse ist ein Zustand der Ruhe, keine Anstrengung – sie läuft den ganzen Tag ohne Belastung"
     },
     "ti.character.precision.why": {
       "srcHash": "bc2565fdb67c8adb",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:03.664Z",
-      "review": {
-        "srcHash": "bc2565fdb67c8adb",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "the entire instrument is a consistency test; precision is the product",
-        "at": "2026-08-29T21:00:48.365Z"
-      }
+      "at": "2026-08-29T21:33:06.552Z",
+      "text": "das gesamte Instrument ist ein Konsistenztest; Präzision ist das Produkt"
     },
     "ti.character.speed.why": {
       "srcHash": "084d994d694e14c9",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:04.292Z",
-      "review": {
-        "srcHash": "084d994d694e14c9",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "You trade speed for certainty – long deliberation, then the click",
-        "at": "2026-08-29T21:00:48.898Z"
-      }
+      "at": "2026-08-29T21:33:07.908Z",
+      "text": "Ti tauscht Geschwindigkeit gegen Gewissheit aus – langes Abwägen, dann der Klick"
     },
     "ti.energy.recovery.auxiliary": {
       "srcHash": "1f28904313403960",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:04.772Z",
-      "review": {
-        "srcHash": "1f28904313403960",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Fast, clear recovery.",
-        "at": "2026-08-29T21:00:50.454Z"
-      }
+      "at": "2026-08-29T21:33:08.665Z",
+      "text": "Schnelle, klare Erholung."
     },
     "ti.energy.recovery.dominant": {
       "srcHash": "f192390e2e4749bf",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:05.455Z",
-      "review": {
-        "srcHash": "f192390e2e4749bf",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Refilled in minutes – and partially during use (Flow).",
-        "at": "2026-08-29T21:00:50.922Z"
-      }
+      "at": "2026-08-29T21:33:10.629Z",
+      "text": "Wird in Minuten wieder aufgefüllt – und teilweise während der Nutzung (Flow)."
     },
     "ti.energy.recovery.inferior": {
       "srcHash": "c398fad3c2c9a638",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:06.126Z",
-      "review": {
-        "srcHash": "c398fad3c2c9a638",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The hangover plateau: ~30 min. during which the entire system runs dimmed.",
-        "at": "2026-08-29T21:00:52.688Z"
-      }
+      "at": "2026-08-29T21:33:12.052Z",
+      "text": "Das Kater-Plateau: ~30 Min., in denen das gesamte System schwach läuft."
     },
     "ti.energy.recovery.shadow": {
       "srcHash": "60df9f840b5ee920",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:06.690Z",
-      "review": {
-        "srcHash": "60df9f840b5ee920",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Incomplete — a part of the energy simply doesn't return today.",
-        "at": "2026-08-29T21:00:53.120Z"
-      }
+      "at": "2026-08-29T21:33:13.429Z",
+      "text": "Unvollständig — ein Teil der Energie kehrt heute einfach nicht zurück."
     },
     "ti.energy.recovery.tertiary": {
       "srcHash": "06846a9e11e7674c",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:07.280Z",
-      "review": {
-        "srcHash": "06846a9e11e7674c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "A slower supply; recovery must occur consciously.",
-        "at": "2026-08-29T21:00:55.634Z"
-      }
+      "at": "2026-08-29T21:33:14.487Z",
+      "text": "Ein langsamerer Nachschub; die Ruhe muss bewusst sein."
     },
     "ti.feeder.fe#mechanism": {
       "srcHash": "24a7e0018c0bf798",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:09.650Z",
-      "review": {
-        "srcHash": "24a7e0018c0bf798",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Fe — extraverted feeling — is a judging function, which is why it provides judgments about the space instead of raw perceptions. Ti receives almost nothing that it could test and runs out. Real stacks alternate between judging and perceiving precisely so that material is always being gathered.",
-        "at": "2026-08-29T21:00:56.169Z"
-      }
+      "at": "2026-08-29T21:33:18.776Z",
+      "text": "Fe — extraverted feeling — ist eine Urteilsfunktion, also gibt sie Urteile über den Raum ab statt rohe Wahrnehmungen. Ti erhält fast nichts, das es testen kann, und läuft leer. Reale Stacks wechseln Urteilen und Wahrnehmen präzise ab, damit immer Material gesammelt wird."
     },
     "ti.feeder.fe#figure": {
       "srcHash": "2ec0d358a12582d7",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:10.392Z",
-      "review": {
-        "srcHash": "2ec0d358a12582d7",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The transmitter is glowing, but almost nothing reaches the grid.",
-        "at": "2026-08-29T21:00:57.603Z"
-      }
+      "at": "2026-08-29T21:33:20.118Z",
+      "text": "Der Emitter leuchtet, aber fast nichts gelangt zum Gitter."
     },
     "ti.feeder.fe#pair": {
       "srcHash": "c2026384ef880c6d",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:11.043Z",
-      "review": {
-        "srcHash": "c2026384ef880c6d",
-        "v": 3,
-        "ok": false,
-        "issue": "The back-translation changes the grammatical structure from a compound/paired noun or verb phrase to an adverbial construction.",
-        "back": "judgingly feeding judgingly",
-        "at": "2026-08-29T21:00:58.618Z"
-      }
+      "at": "2026-08-29T21:33:20.819Z",
+      "text": "Fi-Zubringer"
     },
     "ti.feeder.ne#mechanism": {
       "srcHash": "714e809b9570ad49",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:13.185Z",
-      "review": {
-        "srcHash": "714e809b9570ad49",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "No — extraverted intuition, the auxiliary function here — provides many parallel possibilities instead of established facts. Ti builds broadly and provisionally: frameworks are designed, tested, and discarded cheaply, including frameworks for situations that do not yet exist.",
-        "at": "2026-08-29T21:01:01.316Z"
-      }
+      "at": "2026-08-29T21:33:23.881Z",
+      "text": "Ne — extravertierte Intuition, die hier die Hilfsfunktion ist — liefert viele parallele Möglichkeiten anstatt gefestigter Fakten. Ti baut breit und vorläufig: Rahmenbedingungen werden entworfen, getestet und kostengünstig verworfen, einschließlich Rahmenbedingungen für Situationen, die noch nicht existieren."
     },
     "ti.feeder.ne#figure": {
       "srcHash": "3597588178939d97",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:13.955Z",
-      "review": {
-        "srcHash": "3597588178939d97",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The lattice becomes wide and airy, entire wings are raised and destroyed in seconds.",
-        "at": "2026-08-29T21:01:01.815Z"
-      }
+      "at": "2026-08-29T21:33:25.139Z",
+      "text": "Das Gitter wird weit und luftig, ganze Flügel werden erhoben und in Sekunden zerstört."
     },
     "ti.feeder.ne#pair": {
       "srcHash": "f09a7bf95a242d20",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:14.454Z",
-      "review": {
-        "srcHash": "f09a7bf95a242d20",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The INTP coupling",
-        "at": "2026-08-29T21:01:04.517Z"
-      }
+      "at": "2026-08-29T21:33:25.814Z",
+      "text": "Die INTP-Kopplung"
     },
     "ti.feeder.ni#mechanism": {
       "srcHash": "72bbaed76301c8b1",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:16.218Z",
-      "review": {
-        "srcHash": "72bbaed76301c8b1",
-        "v": 3,
-        "ok": false,
-        "issue": "The word 'site' was translated as 'side'.",
-        "back": "Ni — introverted intuition — sends few inputs that are already condensed into a single interpretation. Ti has little to test and much to accommodate, as it fundamentally reorganizes itself every time it arrives. No standard stack places Ni directly above Ti; this coupling is the side's own thought experiment.",
-        "at": "2026-08-29T21:01:05.387Z"
-      }
+      "at": "2026-08-29T21:33:33.936Z",
+      "text": "Ni — introverted intuition — sendet wenige Inputs, die jeweils bereits zu einer einzigen Interpretation verdichtet ankommen. Ti erhält wenig zu testen und viel zu unterbringen, wobei es bei jedem Eintreffen grundlegend umorganisiert. Kein Standard-Stack platziert Ni direkt über Ti; diese Kopplung ist das eigene Gedankenexperiment der Website."
     },
     "ti.feeder.ni#pair": {
       "srcHash": "d9984aa69f281d1d",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:17.361Z",
-      "review": {
-        "srcHash": "d9984aa69f281d1d",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "an unusual coupling",
-        "at": "2026-08-29T21:01:07.663Z"
-      }
+      "at": "2026-08-29T21:33:35.316Z",
+      "text": "eine unübliche Kopplung"
     },
     "ti.feeder.ni#figure": {
       "srcHash": "f48c2e32fc6a51cb",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:16.895Z",
-      "review": {
-        "srcHash": "f48c2e32fc6a51cb",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Long silence, then the entire grid rearranges itself all at once.",
-        "at": "2026-08-29T21:01:06.879Z"
-      }
+      "at": "2026-08-29T21:33:30.548Z",
+      "text": "Lange Stille, dann setzt sich das gesamte Gitter auf einmal neu."
     },
     "ti.feeder.se#mechanism": {
       "srcHash": "56a2ac9b7846d510",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:19.360Z",
-      "review": {
-        "srcHash": "56a2ac9b7846d510",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Se — extraverted sensing — delivers a fast, dense stream of what is physically present right now. The analysis is limited to what the object in front of you can confirm, and it is confirmed immediately. Troubleshooting logic: short feedback loops, little theory.",
-        "at": "2026-08-29T21:01:09.879Z"
-      }
+      "at": "2026-08-29T21:33:39.450Z",
+      "text": "Se — extraverted sensing — liefert einen schnellen, dichten Strom dessen, was physisch gerade präsent ist. Die Analyse verengt sich auf das, was das Objekt vor dir bestätigen kann, und es wird sofort bestätigt. Fehlerbehebungslogik: kurze Feedback-Loops, wenig Theorie."
     },
     "ti.feeder.se#figure": {
       "srcHash": "b40e0ca6f714850c",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:20.273Z",
-      "review": {
-        "srcHash": "b40e0ca6f714850c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The lattice becomes narrow and load-bearing and thickens where the input arrives.",
-        "at": "2026-08-29T21:01:10.286Z"
-      }
+      "at": "2026-08-29T21:33:40.947Z",
+      "text": "Das Gitter wird schmal und tragfähig und verdickt sich dort, wo der Zubringer ankommt."
     },
     "ti.feeder.se#pair": {
       "srcHash": "393c9a0f6aa34e90",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:20.863Z",
-      "review": {
-        "srcHash": "393c9a0f6aa34e90",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The ISTP coupling",
-        "at": "2026-08-29T21:01:12.043Z"
-      }
+      "at": "2026-08-29T21:33:41.742Z",
+      "text": "Die ISTP-Kopplung"
     },
     "ti.feeder.si#mechanism": {
       "srcHash": "9fc37a08dafe84a4",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:22.793Z",
-      "review": {
-        "srcHash": "9fc37a08dafe84a4",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Si — introverted sensing, the tertiary function of the INTP — provides stored records instead of new perception. Ti re-proves old conclusions based on old data: still rigorous, increasingly isolated, as nothing was collected under test today. This is the loop, seen from the inside.",
-        "at": "2026-08-29T21:01:12.441Z"
-      }
+      "at": "2026-08-29T21:33:45.492Z",
+      "text": "Si — introvertiertes Sensing, die tertiäre Funktion des INTP — liefert gespeicherte Aufzeichnungen anstelle neuer Wahrnehmung. Ti beweist alte Schlussfolgerungen anhand alter Daten erneut: weiterhin rigoros, zunehmend isoliert, da nichts unter Test heute gesammelt wurde. Dies ist der Loop, gesehen von innen."
     },
     "ti.feeder.si#figure": {
       "srcHash": "0227b10f9d35d673",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:24.317Z",
-      "review": {
-        "srcHash": "0227b10f9d35d673",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The grid contracts without growing – the same joints re-welded, the same spaces traversed again.",
-        "at": "2026-08-29T21:01:13.693Z"
-      }
+      "at": "2026-08-29T21:33:47.405Z",
+      "text": "Das Gitter zieht sich zusammen, ohne zu wachsen – dieselben Gelenke neu verschweißt, dieselben Räume erneut durchschritten."
     },
     "ti.feeder.si#pair": {
       "srcHash": "8d09f591e21029ff",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:24.979Z",
-      "review": {
-        "srcHash": "8d09f591e21029ff",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The Loop coupling (Ti–Si, INTP under stress)",
-        "at": "2026-08-29T21:01:14.064Z"
-      }
+      "at": "2026-08-29T21:33:48.565Z",
+      "text": "Die Loop-Kopplung (Ti–Si, INTP unter Stress)"
     },
     "ti.fieldNotes.mirror#figure": {
       "srcHash": "3016c43eae3f8dbd",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:28.493Z",
-      "review": {
-        "srcHash": "3016c43eae3f8dbd",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The same element, opposing settings: one instrument directed toward the world, one toward its own processes.",
-        "at": "2026-08-29T21:01:16.678Z"
-      }
+      "at": "2026-08-29T21:33:56.008Z",
+      "text": "Dasselbe Element, gegensätzliche Einstellungen: ein Instrument gerichtet auf die Welt, eines auf seine eigenen Abläufe."
     },
     "ti.fieldNotes.mirror#mechanismHtml": {
       "srcHash": "940153f038323417",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:31.343Z",
-      "review": {
-        "srcHash": "940153f038323417",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Where **Te** asks *\"does it work?\"* and builds external structures, **Ti** asks *\"is it true?\"* and builds internal coherence. Te trades elegance for speed; Ti trades speed for truth — a difference in what each is willing to pay, not in what each is capable of achieving.",
-        "at": "2026-08-29T21:01:16.335Z"
-      }
+      "at": "2026-08-29T21:33:53.251Z",
+      "text": "Wo <strong>Te</strong>> fragt <em>\"funktioniert es?\"</em> und externe Strukturen aufbaut, fragt <strong>Ti</strong>> <em>\"ist es wahr?\"</em> und baut interne Kohärenz auf. Te tauscht Eleganz gegen Geschwindigkeit; Ti tauscht Geschwindigkeit gegen Wahrheit — ein Unterschied darin, was jede bereit ist zu zahlen, nicht darin, was jede erreichen kann."
     },
     "ti.fieldNotes.vignette.accusation#mechanism": {
       "srcHash": "1199fca46ff648df",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:34.256Z",
-      "review": {
-        "srcHash": "1199fca46ff648df",
-        "v": 3,
-        "ok": false,
-        "issue": "The source describes 'agreement dismantled for sport' (deconstruction), while the back-translation says 'agreement being reduced to sport' (diminution).",
-        "back": "What the space sees: an agreement that is being reduced to sport. What is happening: Ti loads a claim, just as an engineer loads a bridge because someone might have to stand on it. The characteristic is that the testing is symmetrical – offer a Ti user a better attack on their own position and they accept it with visible gratitude, something no one arguing from sporting ambition has ever done.",
-        "at": "2026-08-29T21:01:23.109Z"
-      }
+      "at": "2026-08-29T21:34:01.821Z",
+      "text": "Was der Raum sieht: Übereinkunft, die zum Sport abgebaut wird. Was passiert: Ti lädt eine Behauptung, wie ein Ingenieur eine Brücke lädt, weil jemand darauf stehen müssen könnte. Das Merkmal ist, dass das Testen symmetrisch ist — biete einem Ti-Nutzer einen besseren Angriff auf seine eigene Position an und er nimmt ihn mit sichtbarer Dankbarkeit an, was niemand, der aus sportlichem Ehrgeiz argumentiert, jemals getan hat."
     },
     "ti.fieldNotes.vignette.accusation#figure": {
       "srcHash": "ecc4a26ca75a6b61",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:35.132Z",
-      "review": {
-        "srcHash": "ecc4a26ca75a6b61",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Stress testing is the grid's only way to weld a connection.",
-        "at": "2026-08-29T21:01:23.485Z"
-      }
+      "at": "2026-08-29T21:34:03.042Z",
+      "text": "Das Stresstesten ist die einzige Möglichkeit des Gitters, eine Verbindung zu verschweißen."
     },
     "ti.fieldNotes.vignette.accusation#title": {
       "srcHash": "8954e37bd8b0dcf0",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:35.628Z",
-      "review": {
-        "srcHash": "8954e37bd8b0dcf0",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "You are only arguing for the sake of arguing.",
-        "at": "2026-08-29T21:01:24.622Z"
-      }
+      "at": "2026-08-29T21:34:03.751Z",
+      "text": "Du argumentierst nur zum Argumentieren"
     },
     "ti.fieldNotes.vignette.accusation#kind": {
       "srcHash": "be9a02d92deb06f9",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:36.127Z",
-      "review": {
-        "srcHash": "be9a02d92deb06f9",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The accusation",
-        "at": "2026-08-29T21:01:24.976Z"
-      }
+      "at": "2026-08-29T21:34:04.416Z",
+      "text": "die Anschuldigung"
     },
     "ti.fieldNotes.vignette.condolenceCall#mechanism": {
       "srcHash": "021d5b873aa836d4",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:39.594Z",
-      "review": {
-        "srcHash": "021d5b873aa836d4",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "A grieving friend does not have a flawed model of the situation—and improving the model is the only movement that this function masters natively. Dominant Ti at the bedside provides a flawless root cause analysis, correct in every detail and wrong in its nature: the moment demands witness, not diagnosis. Mature Ti users learn to bring a different function to this door.",
-        "at": "2026-08-29T21:01:27.290Z"
-      }
+      "at": "2026-08-29T21:34:08.189Z",
+      "text": "Ein Freund in Trauer hat kein fehlerhaftes Modell der Situation – und die Verbesserung des Modells ist die einzige Bewegung, die diese Funktion nativ beherrscht. Dominante Ti am Krankenbett liefert eine tadellose Ursachenanalyse, korrekt in jedem Detail und falsch in der Art: der Moment verlangt nach miterleben, nicht nach Diagnose. Reife Ti-Nutzer lernen, eine andere Funktion zu dieser Tür zu bringen."
     },
     "ti.fieldNotes.vignette.condolenceCall#figure": {
       "srcHash": "305917f6ef0f0fbe",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:40.185Z",
-      "review": {
-        "srcHash": "305917f6ef0f0fbe",
-        "v": 3,
-        "ok": false,
-        "issue": "The specific term 'lattice' was replaced with 'grate', which is a different structural concept.",
-        "back": "The grate is waiting in the car.",
-        "at": "2026-08-29T21:01:27.914Z"
-      }
+      "at": "2026-08-29T21:34:09.078Z",
+      "text": "Das Gitter wartet im Auto."
     },
     "ti.fieldNotes.vignette.condolenceCall#title": {
       "srcHash": "86fe8d2c1d4da490",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:40.687Z",
-      "review": {
-        "srcHash": "86fe8d2c1d4da490",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The condolence call",
-        "at": "2026-08-29T21:01:28.749Z"
-      }
+      "at": "2026-08-29T21:34:09.825Z",
+      "text": "Der Beileidsanruf"
     },
     "ti.fieldNotes.vignette.condolenceCall#kind": {
       "srcHash": "a3e7021e680a88a5",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:41.144Z",
-      "review": {
-        "srcHash": "a3e7021e680a88a5",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "the wrong instrument",
-        "at": "2026-08-29T21:01:29.075Z"
-      }
+      "at": "2026-08-29T21:34:10.684Z",
+      "text": "das falsche Instrument"
     },
     "ti.fieldNotes.vignette.grip#mechanism": {
       "srcHash": "70500d807343efe3",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:45.922Z",
-      "review": {
-        "srcHash": "70500d807343efe3",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "An ESFJ under sustained stress suddenly becomes rigidly logical and argues with an intensity that frightens everyone—including themselves. This is the Grip: an exhausted dominant function hands over control to the inferior Ti, which, lacking the calibration of an experienced Ti, breaks out.",
-        "at": "2026-08-29T21:01:30.977Z"
-      }
+      "at": "2026-08-29T21:34:20.250Z",
+      "text": "Ein ESFJ unter anhaltendem Stress wird plötzlich starr logisch und argumentiert technische Details mit einer Intensität, die alle – auch sich selbst – erschreckt. Dies ist der Grip: eine erschöpfte dominante Funktion gibt die Kontrolle an die inferior Ti ab, die ohne die Kalibrierung einer geübten Ti ausbricht."
     },
     "ti.fieldNotes.vignette.grip#figure": {
       "srcHash": "d4ce9e0fa5091d84",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:44.317Z",
-      "review": {
-        "srcHash": "d4ce9e0fa5091d84",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The small grid runs hot and loud, instead of being large and quiet.",
-        "at": "2026-08-29T21:01:31.409Z"
-      }
+      "at": "2026-08-29T21:34:16.662Z",
+      "text": "Das kleine Gitter läuft heiß und laut, anstatt groß und leise zu sein."
     },
     "ti.fieldNotes.vignette.grip#title": {
       "srcHash": "a72369703fb55ec2",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:46.462Z",
-      "review": {
-        "srcHash": "a72369703fb55ec2",
-        "v": 3,
-        "ok": false,
-        "issue": "The concept of 'Eruption' was replaced with 'grip'.",
-        "back": "The inferior grip",
-        "at": "2026-08-29T21:01:32.583Z"
-      }
+      "at": "2026-08-29T21:34:21.598Z",
+      "text": "Der inferior Ausbruch"
     },
     "ti.fieldNotes.vignette.grip#kind": {
       "srcHash": "3425d1a315780aff",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:46.877Z",
-      "review": {
-        "srcHash": "3425d1a315780aff",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "the grip",
-        "at": "2026-08-29T21:01:32.938Z"
-      }
+      "at": "2026-08-29T21:34:22.397Z",
+      "text": "der Grip"
     },
     "ti.fieldNotes.vignette.hobbyTaxonomy#mechanism": {
       "srcHash": "71b187561baadf8f",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:50.314Z",
-      "review": {
-        "srcHash": "71b187561baadf8f",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The tertiary Ti in an INFJ or ISFJ is logic as a garden rather than a residence: the flawless table for the community house, the private taxonomy of teas, the airtight argument that is practiced but never presented. It is dropped in the middle of the proof as soon as someone in the room needs something—in this stack, coherence is a pleasure and harmony is a duty.",
-        "at": "2026-08-29T21:01:35.449Z"
-      }
+      "at": "2026-08-29T21:34:26.684Z",
+      "text": "Tertiäre Ti in einem INFJ oder ISFJ ist Logik als Garten statt als Wohnsitz: die makellose Tabelle für das Gemeinschaftshaus, die private Taxonomie von Tees, das luftdichte Argument, das geübt, aber nie vorgetragen wird. Es wird mitten im Beweis fallen gelassen, sobald eine Person im Raum etwas braucht – in diesem Stack ist Kohärenz ein Vergnügen und Harmonie eine Pflicht."
     },
     "ti.fieldNotes.vignette.hobbyTaxonomy#figure": {
       "srcHash": "ba29219e74865646",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:51.017Z",
-      "review": {
-        "srcHash": "ba29219e74865646",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "A small grid that is brilliantly polished in places.",
-        "at": "2026-08-29T21:01:35.823Z"
-      }
+      "at": "2026-08-29T21:34:28.452Z",
+      "text": "Ein kleines Gitter, das stellenweise brillant poliert ist."
     },
     "ti.fieldNotes.vignette.hobbyTaxonomy#title": {
       "srcHash": "f8dbbc5dab5d77b3",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:51.618Z",
-      "review": {
-        "srcHash": "f8dbbc5dab5d77b3",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Hobby Taxonomy",
-        "at": "2026-08-29T21:01:36.823Z"
-      }
+      "at": "2026-08-29T21:34:29.382Z",
+      "text": "Hobby-Taxonomie"
     },
     "ti.fieldNotes.vignette.hobbyTaxonomy#kind": {
       "srcHash": "e361af48b40b59af",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:52.101Z",
-      "review": {
-        "srcHash": "e361af48b40b59af",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "as tertiary",
-        "at": "2026-08-29T21:01:37.380Z"
-      }
+      "at": "2026-08-29T21:34:30.255Z",
+      "text": "als tertiär"
     },
     "ti.fieldNotes.vignette.loop#mechanism": {
       "srcHash": "ed4c8326469773f8",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:54.460Z",
-      "review": {
-        "srcHash": "ed4c8326469773f8",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Under stress, the dominant Ti of an INTP pairs with the tertiary Si and re-proves old conclusions based on old data. The reasoning remains rigorous; the inputs are no longer new. Since both functions are inward-facing, nothing in the pair can contradict them—a pattern that typology forums refer to as a loop.",
-        "at": "2026-08-29T21:01:40.043Z"
-      }
+      "at": "2026-08-29T21:34:34.552Z",
+      "text": "Unter Stress paart sich die dominante Ti eines INTP mit der tertiären Si und beweist alte Schlussfolgerungen anhand alter Daten neu. Die Argumentation bleibt rigoros; die Inputs sind nicht mehr neu. Da beide Funktionen nach innen gerichtet sind, kann nichts im Paar ihr widersprechen – das Muster, das Typologie-Foren als Loop bezeichnen."
     },
     "ti.fieldNotes.vignette.loop#figure": {
       "srcHash": "1aaf6fd7ef5dfae3",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:55.308Z",
-      "review": {
-        "srcHash": "1aaf6fd7ef5dfae3",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The lattice contracts without growing: flawless, airless, sealed.",
-        "at": "2026-08-29T21:01:40.530Z"
-      }
+      "at": "2026-08-29T21:34:36.297Z",
+      "text": "Das Gitter zieht sich zusammen, ohne zu wachsen: makellos, luftlos, versiegelt."
     },
     "ti.fieldNotes.vignette.loop#title": {
       "srcHash": "87f5c344a15b2c1f",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:55.693Z",
-      "review": {
-        "srcHash": "87f5c344a15b2c1f",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The Loop",
-        "at": "2026-08-29T21:01:41.530Z"
-      }
+      "at": "2026-08-29T21:34:37.230Z",
+      "text": "Der Loop"
     },
     "ti.fieldNotes.vignette.loop#kind": {
       "srcHash": "5607cb62d0639902",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:47:56.007Z",
-      "review": {
-        "srcHash": "5607cb62d0639902",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "the loop",
-        "at": "2026-08-29T21:01:41.855Z"
-      }
+      "at": "2026-08-29T21:34:38.119Z",
+      "text": "der Loop"
     },
     "ti.fieldNotes.vignette.mistakenForTe#mechanism": {
       "srcHash": "9b9dc7deeae12985",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:00.059Z",
-      "review": {
-        "srcHash": "9b9dc7deeae12985",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Both appear cool and say 'that is wrong,' which is why the pair is constantly confused. Pay attention to what concludes a case. Te concludes based on results—decided, sent, moving on—and finds continued analysis self-indulgent. Ti reopens a settled matter at midnight because a definition is still shaky, and finds sending a shaky definition slightly scandalous. One optimizes the judgment; the other checks the logic that produced it.",
-        "at": "2026-08-29T21:01:44.414Z"
-      }
+      "at": "2026-08-29T21:34:43.820Z",
+      "text": "Beide laufen kühl und sagen „das ist falsch“, also werden beide ständig vermischt. Beobachte, was einen Fall abschließt. Te schließt auf Ergebnisse – entschieden, versandt, weiter – und findet fortgesetzte Analyse selbstgefällig. Ti öffnet eine erledigte Angelegenheit um Mitternacht, weil eine Definition noch wackelt, und findet das Versenden einer wackeligen Definition leicht skandalös. Die eine optimiert das Urteil; die andere prüft die Logik, die es hervorbrachte."
     },
     "ti.fieldNotes.vignette.mistakenForTe#figure": {
       "srcHash": "4fc7b36a49df5763",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:00.910Z",
-      "review": {
-        "srcHash": "4fc7b36a49df5763",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The same cool surface, different mechanics underneath.",
-        "at": "2026-08-29T21:01:44.809Z"
-      }
+      "at": "2026-08-29T21:34:45.204Z",
+      "text": "Dieselbe kühle Oberfläche, andere Mechanik darunter."
     },
     "ti.fieldNotes.vignette.mistakenForTe#title": {
       "srcHash": "e36eac3a9818c2ee",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:01.772Z",
-      "review": {
-        "srcHash": "e36eac3a9818c2ee",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Mistakenly as Te",
-        "at": "2026-08-29T21:01:45.793Z"
-      }
+      "at": "2026-08-29T21:34:45.957Z",
+      "text": "Fälschlich als Te"
     },
     "ti.fieldNotes.vignette.mistakenForTe#kind": {
       "srcHash": "697dd6a5b58e199a",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:02.312Z",
-      "review": {
-        "srcHash": "697dd6a5b58e199a",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "misinterpretation",
-        "at": "2026-08-29T21:01:46.174Z"
-      }
+      "at": "2026-08-29T21:34:46.587Z",
+      "text": "Fehlinterpretation"
     },
     "ti.fieldNotes.vignette.silentRewrite#mechanism": {
       "srcHash": "106893cda0c99550",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:04.864Z",
-      "review": {
-        "srcHash": "106893cda0c99550",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "A user with dominant Ti reads a new paper and says nothing for four days. Then a conclusion strikes that reorganizes everything they thought about the subject. The examination took place—completely—before a single word was spoken.",
-        "at": "2026-08-29T21:01:47.914Z"
-      }
+      "at": "2026-08-29T21:34:49.967Z",
+      "text": "Ein Nutzer mit dominanter Ti liest eine neue Arbeit und sagt vier Tage lang nichts. Dann trifft eine Schlussfolgerung ein, die alles, was sie über das Thema denkt, neu organisiert. Die Prüfung geschah — vollständig — bevor ein einziges Wort gesprochen wurde."
     },
     "ti.fieldNotes.vignette.silentRewrite#figure": {
       "srcHash": "6e2508e24a67bbc1",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:05.948Z",
-      "review": {
-        "srcHash": "6e2508e24a67bbc1",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Under the conditions of this page: the lattice rebuilt itself in silence.",
-        "at": "2026-08-29T21:01:48.274Z"
-      }
+      "at": "2026-08-29T21:34:51.946Z",
+      "text": "Nach den Bedingungen dieser Seite: das Gitter baute sich in Stille selbst neu."
     },
     "ti.fieldNotes.vignette.silentRewrite#title": {
       "srcHash": "74a40af55ac8d198",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:06.861Z",
-      "review": {
-        "srcHash": "74a40af55ac8d198",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The silent rewriting",
-        "at": "2026-08-29T21:01:49.157Z"
-      }
+      "at": "2026-08-29T21:34:53.343Z",
+      "text": "Das stille Umschreiben"
     },
     "ti.fieldNotes.vignette.silentRewrite#kind": {
       "srcHash": "c94be44c828617b9",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:07.360Z",
-      "review": {
-        "srcHash": "c94be44c828617b9",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Field observation",
-        "at": "2026-08-29T21:01:49.521Z"
-      }
+      "at": "2026-08-29T21:34:54.043Z",
+      "text": "Beobachtung"
     },
     "ti.hero.heading": {
       "srcHash": "3b128e014e89aa55",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:07.821Z",
-      "review": {
-        "srcHash": "3b128e014e89aa55",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The architecture of {fn}",
-        "at": "2026-08-29T21:01:50.583Z"
-      }
+      "at": "2026-08-29T21:34:54.852Z",
+      "text": "Die Architektur von {fn}"
     },
     "ti.hero.subtitle": {
       "srcHash": "0e73160d9e7b55c4",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:08.685Z",
-      "review": {
-        "srcHash": "0e73160d9e7b55c4",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "A crystalline lattice of coherence – each input checking against itself, constantly refining.",
-        "at": "2026-08-29T21:01:50.991Z"
-      }
+      "at": "2026-08-29T21:34:56.305Z",
+      "text": "Ein kristallines Gitter der Kohärenz – jedes Input gegen sich selbst prüfend, ständig verfeinernd."
     },
     "ti.hero.tag": {
       "srcHash": "176c6de5e0269d73",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:09.129Z",
-      "review": {
-        "srcHash": "176c6de5e0269d73",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "introverted thinking",
-        "at": "2026-08-29T21:01:51.828Z"
-      }
+      "at": "2026-08-29T21:34:57.055Z",
+      "text": "introvertiertes Denken"
     },
     "ti.lab.btn.conflict.label": {
       "srcHash": "54dc203a516c2d60",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:09.938Z",
-      "review": {
-        "srcHash": "54dc203a516c2d60",
-        "v": 3,
-        "ok": false,
-        "issue": "The action 'Witness' (observing/experiencing) was changed to 'Report' (submitting/notifying).",
-        "back": "Report violation",
-        "at": "2026-08-29T21:01:52.529Z"
-      }
+      "at": "2026-08-29T21:34:58.173Z",
+      "text": "Regelverstoß miterleben"
     },
     "ti.lab.btn.iso.label": {
       "srcHash": "8fc7d29825722dab",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:10.915Z",
-      "review": {
-        "srcHash": "8fc7d29825722dab",
-        "v": 3,
-        "ok": false,
-        "issue": "The meaning changed from 'unrelated' (not connected to the current context) to 'independent' (self-governing/autonomous).",
-        "back": "Observe independent facts",
-        "at": "2026-08-29T21:01:53.780Z"
-      }
+      "at": "2026-08-29T21:34:59.591Z",
+      "text": "Unzusammenhängendes Faktum beobachten"
     },
     "ti.lab.btn.iso.sub": {
       "srcHash": "cf2c9809bedf6895",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:12.023Z",
-      "review": {
-        "srcHash": "cf2c9809bedf6895",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Ti is observed parking",
-        "at": "2026-08-29T21:01:54.144Z"
-      }
+      "at": "2026-08-29T21:35:01.061Z",
+      "text": "Se beobachtet, Ti parkt"
     },
     "ti.lab.btn.conflict.sub": {
       "srcHash": "ad3c92a2b31d2593",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "flagged",
-      "at": "2026-08-29T20:48:12.916Z",
+      "at": "2026-08-29T21:35:01.758Z",
       "problems": [
         "over the 35-character budget (36) — this is a layout constraint, shorten the wording"
       ],
@@ -2200,881 +1173,723 @@
     "ti.lab.btn.link.label": {
       "srcHash": "4ceddc915226e55b",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:13.516Z",
-      "review": {
-        "srcHash": "4ceddc915226e55b",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Discover a causal connection",
-        "at": "2026-08-29T21:01:54.988Z"
-      }
+      "at": "2026-08-29T21:35:02.469Z",
+      "text": "Kausaler Zusammenhang entdecken"
     },
     "ti.lab.btn.link.sub": {
       "srcHash": "ae8bfb3a757798ee",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:14.394Z",
-      "review": {
-        "srcHash": "ae8bfb3a757798ee",
-        "v": 3,
-        "ok": false,
-        "issue": "The pronoun 'Ni' (referring to the cognitive function) was changed to 'He'.",
-        "back": "He suggests, Ti integrates",
-        "at": "2026-08-29T21:01:55.930Z"
-      }
+      "at": "2026-08-29T21:35:03.247Z",
+      "text": "Ni schlägt vor, Ti integriert"
     },
     "ti.lab.meter.pleasure": {
       "srcHash": "533ecef7040d47df",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:14.909Z",
-      "review": {
-        "srcHash": "533ecef7040d47df",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Coherence-pleasure",
-        "at": "2026-08-29T21:01:56.883Z"
-      }
+      "at": "2026-08-29T21:35:04.141Z",
+      "text": "Kohärenz-Vergnügen"
     },
     "ti.lab.meter.stress": {
       "srcHash": "c0de273e64da9aa2",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:15.323Z",
-      "review": {
-        "srcHash": "c0de273e64da9aa2",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "System stress",
-        "at": "2026-08-29T21:01:57.239Z"
-      }
+      "at": "2026-08-29T21:35:04.695Z",
+      "text": "Systemstress"
     },
     "ti.lab.narration.conflict#mechanism": {
       "srcHash": "073615fed38f871e",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:16.645Z",
-      "review": {
-        "srcHash": "073615fed38f871e",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "An observation just contradicts a rule upon which the model is based. The first reaction is not an alarm, but a remeasurement: Was the observation itself correct?",
-        "at": "2026-08-29T21:01:59.239Z"
-      }
+      "at": "2026-08-29T21:35:06.970Z",
+      "text": "Eine Beobachtung widerspricht gerade einer Regel, auf der das Modell basiert. Die erste Reaktion ist keine Alarmbereitschaft, sondern eine Neumessung: War die Beobachtung selbst korrekt?"
     },
     "ti.lab.narration.conflict#figure": {
       "srcHash": "7ef318ce4654ae7f",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:17.402Z",
-      "review": {
-        "srcHash": "7ef318ce4654ae7f",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Stress floods the stage as the grid re-checks the measurement —",
-        "at": "2026-08-29T21:01:59.730Z"
-      }
+      "at": "2026-08-29T21:35:08.198Z",
+      "text": "Stress flutet die Bühne, während das Gitter die Ablesung überprüft —"
     },
     "ti.lab.narration.conflictEnd#mechanism": {
       "srcHash": "c59aca5ffea5f3c5",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:19.340Z",
-      "review": {
-        "srcHash": "c59aca5ffea5f3c5",
-        "v": 3,
-        "ok": false,
-        "issue": "The back-translation changes 'its conclusions' (singular) to 'their conclusions' (plural).",
-        "back": "The newly constructed model now covers the exception. The reduction was not a malfunction — it is the maintenance that is responsible for performing this function, and the reason why their conclusions are trustworthy later.",
-        "at": "2026-08-29T21:02:02.204Z"
-      }
+      "at": "2026-08-29T21:35:11.115Z",
+      "text": "Das neu aufgebaute Modell deckt nun die Ausnahme ab. Der Abbau war keine Fehlfunktion – es ist die Wartung, die diese Funktion auszuführen hat, und der Grund, warum ihre Schlussfolgerungen später vertrauenswürdig sind."
     },
     "ti.lab.narration.conflictEnd#figure": {
       "srcHash": "7bc3931a58a1e57c",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:20.284Z",
-      "review": {
-        "srcHash": "7bc3931a58a1e57c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "...the color returns and the grid settles, visibly no longer the one it was a minute ago.",
-        "at": "2026-08-29T21:02:02.674Z"
-      }
+      "at": "2026-08-29T21:35:13.034Z",
+      "text": "...die Farbe kehrt zurück und das Gitter beruhigt sich, sichtlich nicht dasjenige, das es vor einer Minute war."
     },
     "ti.lab.narration.conflictMid#mechanism": {
       "srcHash": "21598dc901b26298",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:21.184Z",
-      "review": {
-        "srcHash": "21598dc901b26298",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The re-observation confirms the exception, so any conclusion based on the broken rule is suspect and must therefore be reconstructed from scratch.",
-        "at": "2026-08-29T21:02:04.069Z"
-      }
+      "at": "2026-08-29T21:35:15.867Z",
+      "text": "Die Wiederbeobachtung bestätigt die Ausnahme, also ist jede Schlussfolgerung, die auf der gebrochenen Regel beruhte, verdächtig und muss darum herum neu aufgebaut werden."
     },
     "ti.lab.narration.conflictMid#figure": {
       "srcHash": "fe8f1b8d527eae89",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:21.768Z",
-      "review": {
-        "srcHash": "fe8f1b8d527eae89",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The grate shifts red and collapses in on itself.",
-        "at": "2026-08-29T21:02:04.471Z"
-      }
+      "at": "2026-08-29T21:35:17.502Z",
+      "text": "Das Gitter verschiebt sich ins Rote und reißt sich selbst auseinander."
     },
     "ti.lab.narration.intro": {
       "srcHash": "6f6bd96bf4efb678",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:22.647Z",
-      "review": {
-        "srcHash": "6f6bd96bf4efb678",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Click a button to send an input to Ti and watch how it tests, integrates, or rebuilds around the incoming data.",
-        "at": "2026-08-29T21:02:06.361Z"
-      }
+      "at": "2026-08-29T21:35:19.794Z",
+      "text": "Klicke auf eine Schaltfläche, um Ti einen Input zu senden, und beobachte, wie es das Eintreffende testet, integriert oder darum herum neu aufbaut."
     },
     "ti.lab.narration.iso#mechanism": {
       "srcHash": "0729d78756b5894a",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:23.621Z",
-      "review": {
-        "srcHash": "0729d78756b5894a",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "A new fact arrives – true, but connected to nothing that currently holds Ti. It is laid down, without being forced to fit; not every observation must find its place today.",
-        "at": "2026-08-29T21:02:06.801Z"
-      }
+      "at": "2026-08-29T21:35:22.505Z",
+      "text": "Ein neuer Faktum trifft ein – wahr, aber mit nichts verbunden, was Ti derzeit hält. Es wird abgelegt, ohne gezwungen zu werden, zu passen; nicht jede Beobachtung muss heute ihren Platz finden."
     },
     "ti.lab.narration.iso#figure": {
       "srcHash": "4e22886d03621f37",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:24.214Z",
-      "review": {
-        "srcHash": "4e22886d03621f37",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The fact sits next to the grid like an island, in its own color.",
-        "at": "2026-08-29T21:02:08.461Z"
-      }
+      "at": "2026-08-29T21:35:23.852Z",
+      "text": "Die Tatsache parkt neben dem Gitter als Insel, in ihrer eigenen Farbe."
     },
     "ti.lab.narration.isoFull": {
       "srcHash": "f31c4aa9d2a73734",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:25.296Z",
-      "review": {
-        "srcHash": "f31c4aa9d2a73734",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Two islands are already waiting. You tolerate loose facts, but it itches for a bridge – try to discover a causal connection.",
-        "at": "2026-08-29T21:02:08.874Z"
-      }
+      "at": "2026-08-29T21:35:26.001Z",
+      "text": "Zwei Inseln warten bereits. Ti duldet lose Fakten, aber es juckt nach einer Brücke – versuche, eine kausale Verbindung zu entdecken."
     },
     "ti.lab.narration.link#mechanism": {
       "srcHash": "8ddb2d8d8d6cafcd",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:27.382Z",
-      "review": {
-        "srcHash": "8ddb2d8d8d6cafcd",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "A potential connection arrives: a small causal claim that the parked fact follows from things the model already holds. It is tested before anything merges.",
-        "at": "2026-08-29T21:02:10.316Z"
-      }
+      "at": "2026-08-29T21:35:29.797Z",
+      "text": "Eine potenzielle Verbindung trifft ein: eine kleine kausale Behauptung, dass die parkierte Tatsache aus Dingen folgt, die das Modell bereits hält. Sie wird getestet, bevor etwas verschmilzt."
     },
     "ti.lab.narration.link#figure": {
       "srcHash": "87ce68443721cdb4",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:28.303Z",
-      "review": {
-        "srcHash": "87ce68443721cdb4",
-        "v": 3,
-        "ok": false,
-        "issue": "The specific term 'lattice' was replaced with 'grate', which changes the visual image.",
-        "back": "Watch how the bridge reaches from the grate to the island...",
-        "at": "2026-08-29T21:02:11.006Z"
-      }
+      "at": "2026-08-29T21:35:31.538Z",
+      "text": "Beobachte, wie die Brücke vom Gitter zur Insel reicht..."
     },
     "ti.lab.narration.linkDone#mechanism": {
       "srcHash": "c46c0928ae6ef27c",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:30.439Z",
-      "review": {
-        "srcHash": "c46c0928ae6ef27c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The connection holds, so the fact of being separate ceases: from now on, it is simply part of how the model describes the world. A successful verification is one of the few events that Ti registers as pleasure.",
-        "at": "2026-08-29T21:02:12.867Z"
-      }
+      "at": "2026-08-29T21:35:34.024Z",
+      "text": "Die Verbindung hält, also hört die Tatsache auf, getrennt zu sein: von nun an ist sie einfach Teil dessen, wie das Modell die Welt beschreibt. Ein bestandenes Verifizieren ist eines der wenigen Ereignisse, die Ti als Vergnügen registriert."
     },
     "ti.lab.narration.linkDone#figure": {
       "srcHash": "eba2e9bdb7736bb1",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:31.843Z",
-      "review": {
-        "srcHash": "eba2e9bdb7736bb1",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Pleasure rises, stress subsides, and the entire arrangement folds into the grid and disappears.",
-        "at": "2026-08-29T21:02:16.581Z"
-      }
+      "at": "2026-08-29T21:35:36.484Z",
+      "text": "Vergnügen steigt an, Stress lässt nach, und die gesamte Konstruktion faltet sich in das Gitter und verschwindet."
     },
     "ti.lab.narration.linkPre": {
       "srcHash": "ec60f9b575fdf70d",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:32.722Z",
-      "review": {
-        "srcHash": "ec60f9b575fdf70d",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "No islands connected yet — Se observes a fact first...",
-        "at": "2026-08-29T21:02:17.796Z"
-      }
+      "at": "2026-08-29T21:35:38.370Z",
+      "text": "Noch keine Insel zu verbinden — Se beobachtet zuerst eine Tatsache…"
     },
     "ti.meta.title": {
       "srcHash": "c181a68d434e65b7",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:33.528Z",
-      "review": {
-        "srcHash": "c181a68d434e65b7",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Ti — Introverted Thinking · CURRENTS",
-        "at": "2026-08-29T21:02:18.158Z"
-      }
+      "at": "2026-08-29T21:35:40.900Z",
+      "text": "Ti — Introvertiertes Denken · CURRENTS"
     },
     "ti.slot.auxiliary#mechanism": {
       "srcHash": "c0f9546bb89a3b4a",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:36.517Z",
-      "review": {
-        "srcHash": "c0f9546bb89a3b4a",
-        "v": 3,
-        "ok": false,
-        "issue": "The meaning of 'trusted' was changed to 'becomes familiar'.",
-        "back": "On the second seat, Ti is consciously engaged instead of running by default. It edits rather than composes: what the dominant perception function—Ne's possibilities or Se's live readings—contributes is stressed for consistency before it becomes familiar. Precision on demand, at moderate cost.",
-        "at": "2026-08-29T21:02:21.099Z"
-      }
+      "at": "2026-08-29T21:35:46.586Z",
+      "text": "Auf dem zweiten Sitz wird Ti bewusst eingeschaltet, anstatt standardmäßig zu laufen. Es editiert statt zu verfassen: Was die dominante Wahrnehmungsfunktion — Ne's Möglichkeiten oder Se's Live-Lesungen — einbringt, wird auf Konsistenz gestresst, bevor es vertraut wird. Strenge auf Abruf, zu moderaten Kosten."
     },
     "ti.slot.auxiliary#figure": {
       "srcHash": "4d74566b3f7763eb",
       "model": "gemma4:12b",
-      "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "promptVersion": 2,
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:37.771Z",
-      "review": {
-        "srcHash": "4d74566b3f7763eb",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "The grid is displayed in a size of four-fifths and grows in sessions instead of continuously.",
-        "at": "2026-08-29T21:02:21.514Z"
-      }
+      "at": "2026-08-29T21:35:48.825Z",
+      "text": "Das Gitter wird in einer Größe von vier Fünfteln dargestellt und wächst in Sitzungen statt kontinuierlich."
     },
     "ti.slot.auxiliary#example": {
       "srcHash": "8be8423da87cd26e",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:38.950Z",
+      "at": "2026-08-29T21:13:46.614Z",
       "review": {
         "srcHash": "8be8423da87cd26e",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "An ENTP presents six ideas and then silently dismantles four of them before anyone else can.",
-        "at": "2026-08-29T21:02:23.393Z"
+        "back": "An ENTP presents six ideas and then quietly dismantles four of them before anyone else can.",
+        "at": "2026-08-29T21:19:09.475Z"
       }
     },
     "ti.slot.critical#mechanism": {
       "srcHash": "9fad099464af874b",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:41.335Z",
+      "at": "2026-08-29T21:13:48.997Z",
       "review": {
         "srcHash": "9fad099464af874b",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "On the sixth seat, Ti turns inward as a fault-finder: sporadic, harsh examinations of its own logic – \"your definitions don't hold\" – which occur as judgments rather than as help. It checks more reliably than it constructs.",
-        "at": "2026-08-29T21:02:23.824Z"
+        "back": "On the sixth seat, Ti turns inward as a fault-finder: sporadic, harsh examinations of its own logic – \"your definitions don't hold\" – which are proclaimed as judgments rather than as help. It checks more reliably than it builds.",
+        "at": "2026-08-29T21:19:12.736Z"
       }
     },
     "ti.slot.critical#figure": {
       "srcHash": "e6144e7dab043633",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:42.689Z",
+      "at": "2026-08-29T21:13:50.313Z",
       "review": {
         "srcHash": "e6144e7dab043633",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "Short red flashes traverse an otherwise dimmed grid — inspection without construction.",
-        "at": "2026-08-29T21:02:25.263Z"
+        "back": "Short red flashes traverse an otherwise dull grid — inspection without construction.",
+        "at": "2026-08-29T21:19:13.251Z"
       }
     },
     "ti.slot.critical#example": {
       "srcHash": "f4677822b48219fe",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:44.255Z",
+      "at": "2026-08-29T21:13:51.818Z",
       "review": {
         "srcHash": "f4677822b48219fe",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "An ISTJ reads through their own report once more at midnight and finds only shortcomings that are not specific enough to be corrected.",
-        "at": "2026-08-29T21:02:25.775Z"
+        "back": "An ISTJ reads through their own report once more at midnight and finds only negligence, while nothing is specific enough to be corrected.",
+        "at": "2026-08-29T21:19:17.430Z"
       }
     },
     "ti.slot.demon#mechanism": {
       "srcHash": "99dd1279991f7677",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:47.774Z",
+      "at": "2026-08-29T21:13:55.127Z",
       "review": {
         "srcHash": "99dd1279991f7677",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "The eighth seat occurs least often and costs the most to manage. When it breaks out — usually at the end of a bad phase — it generates a cold pseudo-logic directed at the self: an argument for one's own worthlessness, disguised as objectivity. It is the least practiced seat in the stack, no hidden truth.",
-        "at": "2026-08-29T21:02:28.575Z"
+        "back": "The eighth seat occurs least often and is the most costly to manage. When it shows an outburst — usually at the end of a bad phase — it produces cold pseudologic directed at the self: an argument for one's own worthlessness, disguised as objectivity. It is the least practiced seat in the stack, no hidden truth.",
+        "at": "2026-08-29T21:19:18.184Z"
       }
     },
     "ti.slot.demon#figure": {
       "srcHash": "3c5aa796585f9b06",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:49.108Z",
+      "at": "2026-08-29T21:13:56.558Z",
       "review": {
         "srcHash": "3c5aa796585f9b06",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "An inverted lattice that builds downward — a structure used for demolition.",
-        "at": "2026-08-29T21:02:29.001Z"
+        "at": "2026-08-29T21:19:20.752Z"
       }
     },
     "ti.slot.demon#example": {
       "srcHash": "1190947022e43318",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:50.778Z",
+      "at": "2026-08-29T21:13:58.502Z",
       "review": {
         "srcHash": "1190947022e43318",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "At 3 a.m., an INFP compiles an absolutely airtight piece of evidence that every opportunity has been wasted, complete with supporting documents.",
-        "at": "2026-08-29T21:02:31.317Z"
+        "back": "At 3 a.m., an INFP compiles a watertight piece of evidence that every opportunity has been wasted, complete with exhibits.",
+        "at": "2026-08-29T21:19:21.339Z"
       }
     },
     "ti.slot.dominant#mechanism": {
       "srcHash": "d94b6c9265b8034c",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:53.881Z",
+      "at": "2026-08-29T21:14:02.065Z",
       "review": {
         "srcHash": "d94b6c9265b8034c",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "On the first seat, Ti runs without switching on: Every claim is tested against a private model of how things fit together, all day long, at low cost. Contradictions emerge early and cheaply. The price is the speed — a claim is not usable until it is consistent, and consistency takes as long as it takes.",
-        "at": "2026-08-29T21:02:31.722Z"
+        "back": "On the first seat, Ti runs without being switched on: every claim that occurs is tested against a private model of how things fit together, all day long, at low cost. Contradictions appear early and cheaply. The price is the speed — a claim is not usable until it is consistent, and consistency takes as long as it takes.",
+        "at": "2026-08-29T21:19:25.953Z"
       }
     },
     "ti.slot.dominant#figure": {
       "srcHash": "794981f521d1fa8f",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:55.274Z",
+      "at": "2026-08-29T21:14:03.707Z",
       "review": {
         "srcHash": "794981f521d1fa8f",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "CURRENTS depicts this as a grid in full size — large, fast and quiet, growing without visible effort.",
-        "at": "2026-08-29T21:02:33.431Z"
+        "back": "CURRENTS depicts this as a grid in full size – large, fast and quiet, growing without visible effort.",
+        "at": "2026-08-29T21:19:26.539Z"
       }
     },
     "ti.slot.dominant#example": {
       "srcHash": "4a428af98ac6a701",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:48:56.793Z",
+      "at": "2026-08-29T21:14:05.301Z",
       "review": {
         "srcHash": "4a428af98ac6a701",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "A new paper will be read on Monday; nothing will be said until a conclusion arrives on Thursday that reorders the rest.",
-        "at": "2026-08-29T21:02:33.777Z"
+        "at": "2026-08-29T21:19:30.998Z"
       }
     },
     "ti.slot.inferior#mechanism": {
       "srcHash": "34d0bb2289c4baf7",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:07.377Z",
+      "at": "2026-08-29T21:14:16.005Z",
       "review": {
         "srcHash": "34d0bb2289c4baf7",
         "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "On the fourth seat, Ti costs the most per use and is used the least. In daily life, the person borrows others' frameworks instead of building their own; under sustained stress, the seat can take control and produce a rigid, all-or-nothing logic that doesn't sound like them — the outburst that Quenk refers to as a grip.",
-        "at": "2026-08-29T21:02:36.818Z"
+        "ok": false,
+        "issue": "The back-translation adds the word 'breakout' and changes the phrasing of the specific term 'the eruption Quenk calls the grip'.",
+        "back": "On the fourth seat, Ti costs the most per use and is used the least. In daily life, the person borrows the frameworks of others instead of building their own; under sustained stress, the seat can take over and produce a rigid, all-or-nothing logic that doesn't sound like them — the outburst that Quenk Grip calls the 'breakout'.",
+        "at": "2026-08-29T21:19:32.570Z"
       }
     },
     "ti.slot.inferior#figure": {
       "srcHash": "b76e4bac36a1586d",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:02.442Z",
+      "at": "2026-08-29T21:14:11.722Z",
       "review": {
         "srcHash": "b76e4bac36a1586d",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "The grid draws small and slowly, with visible noise – connections fail and land hard, if they land.",
-        "at": "2026-08-29T21:02:37.164Z"
+        "at": "2026-08-29T21:19:35.443Z"
       }
     },
     "ti.slot.inferior#example": {
       "srcHash": "74c7df2f0a431937",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:09.131Z",
+      "at": "2026-08-29T21:14:17.813Z",
       "review": {
         "srcHash": "74c7df2f0a431937",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "An ESFJ who has been hosting all week suddenly argues literally over a technical nuance, in a tone that surprises both.",
-        "at": "2026-08-29T21:02:39.879Z"
+        "back": "An ESFJ who has been hosting all week suddenly argues over a technical nuance down to the letter, in a tone that surprises both.",
+        "at": "2026-08-29T21:19:36.083Z"
       }
     },
     "ti.slot.opposing#mechanism": {
       "srcHash": "17d2cb02add2f823",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:12.093Z",
+      "at": "2026-08-29T21:14:21.522Z",
       "review": {
         "srcHash": "17d2cb02add2f823",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "The fifth seat opens the shadow — the four positions that a person rarely and mostly unconsciously occupies. Here, Ti awakens fightingly: When the person's usual Te-logic is challenged, definitions are contested and the critic's logic is dismantled in order to protect the plan rather than to find out.",
-        "at": "2026-08-29T21:02:40.295Z"
+        "back": "The fifth seat opens the shadow — the four positions that a person rarely and mostly unnoticed occupies. Here, Ti awakens fightingly: when the person's usual Te-logic is challenged, definitions are contested and the critic's logic is dismantled in order to protect the plan rather than to find out.",
+        "at": "2026-08-29T21:19:40.539Z"
       }
     },
     "ti.slot.opposing#figure": {
       "srcHash": "713f2dfa37647ddc",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:14.744Z",
+      "at": "2026-08-29T21:14:23.614Z",
       "review": {
         "srcHash": "713f2dfa37647ddc",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "Below the waterline of the rail, the lattice fades and trembles, only coming together when touched.",
-        "at": "2026-08-29T21:02:42.197Z"
+        "back": "Below the waterline of the rail, the grate fades and trembles, only coming together when it is nudged.",
+        "at": "2026-08-29T21:19:41.213Z"
       }
     },
     "ti.slot.opposing#example": {
       "srcHash": "8982f7ba9eefc3b5",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:15.666Z",
+      "at": "2026-08-29T21:14:25.059Z",
       "review": {
         "srcHash": "8982f7ba9eefc3b5",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "An ENTJ whose rollout is being questioned spends ten minutes attacking the grammar of the question.",
-        "at": "2026-08-29T21:02:42.672Z"
+        "at": "2026-08-29T21:19:46.257Z"
       }
     },
     "ti.slot.tertiary#mechanism": {
       "srcHash": "4c7ff4176d60d345",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:17.120Z",
+      "at": "2026-08-29T21:14:28.299Z",
       "review": {
         "srcHash": "4c7ff4176d60d345",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "In the tertiary position, Ti is authentic but narrow: reliable in a few practiced areas, unreliable outside of them, and noticeably stronger with age. Under stress, it can pair with the dominant function to defend conclusions that no outsider is allowed to scrutinize—the pattern known as the Loop.",
-        "at": "2026-08-29T21:02:46.400Z"
+        "back": "In the tertiary position, Ti is authentic but narrow: reliable in a few practiced areas, unreliable outside of them, and noticeably stronger with age. Under stress, it can pair with the dominant function to defend conclusions that no outsider is allowed to scrutinize — the pattern known as the Loop.",
+        "at": "2026-08-29T21:19:47.060Z"
       }
     },
     "ti.slot.tertiary#figure": {
       "srcHash": "0de5f0d71a4f4fae",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:17.778Z",
+      "at": "2026-08-29T21:14:29.641Z",
       "review": {
         "srcHash": "0de5f0d71a4f4fae",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "A half-grid, bright where it is used, and sparse everywhere else.",
-        "at": "2026-08-29T21:02:46.958Z"
+        "at": "2026-08-29T21:19:49.486Z"
       }
     },
     "ti.slot.tertiary#example": {
       "srcHash": "1df4cf9c7655221e",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:18.485Z",
+      "at": "2026-08-29T21:14:31.679Z",
       "review": {
         "srcHash": "1df4cf9c7655221e",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "An ISFJ's home table is flawless; that same precision is never risked in a meeting.",
-        "at": "2026-08-29T21:02:51.665Z"
+        "back": "An ISFJ's home_table is flawless; that same precision is never risked in a meeting.",
+        "at": "2026-08-29T21:19:50.195Z"
       }
     },
     "ti.slot.trickster#mechanism": {
       "srcHash": "c31540b8812783f4",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:20.489Z",
+      "at": "2026-08-29T21:14:36.759Z",
       "review": {
         "srcHash": "c31540b8812783f4",
         "v": 3,
         "ok": false,
-        "issue": "The word 'malice' was changed to 'clumsiness', which alters the meaning of the intent.",
-        "back": "On the seventh seat, requirements for formal consistency are perceived more as traps than as tools. The person escapes them — with charm, absurdity, or a change of subject — and truly does not see the rule they are supposedly breaking. The blindness is real, not tactical, and there is no clumsiness in it.",
-        "at": "2026-08-29T21:02:52.392Z"
+        "issue": "The word 'malice' was changed to 'hypocrisy'.",
+        "back": "On the seventh seat, requirements for formal consistency are perceived more as traps than as tools. The person escapes them — with charm, absurdity, or a change of subject — and truly does not see the rule they are supposedly breaking. The blindness is real, not tactical, and there is no hypocrisy in it.",
+        "at": "2026-08-29T21:19:54.530Z"
       }
     },
     "ti.slot.trickster#figure": {
       "srcHash": "0ccc889390f5bda0",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:22.146Z",
+      "at": "2026-08-29T21:14:38.074Z",
       "review": {
         "srcHash": "0ccc889390f5bda0",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "The grid is marred by missing parts and does not close — edges that should meet do not.",
-        "at": "2026-08-29T21:02:55.347Z"
+        "at": "2026-08-29T21:19:55.233Z"
       }
     },
     "ti.slot.trickster#example": {
       "srcHash": "76fffdda3d6c9371",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:23.792Z",
+      "at": "2026-08-29T21:14:39.730Z",
       "review": {
         "srcHash": "76fffdda3d6c9371",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "If an ESFP is asked to admit that two of their statements are contradictory, they laugh, agree with both, and move on.",
-        "at": "2026-08-29T21:02:55.805Z"
+        "at": "2026-08-29T21:19:58.097Z"
       }
     },
     "ti.zoneA.canvasAria": {
       "srcHash": "6423ec318bc50a07",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:24.688Z",
+      "at": "2026-08-29T21:14:40.708Z",
       "review": {
         "srcHash": "6423ec318bc50a07",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "Interactive visual representation of Introverted Thinking as a crystalline lattice",
-        "at": "2026-08-29T21:02:57.143Z"
+        "at": "2026-08-29T21:19:58.796Z"
       }
     },
     "ti.zoneB.heading": {
       "srcHash": "e60d55cb43dbca64",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:25.305Z",
+      "at": "2026-08-29T21:14:41.486Z",
       "review": {
         "srcHash": "e60d55cb43dbca64",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "The eight faces of Ti",
-        "at": "2026-08-29T21:02:57.525Z"
+        "at": "2026-08-29T21:20:03.777Z"
       }
     },
     "ti.zoneB.lede": {
       "srcHash": "5e14c32d5ec97c5b",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:30.450Z",
+      "at": "2026-08-29T21:14:45.405Z",
       "review": {
         "srcHash": "5e14c32d5ec97c5b",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "The canvas represents Ti as a grid: a network of claims, each cross-checked against the others. Where Ti sits in a person's stack—the fixed order in which their eight functions appear—changes how this network functions. Click on a position to see the change, from the effortless precision of the first position to the corrosive noise of the eighth, and move the slider for maturity to see how the lower positions gain accuracy with age.",
-        "at": "2026-08-29T21:03:00.170Z"
+        "back": "The canvas represents Ti as a grid: a network of claims, where each is checked against the others. Where Ti sits in a person's stack—the fixed order in which their eight functions appear—changes how this network functions. Click on a position to see the change, from the effortless precision of the first seat to the corrosive noise of the eighth, and move the maturation slider to see how the lower seats gain precision with age.",
+        "at": "2026-08-29T21:20:04.535Z"
       }
     },
     "ti.zoneB.railAria": {
       "srcHash": "6babb0023b70b6c3",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:31.172Z",
+      "at": "2026-08-29T21:14:46.898Z",
       "review": {
         "srcHash": "6babb0023b70b6c3",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "Stack positions for Ti",
-        "at": "2026-08-29T21:03:00.616Z"
+        "at": "2026-08-29T21:20:06.132Z"
       }
     },
     "ti.zoneC.heading": {
       "srcHash": "b1325030d76d6530",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:31.793Z",
+      "at": "2026-08-29T21:14:47.615Z",
       "review": {
         "srcHash": "b1325030d76d6530",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "What does Ti eat?",
-        "at": "2026-08-29T21:03:02.478Z"
+        "at": "2026-08-29T21:20:06.694Z"
       }
     },
     "ti.zoneC.lede": {
       "srcHash": "0fde983388ee7ff4",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:33.564Z",
+      "at": "2026-08-29T21:14:50.997Z",
       "review": {
         "srcHash": "0fde983388ee7ff4",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "It judges; it does not collect. A perceiving function – its supplier – must provide the raw material that it checks, and which function provides it changes what is being built. Click on a supplier to see how the grid changes.",
-        "at": "2026-08-29T21:03:03.254Z"
+        "back": "Ti evaluates; it does not collect. A perceiving function – its feeder – must provide the raw material that Ti checks, and whichever function provides it, changes what is being built. Click on a feeder to see how the grid changes.",
+        "at": "2026-08-29T21:20:10.048Z"
       }
     },
     "ti.zoneD.canvasAria": {
       "srcHash": "0175f2364598ef0e",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
-      "status": "ok",
-      "at": "2026-08-29T20:49:34.103Z",
-      "review": {
-        "srcHash": "0175f2364598ef0e",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Simulation level of the verification laboratory",
-        "at": "2026-08-29T21:03:04.370Z"
-      }
+      "glossaryHash": "1212c17b04b389cd",
+      "status": "flagged",
+      "at": "2026-08-29T21:14:55.351Z",
+      "problems": [
+        "glossary: \"stage\" must be rendered with \"Bühne\""
+      ],
+      "attempt": "Simulationsbühne des Verifikationslabors"
     },
     "ti.zoneD.heading": {
       "srcHash": "debaac5a4ec1390b",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:34.632Z",
+      "at": "2026-08-29T21:14:52.666Z",
       "review": {
         "srcHash": "debaac5a4ec1390b",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "The Verification Laboratory",
-        "at": "2026-08-29T21:03:04.791Z"
+        "at": "2026-08-29T21:20:10.957Z"
       }
     },
     "ti.zoneD.kicker": {
       "srcHash": "1eb1fd2c7efcf61b",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:35.364Z",
+      "at": "2026-08-29T21:14:54.485Z",
       "review": {
         "srcHash": "1eb1fd2c7efcf61b",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "Zone D · Verification Laboratory",
-        "at": "2026-08-29T21:03:06.558Z"
+        "at": "2026-08-29T21:20:13.856Z"
       }
     },
     "ti.zoneD.lede": {
       "srcHash": "92a7ea33ecc92390",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:37.205Z",
+      "at": "2026-08-29T21:14:58.321Z",
       "review": {
         "srcHash": "92a7ea33ecc92390",
         "v": 3,
         "ok": true,
         "issue": "",
-        "back": "Observe how Ti processes inputs in real-time. Every key sends a different type of event to the lab – a disconnected fact, a connection, a contradiction – and the gauges indicate what each of them costs.",
-        "at": "2026-08-29T21:03:07.020Z"
+        "back": "Observe how Ti processes inputs in real-time. Each button sends a different type of event to the lab – a disconnected fact, a connection, a contradiction – and the measuring devices track what each of them costs.",
+        "at": "2026-08-29T21:20:14.420Z"
       }
     },
     "ti.zoneE.lede": {
       "srcHash": "0116cf0e779baf88",
       "model": "gemma4:12b",
       "promptVersion": 1,
-      "glossaryHash": "4e6844c6036c35e1",
+      "glossaryHash": "1212c17b04b389cd",
       "status": "ok",
-      "at": "2026-08-29T20:49:37.830Z",
+      "at": "2026-08-29T21:14:59.327Z",
       "review": {
         "srcHash": "0116cf0e779baf88",
         "v": 3,
         "ok": true,
         "issue": "",
         "back": "Patterns from the wilderness – how Ti appears in daily life.",
-        "at": "2026-08-29T21:03:08.176Z"
+        "at": "2026-08-29T21:20:15.735Z"
       }
     }
   }

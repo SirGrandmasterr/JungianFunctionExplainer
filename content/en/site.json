@@ -31,7 +31,7 @@
   "site.footer.line": "CURRENTS v1.0 · An interactive atlas of the eight cognitive functions · Built with Vanilla JS & WebGL2",
   "site.header.brandSub": "an atlas of the eight cognitive functions",
   "site.hero.hint": "scroll to explore the watershed ↓",
-  "site.i18n.notice": "This page was translated by machine from the English original and may contain errors — the English version is canonical.",
+  "site.i18n.notice": "Machine-translated from English — errors are possible, and the English is canonical.",
   "site.i18n.switcherAria": "Language",
   "site.nav.atlasAria": "Function atlas",
   "site.nav.energy": "Energy",

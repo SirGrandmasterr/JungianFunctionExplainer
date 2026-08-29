@@ -74,11 +74,15 @@ nav.atlas a.play.active { background: var(--ink); border-color: var(--ink); colo
 .lang-switch button:hover { border-color: var(--ink-2); color: var(--ink); }
 .lang-switch button.active { background: var(--ink); border-color: var(--ink); color: var(--bg); font-weight: 600; cursor: default; }
 
-/* machine-translation notice (locale.js inserts it on non-English pages) */
+/* machine-translation notice (locale.js inserts it on non-English pages).
+   Required on every non-English page, and required to stay unobtrusive:
+   it sits under the header, in muted body-adjacent type, and is capped so
+   a long locale rendering cannot turn it into a paragraph. */
 .mt-notice {
   font-size: 11.5px; line-height: 1.4; color: var(--muted);
   text-align: center; padding: 6px 22px;
   border-bottom: 1px solid var(--grid);
+  text-wrap: balance;
 }
 
 /* ---------- zone A: hero ---------- */
@@ -359,6 +363,15 @@ footer.epistemic {
   }
   nav.atlas::-webkit-scrollbar { display: none; }
   nav.atlas a { white-space: nowrap; flex: 0 0 auto; }
+
+  /* The switcher keeps its place at the right of the sticky header while
+     the atlas scrolls under it; German runs long enough that letting it
+     into the scroll strip would push it off-screen. */
+  .lang-switch { flex: 0 0 auto; }
+  .lang-switch button { padding: 3px 6px; font-size: 10.5px; }
+
+  /* two lines at 375px, not four — a notice, not a paragraph */
+  .mt-notice { font-size: 10.5px; padding: 5px 14px; }
 
   /* ---------- zone D · the pinned consequence surface ----------
      lab-layout.js gathers chamber + state chip + meters + narration into

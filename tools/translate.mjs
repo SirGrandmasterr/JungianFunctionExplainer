@@ -27,7 +27,11 @@ import {
   validateTranslation, uiBudget, canonicalLocaleJson, readLocaleFile,
 } from './i18n-lib.mjs';
 
-const PROMPT_VERSION = 1;
+/* Bump when either the prompts OR the acceptance rules in i18n-lib change:
+   together they decide what a unit translates to, so both invalidate a
+   cached result. v2 = per-field-kind prompts + compound-aware glossary
+   case matching. */
+const PROMPT_VERSION = 2;
 /* Separate from PROMPT_VERSION: changing how entries are reviewed must
    re-run reviews without invalidating (and re-translating) the corpus. */
 const REVIEW_VERSION = 3;
@@ -283,9 +287,14 @@ for (const en of corpus) {
     const existingText = unit.field === null
       ? (typeof existing[unit.key] === 'string' ? existing[unit.key] : undefined)
       : (typeof existing[unit.key]?.[unit.field] === 'string' ? existing[unit.key][unit.field] : undefined);
-    /* a unit is done if its fingerprint is current AND its text survives
+    /* A unit is done if its fingerprint is current AND its text survives
        somewhere — the written locale file, or the state's crash cache
-       (an interrupted run persists state mid-namespace, file at the end) */
+       (an interrupted run persists state mid-namespace, file at the end).
+       This holds for `flagged` units too, deliberately: a no-op re-run
+       must make zero model calls. Any real change — source, model,
+       glossary, or PROMPT_VERSION (which covers the acceptance rules) —
+       moves the fingerprint and retries them; `--force` does it on
+       demand. */
     if (!opt.force && fingerprintCurrent(st, fp) && (existingText !== undefined || typeof st.text === 'string')) continue;
     if (planned < opt.limit) { work.push(unit); planned++; }
   }

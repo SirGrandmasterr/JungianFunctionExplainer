@@ -107,6 +107,13 @@ export function loadGlossary(locale) {
   if (!Array.isArray(g.locked) || !Array.isArray(g.preferred) || !g.language) {
     throw new Error(`content/glossary/${locale}.json: needs "language", "locked" [] and "preferred" []`);
   }
+  /* Catch a malformed entry here rather than as an undefined deep in the
+     matcher — this file is hand-edited, and prose notes belong in _comment. */
+  g.preferred.forEach((p, i) => {
+    if (!p || typeof p.en !== 'string' || typeof p.use !== 'string') {
+      throw new Error(`content/glossary/${locale}.json: preferred[${i}] needs string "en" and "use" (got ${JSON.stringify(p)})`);
+    }
+  });
   return { ...g, hash: sha256(JSON.stringify({ locked: g.locked, preferred: g.preferred })) };
 }
 
@@ -155,14 +162,22 @@ function usesTerm(src, term) {
   return new RegExp(`(?<![-\\w])${escRe(term)}(?:s|es)?(?![\\w])`, 'i').test(prose);
 }
 
-/** Is the fixed target term present in the translation? German
-    capitalizes nouns, so a glossary entry may demand the capital by
-    setting caseSensitive — otherwise "grip" passes where "Grip" was
-    specified. Terms that are verbs as often as nouns (cost/kosten)
-    leave it off. */
+/** Is the fixed target term present in the translation?
+
+    `caseSensitive` demands the capital, because German capitalizes nouns
+    and "grip" would otherwise pass where "Grip" was specified. But a noun
+    that is the tail of a closed compound is correctly LOWERCASE —
+    "Simulationsbühne", "Kopplungsbühne" — while a hyphenated compound
+    keeps the capital ("Zubringer-Kopplung"). Demanding the capital
+    everywhere rejects exactly the right answer, so the lowercase form is
+    accepted when it is welded onto a preceding word character, and only
+    then. */
 function honoursTerm(out, p) {
   const stem = p.match || p.use;
-  return p.caseSensitive ? out.includes(stem) : out.toLowerCase().includes(stem.toLowerCase());
+  if (!p.caseSensitive) return out.toLowerCase().includes(stem.toLowerCase());
+  if (out.includes(stem)) return true;
+  const lower = stem.charAt(0).toLowerCase() + stem.slice(1);
+  return new RegExp(`\\w${escRe(lower)}`).test(out);   // compound-internal
 }
 
 /** Glossary compliance for one source/translation pair, as messages.

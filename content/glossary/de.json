@@ -13,7 +13,14 @@
     "  match: the stem the compliance check looks for in the German (defaults to 'use')",
     "  caseSensitive: require the capital. Set on nouns, since German capitalizes them",
     "         and 'grip' would otherwise pass where 'Grip' was specified. Left off for",
-    "         terms that are as often verbs or adjectives (kosten, dominant, inferior)."
+    "         terms that are as often verbs or adjectives (kosten, dominant, inferior).",
+    "",
+    "The second block of preferred terms was added after the Ti pilot: short UI strings",
+    "are where a 12B model guesses worst, having no surrounding sentence to disambiguate",
+    "a word. It rendered 'Witness a rule violation' as 'report', 'Fidelity Profile' as",
+    "'loyalty-to-profile', 'collapse clocks' as 'Grip clocks', and 'preset' two different",
+    "ways on adjacent keys. Pinning those terms here fixes them at the source instead of",
+    "leaving each one to chance on every re-run."
   ],
   "language": "German",
   "locked": [
@@ -38,6 +45,19 @@
     { "en": "cost", "use": "Kosten", "match": "kost" },
     { "en": "seat", "use": "Sitz", "match": "Sitz", "caseSensitive": true },
     { "en": "waterline", "use": "Wasserlinie", "match": "Wasserlinie", "caseSensitive": true },
-    { "en": "lattice", "use": "Gitter", "match": "Gitter", "caseSensitive": true }
+    { "en": "lattice", "use": "Gitter", "match": "Gitter", "caseSensitive": true },
+
+    { "en": "claim", "use": "Behauptung", "match": "Behauptung", "caseSensitive": true },
+    { "en": "preset", "use": "Preset", "match": "Preset", "caseSensitive": true },
+    { "en": "fidelity", "use": "Genauigkeit", "match": "enauigkeit" },
+    { "en": "collapse", "use": "Zusammenbruch", "match": "usammenbr" },
+    { "en": "eruption", "use": "Ausbruch", "match": "usbruch" },
+    { "en": "witness", "use": "miterleben", "match": "miterleb" },
+    { "en": "unrelated", "use": "unzusammenhängend", "match": "unzusammenhäng" },
+    { "en": "stage", "use": "Bühne", "match": "Bühne", "caseSensitive": true },
+    { "en": "dial", "use": "Skala", "match": "Skala", "caseSensitive": true },
+    { "en": "site", "use": "Website", "match": "Website", "caseSensitive": true },
+    { "en": "canonical", "use": "maßgeblich", "match": "maßgeb" },
+    { "en": "playground", "use": "Spielwiese", "match": "Spielwiese", "caseSensitive": true }
   ]
 }
