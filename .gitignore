@@ -6,3 +6,7 @@
 # Per-run mirror of translate.mjs's stderr (content/<locale>/.last-run.log);
 # the durable record is .state.json + _review.md, which ARE tracked.
 content/*/.last-run.log
+
+# Task briefs handed to the agent, not part of the site.
+/*-prompt.md
+/*-prompts.md
