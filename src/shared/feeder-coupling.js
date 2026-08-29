@@ -4,6 +4,12 @@
    overlay. Parameterized by FEEDERS data + glyph instance.
    ============================================================ */
 import { TAU, hexA } from '../utils/math.js';
+import { t } from './copy.js';
+
+/* Pages not yet migrated to the content map pass feeders with plain `text`
+   and `pair` fields; migrated pages pass a `copy` entry ({mechanism, figure,
+   pair}). Bridge both shapes here. */
+const feederCopy = (f) => f.copy || { mechanism: f.text, figure: '', pair: f.pair };
 
 /**
  * @param {Object} cfg
@@ -15,6 +21,13 @@ export function initFeederCoupling(cfg) {
   const { feeders, glyph, fnLabel } = cfg;
   const chipsEl = document.getElementById('feederChips');
   let exoticShown = false;
+
+  /* the mechanism/figure split (content/SCHEMA.md) */
+  const figEl = document.createElement('p');
+  figEl.className = 'figurative';
+  figEl.hidden = true;
+  const feedTextEl = document.getElementById('feedText');
+  if (feedTextEl) feedTextEl.insertAdjacentElement('afterend', figEl);
 
   /* Optional per-feeder caution text. A page that wants it wraps its default
      banner copy in <span class="warn-text">; pages that don't keep the static
@@ -71,20 +84,20 @@ export function initFeederCoupling(cfg) {
           String(glyph.feeder && glyph.feeder.key === f.key)
         );
         if (glyph.feeder && glyph.feeder.key === f.key) b.style.color = f.color;
-        b.innerHTML = `<span class="dot" style="background:${f.color}"></span>${fnLabel} ← ${f.name}`;
+        b.innerHTML = `<span class="dot" style="background:${f.color}"></span>${t('site.feeder.chip', { fn: fnLabel, feeder: f.name })}`;
         b.addEventListener('click', () => selectFeeder(f));
         chipsEl.appendChild(b);
       });
-    const t = document.createElement('button');
-    t.className = 'chip-toggle';
-    t.textContent = exoticShown
-      ? 'hide exotic couplings'
-      : 'show exotic couplings ▸';
-    t.addEventListener('click', () => {
+    const toggle = document.createElement('button');
+    toggle.className = 'chip-toggle';
+    toggle.textContent = exoticShown
+      ? t('site.feeder.hideExotic')
+      : t('site.feeder.showExotic');
+    toggle.addEventListener('click', () => {
       exoticShown = !exoticShown;
       renderChips();
     });
-    chipsEl.appendChild(t);
+    chipsEl.appendChild(toggle);
   }
 
   function selectFeeder(f) {
@@ -97,9 +110,12 @@ export function initFeederCoupling(cfg) {
       duty: f.unstable ? 0.55 : 1,
       control: 1,
     });
-    document.getElementById('feedTitle').textContent = `${fnLabel} ← ${f.name}`;
-    document.getElementById('feedPair').textContent = f.pair;
-    document.getElementById('feedText').textContent = f.text;
+    const copy = feederCopy(f);
+    document.getElementById('feedTitle').textContent = t('site.feeder.chip', { fn: fnLabel, feeder: f.name });
+    document.getElementById('feedPair').textContent = copy.pair || '';
+    document.getElementById('feedText').textContent = copy.mechanism;
+    figEl.textContent = copy.figure || '';
+    figEl.hidden = !copy.figure;
     if (warnTextEl) warnTextEl.textContent = f.warn || warnDefault;
     if (warnEl) warnEl.classList.toggle('show', !!(f.unstable || f.warn));
     renderChips();

@@ -1,6 +1,7 @@
 /* ============================================================
    CURRENTS · Site header + function atlas navigation
    ============================================================ */
+import { t } from './copy.js';
 
 const FUNCTIONS = [
   { key: 'ne', label: 'Ne', href: '/ne/' },
@@ -28,12 +29,13 @@ export function initHeader(activeKey) {
 
   const brand = document.createElement('div');
   brand.className = 'brand';
-  brand.innerHTML = 'CURRENTS<small>an atlas of the eight cognitive functions</small>';
+  /* "CURRENTS" is a do-not-translate token (content/SCHEMA.md) */
+  brand.innerHTML = `CURRENTS<small>${t('site.header.brandSub')}</small>`;
   header.appendChild(brand);
 
   const nav = document.createElement('nav');
   nav.className = 'atlas';
-  nav.setAttribute('aria-label', 'Function atlas');
+  nav.setAttribute('aria-label', t('site.nav.atlasAria'));
 
   for (const fn of FUNCTIONS) {
     const a = document.createElement('a');
@@ -45,7 +47,7 @@ export function initHeader(activeKey) {
       a.href = fn.href;
     } else {
       a.className = 'soon';
-      a.title = 'Phase 2';
+      a.title = t('site.nav.phase2');
       a.setAttribute('aria-disabled', 'true');
     }
     a.textContent = fn.label;
@@ -57,8 +59,8 @@ export function initHeader(activeKey) {
      function page, which made the only interesting comparison — between
      functions — the one thing it could not show. */
   for (const x of [
-    { key: 'energy', label: 'Energy', href: '/energy/', anchor: '#cost' },
-    { key: 'phenomena', label: 'Phenomena', href: '/phenomena/', anchor: '#stack' },
+    { key: 'energy', label: t('site.nav.energy'), href: '/energy/', anchor: '#cost' },
+    { key: 'phenomena', label: t('site.nav.phenomena'), href: '/phenomena/', anchor: '#stack' },
   ]) {
     const a = document.createElement('a');
     a.className = 'play' + (activeKey === x.key ? ' active' : '');
@@ -75,7 +77,7 @@ export function initHeader(activeKey) {
   /* The Playground sits apart from the eight: it is where they run together. */
   const play = document.createElement('a');
   play.className = 'play' + (activeKey === 'playground' ? ' active' : '');
-  play.textContent = 'Playground';
+  play.textContent = t('site.nav.playground');
   if (activeKey === 'playground') {
     play.href = '#zone-build';
     play.setAttribute('aria-current', 'page');
