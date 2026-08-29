@@ -56,6 +56,7 @@
     { "en": "dial", "use": "esfera", "match": "esfera" },
     { "en": "site", "use": "sitio", "match": "sitio" },
     { "en": "canonical", "use": "versión de referencia", "match": "referencia" },
-    { "en": "playground", "use": "campo de pruebas", "match": "pruebas" }
+    { "en": "playground", "use": "campo de pruebas", "match": "pruebas" },
+    { "en": "parent", "use": "parental", "match": "parental" }
   ]
 }

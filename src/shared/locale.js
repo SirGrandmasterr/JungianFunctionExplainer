@@ -20,9 +20,14 @@
    ============================================================ */
 import { registerLocaleCopy, applyCopy, t } from './copy.js';
 
+/* English is excluded deliberately: copy.js imports content/en statically as
+   the base registry, so matching it here too would both contradict "English
+   fetches nothing" and make Rollup warn about a module that is imported
+   statically and dynamically at once. */
 const LOCALE_FILES = import.meta.glob([
   '../../content/*/*.json',
   '../../content/*/scenarios/*.json',
+  '!../../content/en/**',
 ]);
 
 const STORAGE_KEY = 'currents.lang';
