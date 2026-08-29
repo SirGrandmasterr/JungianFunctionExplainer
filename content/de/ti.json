@@ -2,7 +2,7 @@
   "_meta": {
     "model": "gemma4:12b",
     "digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
-    "promptVersion": 1,
+    "promptVersion": 2,
     "date": "2026-08-29",
     "status": {
       "ti.character.awareness.why": "mt",
@@ -63,7 +63,7 @@
       "ti.zoneB.railAria": "mt",
       "ti.zoneC.heading": "mt",
       "ti.zoneC.lede": "mt",
-      "ti.zoneD.canvasAria": "flagged",
+      "ti.zoneD.canvasAria": "mt",
       "ti.zoneD.heading": "mt",
       "ti.zoneD.kicker": "mt",
       "ti.zoneD.lede": "mt",
@@ -263,7 +263,7 @@
   "ti.zoneB.railAria": "Stack-Positionen für Ti",
   "ti.zoneC.heading": "Was speist Ti?",
   "ti.zoneC.lede": "Ti bewertet; es sammelt nicht. Eine wahrnehmende Funktion – sein Zubringer – muss das Rohmaterial liefern, das Ti prüft, und welche Funktion liefert, verändert, was aufgebaut wird. Klicke auf einen Zubringer, um zu sehen, wie sich das Gitter verändert.",
-  "ti.zoneD.canvasAria": "Verification laboratory simulation stage",
+  "ti.zoneD.canvasAria": "Simulationsbühne des Verifikationslabors",
   "ti.zoneD.heading": "Das Verifikations-Labor",
   "ti.zoneD.kicker": "Zone D · Verifikationslabor",
   "ti.zoneD.lede": "Beobachte, wie Ti Eingaben in Echtzeit verarbeitet. Jeder Button sendet dem Labor eine andere Art von Ereignis – eine unzusammenhängende Tatsache, eine Verbindung, einen Widerspruch – und die Messgeräte verfolgen, was jedes davon kostet.",
