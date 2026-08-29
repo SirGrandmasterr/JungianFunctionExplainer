@@ -473,9 +473,14 @@ if (opt.review) {
       if (p.reviewedKeys.has(unit.key)) continue;
       const st = state.entries[unit.id];
       if (!st || st.status !== 'ok') continue;                    // flagged/verbatim: nothing to review
-      if (st.review && st.review.srcHash === st.srcHash && st.review.v === REVIEW_VERSION && !opt.force) continue;
       const text = unit.field === null ? p.existing[unit.key] : p.existing[unit.key]?.[unit.field];
       if (typeof text !== 'string') continue;
+      /* A review describes one specific translation, so it is stale the
+         moment that text changes — which a glossary edit does without
+         touching the English at all. Keying this on the source hash left
+         _review.md quietly describing a translation that no longer
+         existed, so key it on the translated text itself. */
+      if (st.review && st.review.textHash === sha256(text) && st.review.v === REVIEW_VERSION && !opt.force) continue;
       reviewWork.push({ unit, st, text });
     }
   }
@@ -496,7 +501,7 @@ if (opt.review) {
     ], R_FORMAT);
     let verdict;
     try { verdict = JSON.parse(verdictRaw); } catch { verdict = { ok: false, issue: 'review call returned unparseable JSON' }; }
-    st.review = { srcHash: st.srcHash, v: REVIEW_VERSION, ok: !!verdict.ok, issue: String(verdict.issue || ''), back, at: new Date().toISOString() };
+    st.review = { textHash: sha256(text), v: REVIEW_VERSION, ok: !!verdict.ok, issue: String(verdict.issue || ''), back, at: new Date().toISOString() };
     if (!verdict.ok) rflagged++;
     rdone++;
     logLine(`[review ${opt.locale} ${rdone}/${reviewWork.length}] ${verdict.ok ? 'ok     ' : 'FLAGGED'} ${unit.id}`);

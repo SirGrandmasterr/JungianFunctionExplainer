@@ -57,6 +57,7 @@
     { "en": "site", "use": "sitio", "match": "sitio" },
     { "en": "canonical", "use": "versión de referencia", "match": "referencia" },
     { "en": "playground", "use": "campo de pruebas", "match": "pruebas" },
-    { "en": "parent", "use": "parental", "match": "parental" }
+    { "en": "parent", "use": "parental", "match": "parental" },
+    { "en": "watershed", "use": "divisoria de aguas", "match": "divisoria" }
   ]
 }

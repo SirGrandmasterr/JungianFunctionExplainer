@@ -58,6 +58,7 @@
     { "en": "dial", "use": "Skala", "match": "Skala", "caseSensitive": true },
     { "en": "site", "use": "Website", "match": "Website", "caseSensitive": true },
     { "en": "canonical", "use": "maßgeblich", "match": "maßgeb" },
-    { "en": "playground", "use": "Spielwiese", "match": "Spielwiese", "caseSensitive": true }
+    { "en": "playground", "use": "Spielwiese", "match": "Spielwiese", "caseSensitive": true },
+    { "en": "watershed", "use": "Wasserscheide", "match": "Wasserscheide", "caseSensitive": true }
   ]
 }

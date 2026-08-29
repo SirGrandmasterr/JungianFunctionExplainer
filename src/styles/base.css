@@ -104,8 +104,14 @@ nav.atlas a.play.active { background: var(--ink); border-color: var(--ink); colo
 .hero-copy h1 { font-size: clamp(30px, 4.6vw, 54px); font-weight: 650; letter-spacing: -0.01em; }
 .hero-copy h1 .fn { color: var(--c-accent); }
 .hero-copy p { color: var(--ink-2); max-width: 560px; margin: 10px auto 0; font-size: 15px; }
+/* .hero-copy and .hero-hint are both absolutely positioned inside #zone-a
+   and so cannot see each other: a hint that wraps grows upward into the
+   subtitle. English is one line and never collided; German is three
+   ("scrolle nach unten, um die Wasserscheide zu erkunden"). Give the hint
+   a sane measure and keep the copy clear of it. */
 .hero-hint {
   position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+  max-width: min(92vw, 460px); text-align: center; text-wrap: balance;
   color: var(--muted); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase;
 }
 .fn-tag {
@@ -372,6 +378,11 @@ footer.epistemic {
 
   /* two lines at 375px, not four — a notice, not a paragraph */
   .mt-notice { font-size: 10.5px; padding: 5px 14px; }
+
+  /* room for a hint that wraps; the wide letter-spacing is what pushes a
+     longer locale onto a third line, so ease it where space is tightest */
+  .hero-copy { bottom: 15%; }
+  .hero-hint { letter-spacing: 0.08em; max-width: 88vw; }
 
   /* ---------- zone D · the pinned consequence surface ----------
      lab-layout.js gathers chamber + state chip + meters + narration into
