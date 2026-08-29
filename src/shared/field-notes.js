@@ -44,8 +44,11 @@ export function initFieldNotes(cfg) {
 
   const m = zone.mirror;
   if (m && (m.copy || m.html)) {
+    /* m.link: an optional trailing cross-page link — href stays in JS,
+       its label travels with the mirror entry in the map */
+    const tail = m.link ? ` <a href="${m.link.href}">${m.link.label}</a>` : '';
     const body = m.copy
-      ? `<p>${m.copy.mechanismHtml || m.copy.mechanism}</p>` +
+      ? `<p>${m.copy.mechanismHtml || m.copy.mechanism}${tail}</p>` +
         (m.copy.figure ? `<p class="figurative">${m.copy.figure}</p>` : '')
       : `<p>${m.html}</p>`;
     const vs = t('site.fieldNotes.mirrorVs', {

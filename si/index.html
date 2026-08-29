@@ -3,56 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Si — Introverted Sensing · CURRENTS</title>
+  <title data-copy="si.meta.title">Si — Introverted Sensing · CURRENTS</title>
 </head>
 <body>
 
 <header class="site"></header>
 
 <!-- ZONE A: HERO -->
-<section id="zone-a" aria-label="Introductory section">
-  <canvas id="glyphHero" aria-label="Interactive visual representation of Introverted Sensing as a still pool seen from above: concentric sediment strata, the oldest fused bright at the core, with metered drops sinking to the ring they match — the whole ring lights when past and present agree, and strobes when the familiar arrives changed. Point at or press a ring to sound what it keeps"></canvas>
+<section id="zone-a" data-copy-attrs="aria-label:site.zone.aAria" aria-label="Introductory section">
+  <canvas id="glyphHero" data-copy-attrs="aria-label:si.zoneA.canvasAria" aria-label="Interactive visual representation of Introverted Sensing as a still pool seen from above: concentric sediment strata, the oldest fused bright at the core, with metered drops sinking to the ring they match — the whole ring lights when past and present agree, and strobes when the familiar arrives changed. Point at or press a ring to sound what it keeps"></canvas>
   <div class="hero-copy">
-    <span class="fn-tag">introverted sensing</span>
-    <h1>The Still Pool of <span class="fn">Si</span></h1>
-    <p>A sealed pool banded with strata — every past inflow laid down as a ring, the oldest fused bright at the core. Each admitted drop sinks to the layer it matches, and the whole ring lights when past and present agree.</p>
+    <span class="fn-tag" data-copy="si.hero.tag">introverted sensing</span>
+    <h1 data-copy="si.hero.heading">The Still Pool of <span class="fn" data-copy-token="fn">Si</span></h1>
+    <p data-copy="si.hero.subtitle">A sealed pool banded with strata — every past inflow laid down as a ring, the oldest fused bright at the core. Each admitted drop sinks to the layer it matches, and the whole ring lights when past and present agree.</p>
   </div>
-  <div class="hero-hint">scroll to explore the watershed ↓</div>
+  <div class="hero-hint" data-copy="site.hero.hint">scroll to explore the watershed ↓</div>
 </section>
 
 <!-- ZONE B: STACK RAIL -->
 <section id="zone-b" class="zone" aria-labelledby="zb-head">
-  <p class="zone-kicker">Zone B · stack position</p>
-  <h2 id="zb-head">The Eight Faces of Si</h2>
-  <p class="lede">Click any position to see how the record changes hands — from the dominant's bedrock archive to the demon's weaponized inventory of old failures. Watch the filing errors climb down the stack: false alarms on the unchanged, mis-filed drift on the changed. Drag the maturity slider to watch the strata multiply and rigidify with age.</p>
+  <p class="zone-kicker" data-copy="site.zone.bKicker">Zone B · stack position</p>
+  <h2 id="zb-head" data-copy="si.zoneB.heading">The Eight Faces of Si</h2>
+  <p class="lede" data-copy="si.zoneB.lede">The canvas draws Si as a banded pool: every arrival compared against the layers of past experience it keeps. Where Si sits in a person's stack — the fixed order their eight functions come in — decides how well that record serves. Click a position to see the change, from the dominant's bedrock archive to the demon's weaponised inventory, and watch the filing errors climb down the stack. Drag the maturity slider to watch the strata multiply and rigidify with age.</p>
 
   <div class="rail-layout">
-    <div class="rail" id="railSlots" role="tablist" aria-label="Stack positions for Si"></div>
+    <div class="rail" id="railSlots" role="tablist" data-copy-attrs="aria-label:si.zoneB.railAria" aria-label="Stack positions for Si"></div>
 
     <div class="glyph-stage">
-      <canvas id="glyphRail" aria-label="Glyph stage showing the selected stack position"></canvas>
+      <canvas id="glyphRail" data-copy-attrs="aria-label:site.rail.stageAria" aria-label="Glyph stage showing the selected stack position"></canvas>
       <div id="stageNote" class="stage-note">rendering: Dominant preset</div>
     </div>
 
     <div class="slot-caption">
       <h3 id="capTitle">Dominant</h3>
       <div id="capTypes" class="types">1st function · ISTJ · ISFJ</div>
-      <p id="capText">Loading description…</p>
+      <p id="capText" data-copy="site.rail.loadingCaption">Loading description…</p>
 
       <div class="dial-wrap">
-        <h4>Fidelity Profile</h4>
-        <svg id="dial" viewBox="0 0 280 200" role="img" aria-label="Radar dial of performance parameters" style="width:100%;height:auto"></svg>
+        <h4 data-copy="site.rail.dialHeading">Fidelity Profile</h4>
+        <svg id="dial" viewBox="0 0 280 200" role="img" data-copy-attrs="aria-label:site.dial.svgAria" aria-label="Radar dial of performance parameters" style="width:100%;height:auto"></svg>
       </div>
 
       <div class="maturity">
-        <h4>Maturity &amp; Development</h4>
-        <input type="range" id="ageSlider" min="7" max="60" value="28" aria-label="Age slider">
+        <h4 data-copy="site.rail.maturityHeading">Maturity &amp; Development</h4>
+        <input type="range" id="ageSlider" min="7" max="60" value="28" data-copy-attrs="aria-label:site.rail.ageSliderAria" aria-label="Age slider">
         <div class="age-row">
-          <span>childhood (7)</span>
+          <span data-copy="site.rail.ageMin">childhood (7)</span>
           <span id="ageOut" style="color:var(--ink);font-weight:600">age 28</span>
-          <span>maturity (60)</span>
+          <span data-copy="site.rail.ageMax">maturity (60)</span>
         </div>
-        <p class="age-note">With age, lower stack positions gain fidelity and duty cycle — and the pool itself gains strata and rigidifies.</p>
+        <p class="age-note" data-copy="si.zoneB.ageNote">With age, lower stack positions gain fidelity and duty cycle — and the pool itself gains strata and rigidifies.</p>
       </div>
     </div>
   </div>
@@ -60,23 +60,23 @@
 
 <!-- ZONE C: FEEDER COUPLING -->
 <section id="zone-c" class="zone" aria-labelledby="zc-head">
-  <p class="zone-kicker">Zone C · feeder coupling</p>
-  <h2 id="zc-head">What Feeds Into Si?</h2>
-  <p class="lede">Introverted perception is fed by extraverted judgment — Si's real partners are Te and Fe, the outer judges that keep the record honest. Click a feeder and watch what the pool learns to keep.</p>
+  <p class="zone-kicker" data-copy="site.zone.cKicker">Zone C · feeder coupling</p>
+  <h2 id="zc-head" data-copy="si.zoneC.heading">What Feeds Into Si?</h2>
+  <p class="lede" data-copy="si.zoneC.lede">Si gathers; it does not judge. Introverted perception is fed by extraverted judgment, so its real partners are Te and Fe — the outer judges that keep the record honest. Click a feeder and watch what the pool learns to keep.</p>
 
   <div class="feeder-chips" id="feederChips"></div>
 
   <div class="feeder-layout">
     <div class="feeder-stage">
-      <canvas id="feederCanvas" aria-label="Feeder coupling stage"></canvas>
+      <canvas id="feederCanvas" data-copy-attrs="aria-label:site.feeder.stageAria" aria-label="Feeder coupling stage"></canvas>
     </div>
     <div class="feeder-caption">
       <h3 id="feedTitle">Si ← Te</h3>
       <div id="feedPair" class="pair">the ISTJ · ESTJ coupling</div>
-      <p id="feedText">Loading feeder narrative…</p>
+      <p id="feedText" data-copy="site.feeder.loading">Loading feeder narrative…</p>
       <div id="feedWarn" class="unstable">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <span class="warn-text">Unstable coupling: perception feeding perception, with nothing judging either.</span>
+        <span class="warn-text" data-copy="si.zoneC.unstableDefault">Unstable coupling: perception feeding perception, with nothing judging either.</span>
       </div>
     </div>
   </div>
@@ -84,84 +84,84 @@
 
 <!-- ZONE D: THE RECOGNITION LAB -->
 <section id="zone-d" class="zone" aria-labelledby="zd-head">
-  <p class="zone-kicker">Zone D · the recognition lab</p>
-  <h2 id="zd-head">The Recognition Lab</h2>
-  <p class="lede">Si is a comparator: every arrival is interrogated by the depths — matched, flagged as off-record, or filed as unprecedented. This lab hands you all three arrivals and, when the record disputes one, the ruling. Watch the encounter cost fall as ritual repeats; watch the flinch when nothing answers.</p>
+  <p class="zone-kicker" data-copy="si.zoneD.kicker">Zone D · the recognition lab</p>
+  <h2 id="zd-head" data-copy="si.zoneD.heading">The Recognition Lab</h2>
+  <p class="lede" data-copy="si.zoneD.lede">Si is a comparator: every arrival is interrogated by the depths — matched, flagged as off-record, or filed as unprecedented. This lab hands you all three arrivals and, when the record disputes one, the ruling. Watch the encounter cost fall as ritual repeats; watch the flinch when nothing answers.</p>
 
   <div class="verify-layout">
     <div class="verify-panel">
       <button id="btnFamiliar" class="spawn-btn">
         <span class="dot" style="background:var(--c-accent)"></span>
-        <span>The Familiar, On Time<small>the morning ritual arrives as always</small></span>
+        <span><span data-copy="si.lab.btn.familiar.label">The Familiar, On Time</span><small data-copy="si.lab.btn.familiar.sub">the morning ritual arrives as always</small></span>
       </button>
       <button id="btnDeviant" class="spawn-btn">
         <span class="dot" style="background:var(--warn)"></span>
-        <span>The Familiar, Changed<small>a 90% match — something is off</small></span>
+        <span><span data-copy="si.lab.btn.deviant.label">The Familiar, Changed</span><small data-copy="si.lab.btn.deviant.sub">a 90% match — something is off</small></span>
       </button>
       <button id="btnNovel" class="spawn-btn">
         <span class="dot" style="background:var(--c-n)"></span>
-        <span>The Unprecedented<small>nothing in the record matches this</small></span>
+        <span><span data-copy="si.lab.btn.novel.label">The Unprecedented</span><small data-copy="si.lab.btn.novel.sub">nothing in the record matches this</small></span>
       </button>
 
-      <div class="resolve-row" role="group" aria-label="Ruling on the pending deviation">
-        <button id="btnAccept" disabled>Accept<small>the new normal — lay a sub-band</small></button>
-        <button id="btnReject" disabled>Dismiss<small>an anomaly — expel the drop</small></button>
+      <div class="resolve-row" role="group" data-copy-attrs="aria-label:si.lab.resolveAria" aria-label="Ruling on the pending deviation">
+        <button id="btnAccept" disabled><span data-copy="si.lab.btn.accept.label">Accept</span><small data-copy="si.lab.btn.accept.sub">the new normal — lay a sub-band</small></button>
+        <button id="btnReject" disabled><span data-copy="si.lab.btn.reject.label">Dismiss</span><small data-copy="si.lab.btn.reject.sub">an anomaly — expel the drop</small></button>
       </div>
 
       <div class="telemetry">
         <div class="cog-state">
-          <span class="lab">Cognitive state</span>
+          <span class="lab" data-copy="si.lab.telemetry.cogState">Cognitive state</span>
           <span id="cogState" class="value">Still Water</span>
         </div>
         <div class="meter stress">
-          <label><span>Stress <i>S</i></span><span id="mStressVal">9%</span></label>
+          <label><span><span data-copy="si.lab.meter.stress">Stress</span> <i>S</i></span><span id="mStressVal">9%</span></label>
           <div class="track"><div id="mStress" class="fill" style="width:9%"></div></div>
         </div>
         <div class="meter pleasure">
-          <label><span>Recognition Pleasure <i>P</i></span><span id="mPleasureVal">22%</span></label>
+          <label><span><span data-copy="si.lab.meter.pleasure">Recognition Pleasure</span> <i>P</i></span><span id="mPleasureVal">22%</span></label>
           <div class="track"><div id="mPleasure" class="fill" style="width:22%"></div></div>
         </div>
         <div class="readouts">
           <div class="ro">
-            <span class="k">Live match</span>
+            <span class="k" data-copy="si.lab.telemetry.match">Live match</span>
             <b id="tMatch">92%</b>
             <div class="cells" id="tMatchCells" aria-hidden="true"></div>
           </div>
           <div class="ro">
-            <span class="k">Encounter cost</span>
+            <span class="k" data-copy="si.lab.telemetry.cost">Encounter cost</span>
             <b id="tCost">1.0 u</b>
           </div>
         </div>
         <div class="cross-listen">
-          <div class="cl-head"><span>cross-listen · the same arrivals, reaching Se</span><a href="/se/">visit Se →</a></div>
-          <div class="mini gstress"><span>Se stress</span><div class="track"><div id="sibStress" class="fill" style="width:18%"></div></div></div>
-          <div class="mini gpleasure"><span>Se pleasure</span><div class="track"><div id="sibPleasure" class="fill" style="width:22%"></div></div></div>
+          <div class="cl-head"><span data-copy="si.lab.telemetry.crossHead">cross-listen · the same arrivals, reaching Se</span><a href="/se/" data-copy="si.lab.telemetry.visitSe">visit Se →</a></div>
+          <div class="mini gstress"><span data-copy="si.lab.telemetry.sibStress">Se stress</span><div class="track"><div id="sibStress" class="fill" style="width:18%"></div></div></div>
+          <div class="mini gpleasure"><span data-copy="si.lab.telemetry.sibPleasure">Se pleasure</span><div class="track"><div id="sibPleasure" class="fill" style="width:22%"></div></div></div>
         </div>
       </div>
 
       <div id="verifyNarr" class="verify-narr">
-        The pool runs unattended: metered drops arriving one at a time, each interrogated by the depths — matched, flagged, or filed as new. Spawn an arrival and watch the meters answer; when the record disputes one, the ruling is yours. <span data-pointer="fine">Hover the strata</span><span data-pointer="coarse">Press and hold a ring</span> to sound what each ring keeps.
+        <span data-copy="si.lab.narration.intro">The pool runs unattended: metered drops arriving one at a time, each interrogated by the depths — matched, flagged, or filed as new. Spawn an arrival and watch the meters answer; when the record disputes one, the ruling is yours.</span> <span data-pointer="fine" data-copy="si.lab.narration.introHintFine">Hover the strata to sound what each ring keeps.</span><span data-pointer="coarse" data-copy="si.lab.narration.introHintCoarse">Press and hold a ring to sound what each ring keeps.</span>
       </div>
     </div>
 
     <div class="verify-stage">
-      <canvas id="verifyCanvas" aria-label="The Si recognition lab: a strata pool that matches familiar arrivals with a ring-wide chime, strobes and posts a diff readout when the familiar arrives changed, and files the unprecedented as a provisional rim band — with accept and dismiss controls for the pending ruling"></canvas>
+      <canvas id="verifyCanvas" data-copy-attrs="aria-label:si.zoneD.canvasAria" aria-label="The Si recognition lab: a strata pool that matches familiar arrivals with a ring-wide chime, strobes and posts a diff readout when the familiar arrives changed, and files the unprecedented as a provisional rim band — with accept and dismiss controls for the pending ruling"></canvas>
     </div>
   </div>
 </section>
 
 <!-- ZONE E: FIELD NOTES (the energy summary retired to /energy/ — DESIGN §2.6) -->
 <section id="zone-e" class="zone" aria-labelledby="ze-head">
-  <p class="zone-kicker">Zone E · field notes</p>
-  <h2 id="ze-head">Field Notes</h2>
-  <p class="lede">Patterns from the wild — how Si shows up in daily life.</p>
+  <p class="zone-kicker" data-copy="site.zone.eKicker">Zone E · field notes</p>
+  <h2 id="ze-head" data-copy="site.zone.eHeading">Field Notes</h2>
+  <p class="lede" data-copy="si.zoneE.lede">Patterns from the wild — how Si shows up in daily life.</p>
 
   <div id="fieldNotes"></div>
 </section>
 
 <div id="tooltip" class="viz-tooltip" role="tooltip"></div>
 
-<footer class="epistemic">
+<footer class="epistemic" data-copy="site.footer.line">
   CURRENTS v1.0 · An interactive atlas of the eight cognitive functions · Built with Vanilla JS &amp; WebGL2
 </footer>
 

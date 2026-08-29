@@ -25,9 +25,13 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
-const [url, wArg, hArg, out] = process.argv.slice(2);
+const args = process.argv.slice(2);
+/* --full captures the whole page height instead of one viewport — the
+   layout proof for copy zones below the hero */
+const FULL = args.includes('--full');
+const [url, wArg, hArg, out] = args.filter((a) => a !== '--full');
 if (!url || !wArg || !hArg || !out) {
-  console.error('usage: node tools/shot.mjs <url> <width> <height> <out.png>');
+  console.error('usage: node tools/shot.mjs <url> <width> <height> <out.png> [--full]');
   process.exit(2);
 }
 const width = Number(wArg), height = Number(hArg);
@@ -83,7 +87,8 @@ await send('Emulation.setDeviceMetricsOverride', {
 });
 await send('Page.navigate', { url });
 await sleep(4500);                       // glyph engines settle
-const res = await send('Page.captureScreenshot', { format: 'png' });
+const res = await send('Page.captureScreenshot',
+  FULL ? { format: 'png', captureBeyondViewport: true } : { format: 'png' });
 if (!res.result?.data) fail('captureScreenshot returned no data');
 
 const target = join(ROOT, '.shots', out);
