@@ -20,7 +20,7 @@
 
    Node 20 built-ins only.
    ============================================================ */
-import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs';
+import { writeFileSync, appendFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import {
   CONTENT, TRANSLATABLE_FIELDS, sha256, readEnCorpus, unitsOfDict, loadGlossary,
@@ -132,7 +132,10 @@ async function chat(messages, format) {
       stream: false,
       think: false,
       format,
-      options: { temperature: 0.2, seed: 7, num_ctx: 4096 },
+      /* num_predict bounds a wedged constrained decode — no field needs
+         anywhere near 1024 tokens, and an orphaned request must not chew
+         the GPU to the context limit */
+      options: { temperature: 0.2, seed: 7, num_ctx: 4096, num_predict: 1024 },
       keep_alive: '30m',
     }),
   });
@@ -141,6 +144,19 @@ async function chat(messages, format) {
   timings.push(Date.now() - t0);
   if (timings.length > 20) timings.shift();
   return j.message?.content ?? '';
+}
+
+/** One transport retry (timeouts, connection drops), then propagate —
+    the caller aborts the run loudly. Transport failures are never
+    "flagged": a dead server is an environment problem, not review work. */
+async function chatSafe(messages, format) {
+  try {
+    return await chat(messages, format);
+  } catch (e) {
+    logLine(`[transport] ${e.name || 'Error'}: ${e.message} — retrying once in 5s`);
+    await new Promise((r) => setTimeout(r, 5000));
+    return chat(messages, format);
+  }
 }
 
 function parseTranslation(raw) {
@@ -164,10 +180,11 @@ async function translateUnit(unit) {
   ];
   let last = '', lastProblems = [];
   for (let attempt = 0; attempt < 3; attempt++) {
-    const raw = await chat(messages, T_FORMAT);
+    const raw = await chatSafe(messages, T_FORMAT);
     const parsed = parseTranslation(raw);
     const problems = parsed.error ? [parsed.error] : validateTranslation(unit, parsed.text, glossary);
     if (!problems.length) return { status: 'ok', text: parsed.text, problems: [], attempts: attempt + 1 };
+    logLine(`  [attempt ${attempt + 1}/3] ${unit.id} rejected: ${problems.join(' | ')}`);
     last = parsed.text ?? raw; lastProblems = problems;
     messages.push({ role: 'assistant', content: raw });
     messages.push({
@@ -179,9 +196,26 @@ async function translateUnit(unit) {
   return { status: 'flagged', text: last, problems: lastProblems, attempts: 3 };
 }
 
-/* ---------------- state ---------------- */
+/* ---------------- logging ----------------
+   Everything informative goes through logLine: stderr for the terminal,
+   mirrored into content/<locale>/.last-run.log (overwritten per run) so
+   a finished run can be read back without terminal scrollback. */
 
 const localeDir = join(CONTENT, opt.locale);
+const runLogPath = join(localeDir, '.last-run.log');
+const runStart = Date.now();
+let logStarted = false;
+function logLine(msg) {
+  const line = `+${String(Math.round((Date.now() - runStart) / 1000)).padStart(4)}s ${msg}`;
+  console.error(line);
+  try {
+    mkdirSync(localeDir, { recursive: true });
+    if (!logStarted) { writeFileSync(runLogPath, line + '\n'); logStarted = true; }
+    else appendFileSync(runLogPath, line + '\n');
+  } catch { /* logging must never kill the run */ }
+}
+
+/* ---------------- state ---------------- */
 const statePath = join(localeDir, '.state.json');
 const state = existsSync(statePath)
   ? JSON.parse(readFileSync(statePath, 'utf8'))
@@ -239,7 +273,19 @@ function progress(label) {
   const avg = timings.length ? timings.reduce((a, b) => a + b, 0) / timings.length : 0;
   const remaining = totalWork - done;
   const eta = avg && remaining ? ` · ETA ${Math.ceil((remaining * avg) / opt.concurrency / 1000 / 60)}m` : '';
-  console.error(`[${opt.locale} ${done}/${totalWork}] ${label}${avg ? ` · ${(avg / 1000).toFixed(1)}s/call` : ''}${eta}`);
+  logLine(`[${opt.locale} ${done}/${totalWork}] ${label}${avg ? ` · ${(avg / 1000).toFixed(1)}s/call` : ''}${eta}`);
+}
+
+/* ---------------- startup banner ---------------- */
+
+if (!opt.dryRun) {
+  logLine(`translate.mjs · locale ${opt.locale} (${LANG}) · model ${opt.model} (${digest.slice(0, 12)}…) · ${HOST}`);
+  logLine(`prompt v${PROMPT_VERSION} · glossary ${glossary.hash.slice(0, 8)} · concurrency ${opt.concurrency}${opt.force ? ' · FORCE' : ''}${opt.review ? ' · REVIEW MODE' : ''}`);
+  for (const p of plan) {
+    logLine(`plan: ${p.en.ns} — ${p.units.length}/${p.allUnits.length} units to translate` +
+      (p.reviewedKeys.size ? ` (${p.reviewedKeys.size} human-reviewed keys untouched)` : ''));
+  }
+  if (!opt.review) logLine(`total ${totalWork} units · expect roughly ${Math.ceil(totalWork * 5 / 60)}m warm (first call adds ~1–2m model load)`);
 }
 
 /* ---------------- dry run ---------------- */
@@ -261,14 +307,23 @@ async function pool(items, worker) {
   const runners = Array.from({ length: Math.min(opt.concurrency, queue.length) }, async () => {
     while (queue.length) await worker(queue.shift());
   });
-  await Promise.all(runners);
+  try {
+    await Promise.all(runners);
+  } catch (e) {
+    /* transport gave up (chatSafe already retried): save progress and
+       fail loudly — never a partial-write mystery, never a fallback */
+    saveState();
+    die(1, `Ollama at ${HOST} stopped answering mid-run (${e.name || 'Error'}: ${e.message}).\n` +
+           `Progress is saved in content/${opt.locale}/.state.json — re-run the same command to resume.\n` +
+           `Check that "ollama serve" is still up.`);
+  }
 }
 
 /* ---------------- translate mode ---------------- */
 
 if (!opt.review) {
   for (const p of plan) {
-    if (!p.units.length) { console.error(`[${opt.locale}] ${p.en.ns}: unchanged — no calls, no write`); continue; }
+    if (!p.units.length) { logLine(`[${opt.locale}] ${p.en.ns}: unchanged — no calls, no write`); continue; }
     const results = Object.create(null); // id → {status, text, problems}
 
     await pool(p.units, async (unit) => {
@@ -343,7 +398,7 @@ if (!opt.review) {
       if (st && st.status !== 'flagged') delete st.text;
     }
     saveState();
-    console.error(`[${opt.locale}] wrote content/${opt.locale}/${p.en.rel} (${p.units.length} units this run)`);
+    logLine(`[${opt.locale}] wrote content/${opt.locale}/${p.en.rel} (${p.units.length} units this run)`);
   }
 }
 
@@ -380,9 +435,9 @@ if (opt.review) {
 
   let rdone = 0, rflagged = 0;
   await pool(reviewWork, async ({ unit, st, text }) => {
-    const backRaw = await chat([{ role: 'system', content: BACK_SYS }, { role: 'user', content: text }], T_FORMAT);
+    const backRaw = await chatSafe([{ role: 'system', content: BACK_SYS }, { role: 'user', content: text }], T_FORMAT);
     const back = parseTranslation(backRaw).text ?? '';
-    const verdictRaw = await chat([
+    const verdictRaw = await chatSafe([
       { role: 'system', content: JUDGE_SYS },
       { role: 'user', content: `FIELD KIND: ${unit.kind}\nSOURCE:\n${unit.src}\nBACK-TRANSLATION:\n${back}` },
     ], R_FORMAT);
@@ -391,11 +446,11 @@ if (opt.review) {
     st.review = { srcHash: st.srcHash, ok: !!verdict.ok, issue: String(verdict.issue || ''), back, at: new Date().toISOString() };
     if (!verdict.ok) rflagged++;
     rdone++;
-    console.error(`[review ${opt.locale} ${rdone}/${reviewWork.length}] ${verdict.ok ? 'ok     ' : 'FLAGGED'} ${unit.id}`);
+    logLine(`[review ${opt.locale} ${rdone}/${reviewWork.length}] ${verdict.ok ? 'ok     ' : 'FLAGGED'} ${unit.id}`);
     if (rdone % 20 === 0) saveState();
   });
   saveState();
-  console.error(`review: ${rdone} units reviewed, ${rflagged} flagged`);
+  logLine(`review: ${rdone} units reviewed, ${rflagged} flagged`);
 }
 
 /* ---------------- _review.md — the file a human actually reads ----------------
@@ -465,7 +520,7 @@ if (opt.review) {
 
 const mins = ((Date.now() - t0) / 60000).toFixed(1);
 if (!opt.review) {
-  console.error(`done: ${done} units (${verbatimCount} verbatim, ${flaggedCount} flagged) in ${mins}m` +
+  logLine(`done: ${done} units (${verbatimCount} verbatim, ${flaggedCount} flagged) in ${mins}m` +
     (totalWork === 0 ? ' — nothing to do, no model calls made' : ''));
 }
 if (flaggedCount) process.exitCode = 0; // flags are review work, not failure
