@@ -221,7 +221,10 @@ for (const en of corpus) {
     const existingText = unit.field === null
       ? (typeof existing[unit.key] === 'string' ? existing[unit.key] : undefined)
       : (typeof existing[unit.key]?.[unit.field] === 'string' ? existing[unit.key][unit.field] : undefined);
-    if (!opt.force && fingerprintCurrent(st, fp) && existingText !== undefined) continue;
+    /* a unit is done if its fingerprint is current AND its text survives
+       somewhere — the written locale file, or the state's crash cache
+       (an interrupted run persists state mid-namespace, file at the end) */
+    if (!opt.force && fingerprintCurrent(st, fp) && (existingText !== undefined || typeof st.text === 'string')) continue;
     if (planned < opt.limit) { work.push(unit); planned++; }
   }
   plan.push({ en, units: work, allUnits, existing, reviewedKeys, staleReviewed });
@@ -281,10 +284,13 @@ if (!opt.review) {
       results[unit.id] = r;
       state.entries[unit.id] = {
         ...fp, status: r.status, at: new Date().toISOString(),
-        ...(r.status === 'flagged' ? { problems: r.problems, attempt: r.text } : {}),
+        ...(r.status === 'flagged'
+          ? { problems: r.problems, attempt: r.text }
+          : { text: r.text }), // crash cache — stripped once the namespace file is written
       };
       if (r.status === 'flagged') flaggedCount++;
       done++;
+      if (done % 10 === 0) saveState(); // an interrupt loses at most ~10 units
       progress(`${r.status === 'ok' ? 'ok     ' : 'FLAGGED'} ${unit.id}${r.attempts > 1 ? ` (${r.attempts} attempts)` : ''}`);
     });
 
@@ -299,6 +305,8 @@ if (!opt.review) {
         if (r) return r.status === 'flagged' ? unit.src : r.text;
         const prev = unit.field === null ? p.existing[unit.key] : p.existing[unit.key]?.[unit.field];
         if (typeof prev === 'string') return prev;
+        const st = state.entries[unit.id];
+        if (st?.status === 'ok' && typeof st.text === 'string') return st.text; // crash cache
         return unit.src; // reviewed-key unit missing from disk, or never translated
       };
       let keyFlagged = false;
@@ -328,6 +336,12 @@ if (!opt.review) {
     const target = join(localeDir, p.en.rel);
     mkdirSync(dirname(target), { recursive: true });
     writeFileSync(target, canonicalLocaleJson(out));
+    /* the file now holds the texts — strip the crash cache so the state
+       diff stays lean (flagged units keep `attempt` for _review.md) */
+    for (const unit of p.allUnits) {
+      const st = state.entries[unit.id];
+      if (st && st.status !== 'flagged') delete st.text;
+    }
     saveState();
     console.error(`[${opt.locale}] wrote content/${opt.locale}/${p.en.rel} (${p.units.length} units this run)`);
   }
