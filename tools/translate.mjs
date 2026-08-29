@@ -29,9 +29,9 @@ import {
 
 /* Bump when either the prompts OR the acceptance rules in i18n-lib change:
    together they decide what a unit translates to, so both invalidate a
-   cached result. v2 = per-field-kind prompts + compound-aware glossary
-   case matching. */
-const PROMPT_VERSION = 2;
+   cached result. v2 = compound-aware glossary case matching;
+   v3 = slot-aware UI character budgets. */
+const PROMPT_VERSION = 3;
 /* Separate from PROMPT_VERSION: changing how entries are reviewed must
    re-run reviews without invalidating (and re-translating) the corpus. */
 const REVIEW_VERSION = 3;
@@ -135,7 +135,7 @@ function systemPrompt(unit) {
     `You translate one string of interface copy for CURRENTS, a website that teaches the eight Jungian cognitive functions, from English into ${LANG}.`,
     KIND_INSTRUCTIONS[unit.kind],
   ];
-  if (unit.kind === 'ui') lines.push(`Hard limit: the translation must fit within ${uiBudget(unit.src.length)} characters. Brevity beats completeness.`);
+  if (unit.kind === 'ui') lines.push(`Hard limit: the translation must fit within ${uiBudget(unit.src.length, unit.key)} characters. Brevity beats completeness.`);
   lines.push(`Never translate these tokens; each must appear verbatim exactly as in the source: ${glossary.locked.join(', ')}.`);
   if (glossary.preferred.length) lines.push(`Fixed terminology (English → ${LANG}): ${glossary.preferred.map((p) => `${p.en} → ${p.use}`).join('; ')}.`);
   if (/\{[a-zA-Z]/.test(unit.src)) lines.push(`Keep every {placeholder} token exactly as written; you may move it anywhere in the sentence.`);

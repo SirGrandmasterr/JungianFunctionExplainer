@@ -127,19 +127,32 @@ export function countToken(text, token) {
 
 /* ---------------- length bounds ---------------- */
 
-/** Hard character budget for UI-register strings: German runs about a
-    third longer than English, so short labels get ~45% headroom plus a
-    floor for very short sources. This is the layout contract — a locale
-    string over budget is a validation failure, never a CSS problem. */
-export const uiBudget = (srcLen) => Math.max(Math.ceil(srcLen * 1.45), srcLen + 9);
+/* Width-constrained UI slots: strings that sit in fixed chrome and cannot
+   wrap — the SVG radar's axis labels, the rail's position chips, the nav
+   strip. Everything else in `ui` register (button labels and their block
+   sub-captions, headings, kickers) wraps and only gets taller, so a tight
+   ratio there rejects correct translations for no layout reason. Measured
+   on the Ti page: .spawn-btn small is display:block and wraps freely,
+   while a 15-character axis label breaks the dial. */
+const TIGHT_UI = /^site\.dial\.axis\.[a-z]+\.label$|^site\.position\.[a-z]+\.(name|ord)$|^site\.nav\./;
 
-export function lengthBounds(kind, srcLen) {
+/** Hard character budget for UI-register strings. German runs about a
+    third longer than English and short strings vary much more than long
+    ones, so the constrained slots get a tight ratio with a small floor
+    and the rest get room to wrap. This is the layout contract — a locale
+    string over budget is a validation failure, never a CSS problem. */
+export const uiBudget = (srcLen, key = '') =>
+  TIGHT_UI.test(key)
+    ? Math.max(Math.ceil(srcLen * 1.45), srcLen + 9)
+    : Math.max(Math.ceil(srcLen * 1.9), srcLen + 18);
+
+export function lengthBounds(kind, srcLen, key = '') {
   switch (kind) {
     case 'mechanism': return [Math.floor(srcLen * 0.65), Math.max(Math.ceil(srcLen * 1.5), srcLen + 40)];
     case 'figure':    return [Math.floor(srcLen * 0.45), Math.max(Math.ceil(srcLen * 2.0), srcLen + 40)];
     case 'example':   return [Math.floor(srcLen * 0.55), Math.max(Math.ceil(srcLen * 1.8), srcLen + 40)];
     case 'prose':     return [Math.floor(srcLen * 0.5),  Math.max(Math.ceil(srcLen * 1.9), srcLen + 45)];
-    case 'ui':        return [1, uiBudget(srcLen)];
+    case 'ui':        return [1, uiBudget(srcLen, key)];
     default:          return [0, Infinity];
   }
 }
@@ -248,7 +261,7 @@ export function validateTranslation(unit, text, glossary) {
   problems.push(...glossaryProblems(src, out, glossary));
 
   /* length */
-  const [lo, hi] = lengthBounds(unit.kind, src.length);
+  const [lo, hi] = lengthBounds(unit.kind, src.length, unit.key);
   if (out.length < lo) problems.push(`too short (${out.length} chars, minimum ${lo})`);
   if (out.length > hi) problems.push(unit.kind === 'ui'
     ? `over the ${hi}-character budget (${out.length}) — this is a layout constraint, shorten the wording`

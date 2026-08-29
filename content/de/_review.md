@@ -14,7 +14,110 @@ keys are never overwritten without `--force`.
 - source: the lattice must rebuild
 - last attempt: Das Gitter muss neu aufgebaut werden
 
-## Review flags — shipped as German, meaning may have drifted (0)
+## Review flags — shipped as German, meaning may have drifted (15)
 
-(none)
+### site.dial.axis.awareness.def `[prose]`
+
+- issue: The source says 'acts on its own' (autonomous action), but the back-translation says 'acts upon itself' (self-reflexive action).
+- source: Self-awareness: a seat is known through the clarity of what it renders, and one that acts on its own is opaque to its owner.
+- translation: Selbsterkenntnis: ein Sitz wird durch die Klarheit dessen bekannt, was er hervorbringt, und einer, der auf sich selbst wirkt, ist für seinen Besitzer undurchsichtig.
+- back-translation: Self-knowledge: a seat is known by the clarity of what it produces, and one that acts upon itself is opaque to its owner.
+
+### site.dial.axis.speed.def `[prose]`
+
+- issue: The term 'seat' was changed to 'session'.
+- source: How quickly the seat answers when called — its response latency, folded to 0–1.
+- translation: Wie schnell der Sitz reagiert, wenn er aufgerufen wird – seine Antwortlatenz, skaliert auf 0–1.
+- back-translation: How quickly the session responds when it is called – its response latency, scaled to 0–1.
+
+### site.dial.presetLabelAged `[ui]`
+
+- issue: The word 'age' was replaced by 'change'.
+- source: {name} preset · age {n}
+- translation: {name} Preset · Alter {n}
+- back-translation: {name} Preset · Change {n}
+
+### site.dial.svgAria `[ui]`
+
+- issue: The specific visual metaphor of a 'dial' was changed to a generic 'scale'.
+- source: Radar dial of performance parameters
+- translation: Skala der Leistungsparameter
+- back-translation: Scale of performance parameters
+
+### site.zone.cKicker `[ui]`
+
+- issue: The term 'feeder' was translated as 'Zubringer', which is a specific technical term that may not be a direct synonym in this context.
+- source: Zone C · feeder coupling
+- translation: Zone C · Zubringer-Kopplung
+- back-translation: Zone C · Zubringer-coupling
+
+### ti.energy.recovery.dominant `[prose]`
+
+- issue: The term 'flow' in the source refers to the cognitive function, but the back-translation treats it as a general occurrence or a different concept.
+- source: Refills in minutes — and partially during use (flow).
+- translation: Wird in Minuten wieder aufgefüllt – und teilweise während der Nutzung (Flow).
+- back-translation: Refilled in minutes – and in some cases during use (Flow).
+
+### ti.feeder.fe#pair `[ui]`
+
+- issue: The back-translation replaces the concept of 'feeding' with a specific technical term 'Fi-Zubringer' that is not present in the source.
+- source: judging feeding judging
+- translation: Fi-Zubringer
+- back-translation: Fi-Zubringer
+
+### ti.feeder.ni#mechanism `[mechanism]`
+
+- issue: The term 'site' was translated as 'website'.
+- source: Ni — introverted intuition — sends few inputs, each arriving already condensed into a single interpretation. Ti gets little to test and much to accommodate, reorganising wholesale around each arrival. No standard stack places Ni directly above Ti; this coupling is the site's own thought experiment.
+- translation: Ni — introverted intuition — sendet wenige Inputs, die jeweils bereits zu einer einzigen Interpretation verdichtet ankommen. Ti erhält wenig zu testen und viel zu unterbringen, wobei es bei jedem Eintreffen grundlegend umorganisiert. Kein Standard-Stack platziert Ni direkt über Ti; diese Kopplung ist das eigene Gedankenexperiment der Website.
+- back-translation: Ni — introverted intuition — receives few inputs, each arriving already condensed into a single interpretation. Ti receives little to test and much to accommodate, while fundamentally reorganizing it upon every arrival. No standard stack places Ni directly above Ti; this coupling is the website's own thought experiment.
+
+### ti.lab.btn.link.sub `[ui]`
+
+- issue: The subject 'Ni' was changed to the pronoun 'He'.
+- source: Ni suggests, Ti integrates
+- translation: Ni schlägt vor, Ti integriert
+- back-translation: He suggests, Ti integrates
+
+### ti.lab.narration.conflictEnd#mechanism `[mechanism]`
+
+- issue: The back-translation changes 'the reason its conclusions' (singular/referring to the function/model) to 'the reason why their conclusions' (plural/ambiguous).
+- source: The rebuilt model now covers the exception. The teardown was not a malfunction — it is the maintenance this function exists to perform, and the reason its conclusions can be trusted later.
+- translation: Das neu aufgebaute Modell deckt nun die Ausnahme ab. Der Abbau war keine Fehlfunktion – es ist die Wartung, die diese Funktion auszuführen hat, und der Grund, warum ihre Schlussfolgerungen später vertrauenswürdig sind.
+- back-translation: The newly constructed model now covers the exception. The reduction was not a malfunction – it is the maintenance that is responsible for performing this function, and the reason why their conclusions are trustworthy later.
+
+### ti.lab.narration.conflictMid#figure `[figure]`
+
+- issue: The specific concept of 'red-shift' (a physics/cosmological term) was changed to a literal color shift ('shifts into the red').
+- source: The lattice red-shifts and tears itself apart.
+- translation: Das Gitter verschiebt sich ins Rote und reißt sich selbst auseinander.
+- back-translation: The grid shifts into the red and tears itself apart.
+
+### ti.lab.narration.link#figure `[figure]`
+
+- issue: The specific term 'lattice' was replaced with 'grate', which changes the visual image.
+- source: Watch the bridge reach from the lattice toward the island…
+- translation: Beobachte, wie die Brücke vom Gitter zur Insel reicht...
+- back-translation: Watch how the bridge reaches from the grate to the island...
+
+### ti.slot.auxiliary#mechanism `[mechanism]`
+
+- issue: The meaning of 'trusted' was changed to 'becomes familiar'.
+- source: In the second seat, Ti is switched on deliberately rather than running by default. It edits rather than authors: what the dominant perceiving function — Ne's possibilities or Se's live readings — brings in gets stress-tested for consistency before it is trusted. Rigour on demand, at a modest cost.
+- translation: Auf dem zweiten Sitz wird Ti bewusst eingeschaltet, anstatt standardmäßig zu laufen. Es editiert statt zu verfassen: Was die dominante Wahrnehmungsfunktion — Ne's Möglichkeiten oder Se's Live-Lesungen — einbringt, wird auf Konsistenz gestresst, bevor es vertraut wird. Strenge auf Abruf, zu moderaten Kosten.
+- back-translation: On the second seat, Ti is consciously engaged instead of running by default. It edits rather than composes: What the dominant perception function — Ne's possibilities or Se's live readings — contributes is stressed for consistency before it becomes familiar. Strictness on demand, at moderate costs.
+
+### ti.slot.inferior#mechanism `[mechanism]`
+
+- issue: The back-translation changes 'the eruption Quenk calls the grip' to 'the outburst that Quenk Grip calls the breakout', distorting the specific terminology.
+- source: In the fourth seat, Ti costs the most per use and gets used least. Day to day the person borrows other people's frameworks rather than building their own; under prolonged stress the seat can seize control and produce rigid, all-or-nothing logic that does not sound like them — the eruption Quenk calls the grip.
+- translation: Auf dem vierten Sitz kosten Ti am meisten pro Verwendung und werden am wenigsten genutzt. Im Alltag leiht sich die Person die Frameworks anderer an, anstatt eigene aufzubauen; unter anhaltendem Stress kann der Sitz die Kontrolle übernehmen und eine starre, Alles-oder-Nichts-Logik produzieren, die nicht nach ihnen klingt — der Ausbruch, den Quenk Grip nennt.
+- back-translation: On the fourth seat, Ti costs the most per use and is used the least. In daily life, the person borrows the frameworks of others instead of building their own; under sustained stress, the seat can take over and produce a rigid, all-or-nothing logic that doesn't sound like them — the outburst that Quenk Grip calls the 'breakout'.
+
+### ti.slot.trickster#mechanism `[mechanism]`
+
+- issue: The word 'malice' was changed to 'hypocrisy'.
+- source: In the seventh seat, demands for formal consistency register as traps rather than tools. The person slips them — with charm, absurdity, or a change of subject — and genuinely does not see the rule they are accused of breaking. The blindness is real, not tactical, and there is no malice in it.
+- translation: Auf dem siebten Sitz werden Anforderungen an formale Konsistenz eher als Fallen als als Werkzeuge registriert. Die Person entkommt ihnen — mit Charme, Absurdität oder einem Themenwechsel — und sieht die Regel, die sie angeblich brechen, wahrhaftig nicht. Die Blindheit ist real, nicht taktisch, und es liegt keine Boschheftigkeit darin.
+- back-translation: On the seventh seat, requirements for formal consistency are perceived more as traps than as tools. The person escapes them — with charm, absurdity, or a change of subject — and truly does not see the rule they are supposedly breaking. The blindness is real, not tactical, and there is no hypocrisy in it.
 
