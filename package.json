@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "copy:check": "node tools/copy-sync.mjs --check",
+    "copy:write": "node tools/copy-sync.mjs --write"
   },
   "devDependencies": {
     "vite": "^6.3.5"
