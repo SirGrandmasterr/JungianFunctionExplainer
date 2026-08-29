@@ -1,0 +1,40 @@
+{
+  "_comment": [
+    "Human-editable and authoritative: the model never overrules this file.",
+    "European Spanish (es-ES): 'coste' over 'costo'. Change here, not in prompts.",
+    "locked — tokens that must survive verbatim into Spanish (content/SCHEMA.md 'Do not translate').",
+    "The §3.1 dial parameter names (duty, fidelity, latency, noise, control, contrary) and the",
+    "receipt symbol 'u' are NOT locked here although SCHEMA.md lists them: they are composed in",
+    "JS and never appear in map prose, and 'u' is a Spanish conjunction. If they ever enter the",
+    "map as literals, add them back.",
+    "preferred — the terms of art, fixed once so the site never calls one thing by three names.",
+    "  en:    the English term as it appears in source text (stem, matched case-insensitively)",
+    "  use:   the Spanish term the translation must use",
+    "  match: the stem the compliance check looks for in the Spanish (defaults to 'use')"
+  ],
+  "language": "Spanish (European)",
+  "locked": [
+    "Ti", "Te", "Fi", "Fe", "Ni", "Ne", "Si", "Se",
+    "INTP", "ISTP", "ENTP", "ESTP", "INFJ", "ISFJ", "ENFJ", "ESFJ",
+    "INTJ", "ISTJ", "ENTJ", "ESTJ", "INFP", "ISFP", "ENFP", "ESFP",
+    "CURRENTS", "×", "τ",
+    "Jung", "Myers", "Quenk", "Beebe", "Grant"
+  ],
+  "preferred": [
+    { "en": "dominant", "use": "dominante", "match": "dominante" },
+    { "en": "auxiliary", "use": "auxiliar", "match": "auxiliar" },
+    { "en": "tertiary", "use": "terciaria", "match": "terciari" },
+    { "en": "inferior", "use": "inferior" },
+    { "en": "shadow", "use": "sombra", "match": "sombra" },
+    { "en": "grip", "use": "garra", "match": "garra" },
+    { "en": "loop", "use": "bucle", "match": "bucle" },
+    { "en": "feeder", "use": "alimentadora", "match": "alimentador" },
+    { "en": "stack", "use": "pila", "match": "pila" },
+    { "en": "chamber", "use": "cámara", "match": "cámara" },
+    { "en": "position", "use": "posición", "match": "posici" },
+    { "en": "cost", "use": "coste", "match": "cost" },
+    { "en": "seat", "use": "asiento", "match": "asient" },
+    { "en": "waterline", "use": "línea de flotación", "match": "flotaci" },
+    { "en": "lattice", "use": "retícula", "match": "retícul" }
+  ]
+}

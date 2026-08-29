@@ -1,0 +1,39 @@
+{
+  "_comment": [
+    "Human-editable and authoritative: the model never overrules this file.",
+    "locked — tokens that must survive verbatim into German (content/SCHEMA.md 'Do not translate').",
+    "The §3.1 dial parameter names (duty, fidelity, latency, noise, control, contrary) and the",
+    "receipt symbol 'u' are NOT locked here although SCHEMA.md lists them: they are composed in",
+    "JS and never appear in map prose, while 'noise'/'control' are ordinary English words that",
+    "would misfire on mechanism text. If they ever enter the map as literals, add them back.",
+    "preferred — the terms of art, fixed once so the site never calls one thing by three names.",
+    "  en:    the English term as it appears in source text (stem, matched case-insensitively)",
+    "  use:   the German term the translation must use",
+    "  match: the stem the compliance check looks for in the German (defaults to 'use')"
+  ],
+  "language": "German",
+  "locked": [
+    "Ti", "Te", "Fi", "Fe", "Ni", "Ne", "Si", "Se",
+    "INTP", "ISTP", "ENTP", "ESTP", "INFJ", "ISFJ", "ENFJ", "ESFJ",
+    "INTJ", "ISTJ", "ENTJ", "ESTJ", "INFP", "ISFP", "ENFP", "ESFP",
+    "CURRENTS", "×", "τ",
+    "Jung", "Myers", "Quenk", "Beebe", "Grant"
+  ],
+  "preferred": [
+    { "en": "dominant", "use": "dominant" },
+    { "en": "auxiliary", "use": "Hilfsfunktion", "match": "hilfsfunktion" },
+    { "en": "tertiary", "use": "tertiär", "match": "tertiär" },
+    { "en": "inferior", "use": "inferior" },
+    { "en": "shadow", "use": "Schatten", "match": "schatten" },
+    { "en": "grip", "use": "Grip", "match": "grip" },
+    { "en": "loop", "use": "Loop", "match": "loop" },
+    { "en": "feeder", "use": "Zubringer", "match": "zubringer" },
+    { "en": "stack", "use": "Stack", "match": "stack" },
+    { "en": "chamber", "use": "Kammer", "match": "kammer" },
+    { "en": "position", "use": "Position", "match": "position" },
+    { "en": "cost", "use": "Kosten", "match": "kost" },
+    { "en": "seat", "use": "Sitz", "match": "sitz" },
+    { "en": "waterline", "use": "Wasserlinie", "match": "wasserlinie" },
+    { "en": "lattice", "use": "Gitter", "match": "gitter" }
+  ]
+}

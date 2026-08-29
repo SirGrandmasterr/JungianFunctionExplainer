@@ -9,7 +9,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "copy:check": "node tools/copy-sync.mjs --check",
-    "copy:write": "node tools/copy-sync.mjs --write"
+    "copy:write": "node tools/copy-sync.mjs --write",
+    "i18n:translate": "node tools/translate.mjs",
+    "i18n:review": "node tools/translate.mjs --review",
+    "i18n:check": "node tools/i18n-check.mjs"
   },
   "devDependencies": {
     "vite": "^6.3.5"
