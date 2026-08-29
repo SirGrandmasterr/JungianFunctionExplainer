@@ -6,7 +6,9 @@
   <title>CURRENTS — An Interactive Atlas of the Eight Cognitive Functions</title>
   <script type="module">
     import './src/styles/base.css';
+    import { initLocale } from './src/shared/locale.js';
     import { initHeader } from './src/shared/header.js';
+    await initLocale();
     initHeader('');
   </script>
   <style>

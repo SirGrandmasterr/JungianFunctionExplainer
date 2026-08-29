@@ -63,6 +63,24 @@ nav.atlas a.play { border-color: var(--axis); color: var(--ink-2); margin-left: 
 nav.atlas a.play:hover { border-color: var(--ink-2); color: var(--ink); text-decoration: none; }
 nav.atlas a.play.active { background: var(--ink); border-color: var(--ink); color: var(--bg); font-weight: 600; }
 
+/* language switcher (header.js adds it when translated locales exist) */
+.lang-switch { display: flex; gap: 4px; }
+.lang-switch button {
+  font: inherit; font-size: 11px; letter-spacing: 0.06em;
+  padding: 4px 8px; border-radius: 20px;
+  border: 1px solid var(--grid); background: none; color: var(--muted);
+  cursor: pointer;
+}
+.lang-switch button:hover { border-color: var(--ink-2); color: var(--ink); }
+.lang-switch button.active { background: var(--ink); border-color: var(--ink); color: var(--bg); font-weight: 600; cursor: default; }
+
+/* machine-translation notice (locale.js inserts it on non-English pages) */
+.mt-notice {
+  font-size: 11.5px; line-height: 1.4; color: var(--muted);
+  text-align: center; padding: 6px 22px;
+  border-bottom: 1px solid var(--grid);
+}
+
 /* ---------- zone A: hero ---------- */
 #zone-a { position: relative; height: 92vh; min-height: 540px; overflow: hidden; }
 #glyphHero { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }

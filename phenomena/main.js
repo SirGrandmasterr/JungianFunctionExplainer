@@ -11,9 +11,13 @@ import '../src/styles/base.css';
 import '../src/styles/phenomena-theme.css';
 
 import { initHeader } from '../src/shared/header.js';
+import { initLocale } from '../src/shared/locale.js';
 import { TYPES, ARCHETYPES, AXES, profile } from '../src/data/typology.js';
 import { HEADLINE, MECHANISM, SLOW, CONTRAST, SOURCES } from '../src/data/phenomena-data.js';
 
+/* Locale first: a no-op for English, and for other locales it loads the
+   dictionaries before any zone builds its DOM (src/shared/locale.js). */
+await initLocale();
 initHeader('phenomena');
 
 const el = (id) => document.getElementById(id);

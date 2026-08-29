@@ -14,13 +14,23 @@
    ============================================================ */
 import SITE from '../../content/en/site.json';
 
-const REG = Object.create(null);
+const REG = Object.create(null);   // English — always fully populated
+const LOC = Object.create(null);   // active-locale overlay, empty for English
 
 /** Merge a namespace dictionary (flat, dotted keys) into the registry. */
 export function registerCopy(dict) {
   for (const k of Object.keys(dict)) REG[k] = dict[k];
 }
 registerCopy(SITE);
+
+/** Overlay a locale dictionary. Lookups fall back to English per key —
+    a missing translation shows English, never a blank or a raw key. */
+export function registerLocaleCopy(dict) {
+  for (const k of Object.keys(dict)) {
+    if (k === '_meta') continue;    // pipeline metadata, not copy
+    LOC[k] = dict[k];
+  }
+}
 
 /** Replace {named} tokens. Values are the caller's responsibility:
     where the result feeds innerHTML, pass only trusted markup. */
@@ -33,7 +43,7 @@ export function fmt(str, vars) {
 
 /** A plain-string entry, with optional {token} substitution. */
 export function t(key, vars) {
-  const v = REG[key];
+  const v = typeof LOC[key] === 'string' ? LOC[key] : REG[key];
   if (typeof v !== 'string') {
     console.error(`[copy] missing or non-string key: ${key}`);
     return key;
@@ -41,14 +51,17 @@ export function t(key, vars) {
   return fmt(v, vars);
 }
 
-/** A description-object entry ({mechanism, figure, provenance, …}). */
+/** A description-object entry ({mechanism, figure, provenance, …}).
+    Locale fields overlay the English ones, so a field the pipeline
+    flagged or skipped falls back to English rather than vanishing. */
 export function tx(key) {
-  const v = REG[key];
-  if (!v || typeof v !== 'object') {
-    console.error(`[copy] missing or non-object key: ${key}`);
-    return { mechanism: key, figure: '', provenance: 'currents' };
-  }
-  return v;
+  const en = REG[key];
+  const loc = LOC[key];
+  const enObj = en && typeof en === 'object' ? en : null;
+  const locObj = loc && typeof loc === 'object' ? loc : null;
+  if (enObj || locObj) return { ...enObj, ...locObj };
+  console.error(`[copy] missing or non-object key: ${key}`);
+  return { mechanism: key, figure: '', provenance: 'currents' };
 }
 
 /* ---- applyCopy: re-render [data-copy] nodes from the registry ----

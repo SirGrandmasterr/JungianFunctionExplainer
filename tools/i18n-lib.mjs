@@ -137,6 +137,45 @@ export function lengthBounds(kind, srcLen) {
   }
 }
 
+/* ---------------- glossary term detection ----------------
+   Whether a source string actually *uses* a term of art. Two traps the
+   Ti pilot walked into, both of which forced retries that made the
+   German worse rather than better:
+
+     · "seat" fired on "re-seats itself" and "arrives seated" — verbs,
+       not the stack-position noun — and the retry jammed "Sitz" into
+       sentences that never meant it. So: match the whole word plus a
+       simple plural only, never an arbitrary suffix, and never across
+       a hyphen ("re-seats", "half-seated").
+     · "position" fired inside the placeholder "{position}", which is a
+       code identifier and not prose at all. So: strip placeholders
+       before looking. */
+function usesTerm(src, term) {
+  const prose = src.replace(PLACEHOLDER, ' ');
+  return new RegExp(`(?<![-\\w])${escRe(term)}(?:s|es)?(?![\\w])`, 'i').test(prose);
+}
+
+/** Is the fixed target term present in the translation? German
+    capitalizes nouns, so a glossary entry may demand the capital by
+    setting caseSensitive — otherwise "grip" passes where "Grip" was
+    specified. Terms that are verbs as often as nouns (cost/kosten)
+    leave it off. */
+function honoursTerm(out, p) {
+  const stem = p.match || p.use;
+  return p.caseSensitive ? out.includes(stem) : out.toLowerCase().includes(stem.toLowerCase());
+}
+
+/** Glossary compliance for one source/translation pair, as messages.
+    Shared so translate.mjs and i18n-check.mjs enforce one rule set. */
+export function glossaryProblems(src, out, glossary) {
+  const problems = [];
+  for (const p of glossary.preferred) {
+    if (!usesTerm(src, p.en)) continue;
+    if (!honoursTerm(out, p)) problems.push(`glossary: "${p.en}" must be rendered with "${p.use}"`);
+  }
+  return problems;
+}
+
 /* ---------------- validation ---------------- */
 
 const ALLOWED_TAGS = ['strong', 'em', 'br'];
@@ -191,14 +230,7 @@ export function validateTranslation(unit, text, glossary) {
 
   /* preferred terminology: if the English term of art is present, the
      fixed target term must be too */
-  for (const p of glossary.preferred) {
-    const enRe = new RegExp(`\\b${escRe(p.en)}`, 'i');
-    if (!enRe.test(src)) continue;
-    const stem = (p.match || p.use).toLowerCase();
-    if (!out.toLowerCase().includes(stem)) {
-      problems.push(`glossary: "${p.en}" must be rendered with "${p.use}"`);
-    }
-  }
+  problems.push(...glossaryProblems(src, out, glossary));
 
   /* length */
   const [lo, hi] = lengthBounds(unit.kind, src.length);

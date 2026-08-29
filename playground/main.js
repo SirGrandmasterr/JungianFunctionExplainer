@@ -9,6 +9,7 @@ import '../src/styles/base.css';
 import '../src/styles/playground-theme.css';
 
 import { initHeader } from '../src/shared/header.js';
+import { initLocale } from '../src/shared/locale.js';
 import { stackForCode, typeCode } from '../src/playground/types.js';
 import { clock } from '../src/playground/clock.js';
 import { Run } from '../src/playground/run.js';
@@ -19,6 +20,9 @@ import { Resolution } from '../src/playground/ui/resolution.js';
 import { SCENARIOS } from '../src/data/scenarios/index.js';
 import { EPISTEMIC } from '../src/data/playground-data.js';
 
+/* Locale first: a no-op for English, and for other locales it loads the
+   dictionaries before any zone builds its DOM (src/shared/locale.js). */
+await initLocale();
 initHeader('playground');
 
 const app = document.getElementById('app');

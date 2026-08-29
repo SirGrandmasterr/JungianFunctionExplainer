@@ -2,6 +2,7 @@
    CURRENTS · Site header + function atlas navigation
    ============================================================ */
 import { t } from './copy.js';
+import { availableLocales, currentLocale, setLocale } from './locale.js';
 
 const FUNCTIONS = [
   { key: 'ne', label: 'Ne', href: '/ne/' },
@@ -87,4 +88,34 @@ export function initHeader(activeKey) {
   nav.appendChild(play);
 
   header.appendChild(nav);
+
+  /* Language switcher — only when at least one translated locale shipped.
+     Sits outside nav.atlas so it stays put when the nav becomes a
+     horizontal scroll strip on narrow viewports. */
+  const locales = availableLocales();
+  if (locales.length) {
+    const group = document.createElement('div');
+    group.className = 'lang-switch';
+    group.setAttribute('role', 'group');
+    group.setAttribute('aria-label', t('site.i18n.switcherAria'));
+    for (const code of ['en', ...locales]) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = code.toUpperCase();
+      /* endonym ("Deutsch", "español") for assistive tech and hover */
+      let name = code;
+      try { name = new Intl.DisplayNames([code], { type: 'language' }).of(code) || code; } catch { /* old engines */ }
+      b.setAttribute('aria-label', name);
+      b.title = name;
+      if (code === currentLocale()) {
+        /* stays focusable so assistive tech can reach the aria-current */
+        b.classList.add('active');
+        b.setAttribute('aria-current', 'true');
+      } else {
+        b.addEventListener('click', () => setLocale(code));
+      }
+      group.appendChild(b);
+    }
+    header.appendChild(group);
+  }
 }

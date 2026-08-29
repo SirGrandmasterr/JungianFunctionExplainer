@@ -28,6 +28,9 @@ import {
 } from './i18n-lib.mjs';
 
 const PROMPT_VERSION = 1;
+/* Separate from PROMPT_VERSION: changing how entries are reviewed must
+   re-run reviews without invalidating (and re-translating) the corpus. */
+const REVIEW_VERSION = 3;
 const HOST = (process.env.OLLAMA_HOST || 'http://127.0.0.1:11434').replace(/\/$/, '');
 const DEFAULT_MODEL = 'gemma4:12b';
 
@@ -431,13 +434,29 @@ if (!opt.review) {
 
 if (opt.review) {
   const BACK_SYS = `You translate ${LANG} to English. Respond with JSON only: {"translation": "..."} — the bare English translation, nothing else.`;
+  /* The judge sees only English (source vs back-translation), so it cannot
+     tell a genuine error from an artifact of the round trip. Two things it
+     must be told, or it spends its flags on the pipeline's own rules:
+       · the glossary — "Gitter" is the REQUIRED rendering of "lattice",
+         so its coming back as "grid" is compliance, not drift;
+       · that a synonym is not a defect — only a changed concept is. */
   const JUDGE_SYS =
     `You are a translation QA reviewer for a website about Jungian cognitive functions. ` +
     `You get an English SOURCE and an English BACK-TRANSLATION of its ${LANG} rendering. ` +
-    `Decide whether the ${LANG} translation preserved the meaning. ` +
-    `Set ok=false when a claim is lost, added, reversed, hedged, or distorted; when an image breaks; when a term of art changed identity. ` +
-    `Wording drift that double translation alone explains is fine. ` +
-    `Respond with JSON only: {"ok": true/false, "issue": "one short sentence, empty when ok"}.`;
+    `Judge only whether MEANING survived — you are not scoring word choice.\n` +
+    `Set ok=false when: a claim is lost, added, reversed, hedged, or distorted; a hypothetical became an assertion; ` +
+    `a visual image turned into a different image; a concrete detail (name, number, type code) changed.\n` +
+    `Set ok=true when the difference is only wording. A back-translation returning a synonym, a near-synonym, or a ` +
+    `more generic word for the same concept is EXPECTED — translating twice never returns the original words. ` +
+    `Single words and short labels round-trip loosely; judge them by concept, not by vocabulary.\n` +
+    `You are comparing two ENGLISH texts. You cannot see the ${LANG} translation itself, so never state or guess which ` +
+    `${LANG} words it used, and never report a glossary violation — a separate check already enforces the glossary and it passed.\n` +
+    (glossary.preferred.length
+      ? `In particular these concepts have fixed ${LANG} renderings that come back as different English words — ` +
+        `${glossary.preferred.map((p) => `"${p.en}"`).join(', ')} — so seeing any of them return as a synonym, a near-word, or a ` +
+        `more generic term is expected and is never an issue.\n`
+      : '') +
+    `Respond with JSON only: {"ok": true/false, "issue": "one short sentence naming the lost or changed meaning, empty when ok"}.`;
 
   const reviewWork = [];
   for (const p of plan) {
@@ -445,7 +464,7 @@ if (opt.review) {
       if (p.reviewedKeys.has(unit.key)) continue;
       const st = state.entries[unit.id];
       if (!st || st.status !== 'ok') continue;                    // flagged/verbatim: nothing to review
-      if (st.review && st.review.srcHash === st.srcHash && !opt.force) continue;
+      if (st.review && st.review.srcHash === st.srcHash && st.review.v === REVIEW_VERSION && !opt.force) continue;
       const text = unit.field === null ? p.existing[unit.key] : p.existing[unit.key]?.[unit.field];
       if (typeof text !== 'string') continue;
       reviewWork.push({ unit, st, text });
@@ -468,7 +487,7 @@ if (opt.review) {
     ], R_FORMAT);
     let verdict;
     try { verdict = JSON.parse(verdictRaw); } catch { verdict = { ok: false, issue: 'review call returned unparseable JSON' }; }
-    st.review = { srcHash: st.srcHash, ok: !!verdict.ok, issue: String(verdict.issue || ''), back, at: new Date().toISOString() };
+    st.review = { srcHash: st.srcHash, v: REVIEW_VERSION, ok: !!verdict.ok, issue: String(verdict.issue || ''), back, at: new Date().toISOString() };
     if (!verdict.ok) rflagged++;
     rdone++;
     logLine(`[review ${opt.locale} ${rdone}/${reviewWork.length}] ${verdict.ok ? 'ok     ' : 'FLAGGED'} ${unit.id}`);

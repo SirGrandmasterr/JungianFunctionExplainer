@@ -7,6 +7,7 @@ import '../src/styles/fi-theme.css';
 
 import { REDUCED } from '../src/utils/dom.js';
 import { initHeader } from '../src/shared/header.js';
+import { initLocale } from '../src/shared/locale.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
 import { initLabLayout } from '../src/shared/lab-layout.js';
@@ -16,6 +17,9 @@ import { FluidGPU as Fluid } from '../src/engines/fi-fluid.js';
 import { loadFiData } from '../src/data/fi-data.js';
 
 // 1. Load header & data
+/* Locale first: a no-op for English, and for other locales it loads the
+   dictionaries before any zone builds its DOM (src/shared/locale.js). */
+await initLocale();
 initHeader('fi');
 const data = loadFiData();
 const { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY } = data;

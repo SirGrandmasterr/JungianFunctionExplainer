@@ -7,9 +7,13 @@
     "JS and never appear in map prose, while 'noise'/'control' are ordinary English words that",
     "would misfire on mechanism text. If they ever enter the map as literals, add them back.",
     "preferred — the terms of art, fixed once so the site never calls one thing by three names.",
-    "  en:    the English term as it appears in source text (stem, matched case-insensitively)",
+    "  en:    the English term, matched as a whole word (plural allowed, hyphenated",
+    "         compounds and other suffixes not: 'seat' does not fire on 're-seats')",
     "  use:   the German term the translation must use",
-    "  match: the stem the compliance check looks for in the German (defaults to 'use')"
+    "  match: the stem the compliance check looks for in the German (defaults to 'use')",
+    "  caseSensitive: require the capital. Set on nouns, since German capitalizes them",
+    "         and 'grip' would otherwise pass where 'Grip' was specified. Left off for",
+    "         terms that are as often verbs or adjectives (kosten, dominant, inferior)."
   ],
   "language": "German",
   "locked": [
@@ -21,19 +25,19 @@
   ],
   "preferred": [
     { "en": "dominant", "use": "dominant" },
-    { "en": "auxiliary", "use": "Hilfsfunktion", "match": "hilfsfunktion" },
+    { "en": "auxiliary", "use": "Hilfsfunktion", "match": "Hilfsfunktion", "caseSensitive": true },
     { "en": "tertiary", "use": "tertiär", "match": "tertiär" },
     { "en": "inferior", "use": "inferior" },
-    { "en": "shadow", "use": "Schatten", "match": "schatten" },
-    { "en": "grip", "use": "Grip", "match": "grip" },
-    { "en": "loop", "use": "Loop", "match": "loop" },
-    { "en": "feeder", "use": "Zubringer", "match": "zubringer" },
-    { "en": "stack", "use": "Stack", "match": "stack" },
-    { "en": "chamber", "use": "Kammer", "match": "kammer" },
-    { "en": "position", "use": "Position", "match": "position" },
+    { "en": "shadow", "use": "Schatten", "match": "Schatten", "caseSensitive": true },
+    { "en": "grip", "use": "Grip", "match": "Grip", "caseSensitive": true },
+    { "en": "loop", "use": "Loop", "match": "Loop", "caseSensitive": true },
+    { "en": "feeder", "use": "Zubringer", "match": "Zubringer", "caseSensitive": true },
+    { "en": "stack", "use": "Stack", "match": "Stack", "caseSensitive": true },
+    { "en": "chamber", "use": "Kammer", "match": "Kammer", "caseSensitive": true },
+    { "en": "position", "use": "Position", "match": "Position", "caseSensitive": true },
     { "en": "cost", "use": "Kosten", "match": "kost" },
-    { "en": "seat", "use": "Sitz", "match": "sitz" },
-    { "en": "waterline", "use": "Wasserlinie", "match": "wasserlinie" },
-    { "en": "lattice", "use": "Gitter", "match": "gitter" }
+    { "en": "seat", "use": "Sitz", "match": "Sitz", "caseSensitive": true },
+    { "en": "waterline", "use": "Wasserlinie", "match": "Wasserlinie", "caseSensitive": true },
+    { "en": "lattice", "use": "Gitter", "match": "Gitter", "caseSensitive": true }
   ]
 }

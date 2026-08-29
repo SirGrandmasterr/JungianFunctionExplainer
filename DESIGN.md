@@ -461,6 +461,19 @@ The interaction language stays playful ("overclock," "forge a scenario") but the
 
 A persistent, single-line footer: *"Cognitive function theory is an interpretive model from analytical psychology, not established neuroscience. CURRENTS visualizes the model's internal logic — treat it as a lens, not a diagnosis."* This protects the project's credibility and its users in one sentence.
 
+## 6.4 Languages (added 2026-08-29)
+
+The site is multilingual. **English is canonical**: `content/en/**` is the authority for
+every user-facing string, and the inline English in the HTML remains the render source —
+an English page fetches nothing. Non-English locales (`content/de/**`, `content/es/**`, …)
+are **machine-drafted** by `tools/translate.mjs` against a local Ollama model and stay
+marked `mt` until a human promotes an entry to `reviewed` in the locale file's `_meta`.
+Every non-English page carries a visible notice saying exactly that — §1.4.5 and §6.3
+refuse to overclaim about the psychology, and the site does not get to quietly overclaim
+about its own German. Terminology per locale is fixed in `content/glossary/<locale>.json`,
+which outranks the model. Process, costs, and the reasoning for local-not-cloud live in
+`docs/i18n.md`.
+
 ---
 
 *End of document — CURRENTS Design Document v1.1 (Se/Si glyphs and Perception Fidelity Lab reworked; Fe glyph re-specified and Resonance Lab added — full spec in `fe-page-spec.md`)*

@@ -27,7 +27,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   CONTENT, TRANSLATABLE_FIELDS, readEnCorpus, loadGlossary, localesOnDisk,
-  readLocaleFile, placeholdersOf, countToken, canonicalLocaleJson,
+  readLocaleFile, placeholdersOf, countToken, canonicalLocaleJson, glossaryProblems,
 } from './i18n-lib.mjs';
 
 const errors = [];
@@ -44,7 +44,7 @@ function tagCounts(str) {
 
 const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-function checkField(file, id, src, out, isHtml, glossary) {
+function checkField(file, id, src, out, isHtml, glossary, status) {
   if (typeof out !== 'string') { err(file, `${id}: must be a string`); return; }
   const want = placeholdersOf(src), got = placeholdersOf(out);
   for (const n of want) if (!got.has(n)) err(file, `${id}: placeholder {${n}} missing`);
@@ -60,11 +60,13 @@ function checkField(file, id, src, out, isHtml, glossary) {
     const n = countToken(src, tok);
     if (n > 0 && countToken(out, tok) < n) err(file, `${id}: locked term "${tok}" lost (en has ${n}×)`);
   }
-  for (const p of glossary.preferred) {
-    if (!new RegExp(`\\b${escRe(p.en)}`, 'i').test(src)) continue;
-    if (!out.toLowerCase().includes((p.match || p.use).toLowerCase())) {
-      err(file, `${id}: glossary term "${p.en}" not rendered with "${p.use}"`);
-    }
+  /* Same term detection the translator validates against, so the two
+     tools can never disagree about what the glossary requires — except
+     on a `flagged` key, which carries the English text on purpose until
+     a human writes the translation. Demanding target-language
+     terminology of deliberately-English text is a false failure. */
+  if (status !== 'flagged') {
+    for (const msg of glossaryProblems(src, out, glossary)) err(file, `${id}: ${msg}`);
   }
 }
 
@@ -116,7 +118,7 @@ for (const locale of locales) {
       const enV = en.dict[k], v = dict[k];
       if (v === undefined) continue;
       if (typeof enV === 'string') {
-        checkField(file, k, enV, v, k.endsWith('Html'), glossary);
+        checkField(file, k, enV, v, k.endsWith('Html'), glossary, status[k]);
         continue;
       }
       if (typeof v !== 'object' || v === null) { err(file, `${k}: en entry is an object, locale entry is not`); continue; }
@@ -126,7 +128,7 @@ for (const locale of locales) {
         if (typeof enV[f] === 'string' && typeof v[f] !== 'string') err(file, `${k}.${f}: missing`);
         if (typeof v[f] === 'string' && typeof enV[f] !== 'string') err(file, `${k}.${f}: not present in en — orphan field`);
         if (typeof enV[f] === 'string' && typeof v[f] === 'string') {
-          checkField(file, `${k}.${f}`, enV[f], v[f], f.endsWith('Html'), glossary);
+          checkField(file, `${k}.${f}`, enV[f], v[f], f.endsWith('Html'), glossary, status[k]);
         }
       }
     }
