@@ -10,3 +10,6 @@ content/*/.last-run.log
 # Task briefs handed to the agent, not part of the site.
 /*-prompt.md
 /*-prompts.md
+
+# Throwaway Chrome profile created by tools/shot.mjs
+.shots/.chrome-profile/

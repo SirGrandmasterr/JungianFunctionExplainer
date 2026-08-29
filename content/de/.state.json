@@ -5,473 +5,270 @@
       "srcHash": "d8bba16fe1aab532",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:02.687Z",
-      "review": {
-        "srcHash": "d8bba16fe1aab532",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Consciousness",
-        "at": "2026-08-29T21:51:23.383Z"
-      }
+      "at": "2026-08-29T22:15:07.612Z",
+      "text": "Bewusstsein"
     },
     "site.dial.axis.awareness.def": {
       "srcHash": "6b13c86667810620",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:02.167Z",
-      "review": {
-        "srcHash": "6b13c86667810620",
-        "v": 3,
-        "ok": false,
-        "issue": "The source says 'acts on its own' (autonomous action), but the back-translation says 'acts upon itself' (self-reflexive action).",
-        "back": "Self-knowledge: a seat is known by the clarity of what it produces, and one that acts upon itself is opaque to its owner.",
-        "at": "2026-08-29T21:51:24.959Z"
-      }
+      "at": "2026-08-29T22:15:06.986Z",
+      "text": "Selbsterkenntnis: ein Sitz ist durch die Klarheit dessen bekannt, was er hervorbringt, und einer, der auf sich selbst wirkt, ist für seinen Besitzer undurchsichtig."
     },
     "site.dial.axis.control.def": {
       "srcHash": "a7aaf7ce0bbbe491",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:04.154Z",
-      "review": {
-        "srcHash": "a7aaf7ce0bbbe491",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "How reliably the function does what its owner intends, minus its contradictory traits.",
-        "at": "2026-08-29T21:51:26.822Z"
-      }
+      "at": "2026-08-29T22:15:09.515Z",
+      "text": "Wie zuverlässig die Sitz das tut, was ihr Besitzer beabsichtigt, abzüglich ihrer widerspenstigen Phase."
     },
     "site.dial.axis.control.label": {
       "srcHash": "6e46de5537829430",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:04.710Z",
-      "review": {
-        "srcHash": "6e46de5537829430",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Control",
-        "at": "2026-08-29T21:51:27.393Z"
-      }
+      "at": "2026-08-29T22:15:10.515Z",
+      "text": "Steuerung"
     },
     "site.dial.axis.endurance.def": {
       "srcHash": "9fa64032cb9fc967",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:05.578Z",
-      "review": {
-        "srcHash": "9fa64032cb9fc967",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "How long this seat can stay awake and bear the load.",
-        "at": "2026-08-29T21:51:29.018Z"
-      }
+      "at": "2026-08-29T22:15:11.603Z",
+      "text": "Wie lange dieser Sitz wach bleiben und Last tragen kann."
     },
     "site.dial.axis.endurance.label": {
       "srcHash": "cabdc25b4a4c8099",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:06.163Z",
-      "review": {
-        "srcHash": "cabdc25b4a4c8099",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Endurance",
-        "at": "2026-08-29T21:51:29.558Z"
-      }
+      "at": "2026-08-29T22:15:12.173Z",
+      "text": "Ausdauer"
     },
     "site.dial.axis.precision.def": {
       "srcHash": "52a8eb25dd963f46",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:07.597Z",
-      "review": {
-        "srcHash": "52a8eb25dd963f46",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "How coherent the output is – the accuracy of the glyph's particles, impaired by static noise.",
-        "at": "2026-08-29T21:51:31.508Z"
-      }
+      "at": "2026-08-29T22:15:15.587Z",
+      "text": "Wie kohärent die Ausgabe ist – die Genauigkeit der Partikel des Glyphs, beeinträchtigt durch statisches Rauschen."
     },
     "site.dial.axis.precision.label": {
       "srcHash": "44b66c872f44ef85",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:08.163Z",
-      "review": {
-        "srcHash": "44b66c872f44ef85",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Accuracy",
-        "at": "2026-08-29T21:51:32.061Z"
-      }
+      "at": "2026-08-29T22:15:16.257Z",
+      "text": "Genauigkeit"
     },
     "site.dial.axis.speed.def": {
       "srcHash": "d725339bf21bd12a",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:09.739Z",
-      "review": {
-        "srcHash": "d725339bf21bd12a",
-        "v": 3,
-        "ok": false,
-        "issue": "The term 'seat' was changed to 'session'.",
-        "back": "How quickly the session responds when it is called – its response latency, scaled to 0–1.",
-        "at": "2026-08-29T21:51:34.423Z"
-      }
+      "at": "2026-08-29T22:15:17.808Z",
+      "text": "Wie schnell der Sitz reagiert, wenn er aufgerufen wird – seine Antwortlatenz, skaliert auf 0–1."
     },
     "site.dial.derivationNote": {
       "srcHash": "914b44a6291d7fa8",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:12.022Z",
-      "review": {
-        "srcHash": "914b44a6291d7fa8",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Derived from the same parameters from which the glyph is rendered; the ripeness slider feeds both.",
-        "at": "2026-08-29T21:51:37.015Z"
-      }
+      "at": "2026-08-29T22:15:20.007Z",
+      "text": "Abgeleitet aus denselben Parametern, aus denen das Glyph gerendert wird; der Reifegrad-Schieberegler speist beide."
     },
     "site.dial.axis.speed.label": {
       "srcHash": "db01618075d49e72",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:12.466Z",
-      "review": {
-        "srcHash": "db01618075d49e72",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Tempo",
-        "at": "2026-08-29T21:51:35.032Z"
-      }
+      "at": "2026-08-29T22:15:20.575Z",
+      "text": "Tempo"
     },
     "site.dial.presetLabel": {
       "srcHash": "1d38483974065baa",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:13.696Z",
-      "review": {
-        "srcHash": "1d38483974065baa",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "{name} Preset",
-        "at": "2026-08-29T21:51:37.569Z"
-      }
+      "at": "2026-08-29T22:15:21.392Z",
+      "text": "{name} Preset"
     },
     "site.dial.presetLabelAged": {
       "srcHash": "a30802f4d0197876",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:14.494Z",
-      "review": {
-        "srcHash": "a30802f4d0197876",
-        "v": 3,
-        "ok": false,
-        "issue": "The word 'age' was replaced by 'change'.",
-        "back": "{name} Preset · Change {n}",
-        "at": "2026-08-29T21:51:39.420Z"
-      }
+      "at": "2026-08-29T22:15:22.150Z",
+      "text": "{name} Preset · Alter {n}"
     },
     "site.dial.readAsText": {
       "srcHash": "b805871be645a618",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:15.115Z",
-      "review": {
-        "srcHash": "b805871be645a618",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Read profile as text",
-        "at": "2026-08-29T21:51:39.999Z"
-      }
+      "at": "2026-08-29T22:15:22.863Z",
+      "text": "Profil als Text lesen"
     },
     "site.dial.rowCharacter": {
       "srcHash": "b7ff571194f3840d",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:15.868Z",
-      "review": {
-        "srcHash": "b7ff571194f3840d",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "{fn} character",
-        "at": "2026-08-29T21:51:41.332Z"
-      }
+      "at": "2026-08-29T22:15:23.388Z",
+      "text": "{fn} Charakter"
     },
     "site.dial.rowPositionTerm": {
       "srcHash": "3802818382011d06",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:16.482Z",
-      "review": {
-        "srcHash": "3802818382011d06",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Position term",
-        "at": "2026-08-29T21:51:41.937Z"
-      }
+      "at": "2026-08-29T22:15:24.026Z",
+      "text": "Positionsterm"
     },
     "site.dial.svgAria": {
       "srcHash": "4535d1b48513c864",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:17.278Z",
-      "review": {
-        "srcHash": "4535d1b48513c864",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Radar scale of performance parameters",
-        "at": "2026-08-29T21:51:44.087Z"
-      }
+      "at": "2026-08-29T22:15:24.775Z",
+      "text": "Skala der Leistungsparameter"
     },
     "site.dial.svgAriaInteractive": {
       "srcHash": "4831baded15069e7",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:18.999Z",
-      "review": {
-        "srcHash": "4831baded15069e7",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Accuracy profile radar. Focus on and use the arrow keys to examine each axis, or read the text version below.",
-        "at": "2026-08-29T21:51:44.667Z"
-      }
+      "at": "2026-08-29T22:15:29.647Z",
+      "text": "Radar des Genauigkeit-Profils. Konzentrieren Sie sich auf und nutzen Sie die Pfeiltasten, um jede Achse zu untersuchen, oder lesen Sie die Textversion unten."
     },
     "site.feeder.chip": {
       "srcHash": "f484d3404daa0493",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "verbatim",
-      "at": "2026-08-29T21:47:18.999Z"
+      "at": "2026-08-29T22:15:27.659Z"
     },
     "site.dial.svgTitle": {
       "srcHash": "ad55d4c02f617dfa",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:19.719Z",
-      "review": {
-        "srcHash": "ad55d4c02f617dfa",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Accuracy profile for the selected stack position",
-        "at": "2026-08-29T21:51:46.233Z"
-      }
+      "at": "2026-08-29T22:15:27.659Z",
+      "text": "Genauigkeitsprofil für die ausgewählte Stack-Position"
     },
     "site.feeder.hideExotic": {
       "srcHash": "baa518a06431bb9a",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:20.486Z",
-      "review": {
-        "srcHash": "baa518a06431bb9a",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Hide exotic couplings",
-        "at": "2026-08-29T21:51:46.812Z"
-      }
+      "at": "2026-08-29T22:15:30.417Z",
+      "text": "Exotische Kopplungen ausblenden"
     },
     "site.feeder.showExotic": {
       "srcHash": "6503c8236b8c202c",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:22.119Z",
-      "review": {
-        "srcHash": "6503c8236b8c202c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Show exotic couplings",
-        "at": "2026-08-29T21:51:48.855Z"
-      }
+      "at": "2026-08-29T22:15:32.223Z",
+      "text": "Exotische Kopplungen anzeigen ▸"
     },
     "site.feeder.loading": {
       "srcHash": "bb7fed859f2da1d6",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:21.349Z",
-      "review": {
-        "srcHash": "bb7fed859f2da1d6",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Feeder narrative is loading...",
-        "at": "2026-08-29T21:51:48.321Z"
-      }
+      "at": "2026-08-29T22:15:33.602Z",
+      "text": "Zubringer-Narrativ wird geladen..."
     },
     "site.feeder.stageAria": {
       "srcHash": "1104e42600047732",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:22.986Z",
-      "review": {
-        "srcHash": "1104e42600047732",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "feeder coupling stage",
-        "at": "2026-08-29T21:51:51.010Z"
-      }
+      "at": "2026-08-29T22:15:34.715Z",
+      "text": "Zubringer-Kopplungsbühne"
     },
     "site.feeder.unstableJudging": {
       "srcHash": "539fc7c535a25bf7",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:23.861Z",
-      "review": {
-        "srcHash": "539fc7c535a25bf7",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "Unstable coupling: Judging feeds judging without perception.",
-        "at": "2026-08-29T21:51:51.852Z"
-      }
+      "at": "2026-08-29T22:15:36.722Z",
+      "text": "Instabile Kopplung: Judging füttert Judging ohne Wahrnehmung."
     },
     "site.fieldNotes.ctaEnergy": {
       "srcHash": "92027289deacda1c",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:24.657Z",
-      "review": {
-        "srcHash": "92027289deacda1c",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "What {fn} costs, compared to the other seven →",
-        "at": "2026-08-29T21:51:54.075Z"
-      }
+      "at": "2026-08-29T22:15:38.166Z",
+      "text": "Was {fn} kostet, im Vergleich zu den anderen sieben →"
     },
     "site.fieldNotes.ctaPlayground": {
       "srcHash": "e5c205e318fadd4b",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:25.416Z",
-      "review": {
-        "srcHash": "e5c205e318fadd4b",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "bring {fn} to the playground",
-        "at": "2026-08-29T21:51:54.698Z"
-      }
+      "at": "2026-08-29T22:15:39.595Z",
+      "text": "Gehe zu {fn} auf der Spielwiese →"
     },
     "site.fieldNotes.mirrorVs": {
       "srcHash": "9c12629dea8d271a",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:27.020Z",
-      "review": {
-        "srcHash": "9c12629dea8d271a",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "{fn} vs. {counterpart}",
-        "at": "2026-08-29T21:51:57.061Z"
-      }
+      "at": "2026-08-29T22:15:41.377Z",
+      "text": "{fn} vs {counterpart}"
     },
     "site.fieldNotes.ctaSeated": {
       "srcHash": "a6ada24dc525e0a9",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:26.233Z",
-      "review": {
-        "srcHash": "a6ada24dc525e0a9",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "appears as {type}s {position}",
-        "at": "2026-08-29T21:51:56.477Z"
-      }
+      "at": "2026-08-29T22:15:40.518Z",
+      "text": "erscheint als {type}s {position}"
     },
     "site.footer.line": {
       "srcHash": "881496c3378409dd",
       "model": "gemma4:12b",
       "promptVersion": 3,
-      "glossaryHash": "780cd02889ed57b7",
+      "glossaryHash": "920cc141384a1fc5",
       "status": "ok",
-      "at": "2026-08-29T21:47:28.482Z",
-      "review": {
-        "srcHash": "881496c3378409dd",
-        "v": 3,
-        "ok": true,
-        "issue": "",
-        "back": "CURRENTS v1.0 · An interactive atlas of the eight cognitive functions · Created with Vanilla JS & WebGL2",
-        "at": "2026-08-29T21:51:59.320Z"
-      }
+      "at": "2026-08-29T22:15:43.279Z",
+      "text": "CURRENTS v1.0 · Ein interaktiver Atlas der acht kognitiven Funktionen · Erstellt mit Vanilla JS & WebGL2"
     },
     "site.header.brandSub": {
       "srcHash": "e0e08b00f694a22c",
