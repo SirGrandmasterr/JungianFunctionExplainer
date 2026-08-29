@@ -61,7 +61,11 @@ export class Assembly {
             <line class="ax" x1="170" y1="34" x2="170" y2="306"/>
             <line class="ax" x1="34" y1="170" x2="306" y2="170"/>
             <text class="ax-l" x="170" y="24" text-anchor="middle">PERCEPTION AXIS</text>
-            <text class="ax-l" x="316" y="167" text-anchor="middle" transform="rotate(90 316 167)">JUDGMENT AXIS</text>
+            <!-- x=326, not 316: the right-hand slot sits at cx 280 and its rank line
+                 ("INFERIOR · 4th" is the widest) reaches x 314, which ran into the
+                 rotated label's 10px band. 326 clears it and still leaves 9px inside
+                 the 340 viewBox. -->
+            <text class="ax-l" x="326" y="167" text-anchor="middle" transform="rotate(90 326 167)">JUDGMENT AXIS</text>
             <circle class="ego" cx="170" cy="170" r="30"/>
             <text class="ego-t" x="170" y="168" text-anchor="middle">EGO</text>
             <text class="ego-s" x="170" y="180" text-anchor="middle">core</text>
@@ -192,7 +196,11 @@ export class Assembly {
     if (judges[1]) place[judges[1]] = [170 + DIST[judges[1]], 170];
     if (percs[0]) place[percs[0]] = [170, 170 - DIST[percs[0]]];
     if (percs[1]) place[percs[1]] = [170, 170 + DIST[percs[1]]];
-    const fallback = { dom: [104, 170], aux: [170, 94], tert: [170, 246], inf: [280, 170] };
+    /* Each fallback is the slot's DIST from the core, so an unplaced ring sits
+       exactly where its function will land. tert read 246 (= 170 + DIST.aux)
+       rather than 264 — 18px high, which walked its ring into the dominant's
+       "nearest — highest pressure" note on the empty vessel. */
+    const fallback = { dom: [104, 170], aux: [170, 94], tert: [170, 264], inf: [280, 170] };
 
     RANKS.forEach((r, i) => {
       const g = this.bslots[i];
@@ -209,11 +217,18 @@ export class Assembly {
       if (svgMark) { svgMark.setAttribute('x', x - rad * 0.4); svgMark.setAttribute('y', y - rad * 0.72); }
       const l = g.querySelector('.sl-l');
       l.setAttribute('x', x); l.setAttribute('y', y + rad * 0.5); l.textContent = k ? FN[k].label : '';
+      /* Both lines read OUTWARD from the ego. Below-the-circle is the right
+         side for three of the four slots, but for the TOP perception slot it
+         points back into the core: at dom distance that circle stops 2px off
+         the ego ring, so there is no room there at all and the rank line lands
+         on "EGO". That slot stacks its two lines above instead — rank first
+         either way, so the reading order never flips. */
+      const up = y < 170;
       const rr = g.querySelector('.sl-r');
-      rr.setAttribute('x', x); rr.setAttribute('y', y + rad + 14);
+      rr.setAttribute('x', x); rr.setAttribute('y', up ? y - rad - 22 : y + rad + 14);
       rr.textContent = `${RANK_LABEL[r].toUpperCase()} · ${RANK_ORDINAL[r]}`;
       const nn = g.querySelector('.sl-n');
-      nn.setAttribute('x', x); nn.setAttribute('y', y + rad + 26);
+      nn.setAttribute('x', x); nn.setAttribute('y', up ? y - rad - 10 : y + rad + 26);
       nn.textContent = r === 'dom' ? 'nearest — highest pressure'
         : r === 'aux' ? (this.aux ? 'chosen' : 'choosing now')
           : r === 'tert' ? (this.aux ? `entailed by ${FN[this.aux].label}` : 'entailed') : `entailed by ${this.dom ? FN[this.dom].label : '—'}`;

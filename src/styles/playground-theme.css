@@ -145,8 +145,22 @@ main#app { max-width: min(var(--pg-wide), max(1560px, calc(97vw / var(--pg-scale
   stroke: var(--fn-c); stroke-width: 2; stroke-dasharray: none;
 }
 .bslot .sl-l { fill: var(--ink); font-size: 13px; font-weight: 700; }
-.bslot .sl-r { fill: var(--ink-2); font-size: 8px; font-weight: 700; letter-spacing: 0.08em; }
-.bslot .sl-n { fill: var(--muted); font-size: 7.5px; }
+.bslot .sl-r { fill: var(--ink-2); font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em; }
+/* was --muted, which lands at 4.2:1 on the page ground — under AA for text
+   this small, and this is the line carrying the entailment reasoning */
+.bslot .sl-n { fill: var(--pg-ink-3); font-size: 8px; }
+
+/* Every label that lives OUTSIDE a slot ring crosses a dashed axis somewhere
+   in the four-slot geometry — the bottom slot's two lines sit right on the
+   perception axis, the top slot's on the same line above the core. Knock the
+   figure's own ground out behind them rather than breaking either axis: the
+   line stays continuous, the text stays readable, and neither has to move.
+   Labels INSIDE a ring are left alone — their ground is the slot fill. */
+.vessel-fig { --vessel-bg: var(--bg); }
+.vessel-fig .ax-l, .bslot .sl-r, .bslot .sl-n, .vessel-fig .sl-p {
+  paint-order: stroke fill;
+  stroke: var(--vessel-bg); stroke-width: 3px; stroke-linejoin: round;
+}
 .bslot[data-filled="false"] .sl-l { fill: var(--muted); }
 
 .res-card { padding: 14px 16px; border-radius: 12px; background: var(--pg-panel); border: 1px solid var(--pg-line-2); }
@@ -611,6 +625,7 @@ main#app { max-width: min(var(--pg-wide), max(1560px, calc(97vw / var(--pg-scale
 .hm-vessel .cd { stroke: var(--fn-c); opacity: 0.5; stroke-linecap: round; }
 .hm-vessel .cd[data-bypassed="true"] { stroke-dasharray: 2 6; opacity: 0.22; }
 .hm-vessel .slot circle { fill: color-mix(in oklab, var(--fn-c) 18%, var(--pg-panel)); stroke: var(--fn-c); stroke-width: 1.6; }
+.hm-vessel .vessel-fig { --vessel-bg: var(--pg-panel); }
 .hm-vessel .sl-l { fill: var(--ink); font-size: 12px; font-weight: 700; }
 .hm-vessel .sl-p { fill: var(--ink-2); font-size: 8.5px; font-variant-numeric: tabular-nums; }
 .hm-vessel .com { fill: var(--c-accent); }

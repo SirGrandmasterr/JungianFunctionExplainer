@@ -192,8 +192,13 @@ export class WholeHuman {
       const l = g.querySelector('.sl-l');
       l.setAttribute('x', x); l.setAttribute('y', y + 4); l.setAttribute('text-anchor', 'middle');
       l.textContent = FN[k].label;
+      /* Same rule as the Assembly vessel: the readout reads outward, because
+         below the TOP slot is the dashed geometric centre and the CoM marker
+         that the whole figure is built to let you compare. */
       const p = g.querySelector('.sl-p');
-      p.setAttribute('x', x); p.setAttribute('y', y + RAD[r] + 13); p.setAttribute('text-anchor', 'middle');
+      p.setAttribute('x', x);
+      p.setAttribute('y', y < 150 ? y - RAD[r] - 8 : y + RAD[r] + 13);
+      p.setAttribute('text-anchor', 'middle');
       p.textContent = `${Math.round(inv * 100)}%`;
 
       const cd = this.conduits[i];
