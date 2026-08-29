@@ -23,7 +23,7 @@ initHeader('playground');
 
 const app = document.getElementById('app');
 const epi = document.getElementById('epistemic');
-if (epi && EPISTEMIC) epi.textContent = EPISTEMIC;
+if (epi && EPISTEMIC) epi.textContent = EPISTEMIC.footer;
 
 /* ---------- session-scoped state ---------- */
 let run = null;

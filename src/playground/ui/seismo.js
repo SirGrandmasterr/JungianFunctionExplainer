@@ -57,22 +57,35 @@ export class Seismo {
   ensureSize() {
     const r = this.host.getBoundingClientRect();
     if (!r.width || !r.height) return false;
-    if (Math.abs(r.width - (this.W || 0)) < 0.5 && Math.abs(r.height - (this.H || 0)) < 0.5) return true;
+    /* compared against the VISUAL box, not this.W/H — those are layout units
+       now, and under zoom the two differ, which would resize on every beat */
+    if (Math.abs(r.width - (this.vW || 0)) < 0.5 && Math.abs(r.height - (this.vH || 0)) < 0.5) return true;
     this.resize();
     return true;
   }
 
+  /**
+   * The page zooms above the design width (playground-theme.css, "the
+   * responsive ceiling"), and a canvas is the one surface that does not come
+   * along for free: getBoundingClientRect() reports the ZOOMED box while the
+   * element's own CSS box is unzoomed, so drawing in rect units would hold
+   * every stroke at its 1x thickness inside a 1.3x row. Draw in the host's
+   * own layout units instead and put the zoom into the transform, and a
+   * 1.7px trace stays 1.7px of the row it lives in at every step.
+   */
   resize() {
     const r = this.host.getBoundingClientRect();
     if (!r.width || !r.height) return;
     const d = DPR();
-    this.W = r.width; this.H = r.height;
+    const zoom = this.host.clientWidth ? r.width / this.host.clientWidth : 1;
+    this.vW = r.width; this.vH = r.height;
+    this.W = r.width / zoom; this.H = r.height / zoom;
     for (const c of [this.hc, this.fc]) {
       c.width = Math.round(r.width * d);
       c.height = Math.round(r.height * d);
     }
-    this.hx.setTransform(d, 0, 0, d, 0, 0);
-    this.fx.setTransform(d, 0, 0, d, 0, 0);
+    this.hx.setTransform(d * zoom, 0, 0, d * zoom, 0, 0);
+    this.fx.setTransform(d * zoom, 0, 0, d * zoom, 0, 0);
     this.drawHistory();
     this.drawForecast();
   }

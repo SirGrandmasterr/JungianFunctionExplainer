@@ -29,6 +29,14 @@
   --ok: #56c98a;
   --up: #f0a24a;
   --down: #6fb6d8;
+
+  /* The responsive ceiling — the ladder that sets these is at the foot of
+     this file, next to the floor it mirrors. --pg-scale-w is the width's
+     opinion; --pg-scale is what the page actually zooms by, after a short
+     viewport has had its say. */
+  --pg-scale-w: 1;
+  --pg-scale: var(--pg-scale-w);
+  --pg-wide: 1560px;
 }
 
 /* The UA rule for [hidden] is `display:none` at author-origin-zero, so any
@@ -37,8 +45,12 @@
    one rule the forecast grammar rests on: the gutter is EMPTY until hover. */
 [hidden] { display: none !important; }
 
-.pg { padding-bottom: 56px; }
-main#app { max-width: 1560px; margin: 0 auto; padding: 18px 20px 0; }
+.pg { padding-bottom: 56px; zoom: var(--pg-scale); }
+/* max() floors the viewport guard at the 1560px design width, so below the
+   ceiling this is exactly the `max-width: 1560px` it has always been —
+   the guard only ever narrows a shell the ceiling had widened. */
+main#app { max-width: min(var(--pg-wide), max(1560px, calc(97vw / var(--pg-scale))));
+  margin: 0 auto; padding: 18px 20px 0; }
 
 .pg-screen { animation: pgIn 0.22s ease-out; }
 @keyframes pgIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
@@ -303,9 +315,12 @@ main#app { max-width: 1560px; margin: 0 auto; padding: 18px 20px 0; }
 .pg-ledger {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 30px clamp(272px, 21vw, 322px);
+  /* vw/vh are NOT rescaled by zoom — a 50vw child of a zoom:2 box paints
+     100vw — so both terms divide by --pg-scale to keep meaning what they
+     say once the responsive ceiling starts scaling the page. */
+  grid-template-columns: minmax(0, 1fr) 30px clamp(272px, calc(21vw / var(--pg-scale)), 322px);
   gap: 12px; padding: 12px 18px 14px;
-  height: clamp(536px, 60vh, 720px);
+  height: clamp(536px, calc(60vh / var(--pg-scale)), 720px);
 }
 /* min-height:0 is load-bearing on all three ledger columns. A grid item's
    automatic minimum size is its content, so without it the rows size to
@@ -720,11 +735,60 @@ main#app { max-width: 1560px; margin: 0 auto; padding: 18px 20px 0; }
 .cf p { font-size: 10px; color: var(--ink-2); margin-top: 8px; line-height: 1.45; }
 
 /* ============================================================
-   Footer + responsive floor
+   Footer + responsive ceiling + responsive floor
    ============================================================ */
-footer.epistemic { max-width: 1560px; margin: 30px auto 0; padding: 16px 20px 0;
+footer.epistemic { max-width: min(var(--pg-wide), max(1560px, calc(97vw / var(--pg-scale)))); margin: 30px auto 0;
+  padding: 16px 20px 0;
   border-top: 1px solid var(--pg-line); font-size: 11px; color: var(--muted); line-height: 1.6; }
 
+/* ---------- the responsive ceiling ----------
+   The Ledger is an instrument panel, not prose. Its type runs from 7.5px to
+   27px and its columns are authored in px, so above the 1560px design width
+   the page used to buy nothing at all: the panel stayed exactly the size it
+   is on a laptop and drifted into the middle of the screen with 500px of
+   dead margin either side of it. Read at arm's length on a 27" 1440p panel
+   that is not "roomy", it is small — which is the cramped look.
+
+   So the surplus is spent twice. `zoom` scales the whole instrument at once
+   — type, tracks, glyph marks, SVG vessel and canvas alike — which is the
+   one mechanism that cannot break the three rules at the top of this file:
+   every ratio the structure phase tuned survives untouched, because nothing
+   is re-proportioned, only re-sized. And --pg-wide widens the shell in
+   layout px on top of that, so the widened Ledger rows hand their surplus
+   to the expression stream and the seismograph, where reading room is worth
+   the most.
+
+   The two ladders are paired: --pg-wide is what the layout is allowed to
+   grow to, and the 97vw guard on main#app is what it actually gets when the
+   viewport sits near the low edge of a step — floored at 1560px, so the
+   design width is a floor the ceiling can only build upward from. */
+@media (min-width: 1700px) { :root { --pg-scale-w: 1.06; --pg-wide: 1620px; } }
+@media (min-width: 1950px) { :root { --pg-scale-w: 1.14; --pg-wide: 1700px; } }
+@media (min-width: 2250px) { :root { --pg-scale-w: 1.22; --pg-wide: 1800px; } }
+@media (min-width: 2500px) { :root { --pg-scale-w: 1.30; --pg-wide: 1880px; } }
+@media (min-width: 2900px) { :root { --pg-scale-w: 1.40; --pg-wide: 1960px; } }
+@media (min-width: 3400px) { :root { --pg-scale-w: 1.52; --pg-wide: 2060px; } }
+@media (min-width: 3700px) { :root { --pg-scale-w: 1.60; --pg-wide: 2140px; } }
+
+/* A wide but short viewport — an ultrawide panel, a laptop on a dock — has
+   the width to spend and no height to spend it with. The Ledger's own
+   height already divides by the scale, but the fixed chrome above and below
+   it does not, so cap what the width ladder is allowed to ask for. */
+@media (max-height: 940px) { :root { --pg-scale: min(var(--pg-scale-w), 1.12); } }
+
+/* Where the widened shell should NOT simply hand everything to one column:
+   Assembly's centre column holds a single fixed-size figure, so grow the
+   figure and the two gutters with it rather than pooling the surplus as
+   whitespace around a 460px diagram. */
+@media (min-width: 2250px) {
+  .as-grid { grid-template-columns: 440px minmax(420px, 1fr) 440px; }
+  .vessel-fig { max-width: 540px; }
+  .br-grid { grid-template-columns: 420px minmax(0, 1fr); }
+  /* four numbers in one row: past ~900px the 2x2 reads as two sparse halves */
+  .big-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---------- the responsive floor ---------- */
 @media (max-width: 1500px) {
   .as-grid { grid-template-columns: 340px minmax(300px, 1fr) 350px; }
   .hm-grid { grid-template-columns: 280px minmax(0, 1fr) 360px; }
