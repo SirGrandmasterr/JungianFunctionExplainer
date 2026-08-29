@@ -34,7 +34,7 @@ const JS_SKIP = [join('src', 'engines')]; // engines hold no copy and stay untou
 
 const PROVENANCE = new Set(['jung', 'myers', 'quenk', 'beebe', 'grant', 'community', 'currents']);
 const OBJ_REQUIRED = ['figure', 'provenance'];
-const OBJ_OPTIONAL = ['mechanism', 'mechanismHtml', 'example', 'note', 'title', 'kind', 'pair'];
+const OBJ_OPTIONAL = ['mechanism', 'mechanismHtml', 'example', 'note', 'title', 'kind', 'pair', 'warn'];
 const BANNED_IN_MECHANISM = /\b(energy|energies|current|currents|watershed|watersheds|chamber|chambers|lattice|lattices)\b/i;
 const ALLOWED_HTML = /<\/?(strong|em|br)\s*\/?>/g;
 const PLACEHOLDER = /\{([a-zA-Z][a-zA-Z0-9]*)\}/g;
@@ -106,7 +106,7 @@ function validateEntry(file, key, val) {
     if (m) err(file, `${key}.${f}: banned figurative vocabulary in mechanism ("${m[0]}")`);
   }
   if (val.mechanismHtml) checkHtmlField(file, key + '.mechanismHtml', val.mechanismHtml);
-  for (const f of ['mechanism', 'figure', 'example', 'title', 'kind', 'pair']) {
+  for (const f of ['mechanism', 'figure', 'example', 'title', 'kind', 'pair', 'warn']) {
     if (val[f] && val[f].includes('<')) err(file, `${key}.${f}: markup in a plain field`);
     if (val[f] && placeholdersOf(val[f]).size) err(file, `${key}.${f}: placeholders are not allowed in description fields`);
   }

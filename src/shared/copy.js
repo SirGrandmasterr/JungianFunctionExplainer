@@ -100,3 +100,21 @@ export function applyCopy(root = document) {
     }
   }
 }
+
+/** Render a lab narration into a node. A narration is either a plain
+    guidance string or a description entry, whose figure renders as its
+    own secondary line (the mechanism/figure split, content/SCHEMA.md). */
+export function renderNarration(el, n) {
+  if (!el) return;
+  if (typeof n === 'string') { el.textContent = n; return; }
+  el.textContent = '';
+  const mech = document.createElement('span');
+  mech.textContent = n.mechanism;
+  el.appendChild(mech);
+  if (n.figure) {
+    const fig = document.createElement('span');
+    fig.className = 'figurative';
+    fig.textContent = n.figure;
+    el.appendChild(fig);
+  }
+}

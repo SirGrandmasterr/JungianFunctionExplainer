@@ -8,6 +8,7 @@ import '../src/styles/ti-theme.css';
 import { REDUCED } from '../src/utils/dom.js';
 import { initHeader } from '../src/shared/header.js';
 import { initLocale } from '../src/shared/locale.js';
+import { renderNarration } from '../src/shared/copy.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
 import { initLabLayout } from '../src/shared/lab-layout.js';
@@ -79,22 +80,7 @@ if (verifyCanvas) {
   const mStress = document.getElementById('mStress'), mPleasure = document.getElementById('mPleasure');
   const mStressVal = document.getElementById('mStressVal'), mPleasureVal = document.getElementById('mPleasureVal');
   let narrRun = 0;
-  /* narrations are description entries ({mechanism, figure}) or plain
-     guidance strings; the figure renders as its own secondary line */
-  const narrate = (n) => {
-    if (!narrEl) return;
-    if (typeof n === 'string') { narrEl.textContent = n; return; }
-    narrEl.textContent = '';
-    const mech = document.createElement('span');
-    mech.textContent = n.mechanism;
-    narrEl.appendChild(mech);
-    if (n.figure) {
-      const fig = document.createElement('span');
-      fig.className = 'figurative';
-      fig.textContent = n.figure;
-      narrEl.appendChild(fig);
-    }
-  };
+  const narrate = (n) => renderNarration(narrEl, n);
   const schedule = (run, ms, fn) => setTimeout(() => { if (run === narrRun) fn(); }, ms);
 
   function updateMeters() {

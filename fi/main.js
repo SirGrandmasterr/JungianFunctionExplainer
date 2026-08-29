@@ -8,6 +8,7 @@ import '../src/styles/fi-theme.css';
 import { REDUCED } from '../src/utils/dom.js';
 import { initHeader } from '../src/shared/header.js';
 import { initLocale } from '../src/shared/locale.js';
+import { renderNarration } from '../src/shared/copy.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
 import { initLabLayout } from '../src/shared/lab-layout.js';
@@ -87,7 +88,7 @@ if (verifyCanvas) {
   const mStress = document.getElementById('mStress'), mPleasure = document.getElementById('mPleasure');
   const mStressVal = document.getElementById('mStressVal'), mPleasureVal = document.getElementById('mPleasureVal');
   let narrRun = 0;
-  const narrate = t => { if (narrEl) narrEl.textContent = t; };
+  const narrate = (n) => renderNarration(narrEl, n);
   const schedule = (run, ms, fn) => setTimeout(() => { if (run === narrRun) fn(); }, ms);
 
   function updateMeters() {

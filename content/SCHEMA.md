@@ -75,9 +75,10 @@ Fields:
   weakest-standing claim it makes and say so in `note`.
 - `note` (optional) — for the humans editing the map. Never rendered, never
   translated.
-- `title`, `kind`, `pair` (optional, plain strings) — display companions rendered
-  next to the entry (a vignette's card title and kicker, a feeder's pairing line).
-  Kept inside the object so a translator sees the entry whole.
+- `title`, `kind`, `pair`, `warn` (optional, plain strings) — display companions
+  rendered next to the entry (a vignette's card title and kicker, a feeder's
+  pairing line and caution banner). Kept inside the object so a translator sees
+  the entry whole.
 
 How the split renders: in the Zone B caption, the Zone C caption, and the
 field-note cards, `mechanism` is the body paragraph and `figure` follows as a

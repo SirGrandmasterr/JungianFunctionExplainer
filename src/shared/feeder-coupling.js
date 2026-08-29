@@ -9,7 +9,7 @@ import { t } from './copy.js';
 /* Pages not yet migrated to the content map pass feeders with plain `text`
    and `pair` fields; migrated pages pass a `copy` entry ({mechanism, figure,
    pair}). Bridge both shapes here. */
-const feederCopy = (f) => f.copy || { mechanism: f.text, figure: '', pair: f.pair };
+const feederCopy = (f) => f.copy || { mechanism: f.text, figure: '', pair: f.pair, warn: f.warn };
 
 /**
  * @param {Object} cfg
@@ -116,8 +116,8 @@ export function initFeederCoupling(cfg) {
     document.getElementById('feedText').textContent = copy.mechanism;
     figEl.textContent = copy.figure || '';
     figEl.hidden = !copy.figure;
-    if (warnTextEl) warnTextEl.textContent = f.warn || warnDefault;
-    if (warnEl) warnEl.classList.toggle('show', !!(f.unstable || f.warn));
+    if (warnTextEl) warnTextEl.textContent = copy.warn || warnDefault;
+    if (warnEl) warnEl.classList.toggle('show', !!(f.unstable || copy.warn));
     renderChips();
   }
 
