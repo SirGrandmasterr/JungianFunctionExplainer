@@ -23,8 +23,9 @@ export const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 export const CONTENT = join(ROOT, 'content');
 
 /* Object fields that get translated; `note` never leaves English and
-   `provenance` is copied verbatim into the locale entry. */
-export const TRANSLATABLE_FIELDS = ['mechanism', 'mechanismHtml', 'figure', 'example', 'title', 'kind', 'pair'];
+   `provenance` is copied verbatim into the locale entry. `warn` is the
+   feeder caution banner (full sentences, wraps freely). */
+export const TRANSLATABLE_FIELDS = ['mechanism', 'mechanismHtml', 'figure', 'example', 'title', 'kind', 'pair', 'warn'];
 
 export const sha256 = (s) => createHash('sha256').update(s, 'utf8').digest('hex').slice(0, 16);
 export const PLACEHOLDER = /\{([a-zA-Z][a-zA-Z0-9]*)\}/g;
@@ -71,6 +72,7 @@ function kindOfField(field) {
   if (field === 'mechanism' || field === 'mechanismHtml') return 'mechanism';
   if (field === 'figure') return 'figure';
   if (field === 'example') return 'example';
+  if (field === 'warn') return 'prose'; // a full caution sentence in a wrapping banner
   return 'ui'; // title, kind, pair — short display companions
 }
 

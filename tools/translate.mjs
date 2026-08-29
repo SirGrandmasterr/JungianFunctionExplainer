@@ -36,7 +36,7 @@ const PROMPT_VERSION = 3;
    re-run reviews without invalidating (and re-translating) the corpus. */
 const REVIEW_VERSION = 3;
 const HOST = (process.env.OLLAMA_HOST || 'http://127.0.0.1:11434').replace(/\/$/, '');
-const DEFAULT_MODEL = 'gemma4:12b';
+const DEFAULT_MODEL = 'qwen3.8:latest';
 
 /* ---------------- arguments ---------------- */
 
@@ -47,7 +47,10 @@ const DEFAULT_MODEL = 'gemma4:12b';
    fall back to npm_config_* for anything npm ate. `node
    tools/translate.mjs …` directly always works. */
 const args = process.argv.slice(2);
-const opt = { locale: null, model: process.env.OLLAMA_MODEL || DEFAULT_MODEL, only: null, limit: Infinity, concurrency: 2, force: false, dryRun: false, review: false };
+/* concurrency 1 by default: the 17 GB qwen3.8 model saturates this
+   machine on a single request — parallel calls only trade latency for
+   contention. Raise per-run with --concurrency if the hardware changes. */
+const opt = { locale: null, model: process.env.OLLAMA_MODEL || DEFAULT_MODEL, only: null, limit: Infinity, concurrency: 1, force: false, dryRun: false, review: false };
 for (let i = 0; i < args.length; i++) {
   let a = args[i], inline = null;
   const eq = a.indexOf('=');
