@@ -33,11 +33,23 @@ const DEFAULT_MODEL = 'gemma4:12b';
 
 /* ---------------- arguments ---------------- */
 
+/* Some npm versions swallow `--flag value` pairs even after `--` and
+   re-emit them as npm_config_* environment variables (that is also why
+   `npm run … -- --locale de` can arrive here as just `de`). So: accept
+   --flag value AND --flag=value, treat a bare word as the locale, and
+   fall back to npm_config_* for anything npm ate. `node
+   tools/translate.mjs …` directly always works. */
 const args = process.argv.slice(2);
 const opt = { locale: null, model: process.env.OLLAMA_MODEL || DEFAULT_MODEL, only: null, limit: Infinity, concurrency: 2, force: false, dryRun: false, review: false };
 for (let i = 0; i < args.length; i++) {
-  const a = args[i];
-  const next = () => { if (i + 1 >= args.length) die(2, `${a} needs a value`); return args[++i]; };
+  let a = args[i], inline = null;
+  const eq = a.indexOf('=');
+  if (a.startsWith('--') && eq > 0) { inline = a.slice(eq + 1); a = a.slice(0, eq); }
+  const next = () => {
+    if (inline !== null) return inline;
+    if (i + 1 >= args.length) die(2, `${a} needs a value`);
+    return args[++i];
+  };
   if (a === '--locale') opt.locale = next();
   else if (a === '--model') opt.model = next();
   else if (a === '--only') opt.only = next().split(',');
@@ -46,8 +58,21 @@ for (let i = 0; i < args.length; i++) {
   else if (a === '--force') opt.force = true;
   else if (a === '--dry-run') opt.dryRun = true;
   else if (a === '--review') opt.review = true;
+  else if (/^[a-z]{2,3}(-[a-zA-Z]{2,4})?$/.test(a) && !opt.locale) opt.locale = a.toLowerCase();
   else die(2, `unknown argument "${a}"\nusage: node tools/translate.mjs --locale <xx> [--model m] [--only ns,ns] [--limit n] [--concurrency n] [--force] [--dry-run] [--review]`);
 }
+/* npm_config_* fallbacks for flags npm consumed */
+const env = process.env;
+if (!opt.locale && env.npm_config_locale) opt.locale = env.npm_config_locale;
+if (env.npm_config_model && opt.model === (process.env.OLLAMA_MODEL || DEFAULT_MODEL)) opt.model = env.npm_config_model;
+if (!opt.only && env.npm_config_only && !['null', 'prod', 'production'].includes(env.npm_config_only)) opt.only = env.npm_config_only.split(',');
+if (opt.limit === Infinity && env.npm_config_limit) opt.limit = Number(env.npm_config_limit);
+if (env.npm_config_concurrency) opt.concurrency = Math.max(1, Number(env.npm_config_concurrency));
+if (env.npm_config_review === 'true') opt.review = true;
+if (env.npm_config_dry_run === 'true') opt.dryRun = true;
+/* --force is deliberately NOT recovered from npm_config_* — it overwrites
+   human-reviewed entries, so it must arrive unambiguously:
+   node tools/translate.mjs --locale xx --force */
 function die(code, msg) { console.error(msg); process.exit(code); }
 if (!opt.locale) die(2, 'missing --locale (e.g. --locale de)');
 if (opt.locale === 'en') die(2, 'content/en is the source of truth; it is never a translation target');
