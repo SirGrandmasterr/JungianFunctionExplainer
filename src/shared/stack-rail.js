@@ -7,35 +7,43 @@
 import { TAU, lerp, clamp, hexA } from '../utils/math.js';
 import { REDUCED, CSSVAR } from '../utils/dom.js';
 import { showTip, pinTip, hideTip } from './tooltip.js';
+import { t } from './copy.js';
 
 /* ---- the dial's five axes, derived from the §3.1 parameter vector ----
    Derivation rather than authorship is the point: the dial reads the same
    params the glyph renders from, so the two encodings cannot drift apart.
    Each `pos` returns the position term plus the named inputs it used, so a
-   tooltip can show its work. */
+   tooltip can show its work. The `input` strings compose §3.1 parameter
+   names, which are do-not-translate technical tokens (content/SCHEMA.md). */
 const pct = (v) => Math.round(v * 100) + '%';
 const num = (v) => v.toFixed(2).replace(/^0/, '');
 const AXES = [
-  { key: 'endurance', label: 'Endurance',
-    def: 'How much of the time this seat can stay awake and carrying load.',
+  { key: 'endurance', label: t('site.dial.axis.endurance.label'),
+    def: t('site.dial.axis.endurance.def'),
     pos: (p) => ({ v: p.duty * (1 - 0.35 * (p.contrary || 0)),
       input: `duty ${pct(p.duty)}` + (p.contrary ? ` · contrary ${pct(p.contrary)}` : '') }) },
-  { key: 'precision', label: 'Precision',
-    def: 'How coherent the output is — the glyph\'s particle fidelity, degraded by static.',
+  { key: 'precision', label: t('site.dial.axis.precision.label'),
+    def: t('site.dial.axis.precision.def'),
     pos: (p) => ({ v: p.fidelity * (1 - 0.5 * p.noise),
       input: `fidelity ${num(p.fidelity)}` + (p.noise ? ` · noise ${num(p.noise)}` : '') }) },
-  { key: 'speed', label: 'Speed',
-    def: 'How quickly the seat answers when called — its response latency, folded to 0–1.',
+  { key: 'speed', label: t('site.dial.axis.speed.label'),
+    def: t('site.dial.axis.speed.def'),
     pos: (p) => ({ v: 250 / (250 + p.latency), input: `latency ${Math.round(p.latency)} ms` }) },
-  { key: 'control', label: 'Control',
-    def: 'How reliably the seat does what its owner intends, minus its contrary streak.',
+  { key: 'control', label: t('site.dial.axis.control.label'),
+    def: t('site.dial.axis.control.def'),
     pos: (p) => ({ v: p.control * (1 - 0.6 * (p.contrary || 0)),
       input: `control ${num(p.control)}` + (p.contrary ? ` · contrary ${pct(p.contrary)}` : '') }) },
-  { key: 'awareness', label: 'Awareness',
-    def: 'Self-awareness: a seat is known through the clarity of what it renders, and one that acts on its own is opaque to its owner.',
+  { key: 'awareness', label: t('site.dial.axis.awareness.label'),
+    def: t('site.dial.axis.awareness.def'),
     pos: (p) => ({ v: p.fidelity * (1 - (p.contrary || 0)),
       input: `fidelity ${num(p.fidelity)}` + (p.contrary ? ` · contrary ${pct(p.contrary)}` : '') }) },
 ];
+
+/* Pages not yet migrated to the content map pass slots with a plain `text`
+   field and a `sub` like "1st · hero"; migrated pages pass a `copy` entry
+   ({mechanism, figure}) and an `ord`. Bridge both shapes here. */
+const slotCopy = (s) => s.copy || { mechanism: s.text, figure: '' };
+const slotOrd = (s) => s.ord || (s.sub ? s.sub.split('·')[0].trim() : '');
 
 /**
  * @param {Object} cfg
@@ -113,7 +121,7 @@ export function initStackRail(cfg) {
      frame render destroyed anything attached to a child sixty times a
      second, which is why the dial could never be interrogated. */
   const NS = 'http://www.w3.org/2000/svg';
-  let chrome = '<title>Fidelity profile for the selected stack position</title>';
+  let chrome = `<title>${t('site.dial.svgTitle')}</title>`;
   for (const r of [0.33, 0.66, 1]) {
     const pts = AXES.map((_, i) => dialPoint(i, r).join(',')).join(' ');
     chrome += `<polygon points="${pts}" fill="none" stroke="${COL_grid}" stroke-width="1"/>`;
@@ -187,12 +195,15 @@ export function initStackRail(cfg) {
     const ax = AXES[i];
     const d = deriveAxis(ax, effectiveParams(slot));
     const aged = Math.abs(maturityBoost(slot)) > 0.005;
+    const preset = aged
+      ? t('site.dial.presetLabelAged', { name: slot.name, n: age })
+      : t('site.dial.presetLabel', { name: slot.name });
     let s = `<div class="t">${ax.label} · ${d.v.toFixed(2)}</div>`;
     s += `<div>${ax.def}</div>`;
-    s += `<div class="row"><span class="k">${slot.name} preset${aged ? ` · age ${age}` : ''}</span><b>${d.pos.input}</b></div>`;
-    s += `<div class="row"><span class="k">position term</span><b>${d.pos.v.toFixed(2)}</b></div>`;
+    s += `<div class="row"><span class="k">${preset}</span><b>${d.pos.input}</b></div>`;
+    s += `<div class="row"><span class="k">${t('site.dial.rowPositionTerm')}</span><b>${d.pos.v.toFixed(2)}</b></div>`;
     if (d.ch.w !== 1 || d.ch.why) {
-      s += `<div class="row"><span class="k">${fnLabel} character</span><b>×${d.ch.w.toFixed(2)}</b></div>`;
+      s += `<div class="row"><span class="k">${t('site.dial.rowCharacter', { fn: fnLabel })}</span><b>×${d.ch.w.toFixed(2)}</b></div>`;
       if (d.ch.why) s += `<div style="margin-top:2px">${d.ch.why}</div>`;
     }
     return s;
@@ -202,7 +213,7 @@ export function initStackRail(cfg) {
     const ax = AXES[i];
     const d = deriveAxis(ax, effectiveParams(slot));
     const chPart = (d.ch.w !== 1 || d.ch.why)
-      ? ` × ${d.ch.w.toFixed(2)} ${fnLabel} character${d.ch.why ? ` (${d.ch.why})` : ''}`
+      ? ` × ${d.ch.w.toFixed(2)} ${t('site.dial.rowCharacter', { fn: fnLabel })}${d.ch.why ? ` (${d.ch.why})` : ''}`
       : '';
     return `${ax.label} ${d.v.toFixed(2)} — ${d.pos.input} → ${d.pos.v.toFixed(2)}${chPart}. ${ax.def}`;
   }
@@ -230,8 +241,7 @@ export function initStackRail(cfg) {
   dialSvg.setAttribute('data-tip-anchor', '');
   dialSvg.setAttribute('tabindex', '0');
   dialSvg.setAttribute('role', 'img');
-  dialSvg.setAttribute('aria-label',
-    'Fidelity profile radar. Focus and use arrow keys to inspect each axis, or read the text version below.');
+  dialSvg.setAttribute('aria-label', t('site.dial.svgAriaInteractive'));
   dialSvg.addEventListener('pointermove', (e) => {
     if (e.pointerType === 'touch') return;
     focusAxis = axisFromEvent(e);
@@ -269,11 +279,11 @@ export function initStackRail(cfg) {
   if (dialWrap) {
     const det = document.createElement('details');
     det.className = 'dial-text';
-    det.innerHTML = '<summary>Read this profile as text</summary>';
+    det.innerHTML = `<summary>${t('site.dial.readAsText')}</summary>`;
     dialTextEl = document.createElement('ul');
     det.appendChild(dialTextEl);
     const foot = document.createElement('p');
-    foot.textContent = 'Derived from the same parameters the glyph renders from; the maturity slider feeds both.';
+    foot.textContent = t('site.dial.derivationNote');
     det.appendChild(foot);
     dialWrap.appendChild(det);
     live = document.createElement('span');
@@ -295,26 +305,37 @@ export function initStackRail(cfg) {
     gripEl.className = 'grip-note';
     gripEl.hidden = true;
     gripEl.innerHTML =
-      `<b>The seat that floods.</b> Forced to run continuously from here, ${fnLabel} ` +
-      `empties in ≈${Math.round(grip.minutes)} min. And when a dominant-${fnLabel} stack burns out, ` +
-      `the flood arrives here — this seat's occupant, <b>${grip.into}</b>, erupting with none of ` +
-      `${fnLabel}'s practice. <a href="/energy/#grip">All eight collapse clocks →</a>`;
+      t('site.rail.gripNoteHtml', { fn: fnLabel, minutes: Math.round(grip.minutes), into: grip.into }) +
+      ` <a href="/energy/#grip">${t('site.rail.gripLink')}</a>`;
     const capText = document.getElementById('capText');
     if (capText) capText.insertAdjacentElement('afterend', gripEl);
   }
+
+  /* ---- the mechanism/figure split (content/SCHEMA.md): the caption body is
+     the mechanism, the site's own image follows as a secondary line ---- */
+  const capFigEl = document.createElement('p');
+  capFigEl.className = 'figurative';
+  capFigEl.hidden = true;
+  const capTextHost = document.getElementById('capText');
+  if (capTextHost) capTextHost.insertAdjacentElement('afterend', capFigEl);
 
   /* ---- slot selection ---- */
   function selectSlot(i) {
     currentSlot = i;
     const s = slots[i];
+    const copy = slotCopy(s);
     railEl.querySelectorAll('.slot').forEach((el, j) => el.setAttribute('aria-pressed', String(j === i)));
     glyph.setTarget(effectiveParams(s));
     glyph.setStructure(structureForAge());
     document.getElementById('capTitle').textContent = s.name;
-    document.getElementById('capTypes').textContent = `${s.sub.split('·')[0].trim()} function · ${s.types}`;
-    document.getElementById('capText').textContent = s.text;
-    document.getElementById('stageNote').textContent =
-      `rendering: ${s.name} preset` + (s.shadow ? ' · below the waterline' : '');
+    document.getElementById('capTypes').textContent =
+      t('site.rail.captionTypes', { ord: slotOrd(s), types: s.types });
+    document.getElementById('capText').textContent = copy.mechanism;
+    capFigEl.textContent = copy.figure || '';
+    capFigEl.hidden = !copy.figure;
+    document.getElementById('stageNote').textContent = s.shadow
+      ? t('site.rail.stageNoteShadow', { name: s.name })
+      : t('site.rail.stageNote', { name: s.name });
     if (gripEl) gripEl.hidden = s.key !== 'inferior';
     drawDial(deriveDial(s), s.shadow);
     renderDialText();
@@ -330,7 +351,7 @@ export function initStackRail(cfg) {
     if (i === 4) {
       const wl = document.createElement('div');
       wl.className = 'waterline';
-      wl.textContent = 'the waterline · shadow register';
+      wl.textContent = t('site.rail.waterline');
       railEl.appendChild(wl);
     }
     const b = document.createElement('button');
@@ -359,7 +380,7 @@ export function initStackRail(cfg) {
   const ageSlider = document.getElementById('ageSlider');
   ageSlider.addEventListener('input', () => {
     age = +ageSlider.value;
-    document.getElementById('ageOut').textContent = `age ${age}`;
+    document.getElementById('ageOut').textContent = t('site.rail.ageOut', { n: age });
     selectSlot(currentSlot);
   });
 

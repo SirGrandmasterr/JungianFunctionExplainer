@@ -1,0 +1,328 @@
+{
+  "_meta": {
+    "model": "qwen3.8:latest",
+    "digest": "22130167c4c20e20c7b71454612966ca8e8171e9b3cc8ab6ce8aa6cbfec79643",
+    "promptVersion": 3,
+    "date": "2026-08-30",
+    "status": {
+      "si.character.awareness.why": "mt",
+      "si.character.control.why": "mt",
+      "si.character.endurance.why": "mt",
+      "si.character.precision.why": "mt",
+      "si.character.speed.why": "mt",
+      "si.energy.recovery.auxiliary": "mt",
+      "si.energy.recovery.dominant": "mt",
+      "si.energy.recovery.inferior": "mt",
+      "si.energy.recovery.shadow": "mt",
+      "si.energy.recovery.tertiary": "mt",
+      "si.feeder.fe": "mt",
+      "si.feeder.fi": "mt",
+      "si.feeder.ne": "mt",
+      "si.feeder.te": "mt",
+      "si.feeder.ti": "mt",
+      "si.fieldNotes.mirror": "mt",
+      "si.fieldNotes.vignette.afraidOfChange": "mt",
+      "si.fieldNotes.vignette.ballast": "mt",
+      "si.fieldNotes.vignette.grip": "mt",
+      "si.fieldNotes.vignette.hum": "mt",
+      "si.fieldNotes.vignette.loop": "mt",
+      "si.fieldNotes.vignette.noImagination": "mt",
+      "si.fieldNotes.vignette.unprecedented": "mt",
+      "si.hero.heading": "mt",
+      "si.hero.subtitle": "mt",
+      "si.hero.tag": "mt",
+      "si.lab.btn.accept.label": "mt",
+      "si.lab.btn.accept.sub": "mt",
+      "si.lab.btn.deviant.label": "mt",
+      "si.lab.btn.deviant.sub": "mt",
+      "si.lab.btn.familiar.label": "mt",
+      "si.lab.btn.familiar.sub": "mt",
+      "si.lab.btn.novel.label": "mt",
+      "si.lab.btn.novel.sub": "mt",
+      "si.lab.btn.reject.label": "mt",
+      "si.lab.btn.reject.sub": "mt",
+      "si.lab.meter.pleasure": "mt",
+      "si.lab.meter.stress": "mt",
+      "si.lab.narration.deviant": "mt",
+      "si.lab.narration.deviantAccept": "mt",
+      "si.lab.narration.deviantAuto": "mt",
+      "si.lab.narration.deviantReject": "mt",
+      "si.lab.narration.familiar": "mt",
+      "si.lab.narration.familiar2": "mt",
+      "si.lab.narration.hoverCoarse": "mt",
+      "si.lab.narration.hoverFine": "mt",
+      "si.lab.narration.intro": "mt",
+      "si.lab.narration.introHintCoarse": "mt",
+      "si.lab.narration.introHintFine": "mt",
+      "si.lab.narration.novel": "mt",
+      "si.lab.narration.novel2": "mt",
+      "si.lab.resolveAria": "mt",
+      "si.lab.state.alarm": "mt",
+      "si.lab.state.equilibrium": "mt",
+      "si.lab.state.misfile": "mt",
+      "si.lab.state.settled": "mt",
+      "si.lab.state.unmoored": "mt",
+      "si.lab.telemetry.cogState": "mt",
+      "si.lab.telemetry.cost": "mt",
+      "si.lab.telemetry.crossHead": "mt",
+      "si.lab.telemetry.match": "mt",
+      "si.lab.telemetry.sibPleasure": "mt",
+      "si.lab.telemetry.sibStress": "mt",
+      "si.lab.telemetry.visitSe": "mt",
+      "si.meta.title": "mt",
+      "si.slot.auxiliary": "mt",
+      "si.slot.critical": "mt",
+      "si.slot.demon": "mt",
+      "si.slot.dominant": "mt",
+      "si.slot.inferior": "mt",
+      "si.slot.opposing": "mt",
+      "si.slot.tertiary": "mt",
+      "si.slot.trickster": "mt",
+      "si.zoneA.canvasAria": "mt",
+      "si.zoneB.ageNote": "mt",
+      "si.zoneB.heading": "mt",
+      "si.zoneB.lede": "mt",
+      "si.zoneB.railAria": "mt",
+      "si.zoneC.heading": "mt",
+      "si.zoneC.lede": "mt",
+      "si.zoneC.unstableDefault": "mt",
+      "si.zoneD.canvasAria": "mt",
+      "si.zoneD.heading": "mt",
+      "si.zoneD.kicker": "mt",
+      "si.zoneD.lede": "mt",
+      "si.zoneE.lede": "mt"
+    }
+  },
+  "si.character.awareness.why": "el registro es vívido, la grabación invisible: el archivo se lee como el mundo",
+  "si.character.control.why": "deliberado y metódico: resiste la prisa y no deja que lo dirijan",
+  "si.character.endurance.why": "el registro de maratón: las listas de verificación y los rituales se ejecutan todo el día con un coste casi nulo",
+  "si.character.precision.why": "el corrector de la psique: desviaciones nombradas hasta la sombra y el semitono",
+  "si.character.speed.why": "nada se responde hasta que se ha consultado el registro",
+  "si.energy.recovery.auxiliary": "Rápido, una vez que el procedimiento se ha transferido y se ha confirmado que está terminado.",
+  "si.energy.recovery.dominant": "Se recarga durante el uso: un día que coincide con el registro apenas tiene coste.",
+  "si.energy.recovery.inferior": "La estantería de la resaca: ~30 min de atenuación global mientras la comprobación de síntomas se va apagando.",
+  "si.energy.recovery.shadow": "Incompleto: las entradas escritas aquí permanecen abiertas; parte de la carga no regresa hoy.",
+  "si.energy.recovery.tertiary": "Más lento: el ritual solo restaura si se mantiene de verdad.",
+  "si.feeder.fe": {
+    "figure": "Los flujos alimentadores se extienden por todo el libro mayor.",
+    "mechanism": "Fe — sentimiento extrovertido — entrega el registro a las personas: cómo toman el café, la madre de quién está enferma, qué hace esta familia con la primera nieve. Cuidado distribuido y detección de desviaciones convertidas en interpersonales: el primero en notar que un amigo no está bien suele ser este acoplamiento, comparando la voz de hoy con años de martes almacenados.",
+    "pair": "acoplamiento ISFJ · ESFJ",
+    "provenance": "myers"
+  },
+  "si.feeder.fi": {
+    "figure": "No se admite nada nuevo en la entrada; las mismas pocas capas se iluminan desde dentro mientras el resto se atenúa.",
+    "mechanism": "El bucle ISTJ, con Te excluido: Fi — el sentimiento introvertido — suministra ahora los veredictos, desde dentro. Las entradas se releen por cómo se sintieron, y las heridas se alimentan cada noche. Lo único que rompería el patrón sería un resultado externo —que es exactamente lo que el bucle ya no solicita.",
+    "pair": "bucle Si–Fi del ISTJ",
+    "provenance": "community",
+    "warn": "Acoplamiento de bucle: juicio introvertido alimentando la percepción introvertida — sin corrección desde el exterior."
+  },
+  "si.feeder.ne": {
+    "figure": "La piscina se atenúa y traza bandas provisionales para futuros que nunca llegan para alimentarla.",
+    "mechanism": "Ne — intuición extraversada — inunda la entrada con hipotéticos: cosas que podrían ocurrir, ser ciertas o ser interesantes. Nada de ello coincidirá jamás con el registro, porque nada de ello ha ocurrido — ambas funciones recogen y ninguna juzga. En una pila real, estas dos alternan a través de un juez; cableadas directamente, el archivo se llena de ficción.",
+    "pair": "percepción que alimenta percepción",
+    "provenance": "myers",
+    "warn": "Acoplamiento inestable: la percepción alimenta la percepción, sin que nada juzgue a ninguna de las dos."
+  },
+  "si.feeder.te": {
+    "figure": "Observa cómo la barrida de auditoría recorre el registro según un horario.",
+    "mechanism": "Te — pensamiento extravertido — entrega al registro resultados verificados: lo que se midió, lo que se lanzó, lo que el procedimiento produjo realmente. El archivo se vuelve institucional: numerado, fechado, reproducible, y las desviaciones se escalan en lugar de soportarse. El acoplamiento que ejecuta la infraestructura: un registro confiable porque algo externo lo sigue comprobando.",
+    "pair": "acoplamiento ISTJ · ESTJ",
+    "provenance": "myers"
+  },
+  "si.feeder.ti": {
+    "figure": "Las mismas entradas revalidadas desde el interior, el borde cerrado.",
+    "mechanism": "El bucle del ISFJ, con Fe excluido: Ti — el pensamiento introvertido — proporciona una lógica privada sobre por qué el registro debe ser correcto. Cada procedimiento recordado se rederiva en una regla, cada regla se defiende como principio: internamente coherente, socialmente no verificado — y la persona para quien se crearon las reglas ha salido de la habitación.",
+    "pair": "bucle Si–Ti del ISFJ",
+    "provenance": "community",
+    "warn": "Acoplamiento de bucle: juicio introvertido alimentando percepción introvertida — sin corrección desde el exterior."
+  },
+  "si.fieldNotes.mirror": {
+    "figure": "Una es agua que retiene; la otra, agua que mira.",
+    "mechanismHtml": "Mismo elemento, actitud opuesta — y la diferencia es lo que le sucede al momento. <strong>Si</strong> lo almacena: entrada medida, cada llegada comparada con cada capa depositada alguna vez — el mundo como un lugar para reconocer. <strong>Se</strong> lo monta: resolución completa, cero latencia, nada retenido — el mundo como un lugar para actuar. Si cambia el momento por un registro que ningún momento puede arrebatar; Se cambia el registro por el propio momento.",
+    "provenance": "jung"
+  },
+  "si.fieldNotes.vignette.afraidOfChange": {
+    "figure": "El registro es una lista de precios.",
+    "kind": "la acusación",
+    "mechanism": "Lo que la acusación pasa por alto es que el registro realiza un cálculo de costes. Si recuerda lo que realmente costó la última «mejora» —la migración que perdió las facturas, la reestructuración que perdió a tres personas— con una resolución que la persona que propone la siguiente no tiene. La señal de que no es timidez: presenta evidencia de tipo probado, un piloto, un precedente, un plan de reversión, y Si se mueve —a regañadientes, luego de forma duradera. Lo que resiste no es lo nuevo; es lo sin precio.",
+    "provenance": "community",
+    "title": "Solo te da miedo el cambio"
+  },
+  "si.fieldNotes.vignette.ballast": {
+    "figure": "Un pequeño conjunto de constantes físicas, defendidas con fiereza.",
+    "kind": "como terciaria",
+    "mechanism": "Si terciaria en un INTP o INFP: el archivo como lastre bajo un laboratorio de teorías. El mismo té en la misma taza, la misma ruta de paseo a la misma hora, el mismo álbum para el mismo estado de ánimo: un ancla que mantiene firme una mente orientada a las posibilidades. Parece un simple hábito hasta que el viaje lo interrumpe y el pensamiento de la semana se degrada silenciosamente con la rutina.",
+    "provenance": "grant",
+    "title": "El lastre"
+  },
+  "si.fieldNotes.vignette.grip": {
+    "figure": "El archivo se abre de golpe, todo a la vez.",
+    "kind": "la garra",
+    "mechanism": "Un ENTP más allá del final de sus reservas deja de generar futuros e inunda la Si inferior —de pronto seguro de que el lunar es cáncer, reviviendo una vergüenza de hace una década a plena resolución, atrapado por cada señal del cuerpo. No es un cambio de personalidad: un asiento de baja capacidad recibe una inundación de tamaño dominante.",
+    "provenance": "quenk",
+    "title": "La Garra"
+  },
+  "si.fieldNotes.vignette.hum": {
+    "figure": "El anillo se enciende, o no.",
+    "kind": "avistamiento de campo",
+    "mechanism": "La máquina suena mal. Nadie más en el taller lo oye: las medidas son normales, pero un ISTJ que ha estado junto a ella durante nueve años ya la ha apagado. El rodamiento defectuoso se encuentra en el banco. Preguntado cómo lo supo, dice que no sonaba como él mismo: una explicación técnica completa desde dentro del archivo y ninguna explicación desde fuera.",
+    "provenance": "community",
+    "title": "El Zumbido"
+  },
+  "si.fieldNotes.vignette.loop": {
+    "figure": "Los mismos estratos, alimentados cada noche.",
+    "kind": "el bucle",
+    "mechanism": "Un ISTJ bajo estrés combina la Si dominante con la Fi terciaria: el registro se vuelve hacia dentro y empieza a servir agravios — cada ofensa archivada, releída cada noche con la carga emocional renovada. La auditoría externa de Te es la función que el bucle evita. El archivo nunca ha sido más detallado, ni menos útil.",
+    "provenance": "community",
+    "title": "El bucle"
+  },
+  "si.fieldNotes.vignette.noImagination": {
+    "figure": "La imaginación mirando hacia atrás, con resolución de archivo.",
+    "kind": "la malinterpretación",
+    "mechanism": "Como Si rara vez especula en voz alta, se archiva como desprovista de imaginación, lo cual confunde la dirección con la ausencia. La imaginación funciona hacia atrás: la cocina de una casa de la infancia reconstruible hasta la cerradura, la formulación exacta de un compañero de una reunión cerrada hace años. Haz una pregunta que apunte al registro en lugar de fuera de él y el detalle regresa con una vividez que las funciones orientadas al futuro no pueden alcanzar.",
+    "provenance": "community",
+    "title": "Confundido con falta de imaginación"
+  },
+  "si.fieldNotes.vignette.unprecedented": {
+    "figure": "La búsqueda no devuelve nada y la piscina se oscurece mientras sigue buscando.",
+    "kind": "el instrumento equivocado",
+    "mechanism": "Un comparador necesita precedente, y algunas situaciones no lo tienen: el primer día en un país que el registro nunca ha visto, el mercado actuando de una forma que no coincide con ningún archivo, el diagnóstico que nadie ensayó. El primer movimiento de Si —consultar el archivo— regresa vacío. Aquí es donde el asiento intuitivo de la pila demuestra su valor, sea cual sea su posición; el registro recupera la autoridad en el momento en que lo sin precedentes ha ocurrido una vez.",
+    "provenance": "community",
+    "title": "Lo sin precedentes"
+  },
+  "si.hero.heading": "El estanque quieto de {fn}",
+  "si.hero.subtitle": "Un estanque sellado con bandas estratificadas: cada afluente pasado se deposita como un anillo, y el más antiguo se funde brillante en el núcleo. Cada gota admitida se hunde hasta la capa que le corresponde, y todo el anillo se ilumina cuando pasado y presente coinciden.",
+  "si.hero.tag": "sensación introvertida",
+  "si.lab.btn.accept.label": "Aceptar",
+  "si.lab.btn.accept.sub": "lo nuevo normal — trazar una sub-banda",
+  "si.lab.btn.deviant.label": "Lo familiar, cambiado",
+  "si.lab.btn.deviant.sub": "coincidencia del 90% — algo falla",
+  "si.lab.btn.familiar.label": "Lo familiar, a tiempo",
+  "si.lab.btn.familiar.sub": "el ritual matutino llega como siempre",
+  "si.lab.btn.novel.label": "Lo sin precedentes",
+  "si.lab.btn.novel.sub": "nada en el registro coincide con esto",
+  "si.lab.btn.reject.label": "Descartar",
+  "si.lab.btn.reject.sub": "anomalía — expulsa la gota",
+  "si.lab.meter.pleasure": "Placer de reconocimiento",
+  "si.lab.meter.stress": "Estrés",
+  "si.lab.narration.deviant": {
+    "figure": "El estroboscopio es el otro diez por ciento: el color almacenado frente al color observado, pulsando como una nota plana.",
+    "mechanism": "Alcanzó su anillo y se negó a fusionarse: una coincidencia del noventa por ciento. La alarma de Si nunca es vaga: algo no cuadra, y sabe exactamente qué. El registro espera tu veredicto.",
+    "provenance": "currents"
+  },
+  "si.lab.narration.deviantAccept": {
+    "figure": "Una nueva banda se forma junto a la antigua — delgada, tenue, provisional — y permanece tenue hasta que la repetición la alimenta.",
+    "mechanism": "Aceptado. Así es como Si cambia realmente: no nunca, y no a la ligera, sino colocando la nueva normalidad junto al registro antiguo y esperando pruebas. El cambio es posible aquí. Simplemente, nunca es gratuito.",
+    "provenance": "currents"
+  },
+  "si.lab.narration.deviantAuto": {
+    "figure": "La piscina se regía por sí misma y se asentó.",
+    "mechanism": "Sin gobernar, un archivo asentado predetermina su propio registro: no es terquedad; es el precedente haciendo su trabajo. Pero observa que el gobierno ocurrió de todos modos: una disputa abierta con el registro es el único estado que Si no puede sostener.",
+    "provenance": "currents"
+  },
+  "si.lab.narration.deviantReject": {
+    "figure": "La gota es expulsada de nuevo por el borde, y el estrato original se reafirma con un matiz más brillante.",
+    "mechanism": "Descartado. Un registro no solo sobrevive a una anomalía: es confirmado por ella. No obstante, observa el coste de la vigilancia: cada alarma ensayada hace que la siguiente sea ligeramente más fácil de activar.",
+    "provenance": "currents"
+  },
+  "si.lab.narration.familiar": {
+    "figure": "La gota cae en línea recta hacia abajo —sin búsqueda, sin negociación— y todo el anillo se ilumina al contacto.",
+    "mechanism": "El ritual matutino llega a su hora y se reconoce al instante: no es una consulta, sino una resonancia, y apenas tiene coste. Observa la lectura del coste del encuentro mientras el ritual se repite.",
+    "provenance": "currents"
+  },
+  "si.lab.narration.familiar2": {
+    "figure": "La capa se espesa un poco con cada pasada.",
+    "mechanism": "Alimentada de nuevo, un poco más barata que la vez anterior. Para esto sirve el ritual: cada repetición abarata la partida de mañana. Desde fuera parece rigidez. Desde dentro es estructural: los puntos fijos que hacen asequible el resto del día.",
+    "provenance": "currents"
+  },
+  "si.lab.narration.hoverCoarse": "Estás sondeando la piscina. Cada anillo bajo el dedo informa sobre su registro: qué contiene, con qué frecuencia ha sido alimentado y con qué intensidad sigue funcionando. El centro profundo es el material más antiguo del psique: las primeras habitaciones, los primeros alimentos, la primera seguridad. No se apaga.",
+  "si.lab.narration.hoverFine": "Estás sondeando la piscina. Cada anillo bajo el cursor informa sobre su registro: qué contiene, con qué frecuencia ha sido alimentado y con qué brillo sigue funcionando. El centro profundo es el material más antiguo del psique: las primeras habitaciones, los primeros alimentos, la primera seguridad. No se apaga.",
+  "si.lab.narration.intro": "La piscina funciona sin supervisión: gotas medidas llegan una a una, y cada una es interrogada por las profundidades: se empareja, se marca o se archiva como nueva. Genera una llegada y observa cómo responden los medidores; cuando el registro la contradice, la decisión es tuya.",
+  "si.lab.narration.introHintCoarse": "Mantén pulsado un anillo para sonar lo que cada anillo guarda.",
+  "si.lab.narration.introHintFine": "Pasa el cursor sobre los estratos para sonar lo que cada anillo guarda.",
+  "si.lab.narration.novel": {
+    "figure": "Anillo tras anillo se atenúa a medida que la búsqueda avanza; la piscina se contrae un poco.",
+    "mechanism": "Ninguna capa responde y todo el sistema ejecuta el reflejo de ser requerido para archivar algo que nunca ha visto. Nada aquí es dramático; la tensión asciende lentamente. La novedad no es una catástrofe para Si. Es un coste.",
+    "provenance": "currents"
+  },
+  "si.lab.narration.novel2": {
+    "figure": "Una banda provisional se asienta en el borde, delgada y tenue: la primera capa de una futura familiaridad.",
+    "mechanism": "Hazlo de nuevo y observa cómo el precio cae; en la tercera llegada, tendrá un hogar que responde. Nada es cómodo la primera vez. Casi todo puede volverse cómodo.",
+    "provenance": "currents"
+  },
+  "si.lab.resolveAria": "Decisión sobre la desviación pendiente",
+  "si.lab.state.alarm": "Alarma de discrepancia",
+  "si.lab.state.equilibrium": "Agua en calma",
+  "si.lab.state.misfile": "Mal archivado",
+  "si.lab.state.settled": "Resonancia asentada",
+  "si.lab.state.unmoored": "Entrada sin precedentes",
+  "si.lab.telemetry.cogState": "Estado cognitivo",
+  "si.lab.telemetry.cost": "Coste de encuentro",
+  "si.lab.telemetry.crossHead": "escucha cruzada · las mismas llegadas, alcanzando Se",
+  "si.lab.telemetry.match": "Coincidencia en vivo",
+  "si.lab.telemetry.sibPleasure": "Placer de Se",
+  "si.lab.telemetry.sibStress": "Estrés de Se",
+  "si.lab.telemetry.visitSe": "visitar Se →",
+  "si.meta.title": "Si — Sensación Introvertida · CURRENTS",
+  "si.slot.auxiliary": {
+    "example": "Un ESTJ saca el procedimiento que funcionó en 2019, ajusta dos líneas y lo envía antes del mediodía.",
+    "figure": "Una piscina de cuatro quintas partes, indexada para su recuperación.",
+    "mechanism": "En el segundo asiento, el archivo sirve a una agenda: el precedente, el procedimiento y la forma conocida y eficaz se proporcionan bajo demanda a una función de juicio dominante que actúa sobre ellos. Menos identidad que en el primer asiento, más utilidad: aquí el registro es una herramienta, no un hogar.",
+    "provenance": "myers"
+  },
+  "si.slot.critical": {
+    "example": "Un ISFP escucha «siempre haces esto» en su propia voz, con tres ejemplos fechados adjuntos.",
+    "figure": "Las entradas antiguas se encienden en acusación, mientras que los buenos casos permanecen a oscuras.",
+    "mechanism": "En el sexto asiento, el registro se vuelve contra el yo como registrador con rencor: siempre haces esto, la última vez también salió mal, acuérdate. Citaciones precisas, archivo hostil y nulo interés en los casos que salieron bien.",
+    "provenance": "beebe"
+  },
+  "si.slot.demon": {
+    "example": "En el fondo de un mes malo, un INFJ lee todo su pasado como un único archivo ininterrumpido de fracaso.",
+    "figure": "Los estratos reordenados en un caso para la acusación.",
+    "mechanism": "El octavo asiento es el más raro y el peor. Cuando se produce una erupción, el pasado se arma contra el yo: un inventario de cada fracaso antiguo presentado como el registro permanente — inmune al contexto, indiferente al crecimiento, formateado como hecho. Es el asiento menos practicado en la pila, no una sentencia.",
+    "provenance": "beebe"
+  },
+  "si.slot.dominant": {
+    "example": "La máquina suena un tono más grave; un ISTJ ya la ha apagado mientras los indicadores siguen marcando valores normales.",
+    "figure": "CURRENTS lo dibuja como una piscina con bandas: el archivo más profundo del psiquismo, cada anillo un año.",
+    "mechanism": "En el primer asiento, el presente se lee frente a un registro almacenado profundo, y la comparación es instantánea: igual que siempre, o fuera de lugar. La desviación se registra antes que el razonamiento: el zumbido un tono más bajo, el apretón de manos un poco más breve. Lo que el registro confirma no tiene coste; lo que lo contradice se siente corporalmente, como un paso donde el suelo no está donde el pie lo esperaba.",
+    "provenance": "myers"
+  },
+  "si.slot.inferior": {
+    "example": "Un ENFP con un agotamiento real comprueba la misma mota cuatro veces y revive una disculpa de 2014 textualmente.",
+    "figure": "Un charco poco profundo que se inunda sin previo aviso.",
+    "mechanism": "En el cuarto asiento, el registro vive en una niebla: los detalles, las fechas y la ubicación de las cosas llegan tarde y de forma parcial. Bajo un agotamiento real, el archivo se desborda como comprobación de síntomas y obsesión: cada señal corporal se compara con cada enfermedad recordada y cada error pasado se vuelve presente. Esta es la garra de Quenk, para una función ignorada todo el día.",
+    "provenance": "quenk"
+  },
+  "si.slot.opposing": {
+    "example": "Al escuchar «lo intentamos en 2020 y falló», un ESTP produce un recuerdo vívido de la vez que funcionó.",
+    "figure": "Debajo de la línea de flotación, un estrato se enciende para ganar un punto y luego se apaga.",
+    "mechanism": "El quinto asiento abre la sombra: las cuatro posiciones que una persona ejecuta raramente, y en su mayoría sin notarlo. Aquí el registro despierta como un eliminador de obstáculos: cuando el precedente se usa para cerrar una opción activa, aparece un contratestimonio —un recuerdo vívido de la vez que sí funcionó— sostenido exactamente el tiempo suficiente para ganar el punto, y luego descartado.",
+    "provenance": "beebe"
+  },
+  "si.slot.tertiary": {
+    "example": "Un INTP defiende el mismo té, la misma taza y la misma ruta de paseo con un calor sorprendente — y piensa mejor gracias a ellos.",
+    "figure": "Una pequeña charca, profunda en unos pocos anillos, visitada de forma irregular.",
+    "mechanism": "En el tercer asiento, el archivo es un museo privado: rituales de confort, habitaciones recordadas, la misma comida del mismo sitio — lastre para una vida que de otro modo se mueve por posibilidad. Bajo estrés se convierte en curador inverso, reproduciendo antiguos fracasos con plena fidelidad. Con la edad se estabiliza en una continuidad que las funciones dominantes no pueden ofrecer.",
+    "provenance": "grant"
+  },
+  "si.slot.trickster": {
+    "example": "Un ENFJ repite el error del trimestre pasado con total confianza y luego recuerda vívidamente una reunión que nunca tuvo lugar.",
+    "figure": "El índice devuelve el cajón equivocado, con una caligrafía impecable.",
+    "mechanism": "En el séptimo asiento, el archivo es un índice manipulado: o bien el precedente falta cuando se necesita —el mismo error, hecho nuevo, con total confianza—, o llega un falso precedente con un detalle perfecto. Ninguno de los dos fallos se anuncia, y ahí está la trampa.",
+    "provenance": "beebe"
+  },
+  "si.zoneA.canvasAria": "Representación visual interactiva de la Sensación Introvertida como una charca quieta vista desde arriba: estratos concéntricos de sedimento, los más antiguos fusionados y brillantes en el núcleo, con gotas medidas que se hunden hasta el anillo que les corresponde: todo el anillo se ilumina cuando pasado y presente coinciden, y parpadea cuando lo familiar llega cambiado. Apunta o pulsa un anillo para sonar lo que guarda",
+  "si.zoneB.ageNote": "Con la edad, las posiciones inferiores de la pila ganan fidelidad y ciclo de trabajo, y el propio conjunto gana estratos y se rigidiza.",
+  "si.zoneB.heading": "Las ocho caras de Si",
+  "si.zoneB.lede": "El lienzo dibuja Si como una piscina estratificada: cada llegada se compara con las capas de experiencia pasada que conserva. La posición que ocupa Si en la pila de una persona —el orden fijo en que aparecen sus ocho funciones— determina qué tan bien sirve ese registro. Haz clic en una posición para ver el cambio, desde el archivo de base de la dominante hasta el inventario weaponizado de la sombra, y observa cómo los errores de archivo descienden por la pila. Arrastra el deslizador de madurez para ver cómo las estratificaciones se multiplican y se rigidizan con la edad.",
+  "si.zoneB.railAria": "Posiciones de pila para Si",
+  "si.zoneC.heading": "¿Qué alimenta a Si?",
+  "si.zoneC.lede": "Si recoge; no juzga. La percepción introvertida se alimenta del juicio extraversado, por lo que sus verdaderas compañeras son Te y Fe: los jueces externos que mantienen el registro honesto. Haz clic en una alimentadora y observa lo que el estanque aprende a retener.",
+  "si.zoneC.unstableDefault": "Acoplamiento inestable: la percepción alimenta la percepción, sin que nada juzgue a ninguna de las dos.",
+  "si.zoneD.canvasAria": "El laboratorio de reconocimiento de Si: un depósito de estratos que empareja llegadas familiares con un timbre de alcance anular, destella y publica una lectura de diferencias cuando lo familiar llega cambiado, y archiva lo sin precedentes como una banda de borde provisional — con controles de aceptar y descartar para la decisión pendiente",
+  "si.zoneD.heading": "El laboratorio de reconocimiento",
+  "si.zoneD.kicker": "Zona D · laboratorio de reconocimiento",
+  "si.zoneD.lede": "Si es un comparador: cada llegada es interrogada por las profundidades —comparada, marcada como fuera de registro o archivada como sin precedentes. Este laboratorio te entrega las tres llegadas y, cuando el registro contradice una, la resolución. Observa cómo el coste del encuentro disminuye a medida que el ritual se repite; observa el sobresalto cuando nada responde.",
+  "si.zoneE.lede": "Patrones de la vida salvaje: cómo se manifiesta Si en la vida cotidiana."
+}

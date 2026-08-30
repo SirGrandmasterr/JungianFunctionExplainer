@@ -7,6 +7,8 @@ import '../src/styles/ne-theme.css';
 
 import { REDUCED } from '../src/utils/dom.js';
 import { initHeader } from '../src/shared/header.js';
+import { initLocale } from '../src/shared/locale.js';
+import { renderNarration } from '../src/shared/copy.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
 import { initLabLayout } from '../src/shared/lab-layout.js';
@@ -15,6 +17,9 @@ import { NeGlyph } from '../src/engines/ne-glyph.js';
 import { loadNeData } from '../src/data/ne-data.js';
 
 // 1. Load header & data
+/* Locale first: a no-op for English, and for other locales it loads the
+   dictionaries before any zone builds its DOM (src/shared/locale.js). */
+await initLocale();
 initHeader('ne');
 const data = loadNeData();
 const { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB } = data;
@@ -80,7 +85,7 @@ if (verifyCanvas) {
   const el = (id) => document.getElementById(id);
   const narrEl = el('verifyNarr');
   let narrRun = 0;
-  const narrate = (t) => { if (narrEl) narrEl.textContent = t; };
+  const narrate = (n) => renderNarration(narrEl, n);
   const schedule = (run, ms, fn) => setTimeout(() => { if (run === narrRun) fn(); }, ms);
 
   /* With animation off, scenario clicks fast-forward the real simulation

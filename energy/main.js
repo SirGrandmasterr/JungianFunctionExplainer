@@ -16,9 +16,13 @@ import '../src/styles/energy-theme.css';
 import { clamp, hexA } from '../src/utils/math.js';
 import { CSSVAR } from '../src/utils/dom.js';
 import { initHeader } from '../src/shared/header.js';
+import { initLocale } from '../src/shared/locale.js';
 import { showTip, hideTip } from '../src/shared/tooltip.js';
 import { loadEnergyData, POSITIONS } from '../src/data/energy-data.js';
 
+/* Locale first: a no-op for English, and for other locales it loads the
+   dictionaries before any zone builds its DOM (src/shared/locale.js). */
+await initLocale();
 initHeader('energy');
 
 const { fns, sharedCosts, costs: COSTS } = loadEnergyData();

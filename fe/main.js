@@ -8,6 +8,8 @@ import '../src/styles/fe-theme.css';
 import { REDUCED } from '../src/utils/dom.js';
 import { clamp } from '../src/utils/math.js';
 import { initHeader } from '../src/shared/header.js';
+import { initLocale } from '../src/shared/locale.js';
+import { renderNarration, t } from '../src/shared/copy.js';
 import { initStackRail } from '../src/shared/stack-rail.js';
 import { initFeederCoupling } from '../src/shared/feeder-coupling.js';
 import { initLabLayout } from '../src/shared/lab-layout.js';
@@ -16,6 +18,9 @@ import { FeGlyph } from '../src/engines/fe-glyph.js';
 import { loadFeData } from '../src/data/fe-data.js';
 
 // 1. Load header & data
+/* Locale first: a no-op for English, and for other locales it loads the
+   dictionaries before any zone builds its DOM (src/shared/locale.js). */
+await initLocale();
 initHeader('fe');
 const data = loadFeData();
 const { COL, SLOTS, CHARACTER, FEEDERS, SERIES, GRIP_T, COSTS, RECOVERY, LAB } = data;
@@ -83,7 +88,7 @@ if (verifyCanvas) {
   const el = (id) => document.getElementById(id);
   const narrEl = el('verifyNarr');
   let narrRun = 0;
-  const narrate = (t) => { if (narrEl) narrEl.textContent = t; };
+  const narrate = (n) => renderNarration(narrEl, n);
   const schedule = (run, ms, fn) => setTimeout(() => { if (run === narrRun) fn(); }, ms);
 
   /* With animation off, scenario clicks fast-forward the real simulation
@@ -136,7 +141,7 @@ if (verifyCanvas) {
     const open = lab.split > 0.4;
     if (btnReconcile.disabled === open) {
       btnReconcile.disabled = !open;
-      if (gateEl) gateEl.textContent = open ? 'the field is split — bridge it' : 'needs a split field';
+      if (gateEl) gateEl.textContent = open ? t('fe.lab.gate.open') : t('fe.lab.gate.closed');
     }
   });
 

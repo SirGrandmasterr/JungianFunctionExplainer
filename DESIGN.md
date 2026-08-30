@@ -442,6 +442,12 @@ All simulations are keyboard-operable (slots and controls are focusable; drag in
 
 The interaction language stays playful ("overclock," "forge a scenario") but the copy never diagnoses, never predicts life outcomes, and consistently frames positions as *cost profiles, not ability ceilings* — the Maturity Slider (§3.2) exists specifically to keep the system from reading as deterministic.
 
+> **2026-08-30 — enforced, mechanically.** These guardrails are now a schema rule
+> rather than an aspiration: every description-shaped entry in `content/en/**`
+> separates a `mechanism` field (the claim, plain-language, with the watershed
+> vocabulary banned outright by `npm run copy:check`) from a `figure` field (the
+> site's own image, explicitly marked as an image). See §6.5.
+
 ---
 
 # 6. Appendices
@@ -461,7 +467,38 @@ The interaction language stays playful ("overclock," "forge a scenario") but the
 
 A persistent, single-line footer: *"Cognitive function theory is an interpretive model from analytical psychology, not established neuroscience. CURRENTS visualizes the model's internal logic — treat it as a lens, not a diagnosis."* This protects the project's credibility and its users in one sentence.
 
----
+## 6.4 Languages (added 2026-08-29)
+
+The site is multilingual. **English is canonical**: `content/en/**` is the authority for
+every user-facing string, and the inline English in the HTML remains the render source —
+an English page fetches nothing. Non-English locales (`content/de/**`, `content/es/**`, …)
+are **machine-drafted** by `tools/translate.mjs` against a local Ollama model and stay
+marked `mt` until a human promotes an entry to `reviewed` in the locale file's `_meta`.
+Every non-English page carries a visible notice saying exactly that — §1.4.5 and §6.3
+refuse to overclaim about the psychology, and the site does not get to quietly overclaim
+about its own German. Terminology per locale is fixed in `content/glossary/<locale>.json`,
+which outranks the model. Process, costs, and the reasoning for local-not-cloud live in
+`docs/i18n.md`.
+
+## 6.5 The Content Map and the Mechanism/Figure Split (added 2026-08-30)
+
+All user-facing copy for the eight function pages lives in `content/en/` — one JSON
+namespace per page plus `site.json` for shared strings — governed by `content/SCHEMA.md`
+and enforced by `tools/copy-sync.mjs` (`npm run copy:check` / `copy:write`). The old
+per-page data modules hold numbers, colours, curves, and behaviour tables only; their
+dead `HERO`/`ZONE_B`–`ZONE_E` text exports are gone (`content/REPORT.md` lists every
+deletion).
+
+The **mechanism/figure split is a content rule, not a styling one**: anything that
+describes a function, position, coupling, or mechanism is an object whose `mechanism`
+field states the claim in plain language (what comes in, what happens, what it costs,
+what an observer sees — no watershed imagery, no ceilings, per §5.6) and whose `figure`
+field carries the CURRENTS image, explicitly marked as an image and required to
+correspond to something actually on screen. Each entry also carries `provenance`
+(`jung | myers | quenk | beebe | grant | community | currents`), so the four evidential
+registers §1.4.5 distinguishes stop being flattened into one confident voice. On the
+page, `mechanism` renders as the body paragraph and `figure` as the muted `.figurative`
+line beneath it. The Energy, Phenomena, and Playground pages are not yet in the map.
 
 *End of document — CURRENTS Design Document v1.1 (Se/Si glyphs and Perception Fidelity Lab reworked; Fe glyph re-specified and Resonance Lab added — full spec in `fe-page-spec.md`)*
 

@@ -40,6 +40,10 @@ function canvasShots() {
 export default defineConfig({
   plugins: [canvasShots()],
   build: {
+    /* es2022 for top-level await: every page entry awaits initLocale()
+       before init. The site already requires WebGL2, which gates on
+       browsers newer than this target. */
+    target: 'es2022',
     rollupOptions: {
       input: {
         fi: resolve(__dirname, 'fi/index.html'),

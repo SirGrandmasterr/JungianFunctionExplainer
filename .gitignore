@@ -2,3 +2,14 @@
 # (dist/ and node_modules/ are deliberately not listed — this repo already
 # tracks them, so ignoring them here would do nothing but mislead.)
 .shots/
+
+# Per-run mirror of translate.mjs's stderr (content/<locale>/.last-run.log);
+# the durable record is .state.json + _review.md, which ARE tracked.
+content/*/.last-run.log
+
+# Task briefs handed to the agent, not part of the site.
+/*-prompt.md
+/*-prompts.md
+
+# Throwaway Chrome profile created by tools/shot.mjs
+.shots/.chrome-profile/

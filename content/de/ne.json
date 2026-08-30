@@ -1,0 +1,332 @@
+{
+  "_meta": {
+    "model": "qwen3.8:latest",
+    "digest": "22130167c4c20e20c7b71454612966ca8e8171e9b3cc8ab6ce8aa6cbfec79643",
+    "promptVersion": 3,
+    "date": "2026-08-30",
+    "status": {
+      "ne.character.awareness.why": "mt",
+      "ne.character.control.why": "mt",
+      "ne.character.endurance.why": "reviewed",
+      "ne.character.precision.why": "mt",
+      "ne.character.speed.why": "mt",
+      "ne.energy.recovery.auxiliary": "mt",
+      "ne.energy.recovery.dominant": "mt",
+      "ne.energy.recovery.inferior": "mt",
+      "ne.energy.recovery.shadow": "mt",
+      "ne.energy.recovery.tertiary": "mt",
+      "ne.feeder.fe": "mt",
+      "ne.feeder.fi": "reviewed",
+      "ne.feeder.si": "mt",
+      "ne.feeder.te": "reviewed",
+      "ne.feeder.ti": "mt",
+      "ne.fieldNotes.mirror": "mt",
+      "ne.fieldNotes.mirrorLink": "mt",
+      "ne.fieldNotes.vignette.fencedMeadow": "mt",
+      "ne.fieldNotes.vignette.grip": "mt",
+      "ne.fieldNotes.vignette.loop": "mt",
+      "ne.fieldNotes.vignette.mistakenForSe": "mt",
+      "ne.fieldNotes.vignette.neverFinish": "reviewed",
+      "ne.fieldNotes.vignette.signedContract": "mt",
+      "ne.fieldNotes.vignette.whiteboard": "reviewed",
+      "ne.hero.heading": "mt",
+      "ne.hero.subtitle": "mt",
+      "ne.hero.tag": "mt",
+      "ne.lab.btn.confine.label": "mt",
+      "ne.lab.btn.confine.sub": "mt",
+      "ne.lab.btn.graft.label": "mt",
+      "ne.lab.btn.graft.sub": "mt",
+      "ne.lab.btn.prune.label": "mt",
+      "ne.lab.btn.prune.sub": "mt",
+      "ne.lab.btn.riff.label": "mt",
+      "ne.lab.btn.riff.sub": "mt",
+      "ne.lab.btn.scatter.label": "mt",
+      "ne.lab.btn.scatter.sub": "mt",
+      "ne.lab.meter.pleasure": "mt",
+      "ne.lab.meter.stress": "mt",
+      "ne.lab.narration.confine": "mt",
+      "ne.lab.narration.confine2": "mt",
+      "ne.lab.narration.graft": "mt",
+      "ne.lab.narration.graft2": "reviewed",
+      "ne.lab.narration.hover": "reviewed",
+      "ne.lab.narration.intro": "mt",
+      "ne.lab.narration.introHintCoarse": "mt",
+      "ne.lab.narration.introHintFine": "mt",
+      "ne.lab.narration.prune": "mt",
+      "ne.lab.narration.prune2": "mt",
+      "ne.lab.narration.riff": "reviewed",
+      "ne.lab.narration.riff2": "mt",
+      "ne.lab.narration.scatter": "mt",
+      "ne.lab.narration.scatter2": "reviewed",
+      "ne.lab.state.equilibrium": "mt",
+      "ne.lab.state.flow": "mt",
+      "ne.lab.state.pruned": "mt",
+      "ne.lab.state.scattered": "mt",
+      "ne.lab.state.starved": "mt",
+      "ne.lab.telemetry.breadth": "mt",
+      "ne.lab.telemetry.cogState": "mt",
+      "ne.lab.telemetry.threads": "mt",
+      "ne.meta.title": "mt",
+      "ne.slot.auxiliary": "reviewed",
+      "ne.slot.critical": "mt",
+      "ne.slot.demon": "reviewed",
+      "ne.slot.dominant": "mt",
+      "ne.slot.inferior": "mt",
+      "ne.slot.opposing": "mt",
+      "ne.slot.tertiary": "reviewed",
+      "ne.slot.trickster": "reviewed",
+      "ne.zoneA.canvasAria": "mt",
+      "ne.zoneB.heading": "mt",
+      "ne.zoneB.lede": "mt",
+      "ne.zoneB.railAria": "mt",
+      "ne.zoneC.heading": "mt",
+      "ne.zoneC.lede": "reviewed",
+      "ne.zoneC.unstableDefault": "mt",
+      "ne.zoneD.canvasAria": "reviewed",
+      "ne.zoneD.heading": "mt",
+      "ne.zoneD.kicker": "mt",
+      "ne.zoneD.lede": "reviewed",
+      "ne.zoneD.ledeHintCoarse": "mt",
+      "ne.zoneD.ledeHintFine": "mt",
+      "ne.zoneE.lede": "mt"
+    }
+  },
+  "ne.character.awareness.why": "bemerkt, was es tut, etwa einen Herzschlag nach dem Tun",
+  "ne.character.control.why": "Zweige wachsen in Richtung Aufmerksamkeit, nicht unter Befehl",
+  "ne.character.endurance.why": "brennt hell und weit, jedoch nicht lang — gedankliche divergente Fülle wird mit losen Enden erkauft",
+  "ne.character.precision.why": "von Design her vorläufig: halb gewachsene Zweige, bewusst locker gehalten",
+  "ne.character.speed.why": "Gabelungen treten mitten im Gedanken auf — die Verzweigung selbst ist nahezu kostenlos",
+  "ne.energy.recovery.auxiliary": "Saubere Erholung, sobald die Optionen dem Richter übergeben wurden.",
+  "ne.energy.recovery.dominant": "Wird teilweise während der Nutzung aufgefüllt — jeder Ast, der gezogen wird, gibt ein wenig zurück.",
+  "ne.energy.recovery.inferior": "Das Katerregal: ~30 Min, in denen das gesamte System gedimmt läuft und die Katastrophen immer wieder abspulen.",
+  "ne.energy.recovery.shadow": "Unvollständig — ein Teil der Ladung kommt heute einfach nicht zurück.",
+  "ne.energy.recovery.tertiary": "Langsamer: Der Brainstorm muss zuerst tatsächlich festgehalten werden.",
+  "ne.feeder.fe": {
+    "figure": "Der Baum neigt sich dorthin, wo das Licht der Aufmerksamkeit fällt.",
+    "mechanism": "Der ENTP-Loop, mit Ti herausgeschnitten: Fe — extravertierte Gefühle — liefert das Urteil des Raums. Zweige, die eine Reaktion hervorrufen, wachsen; Zweige, die ins Leere laufen, werden mitten im Satz fallen gelassen. Breite wird zur Performance, gemessen am Applaus und nie an der Kohärenz — charmant bei Geschwindigkeit, hohl im Zentrum.",
+    "pair": "ENTP Ne–Fe-Loop",
+    "provenance": "community",
+    "warn": "Loop-Kopplung: extravertierte Beurteilung speist extravertierte Wahrnehmung — keine innere Kontrolle."
+  },
+  "ne.feeder.fi": {
+    "figure": "Die mit dem Kernleuchten übereinstimmenden Äste erheben sich und bleiben bestehen.",
+    "mechanism": "Fi — introvertiertes Fühlen — wiegt jeden Ast danach ab, ob er wichtig ist: Diejenigen, die mit dem Geliebten übereinstimmen, bleiben bestehen, und die bloß Cleveren verwelken nach Zeitplan. Der Baum wächst einseitig in Richtung dessen, was der Person wichtig ist — weniger Richtungen, länger gehalten, nur aufgegeben, wenn der Wert darunter sich verschiebt.",
+    "pair": "ENFP · INFP-Kopplung",
+    "provenance": "myers"
+  },
+  "ne.feeder.si": {
+    "figure": "Die Äste wachsen verkümmert und kräuseln sich zurück zum Stamm.",
+    "mechanism": "Si — introvertierte Sinnwahrnehmung — flutet Ne mit Präzedenzfällen: wie es zuvor ablief, wie es immer gemacht wird — und nichts sortiert all das, da beide Funktionen sammeln und keine urteilt. Diese beiden sitzen auch auf derselben Achse: Was die eine Möglichkeit nennt, nennt die andere eine Abweichung von der Akte. Echte Stacks wechseln genau aus diesem Grund zwischen Wahrnehmung und Urteilen ab.",
+    "pair": "Wahrnehmung speist Wahrnehmung",
+    "provenance": "myers",
+    "warn": "Instabile Kopplung: Wahrnehmung speist Wahrnehmung, ohne dass etwas urteilt."
+  },
+  "ne.feeder.te": {
+    "figure": "Das Wachstum umschmeichelt den Rand, während sich die Mitte aushöhlt.",
+    "mechanism": "Der ENFP-Loop, mit Fi herausgeschnitten: Te — extravertiertes Denken — liefert Urteile, aber nur über Handlung. Jeder Ast wird zum Projekt, sobald er sprießt, halb gewachsen gestartet; nichts fragt, ob irgendetwas davon zählt, weil die Funktion, die fragen würde, übersprungen wurde. Die Geschwindigkeit steigt, und das Regal der aufgegebenen Anfänge füllt sich.",
+    "pair": "ENFP Ne–Te-Loop",
+    "provenance": "community",
+    "warn": "Loop-Kopplung: extravertierte Beurteilung speist extravertierte Wahrnehmung — keine innere Kontrolle."
+  },
+  "ne.feeder.ti": {
+    "figure": "Beobachte die sauberen Schnitte – die abgeschnittenen Triebe fallen ab, während die Überlebenden dicker werden.",
+    "mechanism": "Ti — introvertiertes Denken — sitzt im Loop und führt Lasttests an jedem Ast durch, während er wächst: Inkonsistente werden früh gekappt, und die Überlebenden bilden lange Implikationsketten, die eine Stunde lang verteidigt werden können. Weniger aktive Äste als bei roher Divergenz, jeder davon tragend. Der Baum des Debattenführers: Breite, die zu Argumenten zurückgeschnitten wird.",
+    "pair": "ENTP · INTP-Kopplung",
+    "provenance": "myers"
+  },
+  "ne.fieldNotes.mirror": {
+    "figure": "Dasselbe Violett, durch den Trichter in entgegengesetzte Richtungen geleitet.",
+    "mechanismHtml": "Gleiches Element, entgegengesetzte Haltung — der Trichter umgekehrt. <strong>Ne</strong> nimmt eine Eingabe und fächert sie in viele Zukünfte auf, alle gleichzeitig lebendig, alle günstig zu halten, keine davon gewählt — Reichweite erkauft mit Verpflichtung. <strong>Ni</strong> läuft in die andere Richtung: Viele Eingaben werden in eine Zukunft zusammengeführt, die ganz, sicher und unfähig, ihre Arbeit zu zeigen, eintrifft. Eine Maschine wettet auf Breite und zahlt in offenen Fäden; die andere wettet auf Tiefe und zahlt in Überarbeitung.",
+    "provenance": "jung"
+  },
+  "ne.fieldNotes.mirrorLink": "Zum anderen Ende des Trichters →",
+  "ne.fieldNotes.vignette.fencedMeadow": {
+    "figure": "Eine blühende Wiese, eingezäunt.",
+    "kind": "als tertiär",
+    "mechanism": "Tertiäres Ne bei ESTJ oder ESFJ: Divergenz an der Leine. Im Planungstreffen ist es ein echtes Asset – drei umsetzbare Varianten, eine clevere Kontingenz, pünktlich geliefert und sichtbar genossen. Dann beginnt die Ausführung, das Tor schließt, und dieselbe Person, die die Optionen generiert hat, erklärt weitere Optionen für unzulässig. Die Verzweigung ist real; sie darf einfach nichts Tragendes berühren.",
+    "provenance": "grant",
+    "title": "Die eingezäunte Wiese"
+  },
+  "ne.fieldNotes.vignette.grip": {
+    "figure": "Die Blüte kehrt sich in eine Prüfung um.",
+    "kind": "der Grip",
+    "mechanism": "Ein ENTP, der seine Reserven erschöpft hat, stoppt die Generierung und flutet in die inferior Si — katalogisiert plötzlich alte Fehler in forensischer Detailtiefe, prüft jedes körperliche Signal und isst dasselbe Trostessen vor einer Sendung, die er neunmal gesehen hat. Keine Persönlichkeitsänderung: ein Sitz mit niedriger Kapazität nimmt eine dominant große Flut auf.",
+    "provenance": "quenk",
+    "title": "Der Grip"
+  },
+  "ne.fieldNotes.vignette.loop": {
+    "figure": "Randhell, Zentrum hohl.",
+    "kind": "der Loop",
+    "mechanism": "Unter Stress koppelt die dominante Ne eines ENFP mit der tertiären Te — beide richten sich nach außen, während die stille Frage des Fi, ob mir das wirklich wichtig ist?, dazwischen abgeschnitten wird. Die Idee wird innerhalb einer Stunde zu einem Projekt mit Name und Logo, geht halbfertig in den Versand und landet in Woche drei auf dem Regal, weil die Funktion, die es hätte vetieren können, nie konsultiert wurde.",
+    "provenance": "community",
+    "title": "Der Loop"
+  },
+  "ne.fieldNotes.vignette.mistakenForSe": {
+    "figure": "Die eine ist im Raum; die andere ist im Zimmer nebenan, das noch nicht existiert.",
+    "kind": "die Fehldeutung",
+    "mechanism": "Beide lesen sich als „spontan“, daher werden die beiden extravertierten Wahrnehmungen ständig verwechselt. Der Hinweis ist, worauf die Spontanz abzielt. Se will die tatsächliche Textur des tatsächlichen Moments – diese Welle, diese Menge, dieses Fahrrad mit dieser Geschwindigkeit. Ne will das benachbarte Mögliche und wird fröhlich über das gesamte Konzert hinweg darüber sprechen, was aus der Venue werden könnte.",
+    "provenance": "community",
+    "title": "Mit Se verwechselt"
+  },
+  "ne.fieldNotes.vignette.neverFinish": {
+    "figure": "Die Abbildung war das Produkt; das Regal ist der Abfall.",
+    "kind": "die Anklage",
+    "mechanism": "Das Regal der aufgegebenen Projekte ist real, ebenso wie die Fehldiagnose. Die Ausgabe von Ne sind keine unvollendeten Dinge; es ist abgeschlossene Divergenz – der Wert wurde in dem Moment extrahiert, in dem der Möglichkeitsraum abgebildet wurde, und das, was der Vorwurf mit null bewertet, ist jede Idee, die der Vorwerfende derzeit ausführt und die über diese Funktion ankam. Die Kosten sind real und benennenswert; sie als Faulheit zu bezeichnen, benennt den falschen Posten.",
+    "provenance": "community",
+    "title": "Du schaffst nie etwas zu Ende"
+  },
+  "ne.fieldNotes.vignette.signedContract": {
+    "figure": "Schritt neun funktioniert, indem er nicht betrachtet wird.",
+    "kind": "das falsche Instrument",
+    "mechanism": "Es gibt Räume, in denen der Optionssraum null sein soll: der unterschriebene Vertrag, die Sicherheitscheckliste, das chirurgische Protokoll. Ne sieht in diesen Räumen weiterhin die bessere Variante – und hier ist das Erkennen von Möglichkeiten selbst die Gefahr, denn die Checkliste funktioniert gerade dadurch, dass sie in Schritt neun nicht neu überdacht wird. Zu wissen, welche Räume das sind, ist nicht Ne's Aufgabe; dafür ist die Urteilsfunktion im Stack da.",
+    "provenance": "currents",
+    "title": "Der unterschriebene Vertrag"
+  },
+  "ne.fieldNotes.vignette.whiteboard": {
+    "figure": "Elf Äste, alle beleuchtet; der Zähler ist die Geschichte.",
+    "kind": "Feldsichtung",
+    "mechanism": "Zehn Minuten nach Beginn des Meetings hält die Tafel elf Richtungen, vier davon gut, und der Ne-dominante, der sie hervorgebracht hat, ist von allen elf begeistert. Wird er gebeten, eine auszuwählen, sackt er sichtbar in sich zusammen — das Generieren von Optionen und das Schließen derselben sind unterschiedliche Operationen, und nur eine davon ist die Aufgabe dieser Funktion.",
+    "provenance": "community",
+    "title": "Die Whiteboard"
+  },
+  "ne.hero.heading": "Die Divergenz von {fn}",
+  "ne.hero.subtitle": "Ein Reiz, ein Baum der Möglichkeiten, der aus ihm hervorschießt – jeder Ast verzweigt sich erneut, bevor der letzte fertig gewachsen ist, und die hellsten Funken entkommen der Kammer gänzlich.",
+  "ne.hero.tag": "extravertierte Intuition",
+  "ne.lab.btn.confine.label": "Das Verfahren",
+  "ne.lab.btn.confine.sub": "vollständig festgelegt · null Freiheitsgrade",
+  "ne.lab.btn.graft.label": "Kreuzbestäubung",
+  "ne.lab.btn.graft.sub": "Zwei fremde Bereiche kollidieren lassen → hybride Idee",
+  "ne.lab.btn.prune.label": "Erzwungene Konvergenz",
+  "ne.lab.btn.prune.sub": "Wähle eine. Jetzt. Schriftlich.",
+  "ne.lab.btn.riff.label": "Riff-Sitzung",
+  "ne.lab.btn.riff.sub": "Ein lebendiger Partner sagt ständig „Ja, und—“",
+  "ne.lab.btn.scatter.label": "Neues Projekt",
+  "ne.lab.btn.scatter.sub": "Baum aufgeben → neuen, aufregenden pflanzen",
+  "ne.lab.meter.pleasure": "Vergnügen",
+  "ne.lab.meter.stress": "Stress",
+  "ne.lab.narration.confine": {
+    "figure": "Der Baum wird als Spalier in den Korridor geformt, jeder sich kreuzende Ast ist zurückgeschnitten; die schwachen gestrichelten Flackern außerhalb des Kastens sind Fluchtfantasien.",
+    "mechanism": "Das Verfahren: vollständig spezifiziert, null Freiheitsgrade. Die Erzeugung hört nie auf — sie wird nur nicht mehr erlaubt, das, was sie erzeugt, zu behalten.",
+    "provenance": "currents"
+  },
+  "ne.lab.narration.confine2": {
+    "figure": "Die Blüte beim Loslassen ist augenblicklich.",
+    "mechanism": "Achte auf den Stressmesser: Er stieg die ganze Zeit stetig an, statt zu spiken, und klettert weiter. Das ist der kostspielige Weg, um bei einer Ne-lastigen Person Compliance zu erzielen – die Arbeit wird erledigt, zu Kosten, die für den, der die Checkliste geschrieben hat, unsichtbar sind. Die Erleichterung, wenn die Vorlage fällt, ist real; sie ist auch der Grund, warum die nächste Einschränkung schwieriger ist.",
+    "provenance": "currents"
+  },
+  "ne.lab.narration.graft": {
+    "figure": "Ein Ast bogenförmig über die Lücke; die Farbe, die an der Verzweigung ausbricht, gehört zu keinem der beiden Elternteile.",
+    "mechanism": "Zwei Bereiche, die sich nie begegnet sind und getrennt wachsen – dann hält eine einzige Verbindung zwischen ihnen. Was an der Verbindungstelle wächst, hätte aus keinem der beiden Bereiche allein entstehen können, und es wächst schneller als beide.",
+    "provenance": "currents"
+  },
+  "ne.lab.narration.graft2": {
+    "figure": "Die Hybride wächst weiter, nachdem beide Eltern verlangsamt haben.",
+    "mechanism": "Das ist der Lohn, für den Ne arbeitet – nicht Neuheit um ihrer selbst willen, sondern Rekombination. Alles, was diese Funktion wirklich Neues hervorbringt, entsteht so, aus mindestens zwei alten Dingen.",
+    "provenance": "currents"
+  },
+  "ne.lab.narration.hover": "Du hast den Verzweigungspunkt. Wohin du auch zeigst, der Baum wächst in Richtung deiner Aufmerksamkeit – Möglichkeiten sind billig, sofort verfügbar und gehören dir. Beachte, dass sie sich verzweigen, bevor du sie überhaupt zu Ende betrachtet hast: Wartezeit kennt diese Funktion nicht.",
+  "ne.lab.narration.intro": "Die Maschine läuft unbeaufsichtigt: Reize driften durch die Lücke herein, jede Ankunft verzweigt sich in Äste, und diese verzweigen sich erneut, bevor die ersten ihr Wachstum abgeschlossen haben.",
+  "ne.lab.narration.introHintCoarse": "Führe einen Finger über die Kammer, um manuell abzweigen — oder führe unten ein Szenario aus und beobachte, wie die Telemetrie antwortet.",
+  "ne.lab.narration.introHintFine": "Führen Sie den Cursor über die Kammer, um manuell abzweigen — oder führen Sie unten ein Szenario aus und beobachten Sie, wie die Telemetrie antwortet.",
+  "ne.lab.narration.prune": {
+    "figure": "Der Schnitt verläuft wellenförmig von den Spitzen nach innen, und der Überlebende verdickt sich zu einem Stiel.",
+    "mechanism": "„Wähle eine. Jetzt. Schriftlich.“ Commitment kostet eine Divergenzmaschine jeden lebenden Ast außer einem – und beachte, welcher überlebt: der Ast, der zufällig im Moment der Forderung am hellsten war. Nicht der beste. Der hellste.",
+    "provenance": "currents"
+  },
+  "ne.lab.narration.prune2": {
+    "figure": "Der Stumpf treibt bereits aus.",
+    "mechanism": "Der Zähler für geschlossene Fäden hat sich gerade bewegt — die einzige Zahl auf dieser Seite, die sich je durch Zwang bewegt. Ne konvergiert nicht von selbst; es wird von außen konvergiert. Das Nachwachsen ist die Resilienz und auch das Problem: Bei der nächsten Frist kommt die Welle wieder.",
+    "provenance": "currents"
+  },
+  "ne.lab.narration.riff": {
+    "figure": "Jede Antwort trifft auf eine wachsende Spitze und verzweigt sie beim Kontakt.",
+    "mechanism": "Ein lebendiger Partner, der Ideen zu dem Thema hinzufügt, wandelt fast ohne Kosten externen Stimulus in weite Verzweigung um: Stress baut sich ab, während die Ausgabe sich verdoppelt. Ne kann allein in einem stillen Raum nicht gut brainstormen. Der stille Raum war die Einschränkung.",
+    "provenance": "currents"
+  },
+  "ne.lab.narration.riff2": {
+    "figure": "Eine Kammer voller lebendiger Zweige, keiner von ihnen gewählt.",
+    "mechanism": "Zähle, was die Sitzung hervorgebracht hat: Breite, Neuheit, einen Raum voller lebendiger Optionen – und null Entscheidungen. Das ist kein Versagen; das ist der Zweck der Sitzung. Der Fehler besteht darin, einen Riff zu planen und ein Urteil zu erwarten – Urteile sind das Ergebnis einer judging-Funktion, und es gibt keines in diesem Loop.",
+    "provenance": "currents"
+  },
+  "ne.lab.narration.scatter": {
+    "figure": "Der alte Baum wird zu einer grauen Hülle, in dem Moment, in dem der neue Samen aufschlägt; beobachte den Zähler der offenen Fäden, nicht die Blüte.",
+    "mechanism": "Eine neue Idee — wirklich aufregend, und der Genuss ist echt; hier ist nichts gefälscht. Aber alles, was das alte Projekt getragen hat, ist noch offen. Es wurde nur nicht mehr beleuchtet.",
+    "provenance": "currents"
+  },
+  "ne.lab.narration.scatter2": {
+    "figure": "Die Hüllen am Rand behalten ihre Fäden: graue Schuld, noch gezählt.",
+    "mechanism": "Der Friedhof wächst um eins, und der Neuanfang fühlt sich wie Fortschritt an, während die Gesamtzahl nur steigt. Irgendwo in diesem Grau ist ein Ast, den jemand anderes in drei Jahren zu Ende ausbaut — und er wird korrekt als seine Idee bezeichnet.",
+    "provenance": "currents"
+  },
+  "ne.lab.state.equilibrium": "Gleichgewicht öffnen",
+  "ne.lab.state.flow": "Generativer Fluss",
+  "ne.lab.state.pruned": "Konvergenzstress",
+  "ne.lab.state.scattered": "Überdehnt",
+  "ne.lab.state.starved": "Neuigkeitsmangel",
+  "ne.lab.telemetry.breadth": "Breite",
+  "ne.lab.telemetry.cogState": "Kognitiver Zustand",
+  "ne.lab.telemetry.threads": "Offene Threads",
+  "ne.meta.title": "Ne — Extravertierte Intuition · CURRENTS",
+  "ne.slot.auxiliary": {
+    "example": "Ein INFP, der bei einer Entscheidung feststeckt, bittet um Möglichkeiten und erhält sechs, von denen genau eine die richtige ist.",
+    "figure": "Ein Baum, der zu vier Fünfteln gewachsen ist und sich in Richtung der Frage neigt, die ihm gestellt wurde.",
+    "mechanism": "Im zweiten Sitz arbeitet Ne für eine dominante Urteilsfunktion: Das Gerüst oder die Überzeugung gibt ihr Probleme, und sie liefert Optionen – mögliche Ursachen, mögliche Rahmungen, mögliche Leben. Enger in der Verzweigung als im ersten Sitz, leichter zu stoppen und eher geneigt, den guten Ast weiterzureichen, als ihn um seiner selbst willen weiterwachsen zu lassen.",
+    "provenance": "myers"
+  },
+  "ne.slot.critical": {
+    "example": "Ein ENFJ, mitten im Erfolg, verbringt einen Abend damit, das Leben zu durchleben, das es in der Stadt gehabt hätte, die es mit 24 verlassen hat.",
+    "figure": "Graue Äste, skizziert über dem Stamm dessen, was tatsächlich gebaut wurde.",
+    "mechanism": "Im sechsten Sitz wendet sich Ne nach innen als Spötter der nicht eingeschlagenen Wege: Du hast das andere Angebot, die andere Stadt, das andere Leben nie in Betracht gezogen. Die Prüfungen sind sporadisch, hart und richten sich an bereits getroffene und nicht rückgängig zu machende Entscheidungen – Inventur ohne Optionen.",
+    "provenance": "beebe"
+  },
+  "ne.slot.demon": {
+    "example": "Mitten in der Feier wird eine ESFP von all den Möglichkeiten überfallen, auf die ihr dieses Gute genommen werden könnte, und verstummt.",
+    "figure": "Eine umgekehrte Blüte: Äste, die in den Stamm hineinwachsen.",
+    "mechanism": "Der achte Sitz ist der seltenste und schärfste. Wenn er ausbricht, wird die Möglichkeit selbst feindselig: Das lebendige Gegenwärtige wird plötzlich von allem umringt, was damit schiefgehen könnte — alles auf einmal, nichts davon umsetzbar, gerichtet auf das, was gerade geliebt wird. Es ist die am wenigsten geübte Position im Stack, keine Vorhersage.",
+    "provenance": "beebe"
+  },
+  "ne.slot.dominant": {
+    "example": "Zehn Minuten nach Beginn des Meetings hält die Whiteboard elf Richtungen, vier davon gut.",
+    "figure": "CURRENTS zeichnet dies als volle Blüte — Äste, die sich erneut verzweigen, bevor die letzte Verzweigung ihr Wachstum abgeschlossen hat.",
+    "mechanism": "Im ersten Sitz erzeugt Ne kontinuierlich und zu fast keinen Kosten: Eine Tatsache trifft ein und ist bereits drei Analogien und ein Plan, keiner abgeschlossen, alle lebendig. Die Anstrengung liegt nie im Erzeugen von Optionen – sie liegt darin, aufgefordert zu werden, aufzuhören. Der Preis sind offene Fäden: Breite wird mit Dingen erkauft, die weiterlaufen.",
+    "provenance": "myers"
+  },
+  "ne.slot.inferior": {
+    "example": "In der Nacht vor dem Umzug listet ein ISTJ neunzehn Dinge auf, die allein schon mit dem Van schiefgehen könnten.",
+    "figure": "Ein kleiner Baum, der nur in Grau blüht — jeder Ast ein Warnschild.",
+    "mechanism": "Im vierten Sitz registriert sich Möglichkeit meist als Bedrohung. Der bewährte Weg wird über lange Strecken vertraut; unter Erschöpfung oder erzwungener Veränderung treffen Was-wäre-wenn-Szenarien plötzlich und total ein — jede unbekannte Option auf einmal, alle enden schlecht, in einer Stimme, die nicht wie sie klingt. Dies ist der Grip von Quenk, von innen gesehen.",
+    "provenance": "quenk"
+  },
+  "ne.slot.opposing": {
+    "example": "Ein INTJ beantwortet ein Brainstorming mit vierzehn bewusst wegwerfbaren Ideen und einer hochgezogenen Augenbraue.",
+    "figure": "Unterhalb der Wasserlinie, ein Dickicht, das über Nacht gewachsen ist, um einen Weg zu blockieren.",
+    "mechanism": "Der fünfte Sitz öffnet den Schatten — die vier Positionen, die eine Person selten ausführt und meist ohne es zu bemerken. Hier wird Ne kämpferisch: Wenn die Streuung von Optionen jemandes durchdringende Lektüre bedroht, werden rivalisierende Möglichkeiten nicht zur Erkundung, sondern gesprüht, um zu demonstrieren, dass Optionen billig sind — und dass diese Billigkeit das Argument gegen sie ist.",
+    "provenance": "beebe"
+  },
+  "ne.slot.tertiary": {
+    "example": "Ein ESFJ entwickelt drei wirklich clevere Varianten für die Spendensammlung und erklärt alle weiteren Varianten anschließend für unzulässig.",
+    "figure": "Ein halbgroßer Baum, der am Wochenende blüht.",
+    "mechanism": "Im dritten Sitz zeigt sich die Divergenz in Schüben – das Offsite mit Haftnotizen, der Renovierungsplan um Mitternacht – echte Fähigkeit mit unregelmäßigem Vertrauen darin, schnell abgelegt, wenn der Plan sich wieder durchsetzt. Mit dem Alter stabilisiert sie sich, vor allem dadurch, dass sie absichtlich statt zufällig freigegeben wird.",
+    "provenance": "grant"
+  },
+  "ne.slot.trickster": {
+    "example": "Auf die Frage „Was, wenn der Lieferant ausfällt?“, sagt ein ISTP „Was, wenn das Gebäude überflutet wird?“ und betrachtet die Sache als erledigt.",
+    "figure": "Der Baum wächst Ast für Ast, in Winkeln, die niemand vorhergesehen hat.",
+    "mechanism": "Im siebten Sitz registrieren sich Hypothesen als ein manipuliertes Spiel. Das plausible Was-wäre-wenn ist entweder unsichtbar oder wird mit einer so abwegigen Antwort beantwortet, dass sie das gesamte Unterfangen diskreditiert – und die Person kann wirklich nicht sagen, welche der beiden gerade geschehen ist. Keine Bosheit; kein Bericht.",
+    "provenance": "beebe"
+  },
+  "ne.zoneA.canvasAria": "Interaktive visuelle Darstellung der extravertierten Intuition als Divergenzmaschine: Reize treten durch einen offenen Ring ein und brechen in einen verzweigten Baum der Möglichkeiten aus, wobei Funken nach außen über die Grenze hinausfliegen. Wischen oder Ziehen Sie irgendwo, um neue Zweige in Richtung des Zeigers zu wachsen zu lassen.",
+  "ne.zoneB.heading": "Die acht Gesichter von Ne",
+  "ne.zoneB.lede": "Die Leinwand zeichnet Ne als verzweigenden Baum: ein Reiz hinein, viele Möglichkeiten hinaus. Wo Ne im Stack einer Person sitzt – die feste Reihenfolge, in der ihre acht Funktionen auftreten –, verändert sich die Verzweigung. Klicke auf eine Position, um die Veränderung zu sehen, vom omnidirektionalen Blühen der dominanten Funktion bis zu den feindlichen Was-wäre-wenn-Szenarien des Dämons, und beobachte die Live-Zweigzahl: Sie erzählt die Geschichte, bevor die Bildunterschrift es tut. Ziehe den Reifegrad-Schieberegler, um zu sehen, wie die unteren Sitze mit dem Alter an Genauigkeit gewinnen.",
+  "ne.zoneB.railAria": "Stack-Positionen für Ne",
+  "ne.zoneC.heading": "Was speist Ne?",
+  "ne.zoneC.lede": "Ne sammelt; es urteilt nicht. Die extravertierte Wahrnehmung wird von der introvertierten Bewertung gespeist, daher sind ihre eigentlichen Partner die inneren Richter — Ti und Fi, die Funktionen, die entscheiden, welche Zweige das Leben verdienen. Klicke auf einen Zubringer, um zu sehen, was wächst.",
+  "ne.zoneC.unstableDefault": "Instabile Kopplung: Wahrnehmung speist Wahrnehmung, wobei nichts urteilt.",
+  "ne.zoneD.canvasAria": "Der Ne-Divergenz-Motor: Reize treten durch eine Öffnung ein und verzweigen sich zu einem lebendigen Baum der Möglichkeiten; Szenarien kreuzen sich, werden zurückgeschnitten, verstreut, improvisiert oder eingeengt. Wische oder ziehe, um Äste von Hand zu wachsen zu lassen",
+  "ne.zoneD.heading": "Divergenz-Engine",
+  "ne.zoneD.kicker": "Zone D · der Divergenz-Motor",
+  "ne.zoneD.lede": "Ne verzweigt einen Reiz in viele Möglichkeiten, öffentlich und mit Tempo. Dieses Labor zeigt den Live-Zustand der Divergenzmaschine – Stress, Freude, Breite, offene Fäden – und fünf Arten, wie ein Tag damit umgehen kann. Löst ein Szenario aus und beobachte, wie die Telemetrie antwortet.",
+  "ne.zoneD.ledeHintCoarse": "Führe jederzeit mit dem Finger über die Kammer, um manuell abzweigen zu können.",
+  "ne.zoneD.ledeHintFine": "Durchsuche die Kammer jederzeit, um manuell abzweigen zu können.",
+  "ne.zoneE.lede": "Muster aus der Wildnis — wie Ne im Alltag auftritt."
+}

@@ -1,0 +1,238 @@
+{
+  "se.character.awareness.why": "contact runs ahead of self-report: it acts, then finds out it acted",
+  "se.character.control.why": "follows the field's action more readily than an inner agenda",
+  "se.character.endurance.why": "contact pays back in the moment — a live field can be ridden for hours",
+  "se.character.precision.why": "full resolution at zero lag, for exactly as long as the contact lasts",
+  "se.character.speed.why": "locks within a single frame — the fastest event in the psyche",
+  "se.energy.recovery.auxiliary": "Quick, once the tools are down and the scene is closed.",
+  "se.energy.recovery.dominant": "Refills during use — full contact is cheaper than resting badly.",
+  "se.energy.recovery.inferior": "The hangover shelf: ~30 min where the overstimulation lingers and every channel runs dim.",
+  "se.energy.recovery.shadow": "Incomplete — voltage spent here does not fully return today.",
+  "se.energy.recovery.tertiary": "Needs the plan put away first; presence bought on a schedule recovers on one.",
+  "se.feeder.fe": {
+    "figure": "Dwell time collapses to zero; the reticle chases applause.",
+    "mechanism": "The ESTP loop, with Ti cut out: Fe — extraverted feeling — supplies targets, but only social ones — the laugh, the reaction, the room's next dare — and every hit is spent immediately on setting up the next. Nothing is examined, nothing savoured; the show simply escalates. The missing piece is the auxiliary's quiet question: is this actually a good idea?",
+    "pair": "the ESTP Se–Fe loop",
+    "provenance": "community",
+    "warn": "Loop coupling: dominant and tertiary, both extraverted — the auxiliary's inner check is cut out."
+  },
+  "se.feeder.fi": {
+    "figure": "The right targets glow, and the reticle lingers.",
+    "mechanism": "Fi — introverted feeling — hands the eye a felt criterion: what is beautiful, what is honest, what is worth savouring. The world sorts itself by significance, and a lock is held long past its tactical use, because the point was never tactics. The performer's and the aesthete's gaze: full presence, aimed at what the heart already chose.",
+    "pair": "the ISFP · ESFP coupling",
+    "provenance": "myers"
+  },
+  "se.feeder.ni": {
+    "figure": "Locks abort halfway, again and again.",
+    "mechanism": "Ni — introverted intuition — keeps interrupting looking with meaning: every lock aborts midway because the target has already become a symbol of something else. The eye retargets constantly and finishes nothing; the world is entirely present and never actually seen. These two share an axis for a reason — real stacks put a judge between them.",
+    "pair": "perception feeding perception",
+    "provenance": "myers",
+    "warn": "Unstable coupling: perception feeding perception, with nothing judging either."
+  },
+  "se.feeder.te": {
+    "figure": "The reticle sprints a checklist that refills itself.",
+    "mechanism": "The ESFP loop, with Fi cut out: Te — extraverted thinking — turns the field into a task list — visible, finishable, immediately replaced — and the eye rides from errand to errand at full speed. Motion becomes its own proof of progress; whether any of it matters to the person doing it is exactly the question the loop bypasses.",
+    "pair": "the ESFP Se–Te loop",
+    "provenance": "community",
+    "warn": "Loop coupling: dominant and tertiary, both extraverted — the auxiliary's inner check is cut out."
+  },
+  "se.feeder.ti": {
+    "figure": "Measurement tags bloom on whatever the reticle locks.",
+    "mechanism": "Ti — introverted thinking — hands the eye a spec: tolerances, mechanisms, the one measurement that settles it. Salience reorganises around what matters — fewer targets, locked harder, read to the millimetre. The troubleshooter's gaze: the machine in front of you, interrogated part by part, and the diagnosis checked against the thing itself.",
+    "pair": "the ISTP · ESTP coupling",
+    "provenance": "myers"
+  },
+  "se.fieldNotes.mirror": {
+    "figure": "One is water that looks; the other is water that keeps.",
+    "mechanismHtml": "Same element, opposite attitude — and the difference is what happens to the moment. <strong>Se</strong> rides it: full resolution, zero lag, nothing kept — the world as a place to act. <strong>Si</strong> banks it: metered intake, compared against every layer it has ever laid down — the world as a place to recognise. Se trades the record for the moment; Si trades the moment for a record no moment can take away.",
+    "provenance": "jung"
+  },
+  "se.fieldNotes.vignette.court": {
+    "figure": "Reticle, lock, launch — one frame.",
+    "kind": "field sighting",
+    "mechanism": "Mid-game, an ESTP sees the defender's weight shift a half-second before the lane opens, and is already moving. Asked afterwards how they knew, they say they saw it — which is the whole answer. There was no inference to report; the perception and the move were one event, and the interview about it is the first part that costs effort.",
+    "provenance": "community",
+    "title": "The Court"
+  },
+  "se.fieldNotes.vignette.fiveYearPlan": {
+    "figure": "The sharpest instrument in the building, with nothing to grip.",
+    "kind": "the wrong instrument",
+    "mechanism": "Hand Se the strategy offsite — the market in 2031, the succession question, the bet whose payoff no one in the room will see this year — and contact has no surface, because the future does not have one yet. A strong Se-dominant does not fake the long view; they partner with someone who has it, and take the part of the plan that touches ground this quarter — which, done at their resolution, is a contribution no planner can match.",
+    "provenance": "community",
+    "title": "The Five-Year Plan"
+  },
+  "se.fieldNotes.vignette.grip": {
+    "figure": "The iris cedes to a dark funnel.",
+    "kind": "the grip",
+    "mechanism": "An ESFP past the end of their reserves stops perceiving and starts foreboding — sudden grim certainties about what it all means and where it is heading, delivered with none of dominant intuition's craft. Not a personality change: a low-capacity seat taking a dominant-sized flood.",
+    "provenance": "quenk",
+    "title": "The Grip"
+  },
+  "se.fieldNotes.vignette.loop": {
+    "figure": "Every stunt buys the next; the gate never closes.",
+    "kind": "the loop",
+    "mechanism": "An ESTP under pressure pairs dominant Se with tertiary Fe: the room's reaction becomes the only instrument, and every stunt buys the next one. Ti's quiet question — is this actually a good idea? — is the function the loop exists to avoid. From inside it feels like being on; from outside it looks like escalation.",
+    "provenance": "community",
+    "title": "The Loop"
+  },
+  "se.fieldNotes.vignette.mistakenForNe": {
+    "figure": "This wave, not a better idea of one.",
+    "kind": "the misread",
+    "mechanism": "Both read as \"spontaneous,\" and the two get swapped in both directions. The tell is the object of the appetite. Se wants the actual thing at actual intensity — this wave, this crowd, this engine — and finds talking about hypothetical waves a poor substitute for water. Ne wants the possibility and will trade the concert in front of it for a better idea of a concert. Watch where the attention lands when both are in one room: one on the stage, one on what the venue could become.",
+    "provenance": "community",
+    "title": "Mistaken for Ne"
+  },
+  "se.fieldNotes.vignette.reckless": {
+    "figure": "Frame-rate data the guardrail never sees.",
+    "kind": "the accusation",
+    "mechanism": "The verdict is usually delivered by someone whose risk estimate ran on precedent rather than on the scene. What the accuser cannot see is the resolution: the rider read this surface, this camber, this grip, at frame rate, and priced the move against data they will never have from the guardrail. Dominant Se's error rate is often lowest exactly where the stakes are highest — that is what full contact buys. The honest caveat sits lower in the stack: the same move from the tertiary or inferior seat runs on a fraction of the resolution and all of the appetite.",
+    "provenance": "community",
+    "title": "\"Reckless\""
+  },
+  "se.fieldNotes.vignette.scheduledBody": {
+    "figure": "Full aperture, by appointment.",
+    "kind": "as a tertiary",
+    "mechanism": "Tertiary Se in an ENTJ or ENFJ: presence, purchased in blocks. The motorcycle weekend, the boxing class at six, the kitchen renovated to restaurant grade — real contact with the physical world, genuinely relished, and booked into the calendar by the long-range machinery that runs the rest of the week. The tell is the transition: fully in the body on Saturday, and by Monday the senses have gone back to executive summary.",
+    "provenance": "grant",
+    "title": "The Scheduled Body"
+  },
+  "se.hero.heading": "The Naked Eye of {fn}",
+  "se.hero.subtitle": "A wide-open iris in direct contact with the live field — the world through it sharper, faster, and more saturated than the world beside it. Nothing between. Nothing kept.",
+  "se.hero.tag": "extraverted sensing",
+  "se.lab.btn.blackout.label": "Lights Out",
+  "se.lab.btn.blackout.sub": "the field empties — nothing to perceive",
+  "se.lab.btn.flicker.label": "A Flicker in the Crowd",
+  "se.lab.btn.flicker.sub": "one element shifts for 300 ms",
+  "se.lab.btn.window.label": "A Closing Window",
+  "se.lab.btn.window.sub": "an opening appears — and starts shutting",
+  "se.lab.intensity.aria": "Stimulus field intensity, from empty room to street carnival",
+  "se.lab.intensity.heading": "Field Intensity",
+  "se.lab.intensity.max": "street carnival",
+  "se.lab.intensity.min": "empty room",
+  "se.lab.meter.pleasure": "Contact Pleasure",
+  "se.lab.meter.stress": "Stress",
+  "se.lab.narration.blackout": {
+    "figure": "The last thing seen dies as an afterimage; the small glint leaving it, labelled for Si, is the stratum its sibling would have kept.",
+    "mechanism": "The field is gone, and the eye starts paying for silence — stress climbing on an empty room the way other functions pay for chaos. Se keeps nothing, so there is nothing to fall back on.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.blackout2": {
+    "figure": "The meters snap home.",
+    "mechanism": "Contact restored — no residue, no backlog, no grudge. The blackout cost exactly what it lasted and nothing more. Functions that keep records recover slowly; the one that keeps nothing is also the one that resets instantly.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.flicker": {
+    "figure": "Note the twin flicker outside the lens: same event, same size, gone unseen. That is the same world without Se pointed at it.",
+    "mechanism": "One element in the field shifted for three hundred milliseconds, and the lock landed before the thought did — a name for what moved arrives second.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.flicker2": {
+    "figure": "The flicker is already gone from the chamber, and the eye is back to hunting.",
+    "mechanism": "Caught, tagged, released — nothing stored. What Se buys is not a memory of the change; it is the handful of milliseconds between the world moving and the body knowing.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.flickerMiss": {
+    "figure": "The flicker ran its three hundred milliseconds and closed before the lock arrived.",
+    "mechanism": "Missed. The event was real and the perception honest — but from this deep in the stack, the signal reaches the eye after the moment has left. Too late to matter is a position cost, not a character flaw. Drag Se back up the rail in Zone B and try again.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.hoverCoarse": "Your touch is now the most vivid object in the field, and the eye treats it accordingly: zero-lag tracking, tracers leaping at every quick move. You are experiencing the dominant preset — drop this glyph to Inferior in Zone B and the same touch becomes something the gaze trails behind, catches, and loses.",
+  "se.lab.narration.hoverFine": "The cursor is now the most vivid object in the field, and the eye treats it accordingly: zero-lag tracking, tracers leaping at every quick move. You are experiencing the dominant preset — drop this glyph to Inferior in Zone B and the same cursor becomes something the gaze trails behind, catches, and loses.",
+  "se.lab.narration.intro": "The field runs live: drifters, movers, the occasional flare — and the eye hunting through it, locking whatever moves. Slide the field intensity and watch stress and pleasure trade places, or spawn an event and watch the reticle answer.",
+  "se.lab.narration.introHintCoarse": "Press and drag in the chamber to become the target yourself.",
+  "se.lab.narration.introHintFine": "Hover the chamber to become the target yourself.",
+  "se.lab.narration.slider": {
+    "figure": "Drag the field from empty room to street carnival and watch the meters trade places — the render sharpens as the stream thickens.",
+    "mechanism": "More world produces more clarity: Se does not get overwhelmed by intensity, it gets focused. The emergency, for this function, is the other end of the slider.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.window": {
+    "figure": "Watch the response streak against the shrinking gap.",
+    "mechanism": "An opening — and it is already closing. Perception here is not a report; it is a launch condition, and the answer leaves immediately.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.windowHit": {
+    "figure": "One streak, one gap, daylight on both sides.",
+    "mechanism": "Threaded, with room to spare. The present offered a gap with a deadline, and seeing it and taking it were one motion. No deliberation appears anywhere in the loop — which is not recklessness; at this position, it is precision.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.windowMiss": {
+    "figure": "The streak meets the closed edge.",
+    "mechanism": "Shut. The response fired exactly as designed — and arrived at a wall, because from this seat the signal spends hundreds of milliseconds in transit before the launch even begins. Select a higher slot in Zone B and spawn another window: position is the difference between an opening and a story about one.",
+    "provenance": "currents"
+  },
+  "se.lab.state.blackout": "Sensory Blackout",
+  "se.lab.state.equilibrium": "Open Field",
+  "se.lab.state.flow": "Full Contact",
+  "se.lab.state.hunger": "Stimulus Hunger",
+  "se.lab.state.late": "Out of Position",
+  "se.lab.telemetry.clarity": "Field clarity",
+  "se.lab.telemetry.cogState": "Cognitive state",
+  "se.lab.telemetry.crossHead": "cross-listen · the same events, arriving at Si",
+  "se.lab.telemetry.lock": "Time to lock",
+  "se.lab.telemetry.sibPleasure": "Si pleasure",
+  "se.lab.telemetry.sibStress": "Si stress",
+  "se.lab.telemetry.visitSi": "visit Si →",
+  "se.meta.title": "Se — Extraverted Sensing · CURRENTS",
+  "se.slot.auxiliary": {
+    "example": "An ISTP glances at the engine once and knows which of the four sounds does not belong.",
+    "figure": "The iris opens fully on cue and rests half-closed between.",
+    "mechanism": "In the second seat, the scene is read cleanly and then handed inward — to a framework or a value — before anything is done about it. Less appetite than a first seat, more selection: full attention for what the craft or the feeling currently cares about, polite idling through the rest.",
+    "provenance": "myers"
+  },
+  "se.slot.critical": {
+    "example": "An ESFJ relives the dropped tray for a week, frame by frame, without once being told how to carry two.",
+    "figure": "A replay reticle circling the missed frame.",
+    "mechanism": "In the sixth seat, the eye turns inward as a sergeant with perfect timing and no warmth: you did not see it, you were too slow, you looked ridiculous. Precise about the missed moment, useless about what to do with it, and aimed mostly at the self.",
+    "provenance": "beebe"
+  },
+  "se.slot.demon": {
+    "example": "At the end of a terrible month, an ENFP runs until their legs give out, on a road they never saw.",
+    "figure": "The iris jammed open, flooding on purpose.",
+    "mechanism": "The eighth seat runs rarest and crudest. When it erupts, sensation stops being perception and becomes something applied to the self — the punishing workout, the blackout night, the hand through the wall. It is the least practised seat in the stack, and by that point it is not seeing anything.",
+    "provenance": "beebe"
+  },
+  "se.slot.dominant": {
+    "example": "Mid-game, an ESTP is already moving when the lane opens; asked how they knew, they say they saw it.",
+    "figure": "CURRENTS draws this as a wide-open iris — the field crisp and saturated inside the ring, blurred outside it.",
+    "mechanism": "In the first seat, the world arrives at full resolution and zero delay: what moved, what changed, where the opening is — obvious, continuously, at no cost. Attention goes where the action is without being sent, and the body often answers before a plan exists. The price is retention: almost nothing is kept.",
+    "provenance": "myers"
+  },
+  "se.slot.inferior": {
+    "example": "An INFJ who forgets to eat all week orders everything on the menu at midnight, twice.",
+    "figure": "A pinhole that snaps to full aperture without warning.",
+    "mechanism": "In the fourth seat, the present is mostly static between insights: physical detail arrives late, partial, and slightly untrustworthy — where the keys are, what was just said, the state of the body. Under real stress the senses flood open all at once — Quenk's grip — with bingeing, recklessness, and a sudden appetite for intensity that does not sound like them.",
+    "provenance": "quenk"
+  },
+  "se.slot.opposing": {
+    "example": "An ISTJ who \"doesn't notice décor\" recites the room's four changes to win a point about the old sofa.",
+    "figure": "Below the waterline, the iris flashes open once, pointedly.",
+    "mechanism": "The fifth seat opens the shadow — the four positions a person runs rarely, and mostly without noticing. Here contact wakes as contradiction: when the record says one thing and the room plainly shows another, a blunt, unusually vivid look at it, it is right there — held exactly long enough to defend the archive, then dropped.",
+    "provenance": "beebe"
+  },
+  "se.slot.tertiary": {
+    "example": "An ENTJ is fully in the body on Saturday's ride; by Monday the senses are back on summary.",
+    "figure": "A half-size iris on a timer.",
+    "mechanism": "In the third seat, presence comes in bursts, usually downstream of a plan: the dinner, the court, the stage get genuinely seen — then the long-range machinery resumes and the senses drop back to executive summary. It improves with age, mostly as permission: it turns out the world is allowed to be enjoyed directly.",
+    "provenance": "grant"
+  },
+  "se.slot.trickster": {
+    "example": "An INTP searches twenty minutes for the glasses on their own forehead, then swears the mug was never there.",
+    "figure": "The reticle locks, confidently, on empty space.",
+    "mechanism": "In the seventh seat, the present plays pranks: objects genuinely vanish and reappear, the obvious thing on the table goes unseen for ten minutes — and occasionally the reverse, total confident certainty about a physical detail that was never there. Neither state announces which one is running.",
+    "provenance": "beebe"
+  },
+  "se.zoneA.canvasAria": "Interactive visual representation of Extraverted Sensing as a wide-open iris-aperture: a live particle field runs blurred outside the ring and crisp, saturated, and trailed inside it, while a gaze reticle saccades to whatever moves and locks it within a frame. Move or drag the pointer to become the most vivid object in the field",
+  "se.zoneB.ageNote": "With age, lower stack positions gain fidelity, duty cycle, and a steadier gaze.",
+  "se.zoneB.heading": "The Eight Faces of Se",
+  "se.zoneB.lede": "The canvas draws Se as an eye in contact with a live field. Where Se sits in a person's stack — the fixed order their eight functions come in — decides how fast that contact is. Click a position to see the change, from the dominant's zero-lag lock to the trickster's confident sightings of things that were never there, and watch the catch rate decay down the stack. Drag the maturity slider to watch the lower seats steady with age.",
+  "se.zoneB.railAria": "Stack positions for Se",
+  "se.zoneC.heading": "What Feeds Into Se?",
+  "se.zoneC.lede": "Se gathers; it does not judge. Extraverted perception is fed by introverted judgment, so its real partners are Ti and Fi — the inner judges that tell the eye what matters. Click a feeder and watch salience reorganise.",
+  "se.zoneC.unstableDefault": "Unstable coupling: perception feeding perception, with nothing judging either.",
+  "se.zoneD.canvasAria": "The Se contact lab: a live stimulus field with an intensity slider, a saccading gaze that locks flickers, a closing window it fires a response through, and a blackout that starves it",
+  "se.zoneD.heading": "The Contact Lab",
+  "se.zoneD.kicker": "Zone D · the contact lab",
+  "se.zoneD.lede": "Se is a contact instrument: its quality is measured in milliseconds-to-lock and openings used, not in conclusions. This lab runs the eye against a live field you control. Slide the intensity from empty room to street carnival, spawn events, and note which end of the slider reads as the emergency.",
+  "se.zoneE.lede": "Patterns from the wild — how Se shows up in daily life."
+}
