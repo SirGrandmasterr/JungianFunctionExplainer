@@ -5997,12 +5997,12 @@
       "status": "ok",
       "at": "2026-08-30T12:28:05.060Z",
       "review": {
-        "textHash": "0796ce5aff84ad1b",
+        "textHash": "dafa5842f3cbda0b",
         "v": 3,
         "ok": false,
-        "issue": "The metaphor 'conducting' (implying orchestration or direction) is changed to 'guide', and 'room' is changed to 'space', altering the specific imagery and nuance of the source.",
-        "back": "Extraverted judgment is fed by introverted perception – the true partners of Fe are Ni and Si, the inner perceptions that tell it what the space is made of. Click on a feeder and observe what Fe starts to guide.",
-        "at": "2026-08-30T15:29:07.971Z"
+        "issue": "The term 'judging' was changed to 'judgment', altering the specific Jungian function label.",
+        "back": "Extraverted judgment is fed by introverted perception – the true partners of Fe are Ni and Si, the inner perceptions that tell it what the space is made of. Click on a feeder and observe what Fe starts to direct.",
+        "at": "2026-08-30T21:35:46.612Z"
       }
     },
     "fe.zoneC.unstableDefault": {
@@ -8365,12 +8365,12 @@
       "status": "ok",
       "at": "2026-08-30T12:55:02.101Z",
       "review": {
-        "textHash": "be4433361a1d09db",
+        "textHash": "cc010e127b9d310f",
         "v": 3,
-        "ok": false,
-        "issue": "The term 'judging partner' was translated as 'evaluation helper function', changing the specific Jungian concept of a cognitive function partner to a generic technical term.",
-        "back": "There are spaces where the option space should be zero: the signed contract, the safety checklist, the surgical protocol. Ne still sees the better variant in these spaces—and here, recognizing possibilities is itself the danger, for the checklist functions precisely because it is not rethought at step nine. Knowing which spaces those are is not Ne's task; that is what the evaluation helper function in the stack is for.",
-        "at": "2026-08-30T16:00:40.303Z"
+        "ok": true,
+        "issue": "",
+        "back": "There are spaces where the option space should be zero: the signed contract, the safety checklist, the surgical protocol. Ne still sees the better variant in these spaces—and here, recognizing possibilities is itself the danger, for the checklist functions precisely because it is not rethought at step nine. Knowing which spaces those are is not Ne's task; that is what the judgment function in the stack is for.",
+        "at": "2026-08-30T21:36:06.418Z"
       }
     },
     "ne.fieldNotes.vignette.signedContract#figure": {
@@ -11099,12 +11099,12 @@
       "status": "ok",
       "at": "2026-08-30T13:21:41.248Z",
       "review": {
-        "textHash": "ee1fe594cedf33cd",
+        "textHash": "ea88de8ee5ad3e9c",
         "v": 3,
         "ok": false,
         "issue": "The specific term 'failure boundary' was changed to 'error threshold', altering the technical concept.",
-        "back": "The model has seen this. The reading has been showing through the error threshold for some time, and speaking this out loud has changed nothing.",
-        "at": "2026-08-30T16:29:53.869Z"
+        "back": "The model has seen this. The projection has been showing through the error threshold for some time, and stating this out loud has changed nothing.",
+        "at": "2026-08-30T21:36:20.683Z"
       }
     },
     "ni.lab.narration.cassandra#figure": {
