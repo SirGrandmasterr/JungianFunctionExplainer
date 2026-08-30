@@ -36,7 +36,7 @@ const PROMPT_VERSION = 3;
    re-run reviews without invalidating (and re-translating) the corpus. */
 const REVIEW_VERSION = 3;
 const HOST = (process.env.OLLAMA_HOST || 'http://127.0.0.1:11434').replace(/\/$/, '');
-const DEFAULT_MODEL = 'qwen3.8:latest';
+const DEFAULT_MODEL = 'gemma4:12b';
 
 /* ---------------- arguments ---------------- */
 
@@ -181,17 +181,21 @@ async function chat(messages, format) {
   return j.message?.content ?? '';
 }
 
-/** One transport retry (timeouts, connection drops), then propagate —
-    the caller aborts the run loudly. Transport failures are never
-    "flagged": a dead server is an environment problem, not review work. */
+/** Progressive transport retry (timeouts, connection drops, model reloads),
+    then propagate. Transport failures are never "flagged". */
 async function chatSafe(messages, format) {
-  try {
-    return await chat(messages, format);
-  } catch (e) {
-    logLine(`[transport] ${e.name || 'Error'}: ${e.message} — retrying once in 5s`);
-    await new Promise((r) => setTimeout(r, 5000));
-    return chat(messages, format);
+  let lastErr;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      return await chat(messages, format);
+    } catch (e) {
+      lastErr = e;
+      const delay = attempt * 5000;
+      logLine(`[transport] attempt ${attempt}/3 failed (${e.name || 'Error'}: ${e.message}) — retrying in ${delay / 1000}s`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
   }
+  throw lastErr;
 }
 
 function parseTranslation(raw) {

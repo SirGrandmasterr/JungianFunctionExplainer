@@ -1,0 +1,297 @@
+{
+  "_meta": {
+    "model": "gemma4:12b",
+    "digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+    "promptVersion": 3,
+    "date": "2026-08-30",
+    "status": {
+      "te.character.awareness.why": "reviewed",
+      "te.character.control.why": "reviewed",
+      "te.character.endurance.why": "reviewed",
+      "te.character.precision.why": "reviewed",
+      "te.character.speed.why": "reviewed",
+      "te.energy.recovery.auxiliary": "reviewed",
+      "te.energy.recovery.dominant": "reviewed",
+      "te.energy.recovery.inferior": "reviewed",
+      "te.energy.recovery.shadow": "reviewed",
+      "te.energy.recovery.tertiary": "reviewed",
+      "te.feeder.fi": "reviewed",
+      "te.feeder.ne": "reviewed",
+      "te.feeder.ni": "reviewed",
+      "te.feeder.se": "reviewed",
+      "te.feeder.si": "reviewed",
+      "te.fieldNotes.mirror": "reviewed",
+      "te.fieldNotes.vignette.feelingsMeeting": "reviewed",
+      "te.fieldNotes.vignette.grip": "reviewed",
+      "te.fieldNotes.vignette.loop": "reviewed",
+      "te.fieldNotes.vignette.mistakenForNotCaring": "reviewed",
+      "te.fieldNotes.vignette.reorg": "reviewed",
+      "te.fieldNotes.vignette.steamroller": "reviewed",
+      "te.fieldNotes.vignette.weekendPm": "reviewed",
+      "te.hero.heading": "reviewed",
+      "te.hero.subtitle": "reviewed",
+      "te.hero.tag": "reviewed",
+      "te.lab.btn.prune.label": "reviewed",
+      "te.lab.btn.prune.sub": "reviewed",
+      "te.lab.btn.replan.label": "reviewed",
+      "te.lab.btn.replan.sub": "reviewed",
+      "te.lab.btn.ship.label": "reviewed",
+      "te.lab.btn.ship.sub": "reviewed",
+      "te.lab.btn.vague.label": "reviewed",
+      "te.lab.btn.vague.sub": "reviewed",
+      "te.lab.meter.pleasure": "reviewed",
+      "te.lab.meter.stress": "reviewed",
+      "te.lab.narration.intro": "reviewed",
+      "te.lab.narration.prune": "reviewed",
+      "te.lab.narration.pruneEnd": "reviewed",
+      "te.lab.narration.pruneMid": "reviewed",
+      "te.lab.narration.replan": "reviewed",
+      "te.lab.narration.replanEnd": "reviewed",
+      "te.lab.narration.replanMid": "reviewed",
+      "te.lab.narration.ship": "reviewed",
+      "te.lab.narration.vague": "reviewed",
+      "te.lab.narration.vagueBusy": "reviewed",
+      "te.lab.narration.vagueEnd": "reviewed",
+      "te.lab.narration.vagueMid": "reviewed",
+      "te.meta.title": "reviewed",
+      "te.slot.auxiliary": "reviewed",
+      "te.slot.critical": "reviewed",
+      "te.slot.demon": "reviewed",
+      "te.slot.dominant": "reviewed",
+      "te.slot.inferior": "reviewed",
+      "te.slot.opposing": "reviewed",
+      "te.slot.tertiary": "reviewed",
+      "te.slot.trickster": "reviewed",
+      "te.zoneA.canvasAria": "reviewed",
+      "te.zoneB.heading": "reviewed",
+      "te.zoneB.lede": "reviewed",
+      "te.zoneB.railAria": "reviewed",
+      "te.zoneC.heading": "reviewed",
+      "te.zoneC.lede": "reviewed",
+      "te.zoneD.canvasAria": "reviewed",
+      "te.zoneD.heading": "reviewed",
+      "te.zoneD.kicker": "reviewed",
+      "te.zoneD.lede": "reviewed",
+      "te.zoneE.lede": "reviewed"
+    }
+  },
+  "te.character.awareness.why": "affiche ses mesures, pas son fonctionnement — l'audit se déroule à l'extérieur",
+  "te.character.control.why": "organisé autour d'objectifs explicites — il va là où il est dirigé",
+  "te.character.endurance.why": "conçue pour le rendement, soutenue par un progrès visible",
+  "te.character.precision.why": "Te sacrifie l'élégance au profit de la rapidité — des tolérances suffisantes, expédiées",
+  "te.character.speed.why": "cadence externe : mesurer, décider, suivant",
+  "te.energy.recovery.auxiliary": "Une récupération rapide et nette une fois que le plan est hors de ses mains.",
+  "te.energy.recovery.dominant": "Se recharge à mesure que les choses s'achèvent — chaque jalon atteint rend un peu d'énergie.",
+  "te.energy.recovery.inferior": "L'étagère de la gueule de bois : ~30 min où tout le système fonctionne faiblement.",
+  "te.energy.recovery.shadow": "Incomplet — une partie de la charge ne revient tout simplement pas aujourd'hui.",
+  "te.energy.recovery.tertiary": "Un remplissage plus lent ; l'organisation doit d'abord s'arrêter réellement.",
+  "te.feeder.fi": {
+    "figure": "L'émetteur luit, mais la tête de construction n'a rien sur quoi le boulonner.",
+    "mechanism": "Fi — sentiment introverti — est une fonction de jugement, elle transmet donc à Te des verdicts sur ce qui importe plutôt que des observations sur ce qui est. Presque rien n'arrive qui puisse être mesuré, et ces deux fonctions se situent sur le même axe : ce que l'une accepte, l'autre a tendance à se méfier. Les piles alternent jugement et perception pour cette raison précise.",
+    "pair": "Le jugement alimente le jugement",
+    "provenance": "myers"
+  },
+  "te.feeder.ne": {
+    "figure": "Les baies sont ouvertes sur tout le cadre tandis que la tête de construction s'accélère ; le compteur grimpe par à-coups.",
+    "mechanism": "Ne — intuition extravertie — donne à Te plus de possibilités ouvertes qu'elle ne peut finir. Les projets commencent partout, la structure s'étale, et le travail fini se désagrège discrètement derrière l'attention portée devant. Production élevée, rebut élevé — Te tertiaire pilotée par une perceptrice dominante deux étages au-dessus d'elle.",
+    "pair": "le couplage ENFP (Te deux étages plus bas)",
+    "provenance": "grant"
+  },
+  "te.feeder.ni": {
+    "figure": "L'échafaudage s'élève, fin et haut, visant un drapeau hors champ.",
+    "mechanism": "Ni — intuition introvertie — délivre peu d'entrées, chacune grande et déjà convergente : une lecture de là où tout cela va. Te construit vers cette lecture pendant des années — haute, étroite, sans hâte — s'exécutant selon une cible que personne d'autre ne peut encore voir.",
+    "pair": "le couplage ENTJ · INTJ",
+    "provenance": "myers"
+  },
+  "te.feeder.se": {
+    "figure": "Cadres rapides et bas, élevés et frappés le même jour.",
+    "mechanism": "Se — sensation extravertie — livre ce qui est physiquement ici maintenant, et Te l'organise sur le champ. La construction est courte, rapide et jetable : la chose devant vous est triée magnifiquement, et demain il ne reste aucune structure permanente.",
+    "pair": "Le couplage ISFP · ESFP",
+    "provenance": "grant"
+  },
+  "te.feeder.si": {
+    "figure": "Un échafaudage large et uniforme, chaque travée étant une portée éprouvée identique.",
+    "mechanism": "Si — sensation introvertie — fournit le registre prouvé : ce qui a été fait avant, ce qui a fonctionné, ce qui est la norme. Te construit large, régulier et inspectable — listes de contrôle, précédents, pièces avec des indices de charge connus. Rien d'exotique, et rien qui échoue un mardi.",
+    "pair": "Le couple ESTJ · ISTJ",
+    "provenance": "myers"
+  },
+  "te.fieldNotes.mirror": {
+    "figure": "Une structure derrière les yeux, une sur la ligne d'horizon.",
+    "mechanismHtml": "Même élément, attitude opposée — et la différence est là où réside la structure. <strong>Ti</strong> demande <em>« est-ce vrai ? »</em> et construit une structure privée que personne d'autre ne peut inspecter ; <strong>Te</strong> demande <em>« est-ce que ça fonctionne ? »</em> et construit en public, où le monde peut renvoyer un chiffre. Ti échange la vitesse pour la cohérence ; Te échange la cohérence pour la traction.",
+    "provenance": "jung"
+  },
+  "te.fieldNotes.vignette.feelingsMeeting": {
+    "figure": "L'échafaudage attend devant la porte de la chambre.",
+    "kind": "l'instrument inadéquat",
+    "mechanism": "Un partenaire qui dit « Je ne veux pas que tu le répares, je veux que tu m'écoutes » a confié à Te une tâche sans livrable, et l'instrument s'arrête : il peut mesurer, planifier et conclure, et aucune de ces actions n'est la demande. Exécuter quand même produit des éléments d'action pour un deuil — corrects, coûtés, et hors sujet. Le mesurable est l'entière juridiction de cette fonction ; la soirée en question est régie ailleurs.",
+    "provenance": "community",
+    "title": "La Réunion des Sentiments"
+  },
+  "te.fieldNotes.vignette.grip": {
+    "figure": "Une construction précipitée avec les lignes de plomb décalées.",
+    "kind": "l'emprise",
+    "mechanism": "Un INFP sous pression devient soudainement rigide et procédural — des feuilles de calcul à 2h du matin, un verdict dur sur qui fait son travail et qui ne le fait pas, et une froideur qui surprend tout le monde, y compris eux. C'est l'emprise : Te inférieure en éruption quand la dominante est épuisée.",
+    "provenance": "quenk",
+    "title": "L'éruption de la fonction inférieure"
+  },
+  "te.fieldNotes.vignette.loop": {
+    "figure": "La construction s'accélère une fois le drapeau hors de vue.",
+    "kind": "la boucle",
+    "mechanism": "Sous stress, la Te dominante d'un ENTJ s'associe à la Se tertiaire — toutes deux tournées vers l'extérieur, avec la vision à long terme de Ni coupée entre elles. Couper, exécuter, acheter, bouger : une compétence acharnée sans personne pour demander si l'objectif est toujours le bon. Ce schéma de même direction est appelé une boucle.",
+    "provenance": "community",
+    "title": "La boucle"
+  },
+  "te.fieldNotes.vignette.mistakenForNotCaring": {
+    "figure": "Le soin, dans cette main, ressemble à une liste de contrôle terminée.",
+    "kind": "mal interprété",
+    "mechanism": "L'affection de Te est souvent manquée car elle se manifeste par la logistique : les pneus vérifiés avant votre voyage, le rendez-vous réservé avant que vous ne le mentionniez deux fois, les papiers d'assurance d'un ami mourant faits pendant la nuit. L'indice réside dans le flux. Observez les problèmes qui continuent d'être résolus silencieusement, et le sentiment devient lisible — écrit dans une notation que la pièce a confondue avec de l'administration.",
+    "provenance": "community",
+    "title": "Confondue avec de l'indifférence"
+  },
+  "te.fieldNotes.vignette.reorg": {
+    "figure": "Le compteur a grimpé ; le graphique n'a jamais cillé.",
+    "kind": "type d'observation",
+    "mechanism": "Un utilisateur de Te dominante restructure une équipe en difficulté en une semaine. Les lignes de rapport sont plus claires, les chiffres s'améliorent, et trois personnes découvrent que leurs rôles ont changé via un organigramme. Les deux parties de cette phrase sont Te.",
+    "provenance": "community",
+    "title": "La réorganisation"
+  },
+  "te.fieldNotes.vignette.steamroller": {
+    "figure": "L'échafaudage s'élève là où il convient, même sur la pointe des pieds.",
+    "kind": "l'accusation",
+    "mechanism": "Ce que la pièce rapporte : aplati. Ce qui se passe : Te extériorise la structure pour mettre fin à l'ambiguïté, car pour cette fonction, une question non résolue est un coût payé chaque heure par tout le monde dans le bâtiment. Le verdict n'était destiné à personne — ce qui est précisément la plainte, et ce que Te mature apprend à budgétiser : les gens ne sont pas des postes budgétaires, et être planifié est différent d'être vu.",
+    "provenance": "community",
+    "title": "Le rouleau compresseur"
+  },
+  "te.fieldNotes.vignette.weekendPm": {
+    "figure": "Des travées finies avec brio, puis laissées aux intempéries.",
+    "kind": "en tant que tertiaire",
+    "mechanism": "Te tertiaire chez un ENFP ou ESFP : des poussées d'organisation redoutable au service de ce pour quoi le perceveur dominant est tombé amoureux ce mois-ci. Le festival obtient un tableur, le groupe une LLC, le voyage un itinéraire à codes couleurs — une véritable compétence exécutive, activée tard, tournant à plein régime, et retirée dès que l'intérêt qui l'a convoquée s'efface.",
+    "provenance": "grant",
+    "title": "Le gestionnaire de projet du week-end"
+  },
+  "te.hero.heading": "L'architecture de {fn}",
+  "te.hero.subtitle": "Un échafaudage dressé face au monde — trier ce qui fonctionne de ce qui ne fonctionne pas, et construire vers le drapeau.",
+  "te.hero.tag": "pensée extravertie",
+  "te.lab.btn.prune.label": "Mesurer une section peu performante",
+  "te.lab.btn.prune.sub": "signalé, puis coupé net",
+  "te.lab.btn.replan.label": "L'objectif change",
+  "te.lab.btn.replan.sub": "nouvelle cible, même après-midi",
+  "te.lab.btn.ship.label": "Envoyer — et le résultat est bon",
+  "te.lab.btn.ship.sub": "le monde renvoie un nombre",
+  "te.lab.btn.vague.label": "Recevoir une affirmation immesurable",
+  "te.lab.btn.vague.sub": "C'est important, mais je ne peux pas vous le montrer",
+  "te.lab.meter.pleasure": "Satisfaction du débit",
+  "te.lab.meter.stress": "Stress du système",
+  "te.lab.narration.intro": "Cliquez sur un événement pour envoyer un retour à Te, et observez ce que fait la structure lorsque les chiffres reviennent — et avec du matériel qui n'a aucun chiffre du tout.",
+  "te.lab.narration.prune": {
+    "figure": "— la section clignote, marquée là où elle se trouve —",
+    "mechanism": "La mesure tombe sur une section qui sous-performe discrètement. Le verdict ne nécessite aucun argument et n'entend aucune défense —",
+    "provenance": "currents"
+  },
+  "te.lab.narration.pruneEnd": {
+    "figure": "…le débit se stabilise à un niveau plus élevé qu'auparavant.",
+    "mechanism": "Le retrait n'est pas un dommage ici : la structure qui reste fonctionne mieux que celle qui incluait l'échec. Rien n'a été regretté. C'est la version de Te d'avoir raison.",
+    "provenance": "currents"
+  },
+  "te.lab.narration.pruneMid": {
+    "figure": "— les membres sont éjectés, le vide se referme d'un coup sec, et tout ce qui se trouve en aval remonte pour le combler.",
+    "mechanism": "Ce qui échoue à la mesure est retiré, immédiatement et complètement, pour que le reste puisse supporter la charge.",
+    "provenance": "currents"
+  },
+  "te.lab.narration.replan": {
+    "figure": "Le stress inonde la scène —",
+    "mechanism": "La cible vient de bouger — l'échéance, l'objectif, ou les deux. Chaque jugement que le plan encodait est maintenant sujet à révision simultanément, et la construction en cours cesse d'avoir d'importance sous sa forme actuelle.",
+    "provenance": "currents"
+  },
+  "te.lab.narration.replanEnd": {
+    "figure": "…une portée différente, une hauteur différente, pointant vers un autre endroit.",
+    "mechanism": "Le plan s'est reformé autour de la nouvelle cible. Te ne regrette pas l'ancien plan ; il réoriente et recommence à compter à partir d'ici. Cette vitesse est tout l'avantage — et tout le coût.",
+    "provenance": "currents"
+  },
+  "te.lab.narration.replanMid": {
+    "figure": "— des baies à moitié construites sont frappées, un étage s'effondre, l'échafaudage se déchire jusqu'à ce qui peut encore être visé.",
+    "mechanism": "Le champ est coupé sans sentiment : tout ce qui ne sert pas la nouvelle cible est écarté, peu importe le coût de construction.",
+    "provenance": "currents"
+  },
+  "te.lab.narration.ship": {
+    "figure": "La baie se verrouille, la tête de construction bondit et le compteur bouge.",
+    "mechanism": "Un plan a rencontré le monde et le monde a dit oui. C'est le feedback sur lequel Te fonctionne — pas l'élégance, pas la certitude, mais la preuve : cela a fonctionné, et il y a un chiffre qui le dit.",
+    "provenance": "currents"
+  },
+  "te.lab.narration.vague": {
+    "figure": "Le matériau dérive, doux et clos, sans arêtes pour que le trieur puisse les saisir…",
+    "mechanism": "Quelqu'un dit : ceci est important, et je ne peux pas vous donner de chiffre pour cela. Te a reçu une affirmation dans le seul format qu'elle ne peut pas traiter — rien à trier, rien à tester.",
+    "provenance": "currents"
+  },
+  "te.lab.narration.vagueBusy": "Quelque chose d'immesurable est déjà en liberté dans la chambre, et la voie ralentit à cause de cela. Laissez-le partir avant d'en envoyer un autre.",
+  "te.lab.narration.vagueEnd": {
+    "figure": "…elle est révélée exactement telle qu'elle est arrivée, dans toute sa douceur.",
+    "mechanism": "L'affirmation reste non traitée — non parce qu'elle était fausse, mais parce que cette fonction n'accepte que ce qui peut être compté, et celle-ci avait la mauvaise forme. Chaque utilisateur de Te a déjà jeté quelque chose de réel par cette porte.",
+    "provenance": "currents"
+  },
+  "te.lab.narration.vagueMid": {
+    "figure": "La machine se la transmet à elle-même, encore et encore.",
+    "mechanism": "L'affirmation est testée contre chaque emplacement du système, et aucun ne l'accepte. Il n'y a aucune mesure pour la placer, elle est donc renvoyée tandis que le stress grimpe silencieusement.",
+    "provenance": "currents"
+  },
+  "te.meta.title": "Te — Pensée extravertie · CURRENTS",
+  "te.slot.auxiliary": {
+    "example": "Un INTJ porte une lecture de dix ans du domaine, et ce siège la transforme en plan de recrutement pour le trimestre prochain.",
+    "figure": "Un échafaudage aux quatre cinquièmes, construit par levées planifiées plutôt que de manière continue.",
+    "mechanism": "Dans le siège secondaire, Te est le bras exécutif d'une fonction de perception dominante : la lecture à long terme de Ni ou le dossier prouvé de Si sont transformés en un plan avec des dates. L'organisation est délibérée et au service de quelque chose — la structure est élevée quand elle est nécessaire, pas pour elle-même.",
+    "provenance": "myers"
+  },
+  "te.slot.critical": {
+    "example": "Un ESTP termine une excellente semaine en répétant tout ce qui n'a pas été accompli, sans ouvrir le calendrier.",
+    "figure": "Un compteur de points qui ne compte que à rebours.",
+    "mechanism": "Dans le sixième siège, Te se tourne vers l'intérieur comme un auditeur d'efficacité : vous êtes désorganisé, vous perdez du temps, regardez comme peu de choses vous avez réellement terminées. Les audits sont sporadiques et durs, visant surtout le soi, et meilleurs pour rendre des verdicts que pour produire un plan.",
+    "provenance": "beebe"
+  },
+  "te.slot.demon": {
+    "example": "À 3 heures du matin, un ESFJ évalue chaque faveur qu'il a rendue cette année et conclut que personne ne le garderait.",
+    "figure": "Un échafaudage squelettique démantelant ses étages inférieurs pour continuer à construire le sommet.",
+    "mechanism": "Le huitième siège est le plus rare et le pire. Lorsqu'il y a une éruption — généralement au plus bas d'une mauvaise période — il réduit les gens à une production : les relations auditées pour leur rendement, la valeur propre calculée en livrables et jugée insuffisante, dans une voix qui se dit objective. C'est le siège le moins pratiqué dans la pile, pas un audit qui compte.",
+    "provenance": "beebe"
+  },
+  "te.slot.dominant": {
+    "example": "Lors de la deuxième réunion, le projet a un plan, et vendredi, le plan possède un graphique d'avancement que personne n'a demandé.",
+    "figure": "CURRENTS dessine ceci comme un échafaudage à pleine portée — s'élevant avec rapidité, de manière métronomique, le drapeau bougeant à mesure que les navires de travail avancent.",
+    "mechanism": "Dans le premier siège, Te organise le monde sans qu'on lui demande : objectifs, séquences, propriétaires et dates s'organisent autour de tout problème immobile, toute la journée, à faible coût. Les décisions se concluent vite car le test est externe — est-ce que ça a fonctionné, que disent les chiffres. Le prix est ce que les chiffres manquent.",
+    "provenance": "myers"
+  },
+  "te.slot.inferior": {
+    "example": "Un INFP en pleine crise réorganise toute la cuisine à 2h du matin et évalue à voix haute l'utilité des objets de la maison.",
+    "figure": "Un petit échafaudage monté à la hâte — articulations bruyantes, fils à plomb décalés.",
+    "mechanism": "Dans le siège tertiaire, Te coûte le plus par utilisation et est la moins utilisée. Les mesures sont résistées comme réductrices pendant de longues périodes ; sous un stress prolongé, le siège peut prendre le contrôle et produire des listes frénétiques et des verdicts durs sur la compétence, dans une voix qui ne leur ressemble pas — l'éruption que Quenk appelle l'emprise.",
+    "provenance": "quenk"
+  },
+  "te.slot.opposing": {
+    "example": "Remis un nouveau flux de travail, un ISTP propose une alternative complète dès le matin — et perd tout intérêt une fois qu'elle est acceptée.",
+    "figure": "Sous la ligne de flottaison du rail, un second échafaudage s'élève à côté du premier, de manière marquée.",
+    "mechanism": "Le cinquième siège ouvre l'ombre — les quatre positions qu'une personne utilise rarement, et surtout sans s'en rendre compte. Ici, Te s'éveille comme contre-organisateur : quand le processus d'un autre l'écrase, un plan rival apparaît, avec des chiffres et un calendrier rivaux — moins pour finir le travail que pour refuser d'être dirigé.",
+    "provenance": "beebe"
+  },
+  "te.slot.tertiary": {
+    "example": "Le tableur pour le festival est élaboré à 1 h du matin et il est parfait ; le dossier fiscal reste une boîte à chaussures.",
+    "figure": "Un échafaudage à demi-taille avec quelques travées magnifiquement finies et un sol nu entre elles.",
+    "mechanism": "Dans le siège tertiaire, la compétence arrive par accès : une réelle habileté d'organisation dans les rares domaines qui intéressent la personne — activée tardivement, intense — et une indifférence quasi totale à l'ordre ailleurs. Elle se stabilise nettement avec l'âge.",
+    "provenance": "grant"
+  },
+  "te.slot.trickster": {
+    "example": "Demandé de noter ses heures, un INFJ note tout, y compris le fait de noter, jusqu'à ce que le rapport devienne illisible — sincèrement.",
+    "figure": "L'échafaudage s'assemble en un joint impossible — techniquement connecté, structurellement inutile.",
+    "mechanism": "Dans le siège sept, le processus est perçu comme un jeu truqué. Les mesures et organigrammes sont contournés par le flou, ou respectés si littéralement que le système casse — et la personne ne voit véritablement pas l'échéance pour laquelle elle est accusée d'avoir manqué.",
+    "provenance": "beebe"
+  },
+  "te.zoneA.canvasAria": "Représentation visuelle interactive du Te comme un échafaudage s'assemblant vers un drapeau jalon",
+  "te.zoneB.heading": "Les huit visages de Te",
+  "te.zoneB.lede": "Le canevas dépeint Te comme un échafaudage : une structure érigée en public, testée par les résultats. La position de Te dans la pile d'une personne — l'ordre fixe dans lequel ses huit fonctions apparaissent — modifie la manière dont elle se construit. Cliquez sur une position pour voir le changement, et observez le compteur de débit : il raconte l'histoire avant la légende. Faites glisser le curseur de maturité pour voir les sièges inférieurs gagner en fidélité avec l'âge.",
+  "te.zoneB.railAria": "Positions de la pile pour Te",
+  "te.zoneC.heading": "Qu'alimente Te ?",
+  "te.zoneC.lede": "Te juge ; elle ne rassemble pas. Le jugement introverti est alimenté par la perception extravertie, et le jugement extraverti par la perception introvertie — les véritables partenaires de Te sont donc Ni et Si. Cliquez sur une alimentatrice pour voir ce qu'elle construit.",
+  "te.zoneD.canvasAria": "Scène de simulation du laboratoire de vérification",
+  "te.zoneD.heading": "Le Laboratoire de Vérification",
+  "te.zoneD.kicker": "Zone D · labo de vérification",
+  "te.zoneD.lede": "Ti vérifie sa propre cohérence. Te vérifie les résultats : construire la chose, mesurer ce qui revient, conserver ou couper en conséquence. Chaque bouton envoie un type de retour différent dans le laboratoire.",
+  "te.zoneE.lede": "Motifs sauvages — comment Te se manifeste dans la vie quotidienne."
+}
