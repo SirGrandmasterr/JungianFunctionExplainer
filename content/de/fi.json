@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "model": "qwen3.8:latest",
+    "digest": "22130167c4c20e20c7b71454612966ca8e8171e9b3cc8ab6ce8aa6cbfec79643",
+    "promptVersion": 3,
+    "date": "2026-08-30",
+    "status": {
+      "fi.character.awareness.why": "mt",
+      "fi.character.control.why": "mt",
+      "fi.character.endurance.why": "mt",
+      "fi.character.precision.why": "mt",
+      "fi.character.speed.why": "mt",
+      "fi.energy.recovery.auxiliary": "mt",
+      "fi.energy.recovery.dominant": "mt",
+      "fi.energy.recovery.inferior": "mt",
+      "fi.energy.recovery.shadow": "mt",
+      "fi.energy.recovery.tertiary": "mt",
+      "fi.feeder.ne": "mt",
+      "fi.feeder.ni": "mt",
+      "fi.feeder.se": "mt",
+      "fi.feeder.si": "mt",
+      "fi.feeder.te": "reviewed",
+      "fi.fieldNotes.mirror": "mt",
+      "fi.fieldNotes.vignette.accusation": "mt",
+      "fi.fieldNotes.vignette.grip": "mt",
+      "fi.fieldNotes.vignette.lockedDrawer": "reviewed",
+      "fi.fieldNotes.vignette.loop": "mt",
+      "fi.fieldNotes.vignette.mediation": "mt",
+      "fi.fieldNotes.vignette.mistakenForNoOpinion": "reviewed",
+      "fi.fieldNotes.vignette.silentCompass": "mt",
+      "fi.hero.heading": "mt",
+      "fi.hero.subtitle": "reviewed",
+      "fi.hero.tag": "mt",
+      "fi.lab.btn.authBad.label": "mt",
+      "fi.lab.btn.authBad.sub": "mt",
+      "fi.lab.btn.authGood.label": "mt",
+      "fi.lab.btn.authGood.sub": "mt",
+      "fi.lab.btn.fakeBad.label": "mt",
+      "fi.lab.btn.fakeBad.sub": "mt",
+      "fi.lab.btn.fakeGood.label": "mt",
+      "fi.lab.btn.fakeGood.sub": "mt",
+      "fi.lab.meter.pleasure": "mt",
+      "fi.lab.meter.stress": "mt",
+      "fi.lab.narration.authBad": "mt",
+      "fi.lab.narration.authGood": "mt",
+      "fi.lab.narration.fakeBad": "mt",
+      "fi.lab.narration.fakeBadEnd": "mt",
+      "fi.lab.narration.fakeBadMid": "mt",
+      "fi.lab.narration.fakeGood": "mt",
+      "fi.lab.narration.fakeGoodEnd": "reviewed",
+      "fi.lab.narration.intro": "mt",
+      "fi.meta.title": "mt",
+      "fi.slot.auxiliary": "mt",
+      "fi.slot.critical": "reviewed",
+      "fi.slot.demon": "mt",
+      "fi.slot.dominant": "mt",
+      "fi.slot.inferior": "mt",
+      "fi.slot.opposing": "mt",
+      "fi.slot.tertiary": "mt",
+      "fi.slot.trickster": "mt",
+      "fi.zoneA.canvasAria": "mt",
+      "fi.zoneB.heading": "mt",
+      "fi.zoneB.lede": "mt",
+      "fi.zoneB.railAria": "mt",
+      "fi.zoneC.heading": "mt",
+      "fi.zoneC.lede": "mt",
+      "fi.zoneD.canvasAria": "mt",
+      "fi.zoneD.heading": "mt",
+      "fi.zoneD.kicker": "mt",
+      "fi.zoneD.lede": "mt",
+      "fi.zoneE.lede": "mt"
+    }
+  },
+  "fi.character.awareness.why": "der selbsttransparenteste Sitz im Stack: der Ton ist immer hörbar",
+  "fi.character.control.why": "steuerbar bis an die Grenze, die ein Wert zieht; darüber hinaus unbeweglich",
+  "fi.character.endurance.why": "Überzeugung ist mühelos und beständig — das Festhalten am Maßstab kostet nichts",
+  "fi.character.precision.why": "die Hierarchie dessen, was wichtig ist, ist tief, ruhig und exakt",
+  "fi.character.speed.why": "tief und still — das Urteil ist total und selten schnell",
+  "fi.energy.recovery.auxiliary": "Schnelle, saubere Erholung.",
+  "fi.energy.recovery.dominant": "Wird in Minuten aufgefüllt — und teilweise während der Nutzung (Flow).",
+  "fi.energy.recovery.inferior": "Das Katerregal: ~30 min, in denen das gesamte System gedimmt läuft.",
+  "fi.energy.recovery.shadow": "Unvollständig — ein Teil der Ladung kommt heute einfach nicht zurück.",
+  "fi.energy.recovery.tertiary": "Ein langsamerer Nachfüllvorgang; die Erholung muss bewusst gestaltet werden.",
+  "fi.feeder.ne": {
+    "figure": "Die Nebelwolke breitet sich weit aus, während Dunst in verzweigte Federbüschel driftet.",
+    "mechanism": "Ne — extravertierte Intuition, hier die Hilfsfunktion — liefert verzweigende Möglichkeiten, und jede wird an der inneren Norm gemessen: Könnte ich damit leben? Wer wäre ich in dieser Welt? Viele Zukünfte werden gleichzeitig leicht gehalten, um abzuwarten, welche wahr klingt.",
+    "pair": "die INFP-Kopplung",
+    "provenance": "myers"
+  },
+  "fi.feeder.ni": {
+    "figure": "Lange Stille, dann färbt sich die gesamte Nebelgalaxie auf einmal neu.",
+    "mechanism": "Ni — introvertierte Intuition — sendet wenige Erfahrungen, die bereits zu einer einzigen Bedeutung verdichtet sind. Fi hat wenig zu wiegen und viel zu absorbieren und ordnet neu, worauf es ihm ankommt, um jeden Eingang herum. Kein maßgeblicher Stack platziert Ni direkt über Fi; diese Kopplung ist das eigene Gedankenexperiment der Website.",
+    "pair": "Nicht-standard-Kopplung",
+    "provenance": "currents"
+  },
+  "fi.feeder.se": {
+    "figure": "Die Nebelwolke zieht sich zusammen und wird gesättigt, dicht um das, was gegenwärtig ist.",
+    "mechanism": "Se — extravertierte Wahrnehmung — liefert die lebendige, konkrete Gegenwart, und Fi wiegt, was tatsächlich vor ihm liegt. Das Urteil lebt in den Händen und Augen: Geschmack, Schönheit und die richtige Handlung, die direkt gefühlt statt argumentiert wird.",
+    "pair": "ISFP-Kopplung",
+    "provenance": "myers"
+  },
+  "fi.feeder.si": {
+    "figure": "Der Nebel kreist in geschlossenen Ringen um den Kern — nichts kommt herein, nichts geht hinaus.",
+    "mechanism": "Si — introvertierte Sensorik, die tertiäre Funktion des INFP — spielt gespeicherte Erfahrungen ab, statt neue zu sammeln. Alte Wunden und alte Freundlichkeiten werden gegen denselben Maßstab neu gefühlt, Urteile erneuert statt neu geprüft. Dies ist der Loop, von innen betrachtet.",
+    "pair": "der Loop-Kopplung (Fi–Si, INFP unter Stress)",
+    "provenance": "community"
+  },
+  "fi.feeder.te": {
+    "figure": "Der Emitter leuchtet, aber der Nebel hat nichts, um das er sich schließen könnte.",
+    "mechanism": "Te — extravertiertes Denken — ist eine Urteilsfunktion, daher überträgt es Urteile über Effizienz statt über gelebte Erfahrung. Fi erhält kaum etwas, das es abwägen könnte, und verbleibt im Leerlauf. Echte Stacks wechseln genau deshalb zwischen Urteilens und Wahrnehmung, damit stets Material gesammelt wird.",
+    "pair": "Beurteilen speist Beurteilen",
+    "provenance": "myers"
+  },
+  "fi.fieldNotes.mirror": {
+    "figure": "Gleiches Element, entgegengesetzte Haltungen: ein Instrument, das auf den Raum abgestimmt ist, und eines, das auf seine eigene Note hört.",
+    "mechanismHtml": "Wo <strong>Fe</strong> den emotionalen Ton des Raumes liest und soziale Harmonie schafft, liest <strong>Fi</strong> den emotionalen Ton des Selbst und schafft persönliche Integrität. Fe tauscht individuelle Präferenz gegen Gruppeneinheit; Fi tauscht Gruppenzustimmung gegen innere Wahrheit.",
+    "provenance": "jung"
+  },
+  "fi.fieldNotes.vignette.accusation": {
+    "figure": "Weigert sich, den Nebel so zu färben, dass er zum Raum passt.",
+    "kind": "die Anklage",
+    "mechanism": "Die Vorwürfe kommen früher oder später, meist mitten in der Verhandlung, meist von jemandem, der in Fe fließend ist. Was tatsächlich passiert: Fi wird keine Zustimmung fälschen, und in einem Raum, der auf sichtbare Einigkeit setzt, wird das Ablehnen, sie zu fälschen, als Verrat gelesen. Die Verweigerung ist keine Nachlässigkeit — ein nicht gefälschtes Ja ist das Einzige, das Fi für wert hält, es jemandem zu geben, und es wird entsprechend bewertet.",
+    "provenance": "community",
+    "title": "Egoistisch"
+  },
+  "fi.fieldNotes.vignette.grip": {
+    "figure": "Ein schwacher Kern, der auf einmal aufleuchtet.",
+    "kind": "der Grip",
+    "mechanism": "Ein ESTJ unter anhaltendem Stress verfällt in überwältigende, verletzte Moralpredigt — Vorwürfe des Verrats und der Herzlosigkeit, die mit einer Intensität geäußert werden, die alle erschreckt. Dies ist der Grip: eine erschöpfte dominante Funktion übergibt die Kontrolle der inferioren Fi, die mit keiner der Proportionen einer geübten Fi ausbricht.",
+    "provenance": "quenk",
+    "title": "Der Inferior-Ausbruch"
+  },
+  "fi.fieldNotes.vignette.lockedDrawer": {
+    "figure": "Eine kleine Nebelwolke hinter Milchglas.",
+    "kind": "als tertiär",
+    "mechanism": "Tertiäres Fi ist bei einem ISTJ ein privates, moralisches Register unter einer prozeduralen Fassade: der eine Klient, den man nicht annimmt, der eine Witz, der eine Freundschaft beendet, die ständige Spende, von der niemand erfährt — Verpflichtungen, die über Jahrzehnte gehalten werden und, wenn man nachhakt, als „einfach so meine Art“ abgetan werden. Die Werte sind echt, das Vokabular für sie nie erzeugt.",
+    "provenance": "grant",
+    "title": "Die verschlossene Schublade"
+  },
+  "fi.fieldNotes.vignette.loop": {
+    "figure": "Der Nebel kreist in geschlossenen Ringen — zart, luftlos, versiegelt.",
+    "kind": "der Loop",
+    "mechanism": "Unter Stress koppelt die dominante Fi eines INFP mit der tertiären Si und spielt alte Wunden und alte Freundlichkeiten gegen denselben inneren Maßstab ab — Urteile werden neu gefühlt statt neu geprüft. Beide Funktionen richten sich nach innen, sodass nichts im Paar sie unterbrechen kann: das Muster, das Typologie-Foren als Loop bezeichnen.",
+    "provenance": "community",
+    "title": "Der Loop"
+  },
+  "fi.fieldNotes.vignette.mediation": {
+    "figure": "Eine einzige Kernfunktion kann zwei andere nicht mitteln.",
+    "kind": "das falsche Instrument",
+    "mechanism": "Bittet man Fi, einen Kompromiss zwischen zwei Parteien zu moderieren, die es beide für teilweise falsch hält, blockiert das Instrument. Es bewertet alles anhand eines inneren Maßstabs und besitzt keine native Operation, um zwischen den Maßstäben anderer zu vermitteln. Es kann die Aufgabe erledigen – über Prinzip, mit Kosten –, während der Tisch seine Stille für Zustimmung und seine Urteile für Sturheit hält. Dies ist Fe's Heimspiel; Fi besucht auf fremden Platten.",
+    "provenance": "community",
+    "title": "Die Mediation"
+  },
+  "fi.fieldNotes.vignette.mistakenForNoOpinion": {
+    "figure": "Ruhiger Nebel, fester Kern.",
+    "kind": "das Missverständnis",
+    "mechanism": "Wochen lang freundliche Flexibilität bei Restaurants, Plänen und Abläufen – dann wird eine Grenze überschritten und ein Urteil trifft ganz, endgültig und nicht verhandelbar. Das Merkmal, das dies von bloßer Freundlichkeit unterscheidet: Die Position wurde lange vor dem Treffen, in der Privatsphäre, festgelegt. Fe verhandelt seine Haltung im Raum; Fi's Haltung existiert vor dem Raum, und der Raum ist einfach der Letzte, der davon erfährt.",
+    "provenance": "community",
+    "title": "Mit Meinungslosigkeit verwechselt"
+  },
+  "fi.fieldNotes.vignette.silentCompass": {
+    "figure": "Der Kern argumentiert nicht; er behält einfach seine Farbe.",
+    "kind": "Feldbeobachtung",
+    "mechanism": "Ein INFP sitzt still in einem Meeting, in dem alle einen Kompromiss akzeptieren. Dann sagt er nein – nicht laut, nicht mit einem zehnpunktigen Argument, sondern mit einer Bestimmtheit, die den Raum zum Stillstand bringt. Die Position war lange vor dem ersten Wort geklärt; das Meeting erfährt es gerade erst.",
+    "provenance": "community",
+    "title": "Der stille Kompass"
+  },
+  "fi.hero.heading": "Die Architektur von {fn}",
+  "fi.hero.subtitle": "Ein sensibles Nebelwerk um einen Grundton — jede Erfahrung wird an einem unangefochtenen inneren Kompass gemessen.",
+  "fi.hero.tag": "introvertiertes Fühlen",
+  "fi.lab.btn.authBad.label": "Echte Trauer erleben",
+  "fi.lab.btn.authBad.sub": "wahr, schmerzhaft, tief verankert",
+  "fi.lab.btn.authGood.label": "Echte Freude erleben",
+  "fi.lab.btn.authGood.sub": "etwas Wahres und Resonantes",
+  "fi.lab.btn.fakeBad.label": "Unauthentischen Verstoß miterleben",
+  "fi.lab.btn.fakeBad.sub": "Eine Lüge reißt den Nebel",
+  "fi.lab.btn.fakeGood.label": "Unauthentische Höflichkeit hören",
+  "fi.lab.btn.fakeGood.sub": "Schmeichelei gleitet unabsorbiert ab",
+  "fi.lab.meter.pleasure": "Resonanz Freude",
+  "fi.lab.meter.stress": "Systemstress",
+  "fi.lab.narration.authBad": {
+    "figure": "Der Nebel verlangsamt sich, verdunkelt sich und hält ihn fest, tief im Nebel.",
+    "mechanism": "Etwas Schmerzhaftes — und Wahres. Fi lenkt es nicht ab: Der Kummer wird aufgenommen und gehalten, denn für diese Funktion hat Richtigkeit Vorrang vor Komfort. Der Stress steigt, und mit ihm das Gefühl der Integrität — auch dies wird den Maßstab prägen.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.authGood": {
+    "figure": "Es widerhallt im Kern und dringt tief ein — der Nebel dreht sich sanft, und die gesamte Nebelwolke erwärmt sich zu dem, was aufgenommen wurde.",
+    "mechanism": "Etwas Freudiges — und Wahres — trifft ein. Fi nimmt es vollständig in sich auf: Die Erfahrung wird absorbiert, nicht nur bemerkt, und färbt den Standard leicht um. Was wirklich geliebt wird, wird Teil davon, wie alles andere gewichtet wird.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeBad": {
+    "figure": "Es reißt gerade durch die Nebelwolke — der Dunst wirbelt aus ihrer Bahn, ein Vakuum zieht hinterher —",
+    "mechanism": "Eine Lüge trifft etwas, das wichtig ist. Dies ist das eine Ereignis, das Fi nicht still ablegen kann: Ein Verstoß gegen den Standard erfordert eine Reaktion des gesamten Systems.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeBadEnd": {
+    "figure": "…der Nebel legt sich und die Farbe stabilisiert sich.",
+    "mechanism": "Die Wunde schließt sich und der Maßstab hat seine Form verändert — an manchen Stellen dunkler, an anderen neu angeordnet. Fi behält, was real war, und erinnert sich, wo es blutete.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeBadMid": {
+    "figure": "— ein Teil des Nebels sickert durch die Wunde, und das gesamte Feld verschiebt sich ins Rote.",
+    "mechanism": "Das Festhalten an der Verletzung kostet echte Substanz: Alles, was an dem verwundeten Wert hängt, muss einen neuen Platz darum herum finden.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeGood": {
+    "figure": "Der Nebel weigert sich, sich damit zu vermischen…",
+    "mechanism": "Schmeichelei trifft ein — angenehm, glänzend und hohl. Sie scheitert beim Kontakt an der Authentizitätsprüfung, sodass es nichts zu absorbieren gibt: Fi kann nicht mit Falschgeld bezahlt werden.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeGoodEnd": {
+    "figure": "…es gleitet an den Innenwänden entlang, löst nichts auf und wird genau so hinausgeleitet, wie es hereingekommen ist.",
+    "mechanism": "Die Höflichkeit wird freundlich toleriert und unverändert freigegeben. Nichts wurde behalten; nichts musste behalten werden. Was nie authentisch klang, war nie wirklich im Raum.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.intro": "Klicke auf einen Button, um Fi ein Erlebnis zu senden, und beobachte, wie es absorbiert, festhält, ablehnt oder um das Ankommende herumfließt.",
+  "fi.meta.title": "Fi — Introvertiertes Fühlen · CURRENTS",
+  "fi.slot.auxiliary": {
+    "example": "Ein ENFP jagt zwei Wochen lang ein neues Projekt, lässt es dann aber an einem Nachmittag fallen, wenn es bedeuten würde, jemanden zu schmeicheln, den er verachtet.",
+    "figure": "Die Nebelwolke wird kleiner dargestellt und leuchtet heller, wenn eine Überprüfung erforderlich ist.",
+    "mechanism": "Auf dem zweiten Sitz wird Fi konsultiert, statt kontinuierlich zu laufen: Es prüft, was die dominante Wahrnehmungsfunktion mitbringt – ist das wir? Könnte ich damit leben? – leise im Hintergrund und entscheidend genau in den Momenten, die zählen. Zwischen Urteilen hält es sich zurück.",
+    "provenance": "myers"
+  },
+  "fi.slot.critical": {
+    "example": "Ein ISFJ verbringt eine schlaflose Stunde damit, sich zu fragen, ob ihr Kummer wirklich um den Verlust geht oder um sich selbst.",
+    "figure": "Kalte Wirbel durchkreuzen die Nebel, und dort, wo sie hindurchziehen, verdünnt sich der Dunst.",
+    "mechanism": "Im sechsten Sitz wendet sich Fi als Verhörer des Herzens nach innen: Weißt du überhaupt, was du willst? Sind diese Gefühle nicht selbstsüchtig? Die Audits sind sporadisch und hart, richten sich vor allem gegen das Selbst und sind eher im Zweifeln an einem Wert als im Aufbau eines solchen gut.",
+    "provenance": "beebe"
+  },
+  "fi.slot.demon": {
+    "example": "Um 3 Uhr nachts ist ein INTP plötzlich, wortlos, sicher, dass jeder, der sie je gemocht hat, sich geirrt hat.",
+    "figure": "Der Kern kehrt sich um — ein dunkler Stern, der den Nebel anzieht, statt ihn zu erhellen.",
+    "mechanism": "Der achte Sitz ist der seltenste und schlimmste. Wenn er ausbricht – meist am Ende einer langen schlechten Phase – erzeugt er totale moralische Gewissheit, die nach innen gerichtet ist: die Überzeugung von Wertlosigkeit oder Verrat, die sich als schlichte Tatsache darstellt. Er ist der am wenigsten geübte Sitz im Stack, kein Urteil.",
+    "provenance": "beebe"
+  },
+  "fi.slot.dominant": {
+    "example": "Auf die Frage, warum sie das Angebot ausgeschlagen haben, sagt ein INFP: „Es war nicht richtig“ — und hat recht, und kann eine Woche lang nicht mehr dazu sagen.",
+    "figure": "CURRENTS zeichnet dies als eine Nebelwolke in voller Leuchtkraft — einen ruhigen Kern, um den sich der Dunst gelassen dreht.",
+    "mechanism": "Im ersten Sitz bewertet Fi alles anhand eines gefühlten inneren Maßstabs dafür, was wichtig ist, und diese Bewertung läuft kontinuierlich mit nahezu keinen Kosten. Urteile treffen ohne anhängende Argumentation ein – das Wissen kommt zuerst, die Erklärung später, wenn überhaupt. Der Preis ist die Übertragbarkeit: Der Maßstab ist präzise, aber schwer für andere darstellbar.",
+    "provenance": "myers"
+  },
+  "fi.slot.inferior": {
+    "example": "Ein ENTJ mitten in der Krise verkündet dem fassungslosen Meeting, dass hier niemand je Wertschätzung für sie gezeigt habe.",
+    "figure": "Eine schwache Nebelwolke mit flackerndem Kern — lange still, dann plötzliches Wetter.",
+    "mechanism": "Im vierten Sitz kostet Fi am meisten pro Nutzung und wird am seltensten verwendet. Im Alltag werden Gefühle als Rauschen in den Daten behandelt; unter anhaltendem Stress kann der Sitz die Kontrolle übernehmen und verwundetes, moralisierendes Sentiment erzeugen, das nicht nach ihnen klingt — der Ausbruch, den Quenk den Grip nennt.",
+    "provenance": "quenk"
+  },
+  "fi.slot.opposing": {
+    "example": "Eine ESFJ, die den ganzen Abend über Beschwerden aufgenommen hat, lehnt plötzlich eine davon aus Prinzip ab und lässt sich nicht mehr bewegen.",
+    "figure": "Unterhalb der Wasserlinie des Schienensystems erstarrt die Nebelwolke, der Dunst borstet sich auf, statt sich zu drehen.",
+    "mechanism": "Der fünfte Sitz öffnet den Schatten — die vier Positionen, die eine Person selten einnimmt und meist ohne es zu bemerken. Hier erwacht Fi widersprüchlich: Wenn die übliche Fe-Harmonisierung der Person herausgefordert wird, erscheint eine persönliche Haltung — „Mir ist egal, was der Raum braucht, hier stehe ich“ — schützend, stachelig und kurzzeitig unbeweglich.",
+    "provenance": "beebe"
+  },
+  "fi.slot.tertiary": {
+    "example": "Ein ISTJ finanziert seit zwanzig Jahren still eine Sache und nennt es nur eine „laufende Überweisung“.",
+    "figure": "Eine kleine Nebelwolke, dicht in der Mitte, von außen fast undurchsichtig.",
+    "mechanism": "Im dritten Sitz ist Fi real, aber eng und meist privat: eine leidenschaftliche Loyalität gegenüber wenigen Menschen und Prinzipien, die selten erklärt und oft als Pragmatismus getarnt wird. Sie verstärkt sich mit dem Alter und kann unter Stress mit der dominanten Funktion einen geschlossenen Kreislauf bilden, den kein äußerer Blick korrigiert – das Muster, das als Loop bezeichnet wird.",
+    "provenance": "grant"
+  },
+  "fi.slot.trickster": {
+    "example": "Auf die Frage, was sie eigentlich wollen, konstruiert ein ENTP drei witzige Argumente für drei unvereinbare Antworten und wählt keines davon.",
+    "figure": "Die Nebelwolke weigert sich, eine Farbe anzunehmen – sie spiegelt wider, was auf sie gerichtet wird.",
+    "mechanism": "Im siebten Sitz wird die Frage, was man wirklich fühlt, als Falle wahrgenommen. Die Person lenkt mit Charme oder konträrer Spielerei ab und kann von innen her keinen Wert von einer Präferenz unterscheiden – die Blindheit ist real, nicht strategisch, und es steckt keine Bosheit dahinter.",
+    "provenance": "beebe"
+  },
+  "fi.zoneA.canvasAria": "Interaktive visuelle Darstellung von Introvertiertem Fühlen als leuchtende Nebelgalaxie",
+  "fi.zoneB.heading": "Die acht Gesichter von Fi",
+  "fi.zoneB.lede": "Die Leinwand zeichnet Fi als Nebel um einen Kern: Jede Erfahrung, die eintritt, wird an einem inneren Ton gemessen. Wo Fi im Stack einer Person sitzt – der festen Reihenfolge, in der ihre acht Funktionen auftreten –, verändert sich, wie dieses Abwägen abläuft. Klicke auf eine Position, um die Veränderung zu sehen, und ziehe den Reiferegler, um zu beobachten, wie die unteren Sitze mit dem Alter an Genauigkeit gewinnen.",
+  "fi.zoneB.railAria": "Stack-Positionen für Fi",
+  "fi.zoneC.heading": "Was speist Fi?",
+  "fi.zoneC.lede": "Fi urteilt; es sammelt nicht. Eine wahrnehmende Funktion – sein Zubringer – muss die Erfahrungen liefern, die es abwägt, und welche Funktion das liefert, verändert, was die Abwägung aufbaut. Klicke auf einen Zubringer, um zu sehen, wie sich Form und Bewegung der Nebelwolke verändern.",
+  "fi.zoneD.canvasAria": "Simulationsbühne der Verifikationslabor",
+  "fi.zoneD.heading": "Das Verifikationslabor",
+  "fi.zoneD.kicker": "Zone D · Verifikationslabor",
+  "fi.zoneD.lede": "Beobachte, wie Fi Erfahrungen in Echtzeit an seinem einen inneren Maßstab misst. Jeder Button sendet eine andere Art von Ereignis – wahre Freude, wahre Trauer, Schmeichelei, eine Verletzung – und die Messskalen verfolgen, was jedes einzelne davon kostet.",
+  "fi.zoneE.lede": "Muster aus der Praxis — wie Fi im Alltag sichtbar wird."
+}

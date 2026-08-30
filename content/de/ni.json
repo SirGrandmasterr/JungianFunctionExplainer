@@ -1,0 +1,330 @@
+{
+  "_meta": {
+    "model": "qwen3.8:latest",
+    "digest": "22130167c4c20e20c7b71454612966ca8e8171e9b3cc8ab6ce8aa6cbfec79643",
+    "promptVersion": 3,
+    "date": "2026-08-30",
+    "status": {
+      "ni.character.awareness.why": "mt",
+      "ni.character.control.why": "mt",
+      "ni.character.endurance.why": "mt",
+      "ni.character.precision.why": "reviewed",
+      "ni.character.speed.why": "mt",
+      "ni.energy.recovery.auxiliary": "mt",
+      "ni.energy.recovery.dominant": "mt",
+      "ni.energy.recovery.inferior": "mt",
+      "ni.energy.recovery.shadow": "mt",
+      "ni.energy.recovery.tertiary": "mt",
+      "ni.feeder.fe": "mt",
+      "ni.feeder.fi": "mt",
+      "ni.feeder.se": "reviewed",
+      "ni.feeder.te": "mt",
+      "ni.feeder.ti": "mt",
+      "ni.fieldNotes.mirror": "reviewed",
+      "ni.fieldNotes.vignette.brainstorm": "mt",
+      "ni.fieldNotes.vignette.cantJustKnow": "reviewed",
+      "ni.fieldNotes.vignette.grip": "mt",
+      "ni.fieldNotes.vignette.loop": "mt",
+      "ni.fieldNotes.vignette.mechanicsHunch": "reviewed",
+      "ni.fieldNotes.vignette.meeting": "reviewed",
+      "ni.fieldNotes.vignette.mistakenForSi": "mt",
+      "ni.hero.heading": "mt",
+      "ni.hero.subtitle": "mt",
+      "ni.hero.tag": "mt",
+      "ni.lab.btn.aha.label": "mt",
+      "ni.lab.btn.aha.sub": "mt",
+      "ni.lab.btn.cassandra.label": "mt",
+      "ni.lab.btn.cassandra.sub": "reviewed",
+      "ni.lab.btn.flash.label": "mt",
+      "ni.lab.btn.flash.sub": "mt",
+      "ni.lab.btn.focus.label": "mt",
+      "ni.lab.btn.focus.sub": "mt",
+      "ni.lab.btn.overfit.label": "mt",
+      "ni.lab.btn.overfit.sub": "mt",
+      "ni.lab.meter.pleasure": "mt",
+      "ni.lab.meter.stress": "mt",
+      "ni.lab.narration.aha": "reviewed",
+      "ni.lab.narration.aha2": "mt",
+      "ni.lab.narration.cassandra": "mt",
+      "ni.lab.narration.cassandra2": "mt",
+      "ni.lab.narration.flash": "mt",
+      "ni.lab.narration.flash2": "mt",
+      "ni.lab.narration.focus": "mt",
+      "ni.lab.narration.focus2": "mt",
+      "ni.lab.narration.hover": "mt",
+      "ni.lab.narration.intro": "mt",
+      "ni.lab.narration.introHintCoarse": "mt",
+      "ni.lab.narration.introHintFine": "mt",
+      "ni.lab.narration.overfit": "mt",
+      "ni.lab.narration.overfit2": "mt",
+      "ni.lab.state.cynical": "mt",
+      "ni.lab.state.equilibrium": "mt",
+      "ni.lab.state.euphoric": "mt",
+      "ni.lab.state.freeze": "mt",
+      "ni.lab.state.overfit": "mt",
+      "ni.lab.telemetry.cogState": "mt",
+      "ni.lab.telemetry.conf": "mt",
+      "ni.lab.telemetry.loss": "mt",
+      "ni.meta.title": "mt",
+      "ni.slot.auxiliary": "reviewed",
+      "ni.slot.critical": "mt",
+      "ni.slot.demon": "mt",
+      "ni.slot.dominant": "reviewed",
+      "ni.slot.inferior": "reviewed",
+      "ni.slot.opposing": "mt",
+      "ni.slot.tertiary": "reviewed",
+      "ni.slot.trickster": "reviewed",
+      "ni.zoneA.canvasAria": "mt",
+      "ni.zoneB.heading": "mt",
+      "ni.zoneB.lede": "reviewed",
+      "ni.zoneB.railAria": "mt",
+      "ni.zoneC.heading": "mt",
+      "ni.zoneC.lede": "mt",
+      "ni.zoneC.unstableDefault": "mt",
+      "ni.zoneD.canvasAria": "reviewed",
+      "ni.zoneD.heading": "mt",
+      "ni.zoneD.kicker": "mt",
+      "ni.zoneD.lede": "reviewed",
+      "ni.zoneD.ledeHintCoarse": "mt",
+      "ni.zoneD.ledeHintFine": "mt",
+      "ni.zoneE.lede": "mt"
+    }
+  },
+  "ni.character.awareness.why": "sicher über die Form, unfähig, seine Arbeit zu zeigen",
+  "ni.character.control.why": "Einsichten kommen nach ihrem eigenen Zeitplan; der Steuermann antwortet langsam",
+  "ni.character.endurance.why": "Konvergenz ist geduldig — der Trichter läuft stundenlang ohne Anstrengung",
+  "ni.character.precision.why": "eine Trajektorie, eng anliegend; der Mantel wird enger, während sie verläuft",
+  "ni.character.speed.why": "Konvergenz wartet auf den passenden Rahmen — die Erkenntnis kommt ganz und spät",
+  "ni.energy.recovery.auxiliary": "Saubere Erholung, sobald die Lese an jemanden übergeben wurde.",
+  "ni.energy.recovery.dominant": "Wird teilweise während der Nutzung wieder aufgefüllt — jede gelungene Erkenntnis gibt ein wenig zurück.",
+  "ni.energy.recovery.inferior": "Das Katerregal: ~30 Min., in denen das gesamte System gedimmt läuft und das Doom-Reading sich immer wiederholt.",
+  "ni.energy.recovery.shadow": "Unvollständig — ein Teil der Ladung kommt heute einfach nicht zurück.",
+  "ni.energy.recovery.tertiary": "Langsamer: Das Musterjagen muss zuerst wirklich abgelegt werden.",
+  "ni.feeder.fe": {
+    "figure": "Viele weiche Kanäle, die eine geduldige Linie speisen.",
+    "mechanism": "Fe — extravertierte Gefühlsfunktion — gibt den Zustand des Raums zurück: Was zwischen diesen bestimmten Personen vor sich geht und was sie wahrscheinlich damit tun werden. Mehr Kanäle, kleinere Eingaben, ein Bild über Beziehungstrajektorien. Korrektur kommt sozial — langsamer als eine Zahl und schwerer zu ignorieren.",
+    "pair": "INFJ · ENFJ-Kopplung",
+    "provenance": "myers"
+  },
+  "ni.feeder.fi": {
+    "figure": "Die Linie verdunkelt sich, ohne sich zu bewegen.",
+    "mechanism": "Der INTJ-Loop, mit Te herausgeschnitten: Fi — introvertiertes Fühlen — liefert das Urteil, ebenfalls von innen, und wiegt das Bild gegen das ab, was für eine Person zählt und für nichts anderes. Luftlos und sich selbst bestätigend: eine Lesart davon, wie all das verläuft, die mit der Zeit sicherer wird, je länger niemand von außen daran rührt, und dabei nicht genauer.",
+    "pair": "INTJ Ni–Fi-Loop",
+    "provenance": "community",
+    "warn": "Loop-Kopplung: introvertierte Beurteilung speist introvertierte Wahrnehmung — keine Korrektur von außen."
+  },
+  "ni.feeder.se": {
+    "figure": "Fragmente treffen schneller ein, als sie festgehalten werden können; das Bild formt sich fast und fließt dann wieder davon.",
+    "mechanism": "Se — extravertierte Wahrnehmung — flutet den Eingang mit dem Gegenwärtigen: dicht, konkret, unmittelbar, alles wahr und nichts geht irgendwohin, während nichts davon sortiert wird — beide Funktionen sammeln und keine urteilt. Diese beiden sitzen auch auf derselben Achse: Was das eine als selbstverständlich nimmt, behandelt das andere als Rauschen. Echte Stacks wechseln aus genau diesem Grund zwischen Wahrnehmung und Urteil ab.",
+    "pair": "Wahrnehmung speist Wahrnehmung",
+    "provenance": "myers",
+    "warn": "Instabile Kopplung: Wahrnehmung speist Wahrnehmung, ohne dass etwas urteilt."
+  },
+  "ni.feeder.te": {
+    "figure": "Ein dünner, gezielt gerichteter Strahl; die Hülle zieht sich dort zusammen, wo die Zahlen landen.",
+    "mechanism": "Te — extravertiertes Denken — gibt Ergebnisse, Messwerte und den Planstatus zurück: wenige Eingaben, jede hart, jede auf einem schmalen, zielgerichteten Kanal. Das entstehende Bild dreht sich darum, wie eine Struktur sich über Jahre bewegt, und wird korrigiert, wenn die Zahlen widersprechen. Die schärfste Fehlerkorrektur, die Ni hat, und die zuverlässigste.",
+    "pair": "INTJ · ENTJ-Kopplung",
+    "provenance": "myers"
+  },
+  "ni.feeder.ti": {
+    "figure": "Die Grenze versiegelt sich um eine Drehung weiter; beachte, wie oft die Passung in diesem Zustand früh auslöst.",
+    "mechanism": "Der INFJ-Loop, mit Fe herausgeschnitten: Ti — introvertiertes Denken — liefert das Urteil, aber von innen. Das Bild wird auf innere Konsistenz geprüft und nie an etwas im Raum abgeglichen, sodass Konvergenz schneller und Gewissheit enger wird — und das Einzige, was das Bild korrigiert, ist derselbe Kopf, der es erzeugt hat.",
+    "pair": "INFJ Ni–Ti-Loop",
+    "provenance": "community",
+    "warn": "Loop-Kopplung: introvertierte Beurteilung speist introvertierte Wahrnehmung — keine Korrektur von außen."
+  },
+  "ni.fieldNotes.mirror": {
+    "figure": "Zwei Trichter, Mund an Mund.",
+    "mechanismHtml": "Gleiches Element, entgegengesetzte Haltung – und der Unterschied liegt in der Richtung, in die sich der Trichter öffnet. <strong>Ne</strong> nimmt eine Eingabe und fächert sie in viele Zukünfte auf, alle gleichzeitig lebendig, alle günstig zu halten, keine davon gewählt. <strong>Ni</strong> nimmt viele Eingaben und trichtert sie zu einer zusammen, und diese eine erscheint vollständig, teuer zu Ändern und unmöglich zu zeigen. Ne tauscht Verpflichtung gegen Reichweite; Ni tauscht Reichweite gegen eine Überzeugung, die sie nicht belegen kann.",
+    "provenance": "jung"
+  },
+  "ni.fieldNotes.vignette.brainstorm": {
+    "figure": "Ein Trichter kann nicht als Sprinkler betrieben werden.",
+    "kind": "das falsche Instrument",
+    "mechanism": "Fordere Ni zu zwanzig schnellen Optionen auf und beobachte, wie das Instrument die Vorgabe verweigert: Es bleibt während des Klebezettel-Regens still und bietet schließlich eine Option an, spät, in voller Form, mit dem dafür sprechenden Argument fest verschweißt. Die Konvergenz, die es wertvoll macht, ist genau das, was es hier falsch macht. Teams, die dies wissen, bewerten Ni nicht mehr nach Menge, sondern übergeben ihm stattdessen die Vorauswahl.",
+    "provenance": "community",
+    "title": "Der Brainstorm"
+  },
+  "ni.fieldNotes.vignette.cantJustKnow": {
+    "figure": "Ein Instrument, das seine Rohdaten nicht ausdrucken kann.",
+    "kind": "die Anklage",
+    "mechanism": "Die Anschuldigung behandelt eine fehlende Herleitung als fehlende Grundlage. Was tatsächlich fehlt, ist eine Schnittstelle: Der Trichter verarbeitete Hunderte von Beobachtungen und lieferte nur das Ziel zurück, während die Zwischenschritte nirgends abrufbar gespeichert wurden. Die korrekte Reaktion auf eine Ni-Lesung ist weder Glaube noch Abweisung – es ist, sie als Messung eines Instruments zu behandeln, das seine Arbeit nicht zeigen kann, und sie wie jede andere Messung zu testen.",
+    "provenance": "currents",
+    "title": "Man kann es nicht einfach wissen"
+  },
+  "ni.fieldNotes.vignette.grip": {
+    "figure": "Der Horizont rückt auf Armlänge näher.",
+    "kind": "der Grip",
+    "mechanism": "Ein INTJ, der sein Reservoir erschöpft hat, verliert die Sicht auf die Richtung aller Dinge und flutet in die inferior Se — Dinge kaufen, zu schnell fahren, Essen und Trinken bis zum Verlust der Wahrnehmung, den Körper bis zur Erschöpfung belasten, sodass er das Einzige im Raum ist. Keine Persönlichkeitsveränderung: ein Sitz mit geringer Kapazität, der eine dominant große Flut aufnimmt.",
+    "provenance": "quenk",
+    "title": "Der Grip"
+  },
+  "ni.fieldNotes.vignette.loop": {
+    "figure": "Versiegelt, ausgearbeitet, gewiss.",
+    "kind": "der Loop",
+    "mechanism": "Unter Stress koppelt die dominante Ni eines INFJ mit der tertiären Ti — beide richten sich nach innen, wobei der Kontakt des Fe zu echten Menschen dazwischen herausgeschnitten wird. Die Interpretation wird elaborierter, intern konsistenter und sicherer, und niemand außerhalb dieses Kopfes hat sie seit Wochen berührt. Dieses gleichgerichtete Muster wird als Loop bezeichnet.",
+    "provenance": "community",
+    "title": "Der Loop"
+  },
+  "ni.fieldNotes.vignette.mechanicsHunch": {
+    "figure": "Schmalbandiger Vorausblick, abgeriebene Hände.",
+    "kind": "als tertiär",
+    "mechanism": "Tertiäres Ni bei ISTP oder ISFP: eine stille Konvergenzmaschine unter einer handwerklichen Fassade. Sie zeigt sich als Mechaniker, der mitten in der Arbeit innehält, weil der Defekt „nicht der Generator sein wird“, oder als Kletterer, der aus einem Grund die Route ändert, der als Gewissheit vor dem Wetter eintrifft. Engbandiger, körpernaher Vorausblick – vertraut bei Maschinen und Gelände, aber selten um Meinung zu anderen Dingen gebeten.",
+    "provenance": "grant",
+    "title": "Der Mechaniker-Instinkt"
+  },
+  "ni.fieldNotes.vignette.meeting": {
+    "figure": "Der Trichter lieferte nur das Ziel.",
+    "kind": "Feldsichtung",
+    "mechanism": "Zehn Minuten später weiß eine Ni-dominante Person, wie das Projekt endet, und sagt es. Auf die Frage nach dem Warum liefert sie einen Grund, der wahr ist, aber nicht der Grund — es ist das nächstliegende Sagbare zu einer Lektüre, die nie Schritte hatte. Sechs Monate später erweist sie sich als richtig, was die nächste Erklärung in keiner Weise verbessert.",
+    "provenance": "community",
+    "title": "Das Meeting"
+  },
+  "ni.fieldNotes.vignette.mistakenForSi": {
+    "figure": "Die Aufzeichnung versus der Vektor.",
+    "kind": "die Fehldeutung",
+    "mechanism": "Beide sind still, sorgfältig und innerlich, daher werden die beiden introvertierten Wahrnehmungen zusammengefasst – meist als „Detailmenschen“. Der Hinweis ist, was „Woher weißt du das?“ hervorbringt. Si erzeugt das Protokoll: das Datum, den Präzedenzfall, die letzten drei Male, in denen genau dies geschah. Ni erzeugt die Form: wohin dies führt, bereinigt um jedes Einzelne, das die Trajektorie bildete. Eines archiviert die Vergangenheit in voller Auflösung; das andere komprimiert sie jenseits der Wiederherstellung.",
+    "provenance": "community",
+    "title": "Mit Si verwechselt"
+  },
+  "ni.hero.heading": "Die Konvergenz von {fn}",
+  "ni.hero.subtitle": "Ein Feld verstreuter Beobachtungen, eine durch sie hindurchgelegte Trajektorie – und ein einzelnes Konstrukt, das auf der Linie durch die Zeit reitet, bereits sicher, wo es sich biegen wird.",
+  "ni.hero.tag": "introvertierte Intuition",
+  "ni.lab.btn.aha.label": "Aha! Synthese",
+  "ni.lab.btn.aha.sub": "heterogene Daten → Paradigma synthetisieren",
+  "ni.lab.btn.cassandra.label": "Kassandra-Tragödie",
+  "ni.lab.btn.cassandra.sub": "Prognose ignoriert → vorhergesagter Fehlschlag tritt ein",
+  "ni.lab.btn.flash.label": "Taktische Unterbrechung",
+  "ni.lab.btn.flash.sub": "Jetzt die Entscheidung treffen!",
+  "ni.lab.btn.focus.label": "Tiefenfokus-Simulation",
+  "ni.lab.btn.focus.sub": "Tiefe, ununterbrochene Fokusphase starten",
+  "ni.lab.btn.overfit.label": "Mikromanagement Overfit",
+  "ni.lab.btn.overfit.sub": "Granulare Tabellenformatierung erzwingen",
+  "ni.lab.meter.pleasure": "Vergnügen",
+  "ni.lab.meter.stress": "Stress",
+  "ni.lab.narration.aha": {
+    "figure": "Die Residuen kollabieren und die Varianz zieht sich zusammen.",
+    "mechanism": "Zwei Dutzend Beobachtungen, die nichts miteinander zu tun haben — und für einen Moment scheinen sie es auch tatsächlich nicht zu tun. Plötzlich entsteht eine These, eine Regression, die alle Ausreißer auf einmal konvergieren lässt, und was eine Wolke war, ist plötzlich eine Linie mit einer Richtung. Beachte die Reihenfolge der Ereignisse: Die Antwort kam, und dann war sie offensichtlich.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.aha2": {
+    "figure": "R² nahe eins, Verlust nahe null, Stress verschwunden.",
+    "mechanism": "Das ist die Zahlung, für die Ni arbeitet — nicht Lob, nicht Ergebnisse: Kompression. Zwanzig Dinge wurden zu einem, und das eine sagt voraus. Die Ausreißer, die es hervorbrachten, sind bereits nicht mehr von der Linie zu unterscheiden, der sie beigetreten sind.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.cassandra": {
+    "figure": "Beobachte, wie das Konstrukt an der Kreuzung ankommt, die es im Voraus benannt hat.",
+    "mechanism": "Das Modell hat dies gesehen. Die Projektion hat seit einiger Zeit durch die Fehlerschwelle gezeigt, und dies laut auszusprechen, hat nichts geändert.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.cassandra2": {
+    "figure": "Die Konfidenzanzeige bewegte sich nie.",
+    "mechanism": "Scheitern, pünktlich. Die Passgenauigkeit war die ganze Zeit präzise — das ist die spezifische Grausamkeit hier: Früh recht zu haben, ist von außen nicht unterscheidbar davon, falsch zu liegen, bis es aufhört, es zu sein. Der kleine bittere Anstieg auf dem Vergnügensmesser ist real, und es ist kein angenehmes Gefühl.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.flash": {
+    "figure": "Die Trajektorie zersplittert in hochfrequentes Rauschen, während die Gegenwartsform den Viewport bombardiert.",
+    "mechanism": "«Tritt jetzt den Anruf an.» Die einzige Ressource, auf der diese Funktion läuft — Zeit zum Simulieren — ist gerade entzogen. Sie hat keine schnelle Antwort; sie hat eine Pufferantwort, und der Puffer wurde angewiesen, zu stocken.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.flash2": {
+    "figure": "Die Linie setzt sich aus einer tieferen Passung neu zusammen.",
+    "mechanism": "Die Salve ist vorbei und der Neuaufbau beginnt von einem abgerissenen R². Während der Unterbrechung wurde nichts gelernt; Zeit unter Beschuss ist keine Datenquelle, nur Zeit. Was eine Deadline bei Ni kauft, ist nicht Geschwindigkeit — es ist die Vermutung, die gerade herumlag, als die Uhr auf null lief.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.focus": {
+    "figure": "Die Trajektorie verläuft glatt über den Rand des Viewports hinaus.",
+    "mechanism": "Die Tür schließt sich und die Eingaben hören auf einzutreffen — nicht gelöst, nur nicht mehr eingehend. Die Projektion erstreckt sich: ein Schritt über das Jetzt hinaus, dann ein weiterer, wobei die Unsicherheit kaum zunimmt. Dies ist die Maschine, die tut, wofür sie konzipiert ist, in der Tiefe, für die sie konzipiert ist.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.focus2": {
+    "figure": "Gleiche Punkte, längere Linie.",
+    "mechanism": "Beachte, was tiefe Fokussierung nicht getan hat: Sie hat keine Daten hinzugefügt. Die Vorausschau wurde länger bei denselben Beobachtungen, weil ununterbrochene Simulation die Art ist, wie diese Funktion gehaltenes Material in Reichweite umwandelt. Das günstigste Upgrade, das Ni je bekommt, ist eine geschlossene Tür.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.hover": "Du hältst das Ruder. Links ist früher, rechts ist später – und die Zusammensetzung des Konstrukts an jedem Punkt ist das, was das Modell für den dortigen Zustand des Konzepts hält. Beachte, dass es sich um denselben Gegenstand handelt, der sich über die gesamte Strecke erstreckt: Entwicklung, nicht Ersetzung.",
+  "ni.lab.narration.intro": "Die Engine läuft unbeaufsichtigt: Beobachtungen sammeln sich, eine Trajektorie passt sich durch sie hindurch an, und das Konstrukt reitet die Linie von einem Ende der Zeit zum anderen und verändert sich dabei.",
+  "ni.lab.narration.introHintCoarse": "Drücke und ziehe in der Kammer nach links und rechts, um selbst das Ruder zu übernehmen – oder störe den Motor unten und beobachte, wie die Telemetrie reagiert.",
+  "ni.lab.narration.introHintFine": "Fahre mit der Maus über die Kammer, um selbst das Ruder zu übernehmen — oder störe den Motor unten und beobachte, wie die Telemetrie reagiert.",
+  "ni.lab.narration.overfit": {
+    "figure": "Die Trendlinie verläuft durch jeden einzelnen Rauschpunkt; die Horizontanzeige zeigt null Schritte voraus.",
+    "mechanism": "Jede Zelle formatiert, jede lokale Welle respektiert. Die Genauigkeit für das, was bereits geschehen ist, ist spektakulär — und die Extrapolation ist Müll: Das Modell hat die Residuen auswendig gelernt und die Richtung vergessen.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.overfit2": {
+    "figure": "Das Konstrukt zittert, um Dezimalstellen zu respektieren.",
+    "mechanism": "Das ist, was Mikromanagement einem langreichweitenfähigen Instrument kostet: Allgemeinheit. Gezwungen, jede Zelle zu berücksichtigen, kann es nicht mehr sagen, wohin sich etwas bewegt — Präzision über die Gegenwart, erkauft mit der Zukunft.",
+    "provenance": "currents"
+  },
+  "ni.lab.state.cynical": "Zynische Resignation",
+  "ni.lab.state.equilibrium": "Optimales Gleichgewicht",
+  "ni.lab.state.euphoric": "Euphorischer Flow",
+  "ni.lab.state.freeze": "Überforderung / Freeze",
+  "ni.lab.state.overfit": "Überfitte Erschöpfung",
+  "ni.lab.telemetry.cogState": "Kognitiver Zustand",
+  "ni.lab.telemetry.conf": "Prädiktive Konfidenz",
+  "ni.lab.telemetry.loss": "Modellverlust",
+  "ni.meta.title": "Ni — Introvertierte Intuition · CURRENTS",
+  "ni.slot.auxiliary": {
+    "example": "Der Fünfjahresplan eines ENTJ enthält einen Satz reines Vorausblickes; der Rest ist Ausführung.",
+    "figure": "Ein Trichter, der eine Maschine speist, die versendet.",
+    "mechanism": "Im zweiten Sitz dient das lange Projizieren etwas bereits Laufendem: Es liefert Richtung statt Identität, und die dominante Bewertungsfunktion wandelt es in einen Plan oder einen verwalteten Raum um. Schneller zu formulieren, leichter zu bestreiten und viel weniger wahrscheinlich, ein Jahrzehnt auf einem einzigen Bild zu verweilen.",
+    "provenance": "myers"
+  },
+  "ni.slot.critical": {
+    "example": "Ein INFP kommt um Mitternacht zu dem Schluss, dass das Muster seines gesamten Lebens nun sichtbar ist, und es ist nicht gut.",
+    "figure": "Eine graue Linie durch das Selbst, die sich bis zum Horizont erstreckt.",
+    "mechanism": "Im sechsten Sitz wendet sich die Vorausblick nach innen und fällt Urteile über das eigene Leben — das bist du, hier endet es — total, unbegründet und an niemanden gerichtet. Es prognostiziert viel selbstbewusster, als es prüft.",
+    "provenance": "beebe"
+  },
+  "ni.slot.demon": {
+    "example": "Ein ISFJ weiß an einem einzigen furchtbaren Abend genau, wie alle, die sie liebt, gehen werden.",
+    "figure": "Eine einzelne, dunkel gezeichnete Linie, die gleichzeitig durch jeden Punkt verläuft.",
+    "mechanism": "Der achte Sitz ist der seltenste und schlimmste. Wenn er ausbricht, erzeugt er eine einzige schwarze Gewissheit darüber, wie all das endet – auf alles gleichzeitig angewandt, immun gegen Beweise und unbeeindruckt davon, dass die gestrige Version etwas anderes sagte. Es ist der am wenigsten geübte Sitz im Stack, keine Prophezeiung.",
+    "provenance": "beebe"
+  },
+  "ni.slot.dominant": {
+    "example": "Zehn Minuten nach dem Kickoff weiß ein INFJ, wie das Projekt endet – und braucht sechs Monate, um nachweislich recht zu haben.",
+    "figure": "CURRENTS zeichnet dies als Regression in voller Tiefe: eine enge Hülle, ein ruhiges Ausrichten.",
+    "mechanism": "Im ersten Sitz wird alles daraufhin gelesen, wohin es geht, und das Lesen läuft kontinuierlich, unsichtbar und mit geringen Kosten ab. Lange Zeiträume vergehen, in denen nichts Lesbares geschieht; dann trifft eine Antwort ganz und bereits sicher ein. Die Schritte zu zeigen ist wirklich schwer — die Schritte wurden nie getrennt gehalten.",
+    "provenance": "myers"
+  },
+  "ni.slot.inferior": {
+    "example": "Ein ESTP, der nie über heute Nacht hinausdenkt, wacht um 4 Uhr morgens auf und ist sich im Detail sicher, dass das Unternehmen verloren ist.",
+    "figure": "Ein schwacher Trichter, der selten abfeuert und immer auf denselben dunklen Punkt zielt.",
+    "mechanism": "Im vierten Sitz kommt die Zukunft als Urteil und nicht als Prognose an. Lange Abschnitte des Lebens in der Gegenwart werden – unter Erschöpfung oder Stress – durch plötzliche, totale Gewissheit unterbrochen, dass dies schlecht endet, es immer so war und nicht zur Diskussion steht, in einem Tonfall, der nicht nach ihnen klingt. Dies ist Quenks Grip.",
+    "provenance": "quenk"
+  },
+  "ni.slot.opposing": {
+    "example": "Man sagt ihm, der Markt gehe nur in eine Richtung, und ein ENFP erzählt sofort die Geschichte des Crashs – und bestellt dann Dessert.",
+    "figure": "Unterhalb der Wasserlinie eine Gegenbahn, die in einem Strich gezeichnet und dann aufgegeben wird.",
+    "mechanism": "Der fünfte Sitz öffnet den Schatten — die vier Positionen, die eine Person selten ausführt und meist ohne es zu bemerken. Hier wird das lange Lesen kämpferisch: Wenn die einzelne Vision einer anderen Person über die Zukunft beginnt, Optionen zu schließen, erscheint eine rivalisierende Gewissheit — dunkler, unvermeidlicher und genau so lange gehalten, um die erste abzulehnen.",
+    "provenance": "beebe"
+  },
+  "ni.slot.tertiary": {
+    "example": "Der Mechaniker hält mitten in der Arbeit inne: „Es wird nicht der Lichtmaschine sein.“ Es ist es nicht.",
+    "figure": "Ein halbgroßer Trichter, der scharf in den Fokus springt und dann umherirrt.",
+    "mechanism": "Im dritten Sitz trifft das Musterlesen in Schüben ein; ihm wird nur wird gelegentlich vertraut: ein plötzliches klares Gefühl, wie sich eine Situation entwickeln wird — meist stimmig, gelegentlich eine ganze Geschichte aus dem Nichts — mit wenig Interesse daran, beides zu verteidigen. Es stabilisiert sich mit dem Alter, vor allem durch das Lernen, welche der eigenen Ahnungen man prüfen soll.",
+    "provenance": "grant"
+  },
+  "ni.slot.trickster": {
+    "example": "Ein ESTJ übersieht den Rücktritt zwischen den Zeilen und entdeckt dann eine Verschwörung im Sitzplan.",
+    "figure": "Der Umschlag wird nie schmaler; die Passform liegt neben den Punkten.",
+    "mechanism": "Im siebten Sitz ist Implikation ein manipuliertes Spiel: Entweder ist nichts zwischen den Zeilen, oder alles. Der Sitz wechselt zwischen übersehenem Subtext, der deutlich da war, und der Konstruktion eines elaborierten, den niemand meinte — ohne Bosheit und meist ohne zu bemerken, was gerade geschah.",
+    "provenance": "beebe"
+  },
+  "ni.zoneA.canvasAria": "Interaktive visuelle Darstellung der introvertierten Intuition als Regressionsmotor: verstreute Beobachtungen konvergieren zu einer angepassten Trajektorie mit einem Konfidenzintervall, und ein synthetisiertes Konstrukt bewegt sich entlang der Linie durch die Zeit und verändert sich dabei. Zeigen Sie auf oder ziehen Sie über die Kammer, um das Konstrukt entlang der Zeitachse zu steuern.",
+  "ni.zoneB.heading": "Die acht Gesichter von Ni",
+  "ni.zoneB.lede": "Die Leinwand zeichnet Ni als Regression: viele Beobachtungen hinein, eine angepasste Trajektorie hinaus. Wo Ni im Stack einer Person sitzt – die feste Reihenfolge, in der ihre acht Funktionen auftreten –, verändert sich das Verhalten der Projektion. Klicke auf eine Position, um die Veränderung zu sehen, vom ungestümen Trichter der dominanten Funktion bis zur einzigen schwarzen Gewissheit des Dämons, und beobachte die Konvergenz-Anzeige: Sie erzählt die Geschichte, bevor die Bildunterschrift es tut. Ziehe den Reifegrad-Schieberegler, um zu sehen, wie die unteren Sitze mit dem Alter an Genauigkeit gewinnen.",
+  "ni.zoneB.railAria": "Stack-Positionen für Ni",
+  "ni.zoneC.heading": "Was speist Ni?",
+  "ni.zoneC.lede": "Ni sammelt; es urteilt nicht. Die introvertierte Wahrnehmung wird von der extravertierten Bewertung gespeist, daher sind ihre wahren Partner die äußeren Richter – Te und Fe, die Funktionen, die Korrektur von außen einbringen. Klicke auf einen Zubringer, um zu sehen, was zusammenläuft.",
+  "ni.zoneC.unstableDefault": "Instabile Kopplung: Wahrnehmung speist Wahrnehmung, ohne dass etwas urteilt.",
+  "ni.zoneD.canvasAria": "Die Ni-Regressions-Engine: verstreute Beobachtungen, eine angepasste Trajektorie mit Varianzumschlag und ein Konstrukt, das durch Zeigen oder Ziehen entlang der Zeitachse hin und her gesteuert werden kann",
+  "ni.zoneD.heading": "Die Regressionsmaschine",
+  "ni.zoneD.kicker": "Zone D · die Regressionsmaschine",
+  "ni.zoneD.lede": "Ni führt eine einzige prädiktive Trajektorie durch verrauschte, multidimensionale Eingaben und verfolgt sie dann in der Zeit. Dieses Labor zeigt den Live-Zustand der Engine – Stress, Genuss, Vertrauen, Verlust – und fünf Möglichkeiten, wie ein Tag damit umgehen kann. Löst ein Szenario aus und beobachte, wie die Telemetrie antwortet.",
+  "ni.zoneD.ledeHintCoarse": "Drücken und ziehen Sie jederzeit in der Kammer nach links und rechts, um das Konstrukt selbst durch die Zeit zu steuern.",
+  "ni.zoneD.ledeHintFine": "Führe jederzeit die Maus über die Kammer, um das Konstrukt selbst durch die Zeit zu steuern.",
+  "ni.zoneE.lede": "Muster aus der Wildnis — wie Ni im Alltag auftritt."
+}

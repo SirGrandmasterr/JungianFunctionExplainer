@@ -303,3 +303,15 @@ export function localesOnDisk() {
     return statSync(join(CONTENT, n)).isDirectory();
   }).sort();
 }
+
+/** Glossaries defined under content/glossary/*.json */
+export function glossariesOnDisk() {
+  const dir = join(CONTENT, 'glossary');
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => basename(f, '.json')).sort();
+}
+
+/** All target locales known either by directory or by glossary. */
+export function allLocales() {
+  return Array.from(new Set([...localesOnDisk(), ...glossariesOnDisk()])).sort();
+}

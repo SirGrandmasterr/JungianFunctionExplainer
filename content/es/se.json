@@ -1,0 +1,332 @@
+{
+  "_meta": {
+    "model": "qwen3.8:latest",
+    "digest": "22130167c4c20e20c7b71454612966ca8e8171e9b3cc8ab6ce8aa6cbfec79643",
+    "promptVersion": 3,
+    "date": "2026-08-30",
+    "status": {
+      "se.character.awareness.why": "mt",
+      "se.character.control.why": "mt",
+      "se.character.endurance.why": "mt",
+      "se.character.precision.why": "mt",
+      "se.character.speed.why": "mt",
+      "se.energy.recovery.auxiliary": "mt",
+      "se.energy.recovery.dominant": "mt",
+      "se.energy.recovery.inferior": "mt",
+      "se.energy.recovery.shadow": "mt",
+      "se.energy.recovery.tertiary": "mt",
+      "se.feeder.fe": "mt",
+      "se.feeder.fi": "mt",
+      "se.feeder.ni": "mt",
+      "se.feeder.te": "mt",
+      "se.feeder.ti": "mt",
+      "se.fieldNotes.mirror": "mt",
+      "se.fieldNotes.vignette.court": "mt",
+      "se.fieldNotes.vignette.fiveYearPlan": "mt",
+      "se.fieldNotes.vignette.grip": "mt",
+      "se.fieldNotes.vignette.loop": "mt",
+      "se.fieldNotes.vignette.mistakenForNe": "mt",
+      "se.fieldNotes.vignette.reckless": "mt",
+      "se.fieldNotes.vignette.scheduledBody": "mt",
+      "se.hero.heading": "mt",
+      "se.hero.subtitle": "mt",
+      "se.hero.tag": "mt",
+      "se.lab.btn.blackout.label": "mt",
+      "se.lab.btn.blackout.sub": "mt",
+      "se.lab.btn.flicker.label": "mt",
+      "se.lab.btn.flicker.sub": "mt",
+      "se.lab.btn.window.label": "mt",
+      "se.lab.btn.window.sub": "mt",
+      "se.lab.intensity.aria": "mt",
+      "se.lab.intensity.heading": "mt",
+      "se.lab.intensity.max": "mt",
+      "se.lab.intensity.min": "mt",
+      "se.lab.meter.pleasure": "mt",
+      "se.lab.meter.stress": "mt",
+      "se.lab.narration.blackout": "mt",
+      "se.lab.narration.blackout2": "mt",
+      "se.lab.narration.flicker": "mt",
+      "se.lab.narration.flicker2": "mt",
+      "se.lab.narration.flickerMiss": "mt",
+      "se.lab.narration.hoverCoarse": "mt",
+      "se.lab.narration.hoverFine": "mt",
+      "se.lab.narration.intro": "mt",
+      "se.lab.narration.introHintCoarse": "mt",
+      "se.lab.narration.introHintFine": "mt",
+      "se.lab.narration.slider": "mt",
+      "se.lab.narration.window": "mt",
+      "se.lab.narration.windowHit": "mt",
+      "se.lab.narration.windowMiss": "mt",
+      "se.lab.state.blackout": "mt",
+      "se.lab.state.equilibrium": "mt",
+      "se.lab.state.flow": "mt",
+      "se.lab.state.hunger": "mt",
+      "se.lab.state.late": "mt",
+      "se.lab.telemetry.clarity": "mt",
+      "se.lab.telemetry.cogState": "mt",
+      "se.lab.telemetry.crossHead": "mt",
+      "se.lab.telemetry.lock": "mt",
+      "se.lab.telemetry.sibPleasure": "mt",
+      "se.lab.telemetry.sibStress": "mt",
+      "se.lab.telemetry.visitSi": "mt",
+      "se.meta.title": "mt",
+      "se.slot.auxiliary": "mt",
+      "se.slot.critical": "mt",
+      "se.slot.demon": "mt",
+      "se.slot.dominant": "mt",
+      "se.slot.inferior": "mt",
+      "se.slot.opposing": "mt",
+      "se.slot.tertiary": "mt",
+      "se.slot.trickster": "mt",
+      "se.zoneA.canvasAria": "mt",
+      "se.zoneB.ageNote": "mt",
+      "se.zoneB.heading": "mt",
+      "se.zoneB.lede": "mt",
+      "se.zoneB.railAria": "mt",
+      "se.zoneC.heading": "mt",
+      "se.zoneC.lede": "mt",
+      "se.zoneC.unstableDefault": "mt",
+      "se.zoneD.canvasAria": "mt",
+      "se.zoneD.heading": "mt",
+      "se.zoneD.kicker": "mt",
+      "se.zoneD.lede": "mt",
+      "se.zoneE.lede": "mt"
+    }
+  },
+  "se.character.awareness.why": "el contacto va por delante de la autorreportación: actúa y luego descubre que ha actuado",
+  "se.character.control.why": "sigue la acción del campo con mayor facilidad que una agenda interna",
+  "se.character.endurance.why": "el contacto se paga en el momento: un campo en vivo puede recorrerse durante horas",
+  "se.character.precision.why": "resolución completa sin latencia, durante exactamente el tiempo que dure el contacto",
+  "se.character.speed.why": "se bloquea dentro de un único fotograma: el evento más rápido de la psique",
+  "se.energy.recovery.auxiliary": "Rápido, una vez que las herramientas están recogidas y la escena está cerrada.",
+  "se.energy.recovery.dominant": "Se recarga durante el uso: el contacto total tiene menos coste que descansar mal.",
+  "se.energy.recovery.inferior": "La estantería de la resaca: unos 30 minutos en los que la sobreestimulación persiste y todos los canales funcionan a media luz.",
+  "se.energy.recovery.shadow": "Incompleto: la tensión gastada aquí no se recupera por completo hoy.",
+  "se.energy.recovery.tertiary": "Primero necesita apartar el plan; la presencia adquirida según un horario se recupera en uno.",
+  "se.feeder.fe": {
+    "figure": "El tiempo de permanencia colapsa a cero; la retícula persigue los aplausos.",
+    "mechanism": "El bucle ESTP, con Ti excluido: Fe — sentimiento extrovertido — proporciona objetivos, pero solo sociales — la risa, la reacción, la próxima osadía de la sala — y cada acierto se gasta inmediatamente en preparar el siguiente. Nada se examina, nada se saborea; el espectáculo simplemente escala. La pieza que falta es la pregunta silenciosa de la auxiliar: ¿es esto realmente una buena idea?",
+    "pair": "bucle Se–Fe del ESTP",
+    "provenance": "community",
+    "warn": "Acoplamiento de bucle: dominante y terciaria, ambas extraversivas — el control interno del auxiliar queda excluido."
+  },
+  "se.feeder.fi": {
+    "figure": "Los objetivos de la derecha brillan y la retícula se queda.",
+    "mechanism": "Fi — sentimiento introvertido — entrega al ojo un criterio sentido: qué es bello, qué es honesto, qué merece saborearse. El mundo se ordena por significancia, y un cierre se sostiene mucho más allá de su uso táctico, porque el punto nunca fue la táctica. La mirada del performer y del esteta: presencia plena, dirigida a lo que el corazón ya eligió.",
+    "pair": "acoplamiento ISFP · ESFP",
+    "provenance": "myers"
+  },
+  "se.feeder.ni": {
+    "figure": "Los cierres se interrumpen a mitad de camino, una y otra vez.",
+    "mechanism": "Ni — intuición introvertida — interrumpe constantemente la mirada con significado: cada bloqueo se aborta a mitad de camino porque el objetivo ya se ha convertido en símbolo de otra cosa. El ojo se reenfoca constantemente y no termina nada; el mundo está por completo presente y nunca es realmente visto. Estas dos comparten un eje por una razón — las pilas reales ponen un juez entre ellas.",
+    "pair": "percepción que alimenta percepción",
+    "provenance": "myers",
+    "warn": "Acoplamiento inestable: la percepción alimenta la percepción, sin que nada juzgue a ninguna de las dos."
+  },
+  "se.feeder.te": {
+    "figure": "La retícula sprints una lista de comprobación que se rellena a sí misma.",
+    "mechanism": "El bucle ESFP, con Fi excluido: Te — pensamiento extravertido — convierte el campo en una lista de tareas — visible, terminable, reemplazada inmediatamente — y la mirada pasa de errando en errando a toda velocidad. El movimiento se convierte en su propia prueba de progreso; si algo de eso importa a la persona que lo hace es exactamente la pregunta que el bucle elude.",
+    "pair": "bucle Se–Te del ESFP",
+    "provenance": "community",
+    "warn": "Acoplamiento de bucle: dominante y terciaria, ambas extraversivas — se elimina la comprobación interna del auxiliar."
+  },
+  "se.feeder.ti": {
+    "figure": "Las etiquetas de medición florecen sobre lo que el retículo enmarca.",
+    "mechanism": "Ti — pensamiento introvertido — entrega al ojo una especificación: tolerancias, mecanismos, la única medición que lo resuelve. La saliencia se reorganiza en torno a lo que importa: menos objetivos, fijados con más firmeza, leídos al milímetro. La mirada del técnico: la máquina frente a ti, interrogada pieza por pieza, y el diagnóstico comprobado contra la cosa misma.",
+    "pair": "acoplamiento ISTP · ESTP",
+    "provenance": "myers"
+  },
+  "se.fieldNotes.mirror": {
+    "figure": "Una es agua que mira; la otra, agua que guarda.",
+    "mechanismHtml": "Mismo elemento, actitud opuesta — y la diferencia es lo que le ocurre al momento. <strong>Se</strong> lo surfea: resolución total, cero latencia, nada se retiene — el mundo como un lugar para actuar. <strong>Si</strong> lo almacena: entrada medida, comparada con cada capa que ha depositado — el mundo como un lugar para reconocer. Se cambia el registro por el momento; Si cambia el momento por un registro que ningún momento puede arrebatar.",
+    "provenance": "jung"
+  },
+  "se.fieldNotes.vignette.court": {
+    "figure": "Retícula, bloqueo, lanzamiento: un solo fotograma.",
+    "kind": "avistamiento de campo",
+    "mechanism": "A mitad de juego, un ESTP ve el cambio de peso del defensor medio segundo antes de que se abra la pista, y ya está en movimiento. Preguntado después por cómo lo supo, dice que lo vio, que es toda la respuesta. No había ninguna inferencia que reportar; la percepción y el movimiento fueron un solo evento, y la entrevista al respecto es la primera parte que tiene un coste.",
+    "provenance": "community",
+    "title": "La Corte"
+  },
+  "se.fieldNotes.vignette.fiveYearPlan": {
+    "figure": "El instrumento más afilado del edificio, sin nada que agarrar.",
+    "kind": "el instrumento equivocado",
+    "mechanism": "Mano Se delega la estrategia fuera de sitio: el mercado en 2031, la cuestión de sucesión, la apuesta cuyo pago nadie en la sala verá este año; y el contacto no tiene superficie, porque el futuro aún no la tiene. Un Se dominante fuerte no finge la visión a largo plazo; se asocia con quien la tiene y asume la parte del plan que toca el suelo este trimestre, lo cual, hecho a su resolución, es una contribución que ningún planificador puede igualar.",
+    "provenance": "community",
+    "title": "El Plan a Cinco Años"
+  },
+  "se.fieldNotes.vignette.grip": {
+    "figure": "La pupila cede ante un embudo oscuro.",
+    "kind": "la garra",
+    "mechanism": "Un ESFP más allá del final de sus reservas deja de percibir y empieza a presentir — certezas sombrías y repentinas sobre lo que todo significa y hacia dónde se dirige, entregadas sin el oficio de la intuición dominante. No es un cambio de personalidad: un asiento de baja capacidad sufriendo una inundación de tamaño dominante.",
+    "provenance": "quenk",
+    "title": "La Garra"
+  },
+  "se.fieldNotes.vignette.loop": {
+    "figure": "Cada truco compra el siguiente; la puerta nunca se cierra.",
+    "kind": "el bucle",
+    "mechanism": "Un ESTP bajo presión combina la Se dominante con la Fe terciaria: la reacción de la sala se convierte en el único instrumento, y cada truco compra el siguiente. La pregunta silenciosa de la Ti —¿es esto realmente una buena idea?— es la función que el bucle existe para evitar. Desde dentro se siente como estar en marcha; desde fuera parece una escalada.",
+    "provenance": "community",
+    "title": "El bucle"
+  },
+  "se.fieldNotes.vignette.mistakenForNe": {
+    "figure": "Esta ola, no una mejor idea de una.",
+    "kind": "la malinterpretación",
+    "mechanism": "Ambas se leen como «espontáneas» y se intercambian en ambas direcciones. La pista es el objeto del apetito. Se quiere la cosa real con intensidad real: esta ola, esta multitud, este motor, y considera que hablar de olas hipotéticas es un pobre sustituto del agua. Ne quiere la posibilidad y cambiaría el concierto que tiene delante por una mejor idea de un concierto. Observa dónde cae la atención cuando ambas están en una misma sala: una en el escenario, otra en lo que el recinto podría llegar a ser.",
+    "provenance": "community",
+    "title": "Confundida con Ne"
+  },
+  "se.fieldNotes.vignette.reckless": {
+    "figure": "Datos de tasa de fotogramas que la barandilla nunca ve.",
+    "kind": "la acusación",
+    "mechanism": "El veredicto suele dictarlo alguien cuya estimación de riesgo se basó en el precedente y no en la escena. Lo que el acusador no ve es la resolución: el piloto leyó esta superficie, este camber, esta garra, a velocidad de fotograma, y valoró la maniobra frente a datos que el guardarrail nunca tendrá. La tasa de error de la Se dominante suele ser la más baja justo donde los riesgos son mayores: eso es lo que compra el contacto total. La salvedad honesta está más abajo en la pila: la misma maniobra desde el asiento terciario o inferior funciona con una fracción de la resolución y toda la apetencia.",
+    "provenance": "community",
+    "title": "Temerario"
+  },
+  "se.fieldNotes.vignette.scheduledBody": {
+    "figure": "Apertura completa, por cita.",
+    "kind": "como terciaria",
+    "mechanism": "Se terciaria en un ENTJ o ENFJ: presencia, comprada por bloques. El fin de semana en moto, la clase de boxeo a las seis, la cocina renovada a nivel de restaurante: contacto real con el mundo físico, disfrutado genuinamente, y reservado en el calendario por la maquinaria de largo alcance que dirige el resto de la semana. La señal es la transición: plenamente en el cuerpo el sábado, y para el lunes los sentidos han vuelto al resumen ejecutivo.",
+    "provenance": "grant",
+    "title": "El cuerpo programado"
+  },
+  "se.hero.heading": "El ojo desnudo de {fn}",
+  "se.hero.subtitle": "Un iris abierto de par en par en contacto directo con el campo en vivo: el mundo a través de él más nítido, más rápido y más saturado que el mundo a su lado. Nada entre medio. Nada retenido.",
+  "se.hero.tag": "sensación extrovertida",
+  "se.lab.btn.blackout.label": "Apagar luces",
+  "se.lab.btn.blackout.sub": "el campo se vacía — nada que percibir",
+  "se.lab.btn.flicker.label": "Un parpadeo en la multitud",
+  "se.lab.btn.flicker.sub": "un elemento cambia durante 300 ms",
+  "se.lab.btn.window.label": "Una ventana que se cierra",
+  "se.lab.btn.window.sub": "aparece una abertura — y empieza a cerrarse",
+  "se.lab.intensity.aria": "Intensidad del campo de estímulos, desde una habitación vacía hasta un carnaval callejero",
+  "se.lab.intensity.heading": "Intensidad del campo",
+  "se.lab.intensity.max": "carnaval callejero",
+  "se.lab.intensity.min": "sala vacía",
+  "se.lab.meter.pleasure": "Placer de contacto",
+  "se.lab.meter.stress": "Estrés",
+  "se.lab.narration.blackout": {
+    "figure": "Lo último que se ve muere como una imagen residual; el pequeño destello que la abandona, etiquetado para Si, es la capa que su hermana habría conservado.",
+    "mechanism": "El campo desaparece y el ojo empieza a pagar por el silencio: el estrés sube en una habitación vacía como otras funciones pagan por el caos. Se no retiene nada, así que no hay nada a lo que recurrir.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.blackout2": {
+    "figure": "Los medidores encajan en su sitio.",
+    "mechanism": "Contacto restablecido: sin residuos, sin retrasos, sin rencor. El apagón costó exactamente lo que duró y nada más. Las funciones que conservan registros se recuperan lentamente; la que no conserva nada es también la que se reinicia al instante.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.flicker": {
+    "figure": "Observa el doble parpadeo fuera del objetivo: mismo evento, mismo tamaño, invisible. Ese es el mismo mundo sin Se apuntando a él.",
+    "mechanism": "Un elemento en el campo cambió durante trescientos milisegundos y el bloqueo llegó antes que el pensamiento: el nombre de lo que se movió llega en segundo lugar.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.flicker2": {
+    "figure": "El parpadeo ya ha desaparecido de la cámara y el ojo vuelve a la caza.",
+    "mechanism": "Atrapado, etiquetado, liberado: nada se almacena. Lo que Se compra no es un recuerdo del cambio; son los pocos milisegundos entre que el mundo se mueve y el cuerpo lo sabe.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.flickerMiss": {
+    "figure": "El parpadeo recorrió sus trescientos milisegundos y se cerró antes de que llegara el bloqueo.",
+    "mechanism": "Fallado. El evento fue real y la percepción honesta, pero desde tan profundo en la pila, la señal llega al ojo después de que el momento ha pasado. Ser demasiado tarde para importar es un coste de posición, no un defecto de carácter. Arrastra Se de vuelta por el riel en la Zona B e inténtalo de nuevo.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.hoverCoarse": "Tu tacto es ahora el objeto más vívido del campo, y la mirada lo trata en consecuencia: seguimiento sin latencia, trazadores que saltan con cada movimiento rápido. Estás experimentando el preajuste dominante: baja este glifo a Inferior en la Zona B y el mismo tacto se convierte en algo que la mirada persigue, atrapa y pierde.",
+  "se.lab.narration.hoverFine": "El cursor es ahora el objeto más vívido del campo, y la mirada lo trata en consecuencia: seguimiento sin latencia, estelas que saltan con cada movimiento rápido. Estás experimentando el preajuste dominante: coloca este glifo en Inferior en la Zona B y el mismo cursor se convierte en algo que la mirada persigue, alcanza y pierde.",
+  "se.lab.narration.intro": "El campo funciona en vivo: deriva, movimiento, la ocasional llamarada — y el ojo que lo recorre, fijándose en lo que se mueve. Desliza la intensidad del campo y observa cómo el estrés y el placer intercambian sus lugares, o genera un evento y observa cómo responde la retícula.",
+  "se.lab.narration.introHintCoarse": "Pulsa y arrastra en la cámara para convertirte tú mismo en el objetivo.",
+  "se.lab.narration.introHintFine": "Pasa el cursor sobre la cámara para convertirte tú mismo en el objetivo.",
+  "se.lab.narration.slider": {
+    "figure": "Arrastra el campo desde una habitación vacía hasta un carnaval callejero y observa cómo los medidores intercambian posiciones: la representación se afina a medida que el flujo se intensifica.",
+    "mechanism": "Más mundo produce más claridad: Se no se abruma por la intensidad, se enfoca. La emergencia, para esta función, es el otro extremo de la esfera.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.window": {
+    "figure": "Observa la racha de respuestas frente a la brecha que se estrecha.",
+    "mechanism": "Una apertura —y ya está cerrándose. La percepción aquí no es un informe; es una condición de lanzamiento, y la respuesta sale de inmediato.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.windowHit": {
+    "figure": "Una franja, un hueco, luz del día a ambos lados.",
+    "mechanism": "Entrelazado, con margen de sobra. El presente ofreció una brecha con plazo, y verla y tomarla fueron un solo movimiento. No aparece deliberación alguna en el bucle; no es temeridad; en esta posición, es precisión.",
+    "provenance": "currents"
+  },
+  "se.lab.narration.windowMiss": {
+    "figure": "La estela se encuentra con el borde cerrado.",
+    "mechanism": "Cerrado. La respuesta se disparó exactamente como estaba diseñada y chocó contra un muro, porque desde este asiento la señal tarda cientos de milisegundos en tránsito antes de que comience el lanzamiento. Selecciona un hueco más alto en la Zona B y genera otra ventana: la posición es la diferencia entre una apertura y una historia sobre ella.",
+    "provenance": "currents"
+  },
+  "se.lab.state.blackout": "Apagón sensorial",
+  "se.lab.state.equilibrium": "Campo abierto",
+  "se.lab.state.flow": "Contacto total",
+  "se.lab.state.hunger": "Hambre de estímulo",
+  "se.lab.state.late": "Fuera de posición",
+  "se.lab.telemetry.clarity": "Claridad del campo",
+  "se.lab.telemetry.cogState": "Estado cognitivo",
+  "se.lab.telemetry.crossHead": "escucha cruzada · los mismos eventos, llegando a Si",
+  "se.lab.telemetry.lock": "Tiempo para bloquear",
+  "se.lab.telemetry.sibPleasure": "Placer de Si",
+  "se.lab.telemetry.sibStress": "Estrés de Si",
+  "se.lab.telemetry.visitSi": "visitar Si →",
+  "se.meta.title": "Se — Sensación extrovertida · CURRENTS",
+  "se.slot.auxiliary": {
+    "example": "Un ISTP echa un vistazo al motor una sola vez y sabe cuál de los cuatro sonidos no encaja.",
+    "figure": "La pupila se abre por completo al recibir la señal y permanece entreabierta en reposo.",
+    "mechanism": "En el segundo asiento, la escena se lee con nitidez y luego se transmite hacia el interior —a un marco o a un valor— antes de que se haga algo al respecto. Menos apetito que en el primer asiento, más selección: atención plena a lo que la destreza o el sentimiento cuida actualmente, y un funcionamiento cortés por el resto.",
+    "provenance": "myers"
+  },
+  "se.slot.critical": {
+    "example": "Una ESFJ revive la bandeja caída durante una semana, fotograma a fotograma, sin que nadie le haya dicho nunca cómo llevar dos.",
+    "figure": "Una retícula de reproducción rodeando el fotograma fallado.",
+    "mechanism": "En el sexto asiento, el ojo se vuelve hacia dentro como un sargento con un timing perfecto y sin calidez: no lo viste, fuiste demasiado lento, te viste ridículo. Preciso sobre el momento perdido, inútil sobre qué hacer con él, y dirigido principalmente hacia el yo.",
+    "provenance": "beebe"
+  },
+  "se.slot.demon": {
+    "example": "Al final de un mes terrible, una ENFP corre hasta que sus piernas ceden, por una carretera que nunca había visto.",
+    "figure": "El iris se abrió de golpe, inundando a propósito.",
+    "mechanism": "El octavo asiento es el más raro y crudo. Cuando se produce una erupción, la sensación deja de ser percepción y se convierte en algo aplicado al yo: el entrenamiento punitivo, la noche de apagón, la mano a través de la pared. Es el asiento menos practicado de la pila, y a ese punto ya no está viendo nada.",
+    "provenance": "beebe"
+  },
+  "se.slot.dominant": {
+    "example": "A mitad de la partida, un ESTP ya se está moviendo cuando se abre la línea; si le preguntan cómo lo supo, dice que lo vio.",
+    "figure": "CURRENTS lo dibuja como una iris totalmente abierta: el campo nítido y saturado dentro del anillo, desenfocado fuera de él.",
+    "mechanism": "En el primer asiento, el mundo llega con resolución total y cero demora: lo que se movió, lo que cambió, dónde está la apertura —obvio, continuamente, sin coste. La atención va donde está la acción sin ser enviada, y el cuerpo a menudo responde antes de que exista un plan. El precio es la retención: casi nada se conserva.",
+    "provenance": "myers"
+  },
+  "se.slot.inferior": {
+    "example": "Un INFJ que olvida comer toda la semana pide todo el menú a medianoche, dos veces.",
+    "figure": "Un orificio de aguja que se abre de golpe sin previo aviso.",
+    "mechanism": "En el cuarto asiento, el presente es mayormente estático entre percepciones: el detalle físico llega tarde, parcial y ligeramente poco fiable —dónde están las llaves, lo que se acaba de decir, el estado del cuerpo—. Bajo estrés real, los sentidos se abren de golpe —la garra de Quenk—, con excesos, temeridad y un apetito repentino por la intensidad que no les suena.",
+    "provenance": "quenk"
+  },
+  "se.slot.opposing": {
+    "example": "Un ISTJ que \"no repara en la decoración\" recita los cuatro cambios de la habitación para ganar un punto sobre el sofá antiguo.",
+    "figure": "Debajo de la línea de flotación, la pupila se abre de golpe, con intención.",
+    "mechanism": "El quinto asiento abre la sombra: las cuatro posiciones que una persona ejecuta raramente y, en su mayoría, sin notarlo. Aquí el contacto despierta como contradicción: cuando el registro dice una cosa y la sala muestra claramente otra, una mirada franca y inusualmente vívida a ello, está justo ahí — sostenida exactamente el tiempo suficiente para defender el archivo, y luego descartada.",
+    "provenance": "beebe"
+  },
+  "se.slot.tertiary": {
+    "example": "Un ENTJ está plenamente en el cuerpo durante la ruta del sábado; para el lunes, los sentidos vuelven al resumen.",
+    "figure": "Un iris de medio tamaño en un temporizador.",
+    "mechanism": "En el tercer asiento, la presencia llega en ráfagas, normalmente aguas abajo de un plan: la cena, el tribunal, el escenario se ven de verdad; luego la maquinaria de largo alcance retoma y los sentidos vuelven al resumen ejecutivo. Mejora con la edad, sobre todo como permiso: resulta que el mundo puede disfrutarse directamente.",
+    "provenance": "grant"
+  },
+  "se.slot.trickster": {
+    "example": "Un INTP busca durante veinte minutos las gafas que lleva en la frente y luego jura que la taza nunca estuvo ahí.",
+    "figure": "La retícula se fija, con confianza, en el espacio vacío.",
+    "mechanism": "En el séptimo asiento, el presente juega bromas: los objetos desaparecen y reaparecen genuinamente, lo obvio sobre la mesa pasa desapercibido durante diez minutos —y a veces al revés, una certeza total y confiada sobre un detalle físico que nunca estuvo allí—. Ningún estado anuncia cuál está funcionando.",
+    "provenance": "beebe"
+  },
+  "se.zoneA.canvasAria": "Representación visual interactiva de la Sensación Extravertida como una apertura de iris totalmente abierta: un campo de partículas en vivo se desplaza desenfocado fuera del anillo y nítido, saturado y con estelas dentro de él, mientras que un retículo de mirada realiza saltos sádicos hacia lo que se mueve y lo fija dentro de un marco. Mueve o arrastra el puntero para convertirte en el objeto más vívido del campo",
+  "se.zoneB.ageNote": "Con la edad, las posiciones inferiores de la pila ganan fidelidad, ciclo de trabajo y una mirada más estable.",
+  "se.zoneB.heading": "Las ocho caras de Se",
+  "se.zoneB.lede": "El lienzo dibuja Se como un ojo en contacto con un campo vivo. La posición que ocupa Se en la pila de una persona —el orden fijo en que aparecen sus ocho funciones— determina la rapidez de ese contacto. Haz clic en una posición para ver el cambio, desde el bloqueo sin retardo de la dominante hasta las seguras detecciones del tramposo de cosas que nunca estuvieron ahí, y observa cómo la tasa de acierto decae a lo largo de la pila. Arrastra el deslizador de madurez para ver cómo los asientos inferiores se estabilizan con la edad.",
+  "se.zoneB.railAria": "Posiciones de pila para Se",
+  "se.zoneC.heading": "¿Qué alimenta a Se?",
+  "se.zoneC.lede": "Se recoge; no juzga. La percepción extraversada se alimenta del juicio introvertido, por lo que sus verdaderas compañeras son Ti y Fi — los jueces internos que le dicen al ojo qué es lo importante. Haz clic en una alimentadora y observa cómo se reorganiza la saliencia.",
+  "se.zoneC.unstableDefault": "Acoplamiento inestable: la percepción alimenta la percepción, sin que nada juzgue a ninguna de las dos.",
+  "se.zoneD.canvasAria": "El laboratorio de contacto de Se: un campo de estímulos en vivo con un deslizador de intensidad, una mirada sacádica que fija los parpadeos, una ventana que se cierra a través de la cual dispara una respuesta y un apagón que la deja sin alimento",
+  "se.zoneD.heading": "El Laboratorio de Contacto",
+  "se.zoneD.kicker": "Zona D · laboratorio de contacto",
+  "se.zoneD.lede": "Se es un instrumento de contacto: su calidad se mide en milisegundos hasta el bloqueo y en aperturas utilizadas, no en conclusiones. Este laboratorio pone el ojo a prueba contra un campo en vivo que tú controlas. Desliza la intensidad desde una habitación vacía hasta un carnaval callejero, genera eventos y observa qué extremo del deslizador se percibe como la emergencia.",
+  "se.zoneE.lede": "Patrones de la vida salvaje: cómo se manifiesta Se en la vida cotidiana."
+}

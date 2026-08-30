@@ -1,0 +1,330 @@
+{
+  "_meta": {
+    "model": "qwen3.8:latest",
+    "digest": "22130167c4c20e20c7b71454612966ca8e8171e9b3cc8ab6ce8aa6cbfec79643",
+    "promptVersion": 3,
+    "date": "2026-08-30",
+    "status": {
+      "ni.character.awareness.why": "mt",
+      "ni.character.control.why": "mt",
+      "ni.character.endurance.why": "mt",
+      "ni.character.precision.why": "mt",
+      "ni.character.speed.why": "mt",
+      "ni.energy.recovery.auxiliary": "mt",
+      "ni.energy.recovery.dominant": "mt",
+      "ni.energy.recovery.inferior": "mt",
+      "ni.energy.recovery.shadow": "mt",
+      "ni.energy.recovery.tertiary": "mt",
+      "ni.feeder.fe": "mt",
+      "ni.feeder.fi": "mt",
+      "ni.feeder.se": "mt",
+      "ni.feeder.te": "mt",
+      "ni.feeder.ti": "mt",
+      "ni.fieldNotes.mirror": "mt",
+      "ni.fieldNotes.vignette.brainstorm": "mt",
+      "ni.fieldNotes.vignette.cantJustKnow": "mt",
+      "ni.fieldNotes.vignette.grip": "mt",
+      "ni.fieldNotes.vignette.loop": "mt",
+      "ni.fieldNotes.vignette.mechanicsHunch": "mt",
+      "ni.fieldNotes.vignette.meeting": "mt",
+      "ni.fieldNotes.vignette.mistakenForSi": "mt",
+      "ni.hero.heading": "mt",
+      "ni.hero.subtitle": "mt",
+      "ni.hero.tag": "mt",
+      "ni.lab.btn.aha.label": "mt",
+      "ni.lab.btn.aha.sub": "mt",
+      "ni.lab.btn.cassandra.label": "mt",
+      "ni.lab.btn.cassandra.sub": "mt",
+      "ni.lab.btn.flash.label": "mt",
+      "ni.lab.btn.flash.sub": "mt",
+      "ni.lab.btn.focus.label": "mt",
+      "ni.lab.btn.focus.sub": "mt",
+      "ni.lab.btn.overfit.label": "mt",
+      "ni.lab.btn.overfit.sub": "mt",
+      "ni.lab.meter.pleasure": "mt",
+      "ni.lab.meter.stress": "mt",
+      "ni.lab.narration.aha": "mt",
+      "ni.lab.narration.aha2": "mt",
+      "ni.lab.narration.cassandra": "mt",
+      "ni.lab.narration.cassandra2": "mt",
+      "ni.lab.narration.flash": "mt",
+      "ni.lab.narration.flash2": "mt",
+      "ni.lab.narration.focus": "mt",
+      "ni.lab.narration.focus2": "mt",
+      "ni.lab.narration.hover": "mt",
+      "ni.lab.narration.intro": "mt",
+      "ni.lab.narration.introHintCoarse": "mt",
+      "ni.lab.narration.introHintFine": "mt",
+      "ni.lab.narration.overfit": "mt",
+      "ni.lab.narration.overfit2": "mt",
+      "ni.lab.state.cynical": "mt",
+      "ni.lab.state.equilibrium": "mt",
+      "ni.lab.state.euphoric": "mt",
+      "ni.lab.state.freeze": "mt",
+      "ni.lab.state.overfit": "mt",
+      "ni.lab.telemetry.cogState": "mt",
+      "ni.lab.telemetry.conf": "mt",
+      "ni.lab.telemetry.loss": "mt",
+      "ni.meta.title": "mt",
+      "ni.slot.auxiliary": "mt",
+      "ni.slot.critical": "mt",
+      "ni.slot.demon": "mt",
+      "ni.slot.dominant": "mt",
+      "ni.slot.inferior": "mt",
+      "ni.slot.opposing": "mt",
+      "ni.slot.tertiary": "mt",
+      "ni.slot.trickster": "mt",
+      "ni.zoneA.canvasAria": "mt",
+      "ni.zoneB.heading": "mt",
+      "ni.zoneB.lede": "mt",
+      "ni.zoneB.railAria": "mt",
+      "ni.zoneC.heading": "mt",
+      "ni.zoneC.lede": "mt",
+      "ni.zoneC.unstableDefault": "mt",
+      "ni.zoneD.canvasAria": "mt",
+      "ni.zoneD.heading": "mt",
+      "ni.zoneD.kicker": "mt",
+      "ni.zoneD.lede": "mt",
+      "ni.zoneD.ledeHintCoarse": "mt",
+      "ni.zoneD.ledeHintFine": "mt",
+      "ni.zoneE.lede": "mt"
+    }
+  },
+  "ni.character.awareness.why": "segura de la forma, incapaz de mostrar su proceso",
+  "ni.character.control.why": "los insights llegan según su propio calendario; el timón responde lentamente",
+  "ni.character.endurance.why": "la convergencia es paciente: el embudo funciona durante horas sin esfuerzo",
+  "ni.character.precision.why": "una sola trayectoria, ajustada con precisión; el envolvente se estrecha a medida que avanza",
+  "ni.character.speed.why": "la convergencia espera el encaje: el insight llega entero, y tarde",
+  "ni.energy.recovery.auxiliary": "Recuperación limpia una vez que la lectura ha sido entregada a otra persona.",
+  "ni.energy.recovery.dominant": "Se recarga parcialmente durante el uso: cada intuición que se materializa devuelve un poco de energía.",
+  "ni.energy.recovery.inferior": "La estantería de la resaca: ~30 min en los que todo el sistema funciona a media luz y la lectura catastrófica sigue repitiéndose.",
+  "ni.energy.recovery.shadow": "Incompleto: parte de la carga simplemente no regresa hoy.",
+  "ni.energy.recovery.tertiary": "Más lento: primero hay que dejar de lado la búsqueda de patrones.",
+  "ni.feeder.fe": {
+    "figure": "Muchos canales suaves alimentan una sola línea paciente.",
+    "mechanism": "Fe — sentimiento extrovertido — devuelve el estado de la sala: lo que ocurre entre estas personas concretas y lo que probablemente harán con ello. Más canales, entradas más pequeñas, una imagen sobre las trayectorias de la relación. La corrección llega socialmente: más lenta que un número y más difícil de descartar.",
+    "pair": "acoplamiento INFJ · ENFJ",
+    "provenance": "myers"
+  },
+  "ni.feeder.fi": {
+    "figure": "La línea se oscurece sin moverse.",
+    "mechanism": "El bucle del INTJ, con Te excluido: Fi — el sentimiento introvertido — aporta el juicio, también desde dentro, pesando la imagen frente a lo que importa a una persona y a nada más. Sin aire y autocomprobatorio: una lectura de cómo todo esto transcurre que se vuelve más segura cuanto más tiempo nadie desde fuera la toca, y no más precisa.",
+    "pair": "bucle Ni–Fi del INTJ",
+    "provenance": "community",
+    "warn": "Acoplamiento de bucle: juicio introvertido alimentando la percepción introvertida — sin corrección desde el exterior."
+  },
+  "ni.feeder.se": {
+    "figure": "Los fragmentos llegan más rápido de lo que se pueden retener; la imagen casi se forma y se escapa.",
+    "mechanism": "Se — la sensación extrovertida — inunda la entrada con el presente: denso, concreto, inmediato, todo ello verdadero y sin ir a ninguna parte, mientras nada clasifica nada de ello — ambas funciones recogen y ninguna juzga. Estas dos también se sitúan en el mismo eje: lo que una toma como obvio, la otra lo trata como ruido. Las pilas reales alternan percepción y juicio precisamente por esta razón.",
+    "pair": "percepción que alimenta percepción",
+    "provenance": "myers",
+    "warn": "Acoplamiento inestable: la percepción alimenta la percepción, sin que nada juzgue a ninguna de las dos."
+  },
+  "ni.feeder.te": {
+    "figure": "Un flujo fino y dirigido; el envoltorio se estrecha donde aterrizan los números.",
+    "mechanism": "Te — pensamiento extravertido — devuelve resultados, mediciones y el estado del plan: pocas entradas, cada una dura, cada una en un canal estrecho y dirigido. La imagen que se forma trata de cómo se mueve una estructura a lo largo de los años, y se corrige cuando las cifras no coinciden. La corrección de errores más directa que tiene Ni, y la más fiable.",
+    "pair": "acoplamiento INTJ · ENTJ",
+    "provenance": "myers"
+  },
+  "ni.feeder.ti": {
+    "figure": "El límite sella una vuelta más; fíjate en lo a menudo que el ajuste se activa al principio de este estado.",
+    "mechanism": "El bucle INFJ, con Fe excluido: Ti — el pensamiento introvertido — aporta el juicio, pero desde dentro. La imagen se comprueba por su coherencia interna y nunca contra nada en la habitación, por lo que la convergencia se acelera y la certeza se estrecha —y lo único que corrige la imagen es la misma cabeza que la produjo.",
+    "pair": "bucle Ni–Ti del INFJ",
+    "provenance": "community",
+    "warn": "Acoplamiento de bucle: juicio introvertido alimentando la percepción introvertida — sin corrección desde el exterior."
+  },
+  "ni.fieldNotes.mirror": {
+    "figure": "Dos embudos, boca con boca.",
+    "mechanismHtml": "Mismo elemento, actitud opuesta: la diferencia es hacia dónde apunta el embudo. <strong>Ne</strong> toma una entrada y la despliega en muchos futuros, todos vivos a la vez, todos baratos de sostener, ninguno elegido. <strong>Ni</strong> toma muchas entradas y las embute en una, y esa una llega entera, cara de cambiar e imposible de mostrar. Ne intercambia compromiso por alcance; Ni intercambia alcance por una convicción que no puede rastrear.",
+    "provenance": "jung"
+  },
+  "ni.fieldNotes.vignette.brainstorm": {
+    "figure": "Un embudo no puede funcionar como un aspersor.",
+    "kind": "el instrumento equivocado",
+    "mechanism": "Pide a Ni veinte opciones rápidas y observa cómo el instrumento rechaza la especificación: se quedará en silencio durante la avalancha de notas adhesivas y, al final, ofrecerá una sola opción, tarde, completamente formada, con el argumento a su favor soldado. La convergencia que lo hace valioso es exactamente lo que lo hace incorrecto aquí. Los equipos que lo saben dejan de calificar a Ni por volumen y empiezan a entregarle la lista de candidatos.",
+    "provenance": "community",
+    "title": "La lluvia de ideas"
+  },
+  "ni.fieldNotes.vignette.cantJustKnow": {
+    "figure": "Un instrumento que no puede imprimir sus datos en bruto.",
+    "kind": "la acusación",
+    "mechanism": "La acusación trata una derivación ausente como una base ausente. Lo que realmente falta es una interfaz: el embudo consumió cientos de observaciones y devolvió solo el destino, y los pasos intermedios nunca se guardaron en ningún sitio recuperable. La respuesta correcta a una lectura de Ni no es ni la fe ni el desprecio, sino tratarla como una medición de un instrumento que no puede mostrar su trabajo y ponerla a prueba como cualquier otra medición.",
+    "provenance": "currents",
+    "title": "No puedes saberlo solo"
+  },
+  "ni.fieldNotes.vignette.grip": {
+    "figure": "El horizonte se contrae hasta quedar a un brazo de distancia.",
+    "kind": "la garra",
+    "mechanism": "Un INTJ más allá del final de sus reservas deja de ver hacia dónde va nada y se inunda en la Se inferior: comprar cosas, conducir demasiado rápido, comer y beber más allá del punto de notar, trabajar el cuerpo hasta que sea lo único en la habitación. No un cambio de personalidad: un asiento de baja capacidad que recibe una inundación de tamaño dominante.",
+    "provenance": "quenk",
+    "title": "La Garra"
+  },
+  "ni.fieldNotes.vignette.loop": {
+    "figure": "Sellado, elaborado, seguro.",
+    "kind": "el bucle",
+    "mechanism": "Bajo estrés, la Ni dominante de un INFJ se empareja con la Ti terciaria, ambas orientadas hacia el interior, con el contacto de Fe con personas reales excluido entre ellas. La interpretación se vuelve más elaborada, más internamente coherente y más segura, y nadie fuera de esa cabeza la ha tocado en semanas. Este patrón de misma dirección se llama bucle.",
+    "provenance": "community",
+    "title": "El bucle"
+  },
+  "ni.fieldNotes.vignette.mechanicsHunch": {
+    "figure": "Perspicacia de banda estrecha, manos curtidas.",
+    "kind": "como terciaria",
+    "mechanism": "Ni terciaria en un ISTP o ISFP: un motor de convergencia silencioso bajo un exterior práctico. Se manifiesta como el mecánico que se detiene a mitad de la tarea porque la avería «no va a ser el alternador», o el escalador que cambia de ruta por una razón que llega como certeza antes que como meteorología. Previsión de banda estrecha, cercana al cuerpo: se confía en ella para máquinas y terreno, y rara vez se invita a opinar sobre nada más.",
+    "provenance": "grant",
+    "title": "El presentimiento del mecánico"
+  },
+  "ni.fieldNotes.vignette.meeting": {
+    "figure": "El embudo solo devolvió el destino.",
+    "kind": "avistamiento de campo",
+    "mechanism": "A los diez minutos, una persona con Ni dominante sabe cómo termina el proyecto y lo dice. Preguntada por el porqué, produce una razón que es verdadera pero no es la razón: es lo más próximo a lo decible de una lectura que nunca tuvo pasos. Seis meses después resulta que tenía razón, lo cual no mejora en absoluto la siguiente explicación.",
+    "provenance": "community",
+    "title": "La Reunión"
+  },
+  "ni.fieldNotes.vignette.mistakenForSi": {
+    "figure": "El registro frente al vector.",
+    "kind": "la malinterpretación",
+    "mechanism": "Ambas son silenciosas, cuidadosas e interiores, por lo que las dos perceptivas introvertidas se colapsan, generalmente como «personas de detalle». La pista es lo que recupera «¿cómo lo sabes?». Si produce el registro: la fecha, el precedente, las tres últimas veces que ocurrió exactamente esto. Ni produce la forma: hacia dónde va, despojada de cada particularidad que construyó la trayectoria. Una archiva el pasado a plena resolución; la otra lo comprime más allá de la recuperación.",
+    "provenance": "community",
+    "title": "Confundido con Si"
+  },
+  "ni.hero.heading": "La convergencia de {fn}",
+  "ni.hero.subtitle": "Un campo de observaciones dispersas, una trayectoria ajustada a través de ellas — y una única construcción que recorre la línea a lo largo del tiempo, ya segura de dónde se curva.",
+  "ni.hero.tag": "intuición introvertida",
+  "ni.lab.btn.aha.label": "¡Aha! Síntesis",
+  "ni.lab.btn.aha.sub": "inyecta datos dispares → sintetiza paradigma",
+  "ni.lab.btn.cassandra.label": "Tragedia de Casandra",
+  "ni.lab.btn.cassandra.sub": "pronóstico ignorado → falla predicha ocurre",
+  "ni.lab.btn.flash.label": "Interrupción táctica relámpago",
+  "ni.lab.btn.flash.sub": "¡haz la llamada ahora!",
+  "ni.lab.btn.focus.label": "Simulación de enfoque profundo",
+  "ni.lab.btn.focus.sub": "inicia un bloque de enfoque profundo e ininterrumpido",
+  "ni.lab.btn.overfit.label": "Sobreajuste por micromanejo",
+  "ni.lab.btn.overfit.sub": "forzar formato granular de hoja de cálculo",
+  "ni.lab.meter.pleasure": "Placer",
+  "ni.lab.meter.stress": "Estrés",
+  "ni.lab.narration.aha": {
+    "figure": "Los residuos colapsan y el sobre de varianza se estrecha.",
+    "mechanism": "Dos docenas de observaciones que no deberían estar juntas —y por un momento no lo están—. Luego, una trayectoria hace una afirmación de cada valor atípico a la vez, y lo que era una nube se convierte de repente en una línea con dirección. Fíjate en el orden de los eventos: la respuesta llegó, y luego fue obvia.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.aha2": {
+    "figure": "R² cerca de la unidad, pérdida casi nula, estrés desaparecido.",
+    "mechanism": "Este es el pago por el que trabaja Ni: no elogios, no resultados: compresión. Veinte cosas se convirtieron en una, y esa cosa predice. Los valores atípicos que la produjeron ya son indistinguibles de la línea a la que se unieron.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.cassandra": {
+    "figure": "Observa cómo la construcción llega al cruce que nombró de antemano.",
+    "mechanism": "El modelo vio esto. La lectura ha apuntado a través del límite de fallo durante algún tiempo, y decirlo en voz alta no cambió nada.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.cassandra2": {
+    "figure": "La lectura de confianza nunca se movió.",
+    "mechanism": "El fracaso, a tiempo. El ajuste fue preciso todo el tiempo, que es la crueldad específica aquí: acertar pronto es indistinguible, desde fuera, de equivocarse hasta que deja de serlo. La pequeña amarga elevación en el medidor de placer es real, y no es una sensación agradable.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.flash": {
+    "figure": "La trayectoria se fragmenta en ruido de alta frecuencia mientras el presente asalta el visor.",
+    "mechanism": "«Toma la decisión ahora». El único recurso en el que esta función se basa —tiempo para simular— acaba de ser revocado. No tiene una respuesta rápida; tiene una respuesta de búfer, y se ha ordenado que el búfer se detenga.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.flash2": {
+    "figure": "La línea se reensambla desde un ajuste inferior.",
+    "mechanism": "La ráfaga pasa y el reajuste comienza desde un R² derribado. No se aprendió nada durante la interrupción; el tiempo bajo fuego no es datos, solo tiempo. Lo que un plazo le compra a Ni no es velocidad, sino la suposición que estuviera a mano cuando el reloj llegó a cero.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.focus": {
+    "figure": "La trayectoria se extiende con suavidad más allá del borde del visor.",
+    "mechanism": "La puerta se cierra y la entrada deja de llegar: no resuelto, simplemente ya no entra. La proyección se extiende: un paso más allá de ahora, luego otro, con la incertidumbre apenas ensanchándose. Esta es la máquina haciendo para lo que está tasada, a la profundidad para la que está tasada.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.focus2": {
+    "figure": "Mismos puntos, línea más larga.",
+    "mechanism": "Observa lo que el enfoque profundo no hizo: no añadió datos. La previsión se alargó sobre las mismas observaciones, porque la simulación ininterrumpida es cómo esta función convierte el material retenido en alcance. La mejora más barata que Ni recibe jamás es una puerta cerrada.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.hover": "Tienes el timón. La izquierda es anterior, la derecha es posterior, y la composición de la construcción en cada punto es lo que el modelo cree que es el concepto allí. Observa que es el mismo objeto durante todo el recorrido: desarrollo, no sustitución.",
+  "ni.lab.narration.intro": "El motor funciona sin supervisión: las observaciones se acumulan, una trayectoria se ajusta a través de ellas y la construcción recorre la línea de un extremo del tiempo al otro, cambiando a medida que avanza.",
+  "ni.lab.narration.introHintCoarse": "Pulsa y arrastra de izquierda a derecha en la cámara para tomar el timón tú mismo — o perturba el motor de abajo y observa cómo responde la telemetría.",
+  "ni.lab.narration.introHintFine": "Pasa el cursor sobre la cámara para tomar el timón tú mismo — o perturba el motor de abajo y observa cómo responde la telemetría.",
+  "ni.lab.narration.overfit": {
+    "figure": "La línea de tendencia pasa por cada punto de ruido individualmente; la lectura del horizonte indica cero pasos hacia adelante.",
+    "mechanism": "Cada celda formateada, cada oscilación local respetada. La precisión sobre lo que ya ocurrió es espectacular, y la extrapolación es basura: el modelo ha memorizado los residuos y olvidado la dirección.",
+    "provenance": "currents"
+  },
+  "ni.lab.narration.overfit2": {
+    "figure": "La construcción tiembla para honrar los decimales.",
+    "mechanism": "Este es el coste del micromanejo para un instrumento de largo alcance: la generalidad. Obligado a rendir cuentas de cada celda, ya no puede decir hacia dónde va nada: precisión sobre el presente, comprada con el futuro.",
+    "provenance": "currents"
+  },
+  "ni.lab.state.cynical": "Resignación cínica",
+  "ni.lab.state.equilibrium": "Equilibrio óptimo",
+  "ni.lab.state.euphoric": "Flujo eufórico",
+  "ni.lab.state.freeze": "Desbordamiento / Parálisis",
+  "ni.lab.state.overfit": "Fatiga sobreajustada",
+  "ni.lab.telemetry.cogState": "Estado cognitivo",
+  "ni.lab.telemetry.conf": "Confianza predictiva",
+  "ni.lab.telemetry.loss": "Pérdida del modelo",
+  "ni.meta.title": "Ni — Introversión Intuitiva · CURRENTS",
+  "ni.slot.auxiliary": {
+    "example": "El plan a cinco años de un ENTJ contiene una frase de pura previsión; el resto es ejecución.",
+    "figure": "Un embudo de cuatro quintas partes, que alimenta una máquina que envía.",
+    "mechanism": "En el segundo asiento, la lectura larga sirve a algo ya en marcha: aporta dirección en lugar de identidad, y la función de juicio dominante la convierte en un plan o una sala gestionada. Más rápida de formular, más fácil de discutir y mucho menos probable que se quede en una sola imagen durante una década.",
+    "provenance": "myers"
+  },
+  "ni.slot.critical": {
+    "example": "Un INFP concluye a medianoche que el patrón de toda su vida es ahora visible, y no es bueno.",
+    "figure": "Una línea gris a través del yo, extendida hasta el horizonte.",
+    "mechanism": "En el sexto asiento, la previsión se vuelve hacia adentro y emite veredictos sobre la propia vida —esto es lo que eres, esto es donde termina—, totales, sin fuente y dirigidos a nadie más. Predice con mucha más confianza de la que verifica.",
+    "provenance": "beebe"
+  },
+  "ni.slot.demon": {
+    "example": "Un ISFJ sabe, durante una terrible noche, exactamente cómo se irán todas las personas que ama.",
+    "figure": "Una sola línea, trazada en oscuro, que atraviesa todos los puntos a la vez.",
+    "mechanism": "El octavo asiento es el más raro y el peor. Cuando se produce una erupción, genera una única certeza negra sobre cómo termina todo esto, aplicada a todo a la vez, inmune a la evidencia e indiferente a que la versión de ayer dijera algo distinto. Es el asiento menos practicado de la pila, no una profecía.",
+    "provenance": "beebe"
+  },
+  "ni.slot.dominant": {
+    "example": "Diez minutos después del inicio, un INFJ sabe cómo termina el proyecto — y tarda seis meses en demostrar que tenía razón.",
+    "figure": "CURRENTS lo dibuja como una regresión a máxima profundidad: una envolvente ajustada, un ajuste sin prisa.",
+    "mechanism": "En el primer asiento, todo se lee por su destino, y la lectura corre de forma continua, invisible y a bajo coste. Pasan largos tramos en los que no ocurre nada legible; luego llega una respuesta completa, ya cierta. Mostrar los pasos es verdaderamente difícil: los pasos nunca se mantuvieron por separado.",
+    "provenance": "myers"
+  },
+  "ni.slot.inferior": {
+    "example": "Un ESTP que nunca mira más allá de esta noche se despierta a las 4 a. m. seguro de que el negocio está condenado, con detalle.",
+    "figure": "Un embudo tenue que dispara raramente y siempre en el mismo punto oscuro.",
+    "mechanism": "En el cuarto asiento, el futuro llega como un veredicto en lugar de una previsión. Largos tramos de vida en el presente se ven interrumpidos —bajo fatiga o estrés— por una certeza total y súbita de que esto termina mal, siempre iba a terminar así y no admite discusión, en un registro que no les suena. Esta es la garra de Quenk.",
+    "provenance": "quenk"
+  },
+  "ni.slot.opposing": {
+    "example": "Le dicen que el mercado solo va en una dirección, un ENFP narra al instante el desplome y luego pide el postre.",
+    "figure": "Debajo de la línea de flotación, una trayectoria contraria trazada en un solo trazo y abandonada.",
+    "mechanism": "El quinto asiento abre la sombra: las cuatro posiciones que una persona ejecuta rara vez y, en su mayoría, sin notarlo. Aquí la lectura larga despierta combativa: cuando la visión única del futuro de otra persona empieza a cerrar opciones, aparece una certeza rival: más oscura, más inevitable y sostenida justo el tiempo suficiente para rechazar la primera.",
+    "provenance": "beebe"
+  },
+  "ni.slot.tertiary": {
+    "example": "El mecánico se detiene a mitad de la tarea: «no va a ser el alternador». No lo es.",
+    "figure": "Un embudo de medio tamaño que entra en foco y luego se desvía.",
+    "mechanism": "En el tercer asiento, la lectura de patrones llega en ráfagas y se confía de forma desigual: un sentido claro y repentino de cómo se desarrolla una situación —generalmente acertado, a veces una historia completa construida sobre nada— con poco interés en defender ninguno. Se estabiliza con la edad, principalmente al aprender qué intuiciones propias comprobar.",
+    "provenance": "grant"
+  },
+  "ni.slot.trickster": {
+    "example": "Un ESTJ pasa por alto la carta de renuncia entre líneas y luego descubre una conspiración en el plan de asientos.",
+    "figure": "El sobre nunca se estrecha; el ajuste cae junto a los puntos.",
+    "mechanism": "En el séptimo asiento, la implicación es un juego amañado: o no hay nada entre líneas o lo hay todo. El asiento alterna entre pasar por alto el subtexto que estaba claro y construir uno elaborado que nadie pretendía — sin maldad, y normalmente sin notar cuál acaba de hacer.",
+    "provenance": "beebe"
+  },
+  "ni.zoneA.canvasAria": "Representación visual interactiva de la Introversión Intuitiva como motor de regresión: observaciones dispersas convergen en una única trayectoria ajustada con un intervalo de confianza, y una construcción sintética recorre la línea a lo largo del tiempo, transformándose mientras avanza. Apunta o arrastra sobre la cámara para guiar la construcción a lo largo del eje temporal",
+  "ni.zoneB.heading": "Las ocho caras de Ni",
+  "ni.zoneB.lede": "El lienzo dibuja Ni como una regresión: muchas observaciones de entrada, una trayectoria ajustada de salida. La posición de Ni en la pila de una persona —el orden fijo en el que aparecen sus ocho funciones— cambia cómo se comporta la lectura. Haz clic en una posición para ver el cambio, desde el embudo impasible de la dominante hasta la única certeza negra de la demon, y observa la lectura de convergencia: cuenta la historia antes que la leyenda. Arrastra el deslizador de madurez para ver cómo los asientos inferiores ganan fidelidad con la edad.",
+  "ni.zoneB.railAria": "Posiciones de pila para Ni",
+  "ni.zoneC.heading": "¿Qué alimenta a Ni?",
+  "ni.zoneC.lede": "Ni recoge; no juzga. La percepción introvertida se alimenta del juicio extraversado, por lo que sus verdaderas compañeras son las juezas externas: Te y Fe, las funciones que traen la corrección desde fuera. Haz clic en una alimentadora para ver lo que converge.",
+  "ni.zoneC.unstableDefault": "Acoplamiento inestable: la percepción alimenta la percepción, sin que nada juzgue a ninguna de las dos.",
+  "ni.zoneD.canvasAria": "El motor de regresión de Ni: observaciones dispersas, una trayectoria ajustada con un sobre de varianza y una construcción que puede orientarse hacia adelante y hacia atrás a lo largo del eje temporal mediante puntero o arrastre",
+  "ni.zoneD.heading": "Motor de regresión",
+  "ni.zoneD.kicker": "Zona D · motor de regresión",
+  "ni.zoneD.lede": "Ni ajusta una única trayectoria predictiva a través de una entrada ruidosa y de muchas dimensiones, y luego la proyecta hacia adelante en el tiempo. Este laboratorio expone el estado en vivo del motor: estrés, placer, confianza, pérdida, y cinco formas en que un día puede tratarlo. Activa un escenario y observa cómo responde la telemetría.",
+  "ni.zoneD.ledeHintCoarse": "Pulsa y arrastra de izquierda a derecha en la cámara en cualquier momento para guiar tú mismo la construcción a través del tiempo.",
+  "ni.zoneD.ledeHintFine": "Pasa el cursor sobre la cámara en cualquier momento para dirigir la construcción a través del tiempo tú mismo.",
+  "ni.zoneE.lede": "Patrones de la vida salvaje: cómo aparece Ni en la vida cotidiana."
+}

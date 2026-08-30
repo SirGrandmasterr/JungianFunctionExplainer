@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "model": "gemma4:12b",
-    "digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+    "model": "qwen3.8:latest",
+    "digest": "22130167c4c20e20c7b71454612966ca8e8171e9b3cc8ab6ce8aa6cbfec79643",
     "promptVersion": 3,
-    "date": "2026-08-29",
+    "date": "2026-08-30",
     "status": {
       "ti.character.awareness.why": "mt",
       "ti.character.control.why": "mt",
@@ -70,202 +70,202 @@
       "ti.zoneE.lede": "mt"
     }
   },
-  "ti.character.awareness.why": "das Modell kann durchschritten und gezeigt werden — Ti weiß, wie es weiß",
-  "ti.character.control.why": "schrittweise und bedacht; jede Umstrukturierung ist bewusst gewählt",
-  "ti.character.endurance.why": "Analyse ist ein Ruhezustand, keine Anstrengung – sie läuft den ganzen Tag ohne Belastung",
+  "ti.character.awareness.why": "Das Modell kann durchlaufen und gezeigt werden — Ti weiß, wie es weiß",
+  "ti.character.control.why": "schrittweise und bedacht; jede Umstrukturierung wird bewusst gewählt",
+  "ti.character.endurance.why": "Analyse ist der Leerlaufzustand, keine Anstrengung — sie läuft den ganzen Tag ohne Belastung",
   "ti.character.precision.why": "das gesamte Instrument ist ein Konsistenztest; Präzision ist das Produkt",
-  "ti.character.speed.why": "Ti tauscht Geschwindigkeit gegen Gewissheit aus – langes Abwägen, dann der Klick",
-  "ti.energy.recovery.auxiliary": "Schnelle, klare Erholung.",
-  "ti.energy.recovery.dominant": "Wird in Minuten wieder aufgefüllt – und teilweise während der Nutzung (Flow).",
-  "ti.energy.recovery.inferior": "Das Kater-Plateau: ~30 Min., in denen das gesamte System schwach läuft.",
-  "ti.energy.recovery.shadow": "Unvollständig — ein Teil der Energie kehrt heute einfach nicht zurück.",
-  "ti.energy.recovery.tertiary": "Ein langsamerer Nachschub; die Ruhe muss bewusst sein.",
+  "ti.character.speed.why": "Ti opfert Geschwindigkeit für Gewissheit — lange Überlegungen, dann der Klick",
+  "ti.energy.recovery.auxiliary": "Schnelle, saubere Erholung.",
+  "ti.energy.recovery.dominant": "Wird in Minuten aufgefüllt — und teilweise während der Nutzung (Flow).",
+  "ti.energy.recovery.inferior": "Das Katerregal: ~30 min, in denen das gesamte System gedimmt läuft.",
+  "ti.energy.recovery.shadow": "Unvollständig — ein Teil der Ladung kommt heute einfach nicht zurück.",
+  "ti.energy.recovery.tertiary": "Eine langsamere Auffüllung; die Erholung muss bewusst erfolgen.",
   "ti.feeder.fe": {
-    "figure": "Der Emitter leuchtet, aber fast nichts gelangt zum Gitter.",
-    "mechanism": "Fe — extraverted feeling — ist eine Urteilsfunktion, daher gibt sie Urteile über den Raum anstatt rohe Wahrnehmungen ab. Ti erhält fast nichts, das es testen kann, und läuft hungrig leer. Reale Stacks wechseln Urteilen und Wahrnehmen präzise ab, damit immer Material gesammelt wird.",
-    "pair": "Urteilsbewertung füttert Urteilsbewertung",
+    "figure": "Der Sender leuchtet, aber kaum etwas erreicht das Gitter.",
+    "mechanism": "Fe — extravertierte Gefühle — ist eine Bewertungsfunktion und liefert daher Urteile über den Raum statt roher Wahrnehmungen. Ti erhält kaum etwas, das es testen könnte, und verharrt hungrig untätig. Echte Stacks wechseln genau deshalb zwischen Bewertung und Wahrnehmung, damit stets Material gesammelt wird.",
+    "pair": "Beurteilen speist Beurteilen",
     "provenance": "myers"
   },
   "ti.feeder.ne": {
-    "figure": "Das Gitter wird weit und luftig, ganze Flügel werden erhoben und in Sekunden zerstört.",
-    "mechanism": "Ne — extravertierte Intuition, die hier die Hilfsfunktion ist — liefert viele parallele Möglichkeiten anstatt gefestigter Fakten. Ti baut breit und vorläufig: Rahmenwerke werden entworfen, getestet und kostengünstig verworfen, einschließlich von Rahmenwerken für Situationen, die noch nicht existieren.",
-    "pair": "Die INTP-Kopplung",
+    "figure": "Das Gitter wird breit und luftig, ganze Flügel werden in Sekunden aufgerichtet und abgerissen.",
+    "mechanism": "Ne — extravertierte Intuition, hier die Hilfsfunktion — liefert viele parallele Möglichkeiten statt feststehender Fakten. Ti baut breit und vorläufig: Rahmen werden entworfen, getestet und kostengünstig verworfen, auch für Situationen, die noch nicht existieren.",
+    "pair": "die INTP-Kopplung",
     "provenance": "myers"
   },
   "ti.feeder.ni": {
     "figure": "Lange Stille, dann setzt sich das gesamte Gitter auf einmal neu.",
-    "mechanism": "Ni — introverted intuition — sendet wenige Inputs, die jeweils bereits zu einer einzigen Interpretation verdichtet ankommen. Ti erhält wenig zu testen und viel zu unterbringen, wobei es bei jedem Eintreffen grundlegend umorganisiert. Kein Standard-Stack platziert Ni direkt über Ti; diese Kopplung ist das eigene Gedankenexperiment der Website.",
-    "pair": "eine unübliche Kopplung",
+    "mechanism": "Ni — introvertierte Intuition — sendet wenige Eingaben, die jeweils bereits zu einer einzigen Interpretation verdichtet ankommen. Ti hat wenig zu testen und viel zu akkommodieren, und organisiert sich bei jedem Eintreffen grundlegend um. Kein maßgeblicher Stack platziert Ni direkt über Ti; diese Kopplung ist das eigene Gedankenexperiment der Website.",
+    "pair": "Nicht-standard-Kopplung",
     "provenance": "currents"
   },
   "ti.feeder.se": {
-    "figure": "Das Gitter wird schmal und tragfähig und verdickt sich dort, wo der Input landet.",
-    "mechanism": "Se — extraverted sensing — liefert einen schnellen, dichten Strom dessen, was physisch gerade präsent ist. Die Analyse verengt sich auf das, was das Objekt vor dir bestätigen kann, und es wird sofort bestätigt. Fehlerbehebungslogik: kurze Feedback-Loops, wenig Theorie.",
-    "pair": "Die ISTP-Kopplung",
+    "figure": "Das Gitter wird schmaler und tragfähig und verdickt sich dort, wo der Eingang ankommt.",
+    "mechanism": "Se — extravertierte Wahrnehmung — liefert einen schnellen, dichten Strom dessen, was physisch gerade jetzt anwesend ist. Die Analyse verengt sich auf das, was der Gegenstand vor dir bestätigen kann, und dies wird sofort bestätigt. Fehlersuche-Logik: kurze Feedback-Loops, wenig Theorie.",
+    "pair": "die ISTP-Kopplung",
     "provenance": "myers"
   },
   "ti.feeder.si": {
-    "figure": "Das Gitter zieht sich zusammen, ohne zu wachsen – dieselben Gelenke neu verschweißt, dieselben Räume erneut durchschritten.",
-    "mechanism": "Si — introvertiertes Sensing, die tertiär Funktion des INTP — liefert gespeicherte Aufzeichnungen anstelle neuer Wahrnehmung. Ti beweist alte Schlussfolgerungen anhand alter Daten erneut: weiterhin rigoros, zunehmend isoliert, da nichts unter Test heute gesammelt wurde. Dies ist der Loop, gesehen von innen.",
-    "pair": "Die Loop-Kopplung (Ti–Si, INTP unter Stress)",
+    "figure": "Das Gitter strafft sich, ohne zu wachsen — dieselben Gelenke werden neu verschweißt, dieselben Räume neu durchschritten.",
+    "mechanism": "Si — introvertierte Sensorik, die tertiäre Funktion des INTP — liefert gespeicherte Aufzeichnungen anstelle neuer Wahrnehmung. Ti beweist alte Schlussfolgerungen anhand alter Daten neu: weiterhin rigoros, zunehmend abgeschottet, da nichts unter Prüfung heute gesammelt wurde. Dies ist der Loop, von innen betrachtet.",
+    "pair": "der Loop-Kopplung (Ti–Si, INTP unter Stress)",
     "provenance": "community"
   },
   "ti.fieldNotes.mirror": {
-    "figure": "Dasselbe Element, gegensätzliche Einstellungen: ein Instrument gerichtet auf die Welt, eines auf seine eigenen Abläufe.",
-    "mechanismHtml": "Wo <strong>Te</strong>> fragt <em>\"funktioniert es?\"</em> und externe Strukturen aufbaut, fragt <strong>Ti</strong>> <em>\"ist es wahr?\"</em> und baut interne Kohärenz auf. Te tauscht Eleganz gegen Geschwindigkeit; Ti tauscht Geschwindigkeit gegen Wahrheit — ein Unterschied darin, was jede bereit ist zu zahlen, nicht darin, was jede erreichen kann.",
+    "figure": "Gleiches Element, entgegengesetzte Haltungen: ein Instrument, das auf die Welt gerichtet ist, und eines, das auf seine eigenen Abläufe gerichtet ist.",
+    "mechanismHtml": "Wo <strong>Te</strong> fragt <em>„funktioniert es?“</em> und externe Strukturen aufbaut, fragt <strong>Ti</strong> <em>„ist es wahr?“</em> und baut innere Kohärenz. Te tauscht Eleganz gegen Geschwindigkeit; Ti tauscht Geschwindigkeit gegen Wahrheit – ein Unterschied darin, was jedes bereit ist zu zahlen, nicht darin, was jedes erreichen kann.",
     "provenance": "jung"
   },
   "ti.fieldNotes.vignette.accusation": {
-    "figure": "Das Stresstesten ist die einzige Möglichkeit des Gitters, eine Verbindung zu schweißen.",
-    "kind": "die Anschuldigung",
-    "mechanism": "Was der Raum sieht: Übereinkunft, die zum Sport abgebaut wird. Was passiert: Ti lädt eine Behauptung, wie ein Ingenieur eine Brücke lädt, weil jemand darauf stehen müssen könnte. Das Merkmal ist, dass das Testen symmetrisch ist — biete einem Ti-Nutzer einen besseren Angriff auf seine eigene Position an und er nimmt ihn mit sichtbarer Dankbarkeit an, was niemand, der aus sportlichem Ehrgeiz argumentiert, jemals getan hat.",
+    "figure": "Stresstests sind der einzige Weg, mit dem das Gitter ein Gelenk verschweißt.",
+    "kind": "die Anklage",
+    "mechanism": "Was der Raum sieht: Zustimmung, die zum Spaß abgebaut wird. Was passiert: Ti lädt eine Behauptung so, wie ein Ingenieur eine Brücke belastet, weil jemand darauf stehen könnte. Das Merkmal ist, dass die Prüfung symmetrisch ist – bietet man einem Ti-Nutzer einen besseren Angriff auf seine eigene Position, nimmt er ihn mit sichtbarer Dankbarkeit an, was niemand, der aus Spaß streitet, je getan hat.",
     "provenance": "community",
-    "title": "Du argumentierst nur um des Argumentwillens"
+    "title": "Du streitest nur, um zu streiten"
   },
   "ti.fieldNotes.vignette.condolenceCall": {
     "figure": "Das Gitter wartet im Auto.",
     "kind": "das falsche Instrument",
-    "mechanism": "Ein trauernder Freund hat kein fehlerhaftes Modell der Situation – und die Verbesserung des Modells ist die einzige Bewegung, die diese Funktion nativ beherrscht. Dominante Ti am Krankenbett liefert eine tadellose Ursachenanalyse, korrekt in jedem Detail und falsch in der Art: der Moment verlangt nach miterleben, nicht nach Diagnose. Reife Ti-Nutzer lernen, eine andere Funktion zu dieser Tür zu bringen.",
+    "mechanism": "Ein trauernder Freund hat kein defektes Modell der Situation – und die Verbesserung des Modells ist der einzige Zug, den diese Funktion nativ beherrscht. Dominante Ti am Krankenbett erzeugt eine makellose Ursachenanalyse, in jedem Detail korrekt und in der Art falsch: Der Moment verlangt nach Miterleben, nicht nach Diagnose. Reife Ti-Nutzer lernen, eine andere Funktion an diese Tür zu bringen.",
     "provenance": "community",
-    "title": "Der Beileidsbesuch"
+    "title": "Der Kondolenzanruf"
   },
   "ti.fieldNotes.vignette.grip": {
-    "figure": "Das kleine Gitter läuft heiß und laut, anstatt groß und leise zu sein.",
+    "figure": "Das kleine Gitter läuft heiß und laut statt groß und leise.",
     "kind": "der Grip",
-    "mechanism": "Ein ESFJ unter anhaltendem Stress wird plötzlich starr logisch und argumentiert technische Details mit einer Intensität, die alle – auch sich selbst – erschreckt. Dies ist der Grip: eine erschöpfte dominant gibt die Kontrolle an die inferior Ti ab, die ohne die Kalibrierung einer geübten Ti ausbricht.",
+    "mechanism": "Ein ESFJ unter anhaltendem Stress wird plötzlich starr logisch und argumentiert mit einer Intensität über Feinheiten, die alle — einschließlich sich selbst — erschüttert. Dies ist der Grip: eine erschöpfte dominante Funktion übergibt die Kontrolle der inferioren Ti, die ohne die Kalibrierung einer geübten Ti ausbricht.",
     "provenance": "quenk",
-    "title": "Der inferiore Ausbruch"
+    "title": "Der Inferior-Ausbruch"
   },
   "ti.fieldNotes.vignette.hobbyTaxonomy": {
-    "figure": "Ein kleines Gitter, das stellenweise brillant poliert ist.",
+    "figure": "Ein kleines Gitter, stellenweise glänzend poliert.",
     "kind": "als tertiär",
-    "mechanism": "Tertiäre Ti in einem INFJ oder ISFJ ist Logik als Garten statt als Wohnsitz: die makellose Tabelle für das Gemeinschaftshaus, die private Taxonomie von Tees, das luftdichte Argument, das geübt, aber nie vorgetragen wird. Es wird mitten im Beweis fallen gelassen, sobald eine Person im Raum etwas braucht – in diesem Stack ist Kohärenz ein Vergnügen und Harmonie eine Pflicht.",
+    "mechanism": "Tertiäres Ti bei INFJ oder ISFJ ist Logik, die als Garten und nicht als Wohnsitz gepflegt wird: die makellose Tabelle für das gemeinsame Haus, die private Taxonomie der Tees, das wasserdichte Argument, das geprobt, aber nie vorgetragen wird. Es wird mitten im Beweis abgebrochen, sobald eine Person im Raum etwas braucht – in diesem Stack ist Kohärenz ein Vergnügen und Harmonie eine Pflicht.",
     "provenance": "grant",
     "title": "Die Hobby-Taxonomie"
   },
   "ti.fieldNotes.vignette.loop": {
-    "figure": "Das Gitter zieht sich zusammen, ohne zu wachsen: makellos, luftlos, versiegelt.",
+    "figure": "Das Gitter strafft sich, ohne zu wachsen: makellos, luftleer, versiegelt.",
     "kind": "der Loop",
-    "mechanism": "Unter Stress paart sich die dominante Ti eines INTP mit der tertiären Si und beweist alte Schlussfolgerungen anhand alter Daten erneut. Die Argumentation bleibt rigoros; die Inputs sind nicht mehr neu. Da beide Funktionen nach innen gerichtet sind, kann nichts im Paar ihr widersprechen – das Muster, das Typologie-Foren als Loop bezeichnen.",
+    "mechanism": "Unter Stress koppelt die dominante Ti eines INTP mit der tertiären Si und beweist alte Schlüsse anhand alter Daten erneut. Die Argumentation bleibt rigoros; die Eingaben sind nicht mehr neu. Da beide Funktionen nach innen gerichtet sind, kann nichts im Paar sie widerlegen – das Muster, das Typologie-Foren als Loop bezeichnen.",
     "provenance": "community",
     "title": "Der Loop"
   },
   "ti.fieldNotes.vignette.mistakenForTe": {
-    "figure": "Dieselbe kühle Oberfläche, andere Mechanik darunter.",
-    "kind": "falsch gelesen",
-    "mechanism": "Beide laufen kühl und sagen „das ist falsch“, also werden beide ständig vermischt. Achten Sie darauf, was einen Fall abschließt. Te schließt auf Ergebnisse – entschieden, versandt, weiter – und findet fortgesetzte Analyse selbstgefällig. Ti öffnet eine erledigte Angelegenheit um Mitternacht, weil eine Definition noch wackelt, und findet das Versenden einer wackeligen Definition leicht skandalös. Die eine optimiert das Urteil; die andere prüft die Logik, die es hervorgebracht hat.",
+    "figure": "Gleiche kühle Oberfläche, andere Mechanik darunter.",
+    "kind": "die Fehldeutung",
+    "mechanism": "Beide laufen kühl und beide sagen „das ist falsch“, daher werden sie ständig zusammengefasst. Achte darauf, was einen Fall abschließt. Te schließt über Ergebnisse ab – entschieden, ausgeliefert, weiter – und empfindet fortgesetzte Analyse als Selbstverliebtheit. Ti öffnet eine erledigte Angelegenheit um Mitternacht wieder auf, weil eine Definition noch wackelt, und empfindet das Ausliefern auf einer wackelnden Definition als leicht skandalös. Die eine optimiert das Urteil; die andere prüft die Schlussfolgerung, die es hervorgebracht hat.",
     "provenance": "community",
-    "title": "Fälschlich als Te gehalten"
+    "title": "Mit Te verwechselt"
   },
   "ti.fieldNotes.vignette.silentRewrite": {
-    "figure": "Nach den Bedingungen dieser Seite: das Gitter baute sich in Stille selbst neu.",
-    "kind": "Beobachtung im Feld",
-    "mechanism": "Ein Nutzer mit dominanter Ti liest ein neues Paper und sagt vier Tage lang nichts. Dann trifft eine Schlussfolgerung ein, die alles, was sie über das Thema denkt, neu organisiert. Die Prüfung geschah – vollständig – bevor ein einziges Wort ausgegeben wurde.",
+    "figure": "In den Begriffen dieser Seite: Das Gitter baute sich in Stille neu auf.",
+    "kind": "Feldsichtung",
+    "mechanism": "Eine Person mit dominanter Ti liest eine neue Studie und sagt vier Tage lang nichts. Dann kommt eine Schlussfolgerung beiläufig, die alles, was sie zum Thema denkt, neu ordnet. Die Überprüfung geschah – all das – bevor ein einziges Wort verbraucht wurde.",
     "provenance": "community",
-    "title": "Das stille Umschreiben"
+    "title": "Die stille Neuschreibung"
   },
   "ti.hero.heading": "Die Architektur von {fn}",
-  "ti.hero.subtitle": "Ein kristallines Gitter der Kohärenz – jedes Input gegen sich selbst prüfend, ständig verfeinernd.",
+  "ti.hero.subtitle": "Ein kristallines Gitter der Kohärenz — jede Eingabe wird gegen sich selbst geprüft, endlos verfeinert.",
   "ti.hero.tag": "introvertiertes Denken",
   "ti.lab.btn.conflict.label": "Regelverstoß miterleben",
-  "ti.lab.btn.conflict.sub": "das Gitter muss neu aufgebaut werden",
-  "ti.lab.btn.iso.label": "Einen unzusammenhängenden Fakt beobachten",
+  "ti.lab.btn.conflict.sub": "Das Gitter muss neu aufgebaut werden",
+  "ti.lab.btn.iso.label": "Unzusammenhängende Tatsache beobachten",
   "ti.lab.btn.iso.sub": "Se beobachtet, Ti parkt",
-  "ti.lab.btn.link.label": "Kausale Verbindung entdecken",
+  "ti.lab.btn.link.label": "Kausalen Zusammenhang entdecken",
   "ti.lab.btn.link.sub": "Ni schlägt vor, Ti integriert",
-  "ti.lab.meter.pleasure": "Kohärenz-Vergnügen",
+  "ti.lab.meter.pleasure": "Kohärenz-Freude",
   "ti.lab.meter.stress": "Systemstress",
   "ti.lab.narration.conflict": {
-    "figure": "Stress flutet die Bühne, während das Gitter die Messung überprüft —",
-    "mechanism": "Eine Beobachtung widerspricht gerade einer Regel, auf der das Modell basiert. Die erste Reaktion ist keine Alarmbereitschaft, sondern eine Neumessung: War die Beobachtung selbst korrekt?",
+    "figure": "Stress überflutet die Bühne, während das Gitter die Lesung erneut prüft —",
+    "mechanism": "Eine Beobachtung hat gerade eine Regel widerlegt, auf der das Modell beruht. Die erste Reaktion ist keine Alarmierung, sondern eine erneute Messung: War die Beobachtung selbst korrekt?",
     "provenance": "currents"
   },
   "ti.lab.narration.conflictEnd": {
-    "figure": "...die Farbe kehrt zurück und das Gitter beruhigt sich, sichtlich nicht mehr dasjenige, das es vor einer Minute war.",
-    "mechanism": "Das neu aufgebaute Modell deckt nun die Ausnahme ab. Der Abbau war keine Fehlfunktion — es ist die Wartung, die diese Funktion auszuführen hat, und der Grund, warum ihre Schlussfolgerungen später vertrauenswürdig sind.",
+    "figure": "…die Farbe kehrt zurück und das Gitter setzt sich, sichtbar nicht mehr das, das es vor einer Minute war.",
+    "mechanism": "Das neu aufgebaute Modell deckt nun die Ausnahme ab. Der Abbau war keine Fehlfunktion – er ist die Wartung, zu deren Durchführung diese Funktion existiert, und der Grund, warum ihre Schlussfolgerungen später vertrauenswürdig sind.",
     "provenance": "currents"
   },
   "ti.lab.narration.conflictMid": {
-    "figure": "Das Gitter verschiebt sich ins Rote und reißt sich selbst auseinander.",
-    "mechanism": "Die Wiederbeobachtung bestätigt die Ausnahme, also ist jede Schlussfolgerung, die auf der gebrochenen Regel beruhte, verdächtig und muss darum herum neu aufgebaut werden.",
+    "figure": "Das Gitter verschiebt sich ins Rote und reißt auseinander.",
+    "mechanism": "Die erneute Beobachtung bestätigt die Ausnahme, daher ist jeder Schluss, der auf der gebrochenen Regel beruhte, verdächtig und muss um sie herum neu aufgebaut werden.",
     "provenance": "currents"
   },
-  "ti.lab.narration.intro": "Klicke auf eine Schaltfläche, um Ti einen Input zu senden, und beobachte, wie es das Eingehende testet, integriert oder darum herum neu aufbaut.",
+  "ti.lab.narration.intro": "Klicke auf einen Button, um Ti ein Stück Eingabe zu senden, und beobachte, wie es testet, integriert oder um das Ankommende herum neu aufbaut.",
   "ti.lab.narration.iso": {
     "figure": "Die Tatsache parkt neben dem Gitter als Insel, in ihrer eigenen Farbe.",
-    "mechanism": "Ein neuer Faktum trifft ein – wahr, aber mit nichts verbunden, was Ti derzeit hält. Es wird abgelegt, ohne gezwungen zu werden, zu passen; nicht jede Beobachtung muss heute ihren Platz finden.",
+    "mechanism": "Eine neue Tatsache trifft ein — wahr, aber mit nichts verbunden, das Ti aktuell hält. Sie wird abgelegt, ohne dass sie gezwungen wird, zu passen; nicht jede Beobachtung muss heute ihren Platz finden.",
     "provenance": "currents"
   },
-  "ti.lab.narration.isoFull": "Zwei Inseln warten bereits. Ti toleriert lose Fakten, aber es juckt nach einer Brücke – versuche, eine kausale Verbindung zu entdecken.",
+  "ti.lab.narration.isoFull": "Zwei Inseln warten bereits. Ti toleriert lockere Fakten, aber es juckt nach einer Brücke – versuche, eine kausale Verbindung zu entdecken.",
   "ti.lab.narration.link": {
     "figure": "Beobachte, wie die Brücke vom Gitter zur Insel reicht…",
-    "mechanism": "Eine potenzielle Verbindung trifft ein: eine kleine kausale Behauptung, dass der parkierte Fakt aus Dingen folgt, die das Modell bereits hält. Sie wird getestet, bevor etwas verschmilzt.",
+    "mechanism": "Eine potenzielle Verbindung trifft ein: eine kleine kausale Behauptung, dass die geparkte Tatsache aus Dingen folgt, die das Modell bereits hält. Sie wird getestet, bevor etwas zusammengeführt wird.",
     "provenance": "currents"
   },
   "ti.lab.narration.linkDone": {
-    "figure": "Vergnügen steigt an, Stress lässt nach, und die gesamte Konstruktion faltet sich in das Gitter und verschwindet.",
-    "mechanism": "Die Verbindung hält, also hört die Tatsache auf, getrennt zu sein: von nun an ist sie einfach Teil dessen, wie das Modell die Welt beschreibt. Ein bestandenes Verifizieren ist eines der wenigen Ereignisse, die Ti als Vergnügen registriert.",
+    "figure": "Freude steigt, Stress lässt nach, und das gesamte Gebilde faltet sich in das Gitter ein und verschwindet.",
+    "mechanism": "Die Verbindung hält, sodass die Tatsache nicht mehr getrennt ist: Ab jetzt ist sie schlicht Teil davon, wie das Modell sagt, dass die Welt funktioniert. Ein bestandener Verifizierungsschritt ist eines der wenigen Ereignisse, die Ti als Freude registrieren.",
     "provenance": "currents"
   },
-  "ti.lab.narration.linkPre": "Noch keine Insel zu verbinden — Se beobachtet zuerst eine Tatsache…",
+  "ti.lab.narration.linkPre": "Noch keine Insel zum Verbinden — Se beobachtet zuerst eine Tatsache…",
   "ti.meta.title": "Ti — Introvertiertes Denken · CURRENTS",
   "ti.slot.auxiliary": {
-    "example": "Ein ENTP präsentiert sechs Ideen und zerlegt dann stillschweigend vier davon, bevor es jemand anderes tun kann.",
-    "figure": "Das Gitter wird in einer Größe von vier Fünfteln dargestellt und wächst in Sitzungen statt kontinuierlich.",
-    "mechanism": "Auf dem zweiten Sitz wird Ti bewusst eingeschaltet, anstatt standardmäßig zu laufen. Es editiert statt zu verfassen: Was die dominante Wahrnehmungsfunktion – Ne's Möglichkeiten oder Se's Live-Lesungen – einbringt, wird auf Konsistenz gestresst, bevor es vertraut wird. Präzision auf Abruf, zu moderaten Kosten.",
+    "example": "Ein ENTP wirft sechs Ideen in den Raum und zerlegt dann still vier davon, bevor es jemand anderes kann.",
+    "figure": "Das Gitter wird in vier Fünfteln der Größe gerendert und wächst in Sitzungen, nicht kontinuierlich.",
+    "mechanism": "Im zweiten Sitz wird Ti bewusst eingeschaltet, anstatt standardmäßig zu laufen. Es redigiert, statt zu verfassen: Was die dominante Wahrnehmungsfunktion – Ne-Möglichkeiten oder Se-Live-Lesungen – einbringt, wird vor dem Vertrauen auf Konsistenz geprüft. Strenge auf Abruf, zu moderaten Kosten.",
     "provenance": "myers"
   },
   "ti.slot.critical": {
-    "example": "Ein ISTJ liest seinen eigenen Bericht um Mitternacht noch einmal durch und findet nur Nachlässigkeit, nichts davon spezifisch genug, um es zu korrigieren.",
-    "figure": "Kurze rote Blitze durchqueren ein ansonsten mattes Gitter — Inspektion ohne Konstruktion.",
-    "mechanism": "Auf dem sechsten Sitz wendet sich Ti nach innen als Fehlerfinder: sporadische, harte Prüfungen der eigenen Logik – „deine Definitionen halten nicht“ – die als Urteile statt als Hilfe verkündet werden. Es prüft zuverlässiger, als es konstruiert.",
+    "example": "Ein ISTJ liest seinen eigenen Bericht um Mitternacht erneut und findet nur Ungenauigkeit, nichts davon ist spezifisch genug, um es zu korrigieren.",
+    "figure": "Kurze rote Blitze durchziehen ein ansonsten gedimmtes Gitter — Inspektion ohne Konstruktion.",
+    "mechanism": "Im sechsten Sitz wendet sich Ti als Fehlerfinder nach innen: sporadische, harte Audits der eigenen Argumentation – „deine Definitionen halten nicht“ – als Urteile statt als Hilfe. Es inspiziert zuverlässiger, als es baut.",
     "provenance": "beebe"
   },
   "ti.slot.demon": {
-    "example": "Um 3 Uhr morgens setzt ein INFP einen absolut wasserdichten Beweis dafür zusammen, dass jede Gelegenheit verschwendet wurde, inklusive Beweisstücken.",
-    "figure": "Ein umgekehrtes Gitter, das nach unten baut — eine Struktur, die für den Abriss rekrutiert wurde.",
-    "mechanism": "Der achte Sitz tritt am seltensten auf und kostet am meisten zu bewältigen. Wenn er einen Ausbruch zeigt — meist am Ende einer schlechten Phase — produziert er kalte Pseudologik, die auf das Selbst gerichtet ist: ein Argument für die eigene Wertlosigkeit, getarnt als Objektivität. Es ist der am wenigsten praktizierte Sitz im Stack, keine verborgene Wahrheit.",
+    "example": "Um 3 Uhr nachts stellt ein INFP einen wasserdicht klingenden Beweis zusammen, der belegt, dass jede Gelegenheit verschwendet wurde, komplett mit Belegen.",
+    "figure": "Ein umgekehrtes Gitter, das nach unten wächst — Struktur, die für den Abriss rekrutiert wird.",
+    "mechanism": "Der achte Sitz ist der seltenste und kostet am meisten, wenn man ihm begegnet. Wenn er ausbricht – meist am Ende einer schlechten Phase –, erzeugt er kalte Pseudo-Logik gegen das Selbst: einen Fall für die eigene Wertlosigkeit, verkleidet als Objektivität. Er ist der am wenigsten geübte Sitz im Stack, keine verborgene Wahrheit.",
     "provenance": "beebe"
   },
   "ti.slot.dominant": {
-    "example": "Am Montag wird ein neues Paper gelesen; nichts wird gesagt, bis am Donnerstag eine Schlussfolgerung eintrifft, die den Rest neu ordnet.",
-    "figure": "CURRENTS zeichnet dies als Gitter in voller Größe – groß, schnell und leise, wachsend ohne sichtbare Anstrengung.",
-    "mechanism": "Auf dem ersten Sitz läuft Ti ohne eingeschaltet zu werden: jede Behauptung, die eintrifft, wird gegen ein privates Modell davon getestet, wie Dinge zusammenpassen, den ganzen Tag, zu geringen Kosten. Widersprüche treten früh und günstig auf. Der Preis ist das Tempo — eine Behauptung ist nicht nutzbar, bis sie konsistent ist, und Konsistenz braucht so lange, wie sie braucht.",
+    "example": "Ein neuer Artikel wird am Montag gelesen; bis Donnerstag wird nichts gesagt, als eine Schlussfolgerung eintrifft, die den Rest neu organisiert.",
+    "figure": "CURRENTS zeichnet dies als Gitter in voller Größe — groß, schnell und still, wächst ohne sichtbaren Aufwand.",
+    "mechanism": "Im ersten Sitz läuft Ti ohne Einschalten: Jede eintreffende Behauptung wird den ganzen Tag über mit geringen Kosten an einem privaten Modell geprüft, wie die Dinge zusammenpassen. Widersprüche treten früh und günstig zutage. Der Preis ist das Tempo — eine Behauptung ist erst dann nutzbar, wenn sie konsistent ist, und Konsistenz dauert so lange, wie sie dauert.",
     "provenance": "myers"
   },
   "ti.slot.inferior": {
-    "example": "Ein ESFJ, der die ganze Woche über Gastgeber war, argumentiert plötzlich über eine technische Nuance bis auf den Buchstaben, in einem Tonfall, der beide überrascht.",
-    "figure": "Das Gitter zeichnet klein und langsam, mit sichtbarem Rauschen – Verbindungen schlagen fehl und landen hart, wenn sie landen.",
-    "mechanism": "Auf dem vierten Sitz kosten Ti am meisten pro Verwendung und werden am wenigsten genutzt. Im Alltag leiht die Person sich die Frameworks anderer Leute an, anstatt eigene aufzubauen; unter anhaltendem Stress kann der Sitz die Kontrolle übernehmen und eine starre, Alles-oder-Nichts-Logik produzieren, die nicht nach ihnen klingt — der Ausbruch, den Quenk Grip nennt.",
+    "example": "Eine ESFJ, die die ganze Woche über Gastgeberin war, argumentiert plötzlich buchstäblich über eine technische Kleinigkeit, in einem Ton, der sie beide überrascht.",
+    "figure": "Das Gitter zieht klein und langsam, mit sichtbarem Rauschen – Verbindungen verfehlen ihr Ziel und treffen hart auf, wenn sie eintreffen.",
+    "mechanism": "Im vierten Sitz kostet Ti pro Nutzung am meisten und wird am wenigsten verwendet. Im Alltag leiht sich die Person die Rahmen anderer, statt eigene zu bauen; unter anhaltendem Stress kann der Sitz die Kontrolle übernehmen und eine starre, alles-oder-nichts-Logik erzeugen, die nicht nach ihr klingt – der Ausbruch, den Quenk den Grip nennt.",
     "provenance": "quenk"
   },
   "ti.slot.opposing": {
-    "example": "Ein ENTJ, dessen Rollout infrage gestellt wird, verbringt zehn Minuten damit, die Grammatik der Frage anzugreifen.",
-    "figure": "Unter der Wasserlinie der Schiene verblasst und zittert das Gitter und setzt sich erst zusammen, wenn es angestupst wird.",
-    "mechanism": "Der fünfte Sitz öffnet den Schatten — die vier Positionen, die eine Person selten und meist unbemerkt ausübt. Hier erwacht Ti kämpferisch: wenn die übliche Te-Logik der Person herausgefordert wird, werden Definitionen angefochten und die Logik des Kritikers demontiert, um den Plan zu schützen statt etwas herauszufinden.",
+    "example": "Ein ENTJ, dessen Rollout in Frage gestellt wird, verbringt zehn Minuten damit, die Grammatik der Frage anzugreifen.",
+    "figure": "Unterhalb der Wasserlinie des Schienensystems wird das Gitter gedimmt und zittert, es formt sich nur, wenn man es anstößt.",
+    "mechanism": "Der fünfte Sitz öffnet den Schatten — die vier Positionen, die eine Person selten ausführt und meist ohne es zu bemerken. Hier wird Ti kämpferisch: Wenn die übliche Te-Logik der Person in Frage gestellt wird, werden Definitionen bestritten und die Logik des Kritikers demontiert, um den Plan zu schützen, statt herauszufinden.",
     "provenance": "beebe"
   },
   "ti.slot.tertiary": {
-    "example": "Die Heim-Tabelle eines ISFJ ist makellos; dieselbe Präzision wird in einem Meeting niemals riskiert.",
-    "figure": "Ein halbes Gitter, hell dort, wo es verwendet wird, und spärlich überall sonst.",
-    "mechanism": "Auf dem tertiären Sitz ist Ti authentisch, aber eng: zuverlässig in wenigen geübten Bereichen, unzuverlässig außerhalb davon und mit dem Alter spürbar stärker. Unter Stress kann es mit der dominanten Funktion paaren, um Schlussfolgerungen zu verteidigen, die kein Außenstehender prüfen darf — das Muster, das als Loop bezeichnet wird.",
+    "example": "Die Haushalts-Excel-Tabelle eines ISFJ ist makellos; dieselbe Sorgfalt wird in einem Meeting nie riskiert.",
+    "figure": "Ein halbgroßes Gitter, hell dort, wo es genutzt wird, und überall sonst dünn besetzt.",
+    "mechanism": "In dem dritten Sitz ist Ti echt, aber eng: zuverlässig innerhalb weniger geübter Bereiche, unzuverlässig außerhalb davon und mit dem Alter deutlich stärker. Unter Stress kann es sich mit der dominanten Funktion verbinden, um Schlussfolgerungen zu verteidigen, die kein Außenstehender prüfen darf – das Muster wird als Loop bezeichnet.",
     "provenance": "grant"
   },
   "ti.slot.trickster": {
-    "example": "Wenn ein ESFP dazu aufgefordert wird, zuzugeben, dass zwei ihrer Aussagen im Widerspruch stehen, lacht er, stimmt beiden zu und macht weiter.",
-    "figure": "Das Gitter ist mit fehlenden Teilen gezeichnet und schließt nicht — Kanten, die sich treffen sollten, tun es nicht.",
-    "mechanism": "Auf dem siebten Sitz werden Anforderungen an formale Konsistenz eher als Fallen als als Werkzeuge registriert. Die Person entkommt ihnen – durch Charme, Absurdität oder einen Themenwechsel – und sieht die Regel, die sie angeblich brechen, wahrhaftig nicht. Die Blindheit ist real, nicht taktisch, und es liegt keine Boschheit darin.",
+    "example": "Wenn man eine ESFP dazu bringt, zuzugeben, dass zwei ihrer Aussagen im Widerspruch stehen, lacht sie, stimmt beiden zu und geht weiter.",
+    "figure": "Das Gitter zeichnet sich mit fehlenden Teilen und schließt sich nicht — Kanten, die sich berühren sollten, tun es nicht.",
+    "mechanism": "Im siebten Sitz registrieren sich Forderungen nach formaler Konsistenz als Fallen statt als Werkzeuge. Die Person weicht ihnen aus – mit Charme, Absurdität oder einem Themenwechsel – und erkennt die Regel, deren Verstoß ihr vorgeworfen wird, tatsächlich nicht. Die Blindheit ist real, nicht taktisch, und es steckt keine Bosheit darin.",
     "provenance": "beebe"
   },
-  "ti.zoneA.canvasAria": "Interaktive visuelle Darstellung von Introverted Thinking als kristallines Gitter",
+  "ti.zoneA.canvasAria": "Interaktive visuelle Darstellung der introvertierten Denkfunktion als kristallines Gitter",
   "ti.zoneB.heading": "Die acht Gesichter von Ti",
-  "ti.zoneB.lede": "Die Leinwand stellt Ti als Gitter dar: ein Netzwerk von Behauptungen, die jeweils gegen die anderen geprüft werden. Wo Ti im Stack einer Person sitzt – der festen Reihenfolge, in der ihre acht Funktionen auftreten – verändert, wie dieses Netzwerk funktioniert. Klicken Sie auf eine Position, um die Veränderung zu sehen, von der mühelosen Präzision des ersten Sitzes bis zum korrosiven Rauschen des achten, und ziehen Sie den Reifungsregler, um zu sehen, wie die unteren Sitze mit dem Alter an Genauigkeit gewinnen.",
+  "ti.zoneB.lede": "Die Leinwand zeichnet Ti als Gitter: ein Netzwerk von Behauptungen, die jeweils an den anderen gemessen werden. Wie sich das Netzwerk verhält, hängt davon ab, an welcher Position Ti im Stack einer Person sitzt – der festen Reihenfolge, in der ihre acht Funktionen auftreten. Klicke auf eine Position, um die Veränderung zu sehen, von der mühelosen Präzision des ersten Sitzes bis zum ätzenden Rauschen des achten, und ziehe den Reiferegler, um zu beobachten, wie die unteren Sitze mit zunehmendem Alter an Genauigkeit gewinnen.",
   "ti.zoneB.railAria": "Stack-Positionen für Ti",
   "ti.zoneC.heading": "Was speist Ti?",
-  "ti.zoneC.lede": "Ti bewertet; es sammelt nicht. Eine wahrnehmende Funktion – sein Zubringer – muss das Rohmaterial liefern, das Ti prüft, und welche Funktion liefert, verändert, was konstruiert wird. Klicke auf einen Zubringer, um zu sehen, wie sich das Gitter verändert.",
-  "ti.zoneD.canvasAria": "Simulationsbühne des Verifikationslabors",
+  "ti.zoneC.lede": "Ti urteilt; es sammelt nicht. Eine wahrnehmende Funktion — sein Zubringer — muss das Rohmaterial liefern, das es prüft, und welche Funktion das liefert, verändert, was entsteht. Klicke auf einen Zubringer, um zu sehen, wie sich das Gitter verändert.",
+  "ti.zoneD.canvasAria": "Simulationsbühne: Verifikationslabor",
   "ti.zoneD.heading": "Das Verifikationslabor",
   "ti.zoneD.kicker": "Zone D · Verifikationslabor",
-  "ti.zoneD.lede": "Beobachte, wie Ti Eingaben in Echtzeit verarbeitet. Jeder Button sendet dem Labor eine andere Art von Ereignis – eine unzusammenhängende Tatsache, eine Verbindung, einen Widerspruch – und die Messgeräte verfolgen, was jedes davon kostet.",
-  "ti.zoneE.lede": "Muster aus der Wildnis – wie Ti im täglichen Leben erscheint."
+  "ti.zoneD.lede": "Beobachte, wie Ti Eingaben in Echtzeit verarbeitet. Jeder Button sendet dem Labor eine andere Art von Ereignis – eine unzusammenhängende Tatsache, eine Verbindung, einen Widerspruch – und die Messinstrumente verfolgen, was jedes davon an Kosten verursacht.",
+  "ti.zoneE.lede": "Muster aus der Praxis — wie Ti im Alltag zum Ausdruck kommt."
 }

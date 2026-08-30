@@ -48,11 +48,7 @@ i18n-check: ## validate every locale against content/en and the glossaries
 	npm run i18n:check
 
 translate: ## machine-translate content/en into every locale (LOCALE=xx for one; FLAGS=… forwarded)
-	@test -n "$(TRANSLATE_LOCALES)" || { echo "no locale directories under content/ — create a glossary and run: make translate LOCALE=xx"; exit 2; }
-	@for l in $(TRANSLATE_LOCALES); do \
-		echo "━━ make translate · $$l ━━"; \
-		npm run i18n:locale -- --locale $$l $(FLAGS) || exit $$?; \
-	done
+	node tools/i18n-locale.mjs $(if $(LOCALE),--locale $(LOCALE),) $(FLAGS)
 
 shots: ## capture the locale layout proofs into .shots/ (dev server must be running)
 	bash tools/shots.sh

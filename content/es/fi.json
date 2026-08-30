@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "model": "qwen3.8:latest",
+    "digest": "22130167c4c20e20c7b71454612966ca8e8171e9b3cc8ab6ce8aa6cbfec79643",
+    "promptVersion": 3,
+    "date": "2026-08-30",
+    "status": {
+      "fi.character.awareness.why": "mt",
+      "fi.character.control.why": "mt",
+      "fi.character.endurance.why": "mt",
+      "fi.character.precision.why": "mt",
+      "fi.character.speed.why": "mt",
+      "fi.energy.recovery.auxiliary": "mt",
+      "fi.energy.recovery.dominant": "mt",
+      "fi.energy.recovery.inferior": "mt",
+      "fi.energy.recovery.shadow": "mt",
+      "fi.energy.recovery.tertiary": "mt",
+      "fi.feeder.ne": "mt",
+      "fi.feeder.ni": "mt",
+      "fi.feeder.se": "mt",
+      "fi.feeder.si": "mt",
+      "fi.feeder.te": "mt",
+      "fi.fieldNotes.mirror": "mt",
+      "fi.fieldNotes.vignette.accusation": "mt",
+      "fi.fieldNotes.vignette.grip": "mt",
+      "fi.fieldNotes.vignette.lockedDrawer": "mt",
+      "fi.fieldNotes.vignette.loop": "mt",
+      "fi.fieldNotes.vignette.mediation": "mt",
+      "fi.fieldNotes.vignette.mistakenForNoOpinion": "mt",
+      "fi.fieldNotes.vignette.silentCompass": "mt",
+      "fi.hero.heading": "mt",
+      "fi.hero.subtitle": "mt",
+      "fi.hero.tag": "mt",
+      "fi.lab.btn.authBad.label": "mt",
+      "fi.lab.btn.authBad.sub": "mt",
+      "fi.lab.btn.authGood.label": "mt",
+      "fi.lab.btn.authGood.sub": "mt",
+      "fi.lab.btn.fakeBad.label": "mt",
+      "fi.lab.btn.fakeBad.sub": "mt",
+      "fi.lab.btn.fakeGood.label": "mt",
+      "fi.lab.btn.fakeGood.sub": "mt",
+      "fi.lab.meter.pleasure": "mt",
+      "fi.lab.meter.stress": "mt",
+      "fi.lab.narration.authBad": "mt",
+      "fi.lab.narration.authGood": "mt",
+      "fi.lab.narration.fakeBad": "mt",
+      "fi.lab.narration.fakeBadEnd": "mt",
+      "fi.lab.narration.fakeBadMid": "mt",
+      "fi.lab.narration.fakeGood": "mt",
+      "fi.lab.narration.fakeGoodEnd": "mt",
+      "fi.lab.narration.intro": "mt",
+      "fi.meta.title": "mt",
+      "fi.slot.auxiliary": "mt",
+      "fi.slot.critical": "mt",
+      "fi.slot.demon": "mt",
+      "fi.slot.dominant": "mt",
+      "fi.slot.inferior": "mt",
+      "fi.slot.opposing": "mt",
+      "fi.slot.tertiary": "mt",
+      "fi.slot.trickster": "mt",
+      "fi.zoneA.canvasAria": "mt",
+      "fi.zoneB.heading": "mt",
+      "fi.zoneB.lede": "mt",
+      "fi.zoneB.railAria": "mt",
+      "fi.zoneC.heading": "mt",
+      "fi.zoneC.lede": "mt",
+      "fi.zoneD.canvasAria": "mt",
+      "fi.zoneD.heading": "mt",
+      "fi.zoneD.kicker": "mt",
+      "fi.zoneD.lede": "mt",
+      "fi.zoneE.lede": "mt"
+    }
+  },
+  "fi.character.awareness.why": "el asiento más auto transparente de la pila: el tono siempre es audible",
+  "fi.character.control.why": "dirigible hasta la línea que traza un valor; inamovible más allá de ella",
+  "fi.character.endurance.why": "la convicción es sin esfuerzo y constante — mantener el estándar no tiene coste",
+  "fi.character.precision.why": "la jerarquía de lo que importa es profunda, serena y exacta",
+  "fi.character.speed.why": "profunda y serena: el veredicto es total y rara vez rápido",
+  "fi.energy.recovery.auxiliary": "Recuperación rápida y limpia.",
+  "fi.energy.recovery.dominant": "Se recarga en minutos — y parcialmente durante el uso (flujo).",
+  "fi.energy.recovery.inferior": "La estantería de la resaca: unos 30 minutos en los que todo el sistema funciona a media luz.",
+  "fi.energy.recovery.shadow": "Incompleto: parte de la carga simplemente no regresa hoy.",
+  "fi.energy.recovery.tertiary": "Una recarga más lenta; el descanso debe ser deliberado.",
+  "fi.feeder.ne": {
+    "figure": "La nebulosa se extiende, con la bruma que se desliza en plumas ramificadas.",
+    "mechanism": "Ne — intuición extraversada, la auxiliar aquí — entrega posibilidades ramificadas, y cada una se contrasta con el estándar interno: ¿podría vivir con esto? ¿quién sería yo en ese mundo? Muchos futuros se sostienen con ligereza a la vez, a la espera de ver cuál resuena como verdadero.",
+    "pair": "acoplamiento INFP",
+    "provenance": "myers"
+  },
+  "fi.feeder.ni": {
+    "figure": "Larga quietud, y entonces toda la nebulosa cambia de color de golpe.",
+    "mechanism": "Ni — intuición introvertida — envía pocas experiencias, cada una ya condensada en un único significado. Fi recibe poco para ponderar y mucho para absorber, reordenando lo que le importa en torno a cada llegada. Ninguna pila estándar coloca Ni directamente sobre Fi; este acoplamiento es el experimento mental del propio sitio.",
+    "pair": "acoplamiento no estándar",
+    "provenance": "currents"
+  },
+  "fi.feeder.se": {
+    "figure": "La nebulosa se contrae y se satura, densa alrededor de lo que está presente.",
+    "mechanism": "Se — la sensación extrovertida — aporta el presente vívido y concreto, y Fi pondera lo que realmente está delante de ella. El juicio reside en las manos y los ojos: sabor, belleza y la acción correcta sentida directamente, no argumentada.",
+    "pair": "acoplamiento ISFP",
+    "provenance": "myers"
+  },
+  "fi.feeder.si": {
+    "figure": "La niebla rodea el núcleo en anillos cerrados: nada entra, nada sale.",
+    "mechanism": "Si — la sensación introvertida, la terciaria del INFP — reproduce la experiencia almacenada en lugar de recopilar nueva. Las heridas antiguas y las amabilidades antiguas se sienten de nuevo contra el mismo estándar, los veredictos se renuevan en lugar de reevaluarse. Este es el bucle, visto desde dentro.",
+    "pair": "bucle de acoplamiento (Fi–Si, INFP bajo estrés)",
+    "provenance": "community"
+  },
+  "fi.feeder.te": {
+    "figure": "El emisor brilla, pero la bruma no tiene nada en lo que cerrarse.",
+    "mechanism": "Te — pensamiento extraversado — es una función de juicio, por lo que emite veredictos sobre la eficiencia en lugar de la experiencia vivida. Fi recibe casi nada que pueda ponderar y se queda ociosa con hambre. Las pilas reales alternan el juicio con la percepción precisamente para que siempre se esté recopilando material.",
+    "pair": "juicio alimentando juicio",
+    "provenance": "myers"
+  },
+  "fi.fieldNotes.mirror": {
+    "figure": "Mismo elemento, actitudes opuestas: un instrumento afinado a la sala, otro a su propia nota.",
+    "mechanismHtml": "Donde <strong>Fe</strong> lee el tono emocional de la sala y construye la armonía social, <strong>Fi</strong> lee el tono emocional del yo y construye la integridad personal. Fe intercambia la preferencia individual por la unidad del grupo; Fi intercambia la aprobación grupal por la verdad interna.",
+    "provenance": "jung"
+  },
+  "fi.fieldNotes.vignette.accusation": {
+    "figure": "Negándose a teñir la niebla para que coincida con la habitación.",
+    "kind": "la acusación",
+    "mechanism": "La acusación llega antes o después, normalmente a mitad de la negociación, y suele venir de alguien fluido en Fe. Lo que realmente ocurre: Fi no falsificará el acuerdo, y en una sala que opera con el acuerdo visible, negarse a fingirlo se lee como traición. La negativa no es descuido: un sí no falsificado es lo único que Fi cree que vale la pena pagar a cualquiera, y se valora en consecuencia.",
+    "provenance": "community",
+    "title": "Egoísta"
+  },
+  "fi.fieldNotes.vignette.grip": {
+    "figure": "Un núcleo tenue que estalla de golpe.",
+    "kind": "la garra",
+    "mechanism": "Un ESTJ bajo estrés prolongado cae en un moralismo abrumador y herido: acusaciones de traición y falta de corazón entregadas con una intensidad que sorprende a todos. Esta es la garra: una dominante agotada cede el control a la Fi inferior, que irrumpe sin la proporción de una Fi practicada.",
+    "provenance": "quenk",
+    "title": "La erupción inferior"
+  },
+  "fi.fieldNotes.vignette.lockedDrawer": {
+    "figure": "Una pequeña nebulosa tras un cristal esmerilado.",
+    "kind": "como terciaria",
+    "mechanism": "La Fi terciaria en un ISTJ es un libro de contabilidad moral privado bajo un exterior procedimental: el único cliente que no aceptará, la única broma que termina una amistad, la donación permanente que nadie conoce — compromisos mantenidos durante décadas y explicados, si se insiste, como «así hago las cosas». Los valores son reales; el vocabulario para ellos nunca se construyó.",
+    "provenance": "grant",
+    "title": "El cajón cerrado"
+  },
+  "fi.fieldNotes.vignette.loop": {
+    "figure": "La niebla gira en anillos cerrados: tierna, sin aire, sellada.",
+    "kind": "el bucle",
+    "mechanism": "Bajo estrés, la Fi dominante de un INFP se empareja con la Si terciaria y reproduce viejas heridas y viejas amabilidades contra el mismo estándar interno: veredictos que se sienten de nuevo en lugar de volver a probarse. Ambas funciones se dirigen hacia el interior, por lo que nada en el par puede interrumpirlo: el patrón que los foros de tipología llaman un bucle.",
+    "provenance": "community",
+    "title": "El bucle"
+  },
+  "fi.fieldNotes.vignette.mediation": {
+    "figure": "Un núcleo no puede promediar a otros dos.",
+    "kind": "el instrumento equivocado",
+    "mechanism": "Pide a Fi que medie un compromiso entre dos partes que considera ambas parcialmente equivocadas, y el instrumento se atasca. Evalúa todo contra un único estándar interno y no tiene una operación nativa para dividir la diferencia entre los de otras personas. Puede hacer el trabajo —a través del principio, a coste— mientras la mesa confunde su silencio con asentimiento y sus veredictos con terquedad. Este es el terreno de Fe; Fi visita en platos extranjeros.",
+    "provenance": "community",
+    "title": "La mediación"
+  },
+  "fi.fieldNotes.vignette.mistakenForNoOpinion": {
+    "figure": "Bruma serena, núcleo fijo.",
+    "kind": "el malentendido",
+    "mechanism": "Semanas de flexibilidad amable sobre restaurantes, planes y proceso; luego se cruza una línea y llega un veredicto completo, final e innegociable. La señal que distingue esto de la mera complacencia: la posición se decidió mucho antes de la reunión, en privado. Fe negocia su postura en la sala; la postura de Fi precede a la sala, y la sala es simplemente la última en enterarse.",
+    "provenance": "community",
+    "title": "Confundido con falta de opinión"
+  },
+  "fi.fieldNotes.vignette.silentCompass": {
+    "figure": "El núcleo no discute; simplemente mantiene su color.",
+    "kind": "avistamiento de campo",
+    "mechanism": "Un INFP se sienta en silencio en una reunión donde todos acuerdan un compromiso. Luego dicen que no: no en voz alta, no con un argumento de diez puntos, sino con una firmeza que detiene la sala. La posición estaba resuelta mucho antes de que alguien hablara; la reunión apenas lo está descubriendo.",
+    "provenance": "community",
+    "title": "La brújula silenciosa"
+  },
+  "fi.hero.heading": "La arquitectura de {fn}",
+  "fi.hero.subtitle": "Una nebulosa silenciosa alrededor de un tono central: sopesando cada experiencia frente a una brújula interior incuestionable.",
+  "fi.hero.tag": "sentimiento introvertido",
+  "fi.lab.btn.authBad.label": "Vive el duelo auténtico",
+  "fi.lab.btn.authBad.sub": "verdadero, doloroso, muy arraigado",
+  "fi.lab.btn.authGood.label": "Siente la alegría auténtica",
+  "fi.lab.btn.authGood.sub": "algo verdadero y resonante",
+  "fi.lab.btn.fakeBad.label": "Presenciar una violación inauténtica",
+  "fi.lab.btn.fakeBad.sub": "una falsedad rasga la niebla",
+  "fi.lab.btn.fakeGood.label": "Escuchar una cortesía falsa",
+  "fi.lab.btn.fakeGood.sub": "la adulación resbala sin absorberse",
+  "fi.lab.meter.pleasure": "Placer de resonancia",
+  "fi.lab.meter.stress": "Estrés del sistema",
+  "fi.lab.narration.authBad": {
+    "figure": "La bruma se ralentiza, se oscurece y lo retiene, en lo profundo de la nebulosa.",
+    "mechanism": "Algo doloroso — y verdadero. Fi no lo desvía: el duelo se absorbe y se retiene, porque para esta función la corrección supera a la comodidad. El estrés aumenta, y también la sensación de estar intacto —esto también moldeará el estándar.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.authGood": {
+    "figure": "Resuena contra el núcleo y se difunde en profundidad: la bruma se transforma con suavidad y toda la nebulosa se calienta hacia lo que fue absorbido.",
+    "mechanism": "Algo alegre — y verdadero — llega. Fi lo absorbe por completo: la experiencia se integra en lugar de solo notarse, y tiñe un poco el estándar. Lo que se ama genuinamente se convierte en parte de cómo se pondera todo lo demás.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeBad": {
+    "figure": "Atraviesa de tajo la nebulosa: la bruma se aparta de su trayectoria, dejando un vacío a su estela —",
+    "mechanism": "Una falsedad golpea algo que importa. Este es el único evento que Fi no puede archivar en silencio: una violación del estándar exige una respuesta de todo el sistema.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeBadEnd": {
+    "figure": "…la niebla se detiene y el color se estabiliza.",
+    "mechanism": "La herida se cierra y el estándar ha cambiado de forma: más oscuro en algunos lugares, reorganizado en otros. Fi conserva lo que fue real y recuerda dónde sangró.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeBadMid": {
+    "figure": "— parte de la niebla se filtra a través de la herida y todo el campo se desplaza al rojo.",
+    "mechanism": "Sostener la violación tiene un coste real: todo lo vinculado al valor herido debe encontrar un nuevo lugar a su alrededor.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeGood": {
+    "figure": "La niebla se niega a mezclarse con ella…",
+    "mechanism": "Llega la adulación: agradable, brillante y hueca. No supera la prueba de autenticidad al contacto, por lo que no hay nada que absorber: Fi no puede ser pagada con moneda falsa.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.fakeGoodEnd": {
+    "figure": "…desliza por las paredes interiores, sin disolver nada, y es despedido exactamente como llegó.",
+    "mechanism": "La broma se tolera con cortesía y se libera sin cambios. Nada se retuvo; nada necesitaba serlo. Lo que nunca sonó verdadero nunca estuvo realmente en la sala.",
+    "provenance": "currents"
+  },
+  "fi.lab.narration.intro": "Haz clic en un botón para enviarle a Fi una experiencia y observa cómo la absorbe, la retiene, la rechaza o cómo se filtra alrededor de lo que llega.",
+  "fi.meta.title": "Fi — Sentimiento introvertido · CURRENTS",
+  "fi.slot.auxiliary": {
+    "example": "Un ENFP persigue un nuevo proyecto durante quince días, y luego lo abandona en una tarde cuando implicaría halagar a alguien que desprecia.",
+    "figure": "La nebulosa se representa más pequeña, intensificando su brillo cuando se solicita una verificación.",
+    "mechanism": "En el segundo asiento, Fi se consulta en lugar de ejecutarse continuamente: examina lo que la función perceptiva dominante trae a casa —¿esto somos nosotros? ¿podría vivir con esto?—, en silencio al fondo y de forma decisiva en los momentos exactos que importan. Entre veredictos, se mantiene al margen.",
+    "provenance": "myers"
+  },
+  "fi.slot.critical": {
+    "example": "Un ISFJ pasa una hora sin dormir cuestionando si su dolor se debe realmente a la pérdida o a sí mismo.",
+    "figure": "Remolinos fríos cruzan la nebulosa, adelgazando la bruma por donde pasan.",
+    "mechanism": "En el sexto asiento, Fi se vuelve hacia dentro como interrogador del corazón: ¿sabes siquiera qué quieres? ¿No son estos sentimientos una indulgencia? Las auditorías son esporádicas y duras, dirigidas sobre todo al yo, y mejores para dudar de un valor que para construir uno.",
+    "provenance": "beebe"
+  },
+  "fi.slot.demon": {
+    "example": "A las 3 a. m., un INTP está de repente, sin palabras, seguro de que todos los que alguna vez les cayeron bien se equivocaron.",
+    "figure": "El núcleo se invierte: una estrella oscura que atrae la niebla en lugar de iluminarla.",
+    "mechanism": "El octavo asiento es el más raro y el peor. Cuando entra en erupción —normalmente al final de un largo tramo negativo—, produce una certeza moral total dirigida hacia el interior: una convicción de inutilidad o traición que se presenta como un hecho evidente. Es el asiento menos practicado de la pila, no un veredicto.",
+    "provenance": "beebe"
+  },
+  "fi.slot.dominant": {
+    "example": "Preguntado por qué rechazó la oferta, un INFP dice «no era lo correcto» — y tiene razón, y no puede decir más durante una semana.",
+    "figure": "CURRENTS lo dibuja como una nebulosa en pleno resplandor: un núcleo estable, con una bruma que gira en calma a su alrededor.",
+    "mechanism": "En el primer asiento, Fi evalúa todo contra un estándar interno sentido de lo que importa, y la evaluación se ejecuta de forma continua con casi ningún coste. Los veredictos llegan sin argumentos adjuntos: saber llega primero, explicar después, si acaso. El precio es la portabilidad: el estándar es preciso pero difícil de mostrar a cualquier otra persona.",
+    "provenance": "myers"
+  },
+  "fi.slot.inferior": {
+    "example": "Un ENTJ en plena crisis anuncia, ante una reunión atónita, que nadie aquí nunca ha valorado su presencia.",
+    "figure": "Una nebulosa tenue con un núcleo parpadeante: larga quietud, luego un clima repentino.",
+    "mechanism": "En el cuarto asiento, Fi tiene el mayor coste por uso y se emplea menos. A diario, los sentimientos se tratan como ruido en los datos; bajo estrés prolongado, el asiento puede tomar el control y producir un sentimiento herido y moralizador que no les suena — la erupción que Quenk llama la garra.",
+    "provenance": "quenk"
+  },
+  "fi.slot.opposing": {
+    "example": "Una ESFJ que ha absorbido quejas durante toda la tarde se niega de repente a una más, por principio, y no cede.",
+    "figure": "Debajo de la línea de flotación del riel, la nebulosa se rigidiza, y la bruma se eriza en lugar de girar.",
+    "mechanism": "El quinto asiento abre la sombra: las cuatro posiciones que una persona usa rara vez y, en su mayoría, sin notarlo. Aquí Fi despierta en contra: cuando la armonización habitual de Fe se ve desafiada, aparece una postura personal: «No me importa lo que necesite la sala, este es mi punto de vista», protectora, aguda y brevemente inamovible.",
+    "provenance": "beebe"
+  },
+  "fi.slot.tertiary": {
+    "example": "Un ISTJ ha financiado en silencio una causa durante veinte años y lo llama «simplemente una orden de pago permanente».",
+    "figure": "Una pequeña nebulosa, densa en el centro, casi opaca vista desde fuera.",
+    "mechanism": "En el tercer asiento, Fi es real pero estrecha y mayormente privada: lealtad feroz hacia unas pocas personas y principios, rara vez explicada y a menudo disfrazada de practicidad. Se fortalece con la edad, y bajo estrés puede emparejarse con la función dominante en un circuito cerrado que ninguna visión externa corrige: el patrón llamado bucle.",
+    "provenance": "grant"
+  },
+  "fi.slot.trickster": {
+    "example": "Preguntado por lo que realmente quiere, un ENTP construye tres argumentos divertidos para tres respuestas incompatibles y no elige ninguna.",
+    "figure": "La nebulosa se niega a fijarse en un color: refleja lo que se le apunta.",
+    "mechanism": "En el séptimo asiento, ser preguntado por lo que uno siente de verdad se registra como una trampa. La persona desvía con encanto o juego contrarianista, y genuinamente no puede distinguir un valor de una preferencia desde dentro: la ceguera es real, no estratégica, y no hay maldad en ella.",
+    "provenance": "beebe"
+  },
+  "fi.zoneA.canvasAria": "Representación visual interactiva del Sentimiento Introvertido como una nebulosa luminosa",
+  "fi.zoneB.heading": "Las ocho caras de Fi",
+  "fi.zoneB.lede": "El lienzo dibuja Fi como una nebulosa alrededor de un núcleo: cada experiencia que entra se pesa contra un tono interior único. La posición de Fi en la pila de una persona —el orden fijo en el que aparecen sus ocho funciones— cambia cómo se realiza esa ponderación. Haz clic en una posición para ver el cambio y arrastra el deslizador de madurez para observar cómo los asientos inferiores ganan fidelidad con la edad.",
+  "fi.zoneB.railAria": "Posiciones de pila para Fi",
+  "fi.zoneC.heading": "¿Qué alimenta a Fi?",
+  "fi.zoneC.lede": "Fi juzga; no recoge. Una función perceptiva —su alimentadora— debe entregar las experiencias que pondera, y cuál de ellas hace la entrega cambia lo que la ponderación construye. Haz clic en una alimentadora para ver cómo la nebulosa cambia de forma y movimiento.",
+  "fi.zoneD.canvasAria": "Escenario de simulación de laboratorio de verificación",
+  "fi.zoneD.heading": "El Laboratorio de Verificación",
+  "fi.zoneD.kicker": "Zona D · laboratorio de verificación",
+  "fi.zoneD.lede": "Observa cómo Fi pondera las experiencias frente a su único criterio interno en tiempo real. Cada botón introduce un tipo de evento distinto: alegría genuina, duelo auténtico, adulación, una violación, y los indicadores registran el coste de cada uno.",
+  "fi.zoneE.lede": "Patrones de la vida salvaje: cómo aparece Fi en la vida cotidiana."
+}
